@@ -1,12 +1,22 @@
 {
   "name": "ubcdsci_website_typescript",
   "version": "1.0.0",
-  "description": "",
+  "description": "UBC Data Science Club Website Source Code (Written in TS)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "c": "cd client && npm start",
+    "s": "cd server && npm start",
+    "b-install": "(cd server && npm install) && (cd ../client && npm install)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ubcdsci/ubcdsci_website_ts.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ubcdsci/ubcdsci_website_ts/issues"
+  },
+  "homepage": "https://github.com/ubcdsci/ubcdsci_website_ts#readme"
 }
