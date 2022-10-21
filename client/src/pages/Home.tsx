@@ -1,14 +1,15 @@
 // Library imports.
-import React from "react";
-import { AnimationOnScroll } from "react-animation-on-scroll";
+
 
 // Component imports.
-import MovingText from "react-moving-text";
 import GreenButton from "../components/GreenButton";
 
 // Media imports.
 import titleImage from "../images/1.gif";
-import FAQImage from "../images/3.gif";
+// import FAQImage from "../images/3.gif";
+
+
+
 
 /**
  * Renders the Home page.
@@ -19,7 +20,7 @@ export default function Home() {
     <>
       <div id="dsci_title">
         <span>
-          <MovingText
+          {/* <MovingText
             type="fadeInFromLeft"
             duration="1500ms"
             delay="0s"
@@ -27,11 +28,11 @@ export default function Home() {
             timing="ease"
             iteration="1"
             fillMode="none"
-          >
+          > */}
             <h1 className="title--home">UBC</h1>
             <h1 className="title--home2">DataSci</h1>
-          </MovingText>
-          <MovingText
+          {/* </MovingText> */}
+          {/* <MovingText
             type="fadeInFromLeft"
             duration="2000ms"
             delay="0s"
@@ -39,7 +40,7 @@ export default function Home() {
             timing="ease"
             iteration="1"
             fillMode="none"
-          >
+          > */}
             <p className="subtitle--home">
               A student-led club that aims to provide students with an
               opportunity to learn about data science through hands-on learning
@@ -52,10 +53,10 @@ export default function Home() {
               <GreenButton text="Upcoming Events" href="/events"></GreenButton>
               <GreenButton text="Our Club" href="/about-us"></GreenButton>
             </div>
-          </MovingText>
+          {/* </MovingText> */}
         </span>
         <span>
-          <MovingText
+          {/* <MovingText
             type="fadeInFromRight"
             duration="1500ms"
             delay="0s"
@@ -63,17 +64,17 @@ export default function Home() {
             timing="ease"
             iteration="1"
             fillMode="none"
-          >
-            <img src={titleImage} className="titleImage"></img>
-          </MovingText>
+          > */}
+            <img src={titleImage} alt="title" className="titleImage"></img>
+          {/* </MovingText> */}
         </span>
       </div>
 
       <div id="sponsorUs">
-        <AnimationOnScroll animateIn="animate__fadeIn">
+        {/* <ScrollAnimation animateIn="fadeIn"> */}
           <h1 className="sponsor-us--title">Become a Sponsor!</h1>
-        </AnimationOnScroll>
-        <AnimationOnScroll animateIn="animate__fadeIn" delay={200}>
+        {/* </ScrollAnimation> */}
+        {/* <ScrollAnimation animateIn="fadeIn" delay={200}> */}
           <code className="sponsor-us--text">
             Learn about our sponsorship benefits by {""}
             <a
@@ -87,7 +88,7 @@ export default function Home() {
             </a>
             .
           </code>
-        </AnimationOnScroll>
+        {/* </ScrollAnimation> */}
       </div>
     </>
   );
