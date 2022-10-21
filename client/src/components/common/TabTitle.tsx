@@ -1,5 +1,4 @@
 // Library imports.
-import React from "react";
 import { Helmet } from "react-helmet";
 
 // Component imports.
@@ -11,13 +10,19 @@ import { Helmet } from "react-helmet";
  * @param {String} props.title The title to set.
  * @returns {JSX.Element} JSX Component.
  */
-export default function TabTitle(props) {
+const TabTitle = (props: any) => {
   return (
     <Helmet>
       <title>{props.title} – UBC Data Science Club</title>
       {props.description !== undefined ? (
         <meta name="description" content={props.description} />
-      ) : null}
+      ) : (
+        <meta name="description" content={`
+          AMS UBC Data Science Club
+        `} />
+      )}
     </Helmet>
   );
 }
+
+export default TabTitle;

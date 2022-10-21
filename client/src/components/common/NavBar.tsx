@@ -1,16 +1,22 @@
 // Library imports.
-import React, { useState, useEffect } from "react";
-import { HashLink as Link } from "react-router-hash-link";
+import { useState, useEffect } from "react";
+import { HashLink } from "react-router-hash-link";
 import { animateScroll as scroll } from "react-scroll";
 
+// Interface imports.
+import { DropDowns, Page } from "../../utils/config";
+
 // Component imports.
-import { navbarData as data } from "../utils/config";
-import Button from "../components/Button";
-import GreenButton from "../components/GreenButton";
-// import SearchBar from '../components/SearchBar';
+import { navbarData as data } from "../../utils/config";
+import Button from "../Button";
+import GreenButton from "../GreenButton";
+// import SearchBar from '../SearchBar';
 
 // Media imports.
-import SimpleIcon from "../images/logo/simple-icon.png";
+import SimpleIcon from "../../images/logo/simple-icon.png";
+
+
+
 
 // Action event definitions.
 let scrollTop = () => {
@@ -18,7 +24,7 @@ let scrollTop = () => {
 };
 
 // Check if links to external site and returns element.
-let checkExternal = (link, pageLink) => {
+let checkExternal = (link: DropDowns, pageLink: string) => {
   if (link.external) {
     return (
       <a href={link.href} className="ddLink" target="_blank" rel="noreferrer">
@@ -27,9 +33,9 @@ let checkExternal = (link, pageLink) => {
     );
   } else {
     return (
-      <Link smooth to={`${pageLink}${link.href}`} className="ddLink">
+      <HashLink smooth to={`${pageLink}${link.href}`} className="ddLink">
         {link.text}
-      </Link>
+      </HashLink>
     );
   }
 };
@@ -39,11 +45,11 @@ let checkExternal = (link, pageLink) => {
  * @param {JSONObject} page Page JSON object.
  * @returns {JSX.Element} JSX Component.
  */
-function createDropDown(page, pageLink) {
+function createDropDown(page: (Page | DropDowns), pageLink: string) {
   return (
     <div className="dropDownMenu">
       <ul className="dropDownContent">
-        {page.dropDowns.map((dd) => {
+        {page.dropDowns && page.dropDowns.map((dd) => {
           return (
             <li key={dd.href}>
               {checkExternal(dd, pageLink)}
@@ -61,7 +67,7 @@ function createDropDown(page, pageLink) {
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function NavBar(props) {
+const NavBar = (props: any) => {
   // Scroll wheel event; show/hide navigation bar.
   let [mouseHover, setMouseHover] = useState(false);
   let [visible, setVisible] = useState(true);
@@ -73,18 +79,20 @@ export default function NavBar(props) {
 
   // Sets effects on component mount.
   useEffect(() => {
-    let handleNavBarScroll = (e) => {
+    let handleNavBarScroll = (e: WheelEvent) => {
       setVisible(e.deltaY === 0 || mouseHover);
     };
 
     let handleAnimTransition = () => {
       var bodyRect = document.body.getBoundingClientRect();
-      var refRect = document.querySelector(".banner").getBoundingClientRect();
-      setPos(window.pageYOffset < refRect.bottom - bodyRect.top);
+      setPos(window.pageYOffset < bodyRect.top);
     };
 
-    let handleMouseHoverTop = (e) => {
-      var refHeight = document.querySelector(".navbar").clientHeight;
+    let handleMouseHoverTop = (e: MouseEvent) => {
+      let refHeight;
+      let navbar = document.querySelector(".navbar");
+
+      (navbar !== null) ? refHeight = navbar.clientHeight : refHeight = 0;
       setMouseHover(e.clientY <= refHeight);
       setVisible(visible || mouseHover);
     };
@@ -103,7 +111,7 @@ export default function NavBar(props) {
     <>
       <nav className={"navbar " + visiblity + position} id="navigationBar">
         <span className="homeContainer">
-          <Link
+          <HashLink
             to="/home"
             className="homelink"
             onClick={scrollTop}
@@ -119,7 +127,7 @@ export default function NavBar(props) {
               }
               style={{ marginRight: "5px" }}
             />
-          </Link>
+          </HashLink>
         </span>
 
         <span className="pagesContainer">
@@ -145,3 +153,5 @@ export default function NavBar(props) {
     </>
   );
 }
+
+export default NavBar;

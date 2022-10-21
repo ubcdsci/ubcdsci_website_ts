@@ -1,5 +1,5 @@
 // Library imports.
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { animateScroll as scroll } from "react-scroll";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
 
@@ -12,7 +12,7 @@ import { BsFillArrowUpCircleFill } from "react-icons/bs";
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function ScrollToTop(props) {
+const ScrollToTop = (props: any) => {
   // Scroll wheel event; show/hide button
   let [visible, setVisible] = useState(true);
   let visiblity = visible ? "hidden" : "visible";
@@ -20,8 +20,7 @@ export default function ScrollToTop(props) {
   useEffect(() => {
     let handleSTTScroll = () => {
       var bodyRect = document.body.getBoundingClientRect();
-      var elemRect = document.querySelector(".banner").getBoundingClientRect();
-      setVisible(window.pageYOffset < elemRect.bottom - bodyRect.top);
+      setVisible(window.pageYOffset < bodyRect.top);
     };
 
     window.addEventListener("scroll", handleSTTScroll);
@@ -40,3 +39,5 @@ export default function ScrollToTop(props) {
     />
   );
 }
+
+export default ScrollToTop;

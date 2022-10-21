@@ -1,14 +1,19 @@
 // Library imports.
-import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { animateScroll as scroll } from "react-scroll";
 
+// Interface imports.
+import { SMLink } from "../../utils/config";
+
 // Component imports.
-import { footerData as data } from "../utils/config";
+import { footerData as data } from "../../utils/config";
 // import NewsletterForm from "./NewsletterForm";
 
 // Media imports.
-import Icon from "../images/logo/icon-white.png";
+import Icon from "../../images/logo/icon-white.png";
+
+
+
 
 // Action event definitions.
 let scrollTop = () => {
@@ -16,7 +21,7 @@ let scrollTop = () => {
 };
 
 // Check if links to external site and returns element.
-let checkExternal = (link) => {
+let checkExternal = (link: SMLink) => {
   if (link.external) {
     return (
       <a
@@ -43,18 +48,17 @@ let checkExternal = (link) => {
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function Footer(props) {
+const Footer = (props: any) => {
   return (
     <footer className="footer">
-      {/* NEWSLETTER FORM BLOCK */}
       {/* <NewsletterForm /> */}
 
-      {/* SOCIAL MEDIA BLOCK */}
+
       <div className="smBlock">
         <br></br>
         <h4 className="stayConnected">Stay Connected with UBC Data Science!</h4>
         <div className="smButtons">
-          {data.smLinks.map((link) => (
+          {data.smButtons.map((link) => (
             <a
               key={link.key}
               href={link.href}
@@ -68,9 +72,10 @@ export default function Footer(props) {
         </div>
       </div>
 
+
       <div className="horizontalRule" />
 
-      {/* COLUMN LINKS BLOCK */}
+
       <div className="linksBlock">
         {data.columns.map((col) => (
           <div key={col.title} className="column">
@@ -92,7 +97,7 @@ export default function Footer(props) {
         ))}
       </div>
 
-      {/* COPYRIGHT BLOCK */}
+
       <div className="copyrightBlock">
         <span className="copyright">
           <img src={Icon} alt="icon" draggable="false" />
@@ -105,3 +110,5 @@ export default function Footer(props) {
     </footer>
   );
 }
+
+export default Footer;

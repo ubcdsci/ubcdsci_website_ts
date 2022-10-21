@@ -12,7 +12,7 @@ import { ErrorMessage } from "@hookform/error-message";
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function NewsletterForm(props) {
+const NewsletterForm = (props: any) => {
   // TODO:
   // - Include functionality to sign up for the newsletter.
   // - Add ReCaptcha to prevent button spamming.
@@ -27,7 +27,7 @@ export default function NewsletterForm(props) {
   } = useForm({ mode: "onChange" });
 
   // Form submission handler.
-  const onSubmit = async (formInfo) => {
+  const onSubmit = async (formInfo: any) => {
     await fetch("/forms/newsletter", {
       method: "POST",
       headers: {
@@ -153,7 +153,7 @@ export default function NewsletterForm(props) {
             onFocus={(e) => {
               e.target.value = "";
             }}
-            maxLength="8"
+            maxLength={8}
             {...register("studentId", {
               pattern: {
                 value: /^[0-9]{8}$/,
@@ -184,3 +184,5 @@ export default function NewsletterForm(props) {
     </form>
   );
 }
+
+export default NewsletterForm;
