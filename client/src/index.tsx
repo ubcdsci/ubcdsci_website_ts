@@ -1,7 +1,14 @@
+// Library imports
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
+// Component imports
 import App from './App';
+
+// Style imports
+import './index.css';
+
+// Test imports
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
