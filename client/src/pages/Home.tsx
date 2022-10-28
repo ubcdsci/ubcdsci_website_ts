@@ -15,7 +15,7 @@ import titleImage from "../images/1.gif";
  * Renders the Home page.
  * @returns {JSX.Element} JSX Component.
  */
-export default function Home() {
+const Home = () => {
   return (
     <>
       <div id="dsci_title">
@@ -93,3 +93,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

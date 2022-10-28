@@ -26,12 +26,12 @@ import SearchResult from "./pages/SearchResult";
 const routes = [
   { path: "/", name: "Main", element: <Navigate replace to="/home" /> },
   { path: "/home", name: "Home", element: <Home /> },
-  // { path: "/about-us", name: "About Us", element: <AboutUs /> },
-  // { path: "/projects", name: "Projects", element: <Projects /> },
-  // { path: "/events", name: "Events", element: <Events /> },
-  // { path: "/contact-us", name: "Contact Us", element: <ContactUs /> },
-  // { path: "/search-result", name: "Search Results", element: <SearchResult /> },
-  // { path: "*", name: "Page Not Found", element: <PageNotFound /> },
+  { path: "/about-us", name: "About Us", element: <AboutUs /> },
+  { path: "/projects", name: "Projects", element: <Projects /> },
+  { path: "/events", name: "Events", element: <Events /> },
+  { path: "/contact-us", name: "Contact Us", element: <ContactUs /> },
+  { path: "/search-result", name: "Search Results", element: <SearchResult /> },
+  { path: "*", name: "Page Not Found", element: <PageNotFound /> },
 ];
 
 
