@@ -1,6 +1,6 @@
 // Library imports.
-import React, { useState } from "react";
-import Slider from "react-slick";
+import { useState } from "react";
+// import Slider from "react-slick";
 
 // Component imports.
 import { execMembersData as data } from "../utils/config";
@@ -8,13 +8,15 @@ import { execMembersData as data } from "../utils/config";
 // Media imports.
 import profileDefault from "../images/squareImage.png";
 
+
 /**
  * Renders an ExecProfile.
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function ExecProfile(props) {
+const ExecProfile = (props: any) => {
   const [imageIndex, setImageIndex] = useState(0);
+
   const settings = {
     arrows: false,
     infinite: true,
@@ -27,12 +29,12 @@ export default function ExecProfile(props) {
     slidesToScroll: 1,
     pauseOnHover: true,
     centerMode: true,
-    beforeChange: (current, next) => setImageIndex(next),
+    beforeChange: (current: number, next: number) => setImageIndex(next),
   };
 
   return (
     <div className="execProfile">
-      <Slider {...settings}>
+      {/* <Slider {...settings}> */}
         {data.map((member, index) => (
           <div
             key={index}
@@ -56,7 +58,9 @@ export default function ExecProfile(props) {
             </div>
           </div>
         ))}
-      </Slider>
+      {/* </Slider> */}
     </div>
   );
 }
+
+export default ExecProfile;

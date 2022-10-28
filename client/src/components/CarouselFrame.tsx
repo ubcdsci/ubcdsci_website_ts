@@ -1,20 +1,22 @@
 // Library imports.
-import React from "react";
 import { Carousel } from "react-bootstrap";
 
 // Component imports.
 
+
 // Media imports.
-import defaultImage from "../images/code1.png";
+// import defaultImage from "../images/code1.png";
 import bomberland from "../images/bomberland.gif";
-import HPE from "../images/HPE.png";
+// import HPE from "../images/HPE.png";
+
+
 
 /**
  * Renders a CarouselFrame.
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function CarouselFrame(props) {
+const CarouselFrame = (props: any) => {
   return (
     <Carousel interval={8000} pause={false}>
       <Carousel.Item>
@@ -33,7 +35,6 @@ export default function CarouselFrame(props) {
               alt="First slide"
               style={{
                 width: "37%",
-                marginLeft: "5%",
                 marginLeft: "10.5%",
                 border: "5px",
                 borderStyle: "solid",
@@ -84,3 +85,5 @@ export default function CarouselFrame(props) {
     </Carousel>
   );
 }
+
+export default CarouselFrame;

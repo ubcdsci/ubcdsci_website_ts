@@ -1,5 +1,5 @@
 // Library imports.
-import React from "react";
+
 
 // Component imports.
 import { workshopData as data } from "../utils/config";
@@ -10,11 +10,13 @@ import dsci_workshop from "../images/event/dsci_workshop.png";
 import guest_speaker from "../images/event/guest_speaker.jpg";
 import guest_speaker2 from "../images/event/guest_speaker2.jpg";
 
+
+
 /**
  * Renders the Events page.
  * @returns {JSX.Element} JSX Component.
  */
-export default function Events() {
+const Events = () => {
   return (
     <>
       <div id="upcomingEvents"></div>
@@ -105,3 +107,5 @@ export default function Events() {
     </>
   );
 }
+
+export default Events;

@@ -1,17 +1,19 @@
 // Library imports.
-import React from "react";
 import { BsSearch } from "react-icons/bs";
 
 // Component imports.
 
+
 // Media imports.
+
+
 
 /**
  * Renders a SearchBar.
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function SearchBar(props) {
+const SearchBar = (props: any) => {
   // TODO: Include functionality for internal searching.
 
   return (
@@ -22,8 +24,8 @@ export default function SearchBar(props) {
           action="/search"
           method="GET"
           autoComplete="off"
-          onInvalid={(e) => e.target.setCustomValidity("Enter a search term")}
-          onInput={(e) => e.target.setCustomValidity("")}
+          onInvalid={(e) => {(e.target as HTMLInputElement).setCustomValidity("Enter a search term")}}
+          onInput={(e) => {(e.target as HTMLInputElement).setCustomValidity("")}}
         >
           <input
             type="text"
@@ -42,3 +44,5 @@ export default function SearchBar(props) {
     </>
   );
 }
+
+export default SearchBar;

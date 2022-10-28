@@ -1,16 +1,19 @@
 // Library imports.
-import React, { useState } from "react";
+import { useState } from "react";
 
 // Component imports.
 
+
 // Media imports.
+
+
 
 /**
  * Renders a Card.
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function Card(props) {
+const Card = (props: any) => {
   const [orientation, setOrientation] = useState(false);
 
   return (
@@ -43,3 +46,5 @@ export default function Card(props) {
     </div>
   );
 }
+
+export default Card;

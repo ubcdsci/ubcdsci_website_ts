@@ -1,18 +1,19 @@
 // Library imports.
-import React from "react";
-import MovingText from "react-moving-text";
+
 
 // Component imports.
 import { projectsListData as data } from "../utils/config";
-import Card from "../components/Card.jsx";
+import Card from "../components/Card";
 
 // Media imports.
+
+
 
 /**
  * Renders the Projects page.
  * @returns {JSX.Element} JSX Component.
  */
-export default function Projects() {
+const Projects = () => {
   return (
     <div className="content">
       <br></br>
@@ -22,15 +23,15 @@ export default function Projects() {
       <h1 className="subheading">Click on the cards to learn more...</h1>
       <div className="projectsGrid">
         {data.map((project, index) => (
-          <MovingText
-            type="fadeIn"
-            duration="2000ms"
-            delay="0s"
-            direction="normal"
-            timing="ease"
-            iteration="1"
-            fillMode="none"
-          >
+          // <MovingText
+          //   type="fadeIn"
+          //   duration="2000ms"
+          //   delay="0s"
+          //   direction="normal"
+          //   timing="ease"
+          //   iteration="1"
+          //   fillMode="none"
+          // >
             <Card
               key={index}
               title={project.title}
@@ -64,9 +65,11 @@ export default function Projects() {
                 </a>
               </p>
             </Card>
-          </MovingText>
+          // </MovingText>
         ))}
       </div>
     </div>
   );
 }
+
+export default Projects;

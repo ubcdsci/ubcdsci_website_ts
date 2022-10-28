@@ -1,16 +1,19 @@
 // Library imports.
-import React from "react";
+
 
 // Component imports.
 
+
 // Media imports.
+
+
 
 /**
  * Renders a ContentStrip.
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-export default function ContentStrip(props) {
+const ContentStrip = (props: any) => {
   return (
     <div className={`contentStrip ${props.type}`}>
       {props.preImageSource && (
@@ -28,3 +31,5 @@ export default function ContentStrip(props) {
     </div>
   );
 }
+
+export default ContentStrip;

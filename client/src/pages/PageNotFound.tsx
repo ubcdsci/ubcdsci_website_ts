@@ -1,5 +1,4 @@
 // Library imports.
-import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 
 // Component imports.
@@ -8,11 +7,13 @@ import { HashLink as Link } from "react-router-hash-link";
 // Media imports.
 import ErrorImage from "../images/error.png";
 
+
+
 /**
  * Renders the 404 Error page.
  * @returns {JSX.Element} JSX Component.
  */
-export default function PageNotFound() {
+const PageNotFound = () => {
   return (
     <>
       <div className="container" style={{ marginBottom: "5%" }}>
@@ -34,3 +35,5 @@ export default function PageNotFound() {
     </>
   );
 }
+
+export default PageNotFound;

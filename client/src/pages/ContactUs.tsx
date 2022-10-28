@@ -1,26 +1,28 @@
 // Library imports.
-import React from "react";
-import MovingText from "react-moving-text";
+
 
 // Component imports.
 
+
 // Media imports.
+
+
 
 /**
  * Renders the Contact Us page.
  * @returns {JSX.Element} JSX Component.
  */
-export default function ContactUs() {
+const ContactUs = () => {
   return (
-    <MovingText
-      type="fadeIn"
-      duration="1500ms"
-      delay="0s"
-      direction="normal"
-      timing="ease"
-      iteration="1"
-      fillMode="none"
-    >
+    // <MovingText
+    //   type="fadeIn"
+    //   duration="1500ms"
+    //   delay="0s"
+    //   direction="normal"
+    //   timing="ease"
+    //   iteration="1"
+    //   fillMode="none"
+    // >
       <div className="contactus--content">
         <div className="contactus">
           <h1>
@@ -87,6 +89,8 @@ export default function ContactUs() {
           referrerPolicy="no-referrer-when-downgrade"
         />
       </div>
-    </MovingText>
+    // </MovingText>
   );
 }
+
+export default ContactUs;

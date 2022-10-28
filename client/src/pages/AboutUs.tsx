@@ -1,9 +1,8 @@
 // Library imports.
-import React from "react";
+
 
 // Component imports.
 import ContentStrip from "../components/ContentStrip";
-import { AnimationOnScroll } from "react-animation-on-scroll";
 import ExecProfile from "../components/ExecProfile";
 import FAQ from "../components/FAQ";
 
@@ -11,11 +10,13 @@ import FAQ from "../components/FAQ";
 import MissionGif from "../images/5.gif";
 import DescriptionGif from "../images/2.gif";
 
+
+
 /**
  * Renders the About page.
  * @returns {JSX.Element} JSX Component.
  */
-export default function AboutUs() {
+const AboutUs = () => {
   document.getElementById("root");
 
   return (
@@ -81,7 +82,7 @@ export default function AboutUs() {
           content={<ExecProfile />}
         />
       </div>
-      <AnimationOnScroll initiallyVisible={true} animateIn="animate__headShake">
+      {/* <AnimationOnScroll initiallyVisible={true} animateIn="animate__headShake"> */}
         <div id="faq">
           <ContentStrip
             type="strip3--matrix"
@@ -90,7 +91,9 @@ export default function AboutUs() {
             content={<FAQ></FAQ>}
           />
         </div>
-      </AnimationOnScroll>
+      {/* </AnimationOnScroll> */}
     </>
   );
 }
+
+export default AboutUs;
