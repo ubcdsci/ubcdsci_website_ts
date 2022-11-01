@@ -14,8 +14,20 @@
  */
 const GreenButton = (props: any) => {
   return (
-    <div className={"registration-button-container " + props.className}>
-      <a target="_blank" href={props.href} rel="noreferrer noopener">
+    <div className={
+      "green-button-container " +
+      props.className +
+      " bg-green-700 rounded-lg text-white text-center py-1 px-[1rem] transition-colors hover:bg-green-600"
+    }>
+      <a
+        target="_blank"
+        href={props.href}
+        rel="noreferrer noopener"
+        className={
+          "green-button " +
+          "text-gray-50 hover:text-white"
+        }
+      >
         {props.text}
       </a>
     </div>

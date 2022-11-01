@@ -24,10 +24,12 @@ const Button = (props: any) => {
     <Link to={props.href} onClick={scrollTop}>
         <button
           className={
-            (props.currentLocation ? "CurrentLocation drop-shadow-2xl font-semibold": "font-medium") + 
-            " text-s mt-1 ml-3 mr-3"
-          }
-        >
+            (props.currentLocation ?
+              "CurrentLocation font-normal text-green-300 text-shadow-sm" :
+              "font-normal text-gray-50 hover:text-green-200"
+            ) + 
+            " text-s mt-1 ml-3 mr-3 transition-colors "
+          }>
           {props.text}
         </button>
     </Link>

@@ -39,7 +39,7 @@ export interface Page {
 // Data for loading the navigation bar.
 export const navbarData: Page[] = [
   {
-    key: "AboutUs",
+    key: "About Us",
     text: "About Us",
     href: "/about-us",
     dropDowns: [
@@ -100,7 +100,7 @@ export const navbarData: Page[] = [
   //   ],
   // },
   {
-    key: "ContactUs",
+    key: "Contact Us",
     text: "Contact Us",
     href: "/contact-us",
     dropDowns: [],

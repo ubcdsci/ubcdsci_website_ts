@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -13,12 +15,29 @@ module.exports = {
         txtll: "#16a321", // Text Lowlight
       },
       dropShadow: {
-        green: "0 0 20px 0 rgba(0, 255, 0, 0.75)",
+        green: "0 0 5px rgba(0, 255, 0, 0.2)",
+        white: "0 0 5px rgba(255, 255, 255, 0.2)",
+      },
+      textShadow: {
+        sm: '0 1px 2px rgba(0, 255, 0, 0.5)',
+        DEFAULT: '0 2px 4px rgba(0, 255, 0, 0.5)',
+        lg: '0 8px 16px rgba(0, 255, 0, 0.5)',
       },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
+  ],
 };
