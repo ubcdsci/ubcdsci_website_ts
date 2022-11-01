@@ -22,32 +22,14 @@ let scrollTop = () => {
 const Button = (props: any) => {
   return (
     <Link to={props.href} onClick={scrollTop}>
-      {props.currentLocation ? (
         <button
-          className="CurrentLocation"
-          style={{
-            fontWeight: "500",
-            fontSize: "85%",
-            marginTop: "3px",
-            marginLeft: "10px",
-            marginRight: "10px",
-          }}
+          className={
+            (props.currentLocation ? "CurrentLocation drop-shadow-2xl font-semibold": "font-medium") + 
+            " text-s mt-1 ml-3 mr-3"
+          }
         >
           {props.text}
         </button>
-      ) : (
-        <button
-          style={{
-            fontWeight: "500",
-            fontSize: "85%",
-            marginTop: "3px",
-            marginLeft: "10px",
-            marginRight: "10px",
-          }}
-        >
-          {props.text}
-        </button>
-      )}
     </Link>
   );
 }

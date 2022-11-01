@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: 'media',
   theme: {
     extend: {
       colors: {
@@ -10,6 +11,9 @@ module.exports = {
         txt: "#fff", // Text Default
         txthl: "#4ee15b", // Text Highlight
         txtll: "#16a321", // Text Lowlight
+      },
+      dropShadow: {
+        green: "0 0 20px 0 rgba(0, 255, 0, 0.75)",
       },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],

@@ -14,7 +14,7 @@
  */
 const GreenButton = (props: any) => {
   return (
-    <div className="registrationButtonContainer">
+    <div className={"registration-button-container " + props.className}>
       <a target="_blank" href={props.href} rel="noreferrer noopener">
         {props.text}
       </a>

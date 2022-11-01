@@ -1,7 +1,6 @@
 // Library imports.
-// import React, { createContext, useState, useEffect } from "react";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-// import ReactSwitch from "react-switch";
 
 // Component imports.
 import TabTitle from "./components/common/TabTitle";
@@ -20,7 +19,9 @@ import SearchResult from "./pages/SearchResult";
 
 // Style imports.
 
+
 // Media imports.
+
 
 
 const routes = [
@@ -36,6 +37,8 @@ const routes = [
 
 
 const App = () => {
+  const [darkToggle, setDarkToggle] = useState(false)
+
   return (
     <>
       <BrowserRouter>
@@ -57,22 +60,6 @@ const App = () => {
         <Footer />
         <ScrollToTop />
       </BrowserRouter>
-
-      {/* <div
-        className="themeSwitcher"
-        title={(theme === "light" ? "Dark" : "Light") + " Mode: Alt+C"}
-      >
-        <label>{theme === "dark" ? "Dark" : "Light"} Mode</label>
-        <ReactSwitch
-          className="toggleSwitch"
-          onChange={toggleTheme}
-          checked={theme === "dark"}
-          uncheckedIcon={false}
-          checkedIcon={false}
-          width={40}
-          height={20}
-        />
-      </div> */}
     </>
   );
 }
