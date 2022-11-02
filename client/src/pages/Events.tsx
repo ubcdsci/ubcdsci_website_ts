@@ -32,7 +32,7 @@ const Events = () => {
           `}
           img={guest_speaker}
         >
-          <img className="EventImage" alt="event-img" src={guest_speaker2} />
+          <img className="EventImage w-11/12 lg:w-5/6 mx-auto my-4" alt="event-img" src={guest_speaker2} />
           <table>
             <thead>
               <tr>

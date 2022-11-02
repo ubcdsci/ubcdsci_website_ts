@@ -24,12 +24,12 @@ const Event = (props: any) => {
     //   iteration="1"
     //   fillMode="none"
     // >
-      <div className="EventBlock">
-        <div className="EventDivider"></div>
-        <h1 className="EventTitle">{props.title}</h1>
-        <p className="EventPostDate">{props.date}</p>
+      <div className="EventBlock mb-7 p-7 lg:px-32">
+        <div className="EventDivider bg-white h-px w-10 mb-3"></div>
+        <h1 className={"EventTitle text-3xl font-bold"}>{props.title}</h1>
+        <p className="EventPostDate opacity-60">{props.date}</p>
         {props.img !== undefined ? (
-          <img className="EventImage" alt="event-img" src={props.img}></img>
+          <img className="EventImage w-11/12 lg:w-5/6 mx-auto my-4" alt="event-img" src={props.img}></img>
         ) : (
           <></>
         )}

@@ -21,7 +21,7 @@ const AboutUs = () => {
 
   return (
     <>
-      <div className="aboutus--content">
+      <div className="aboutus--content pt-20 md:pt-0">
         <div id="clubDescription">
           <ContentStrip
             type="strip1"
@@ -36,7 +36,7 @@ const AboutUs = () => {
                 competitions.
               </blockquote>
             }
-            preImageSource={MissionGif}
+            postImageSource={MissionGif}
           />
         </div>
 
