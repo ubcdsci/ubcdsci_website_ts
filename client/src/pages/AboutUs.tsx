@@ -24,7 +24,7 @@ const AboutUs = () => {
       <div className="aboutus--content pt-20 md:pt-0">
         <div id="clubDescription">
           <ContentStrip
-            type="strip1"
+            flex="flex-row"
             title="Club Description"
             text={
               <blockquote style={{ fontWeight: "300", fontSize: "100%" }}>
@@ -36,13 +36,13 @@ const AboutUs = () => {
                 competitions.
               </blockquote>
             }
-            postImageSource={MissionGif}
+            imageSource={MissionGif}
           />
         </div>
 
         <div id="missionStatement">
           <ContentStrip
-            type="strip2"
+            flex= "flex-row"
             title="Our Mission Statement"
             text={
               <blockquote>
@@ -71,21 +71,21 @@ const AboutUs = () => {
                 </p>
               </blockquote>
             }
-            postImageSource={DescriptionGif}
+            imageSource={DescriptionGif}
           />
         </div>
       </div>
       <div id="executiveTeam">
         <ContentStrip
-          type="strip3--matrix"
-          title="Club Executives"
+            flex= "flex-column"
+            title="Club Executives"
           content={<ExecProfile />}
         />
       </div>
       {/* <AnimationOnScroll initiallyVisible={true} animateIn="animate__headShake"> */}
         <div id="faq">
           <ContentStrip
-            type="strip3--matrix"
+            flex= "flex-column"
             title="FAQ"
             text={<blockquote></blockquote>}
             content={<FAQ></FAQ>}
