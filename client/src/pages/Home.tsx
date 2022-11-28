@@ -1,7 +1,9 @@
 // Library imports.
-
+import React from "react";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 // Component imports.
+// import MovingText from "react-moving-text";
 import GreenButton from "../components/GreenButton";
 
 // Media imports.
@@ -19,7 +21,7 @@ const Home = () => {
   return (
     <>
       <div id="dsci_title" className="flex items-center p-16 md:p-10">
-        <div className="md:p-10 lg:w-1/2 lg:px-20 lg:py-15">
+        <div className="md:p-10 lg:w-1/2 lg:px- lg:py-15">
           {/* <MovingText
             type="fadeInFromLeft"
             duration="1500ms"
@@ -71,10 +73,10 @@ const Home = () => {
       </div>
 
       <div id="sponsorUs">
-        {/* <ScrollAnimation animateIn="fadeIn"> */}
+        {/* <AnimationOnScroll animateIn="fadeIn"> */}
           <h1 className="sponsor-us--title">Become a Sponsor!</h1>
-        {/* </ScrollAnimation> */}
-        {/* <ScrollAnimation animateIn="fadeIn" delay={200}> */}
+        {/* </AnimationOnScroll> */}
+        {/* <AnimationOnScroll animateIn="fadeIn" delay={200}> */}
           <code className="sponsor-us--text">
             Learn about our sponsorship benefits by {""}
             <a
@@ -88,7 +90,7 @@ const Home = () => {
             </a>
             .
           </code>
-        {/* </ScrollAnimation> */}
+        {/* </AnimationOnScroll> */}
       </div>
     </>
   );
