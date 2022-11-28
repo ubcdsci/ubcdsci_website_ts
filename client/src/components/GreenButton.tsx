@@ -17,15 +17,16 @@ const GreenButton = (props: any) => {
     <div className={
       "green-button-container " +
       props.className +
-      " bg-green-700 rounded-lg text-white text-center py-1 px-[1rem] transition-colors hover:bg-green-600"
-    }>
+      " bg-txtll rounded-[20px] text-white text-center py-[0.5rem] px-[1.2rem] transition-colors duration-500 hover:bg-txthl "
+      + "mr-4"
+    }> 
       <a
         target="_blank"
         href={props.href}
         rel="noreferrer noopener"
         className={
           "green-button " +
-          "text-gray-50 hover:text-white"
+          "text-gray-50 hover:text-white text-sm"
         }
       >
         {props.text}

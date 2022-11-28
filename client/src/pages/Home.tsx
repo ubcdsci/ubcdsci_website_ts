@@ -18,8 +18,8 @@ import titleImage from "../images/1.gif";
 const Home = () => {
   return (
     <>
-      <div id="dsci_title">
-        <span>
+      <div id="dsci_title" className="flex items-center p-16 md:p-10">
+        <div className="md:p-10 lg:w-1/2 lg:px-20 lg:py-15">
           {/* <MovingText
             type="fadeInFromLeft"
             duration="1500ms"
@@ -29,8 +29,8 @@ const Home = () => {
             iteration="1"
             fillMode="none"
           > */}
-            <h1 className="title--home">UBC</h1>
-            <h1 className="title--home2">DataSci</h1>
+            <h1 className="text-7xl font-bold lg:text-8xl my-2">UBC</h1>
+            <h1 className="text-7xl font-bold text-txthl lg:text-8xl">DataSci</h1>
           {/* </MovingText> */}
           {/* <MovingText
             type="fadeInFromLeft"
@@ -41,11 +41,11 @@ const Home = () => {
             iteration="1"
             fillMode="none"
           > */}
-            <p className="subtitle--home">
+            <p className="subtitle--home my-4">
               A student-led club that aims to provide students with an
               opportunity to learn about data science through hands-on learning
             </p>
-            <div className="buttons--home">
+            <div className="buttons--home flex">
               <GreenButton
                 text="Ongoing Projects"
                 href="projects"
@@ -54,8 +54,8 @@ const Home = () => {
               <GreenButton text="Our Club" href="/about-us"></GreenButton>
             </div>
           {/* </MovingText> */}
-        </span>
-        <span>
+        </div>
+        <div className="titleImage hidden lg:inline w-1/2 py-10">
           {/* <MovingText
             type="fadeInFromRight"
             duration="1500ms"
@@ -65,9 +65,9 @@ const Home = () => {
             iteration="1"
             fillMode="none"
           > */}
-            <img src={titleImage} alt="title" className="titleImage"></img>
+            <img src={titleImage} alt="title"></img>
           {/* </MovingText> */}
-        </span>
+        </div>
       </div>
 
       <div id="sponsorUs">
