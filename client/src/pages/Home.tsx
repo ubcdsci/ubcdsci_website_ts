@@ -74,7 +74,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div id="sponsorUs" className="bg-sponsor h-40">
+      <div id="sponsorUs" className="bg-sponsor h-80 bg-blend-lighten	bg-bg p-10">
         {/* <AnimationOnScroll animateIn="fadeIn"> */}
           <h1 className="sponsor-us--title text-5xl font-bold	text-center p-2">Become a Sponsor!</h1>
         {/* </AnimationOnScroll> */}
@@ -83,7 +83,7 @@ const Home = () => {
             Learn about our sponsorship benefits by {""}
             <a
               href="/media/UBCDsci_Sponsorship_Package.pdf"
-              className="sponsor-us--link"
+              className="sponsor-us--link hover:text-bghl delay-150 underline"
               download
             >downloading our sponsorship package
             </a>

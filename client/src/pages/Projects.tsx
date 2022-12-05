@@ -15,13 +15,13 @@ import Card from "../components/Card";
  */
 const Projects = () => {
   return (
-    <div className="content">
+    <div className="content pt-5 pb-20">
       <br></br>
       <h1 className="heading text-center text-3xl font-bold">
         Become a Member and Join a Project Group Today!
       </h1>
       <h1 className="subheading text-center opacity-80
-      font-bold">Click on the cards to learn more...</h1>
+      font-bold my-3">Click on the cards to learn more...</h1>
       <div className="projectsGrid grid lg:grid-cols-2 justify-evenly md:grid-cols-1">
         {data.map((project, index) => (
           // <MovingText

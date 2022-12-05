@@ -54,7 +54,7 @@ const Footer = (props: any) => {
       {/* <NewsletterForm /> */}
 
 
-      <div className="smBlock">
+      <div className="smBlock pt-3">
         <br></br>
         <h4 className="stayConnected text-center">Stay Connected with UBC Data Science!</h4>
         <div className="smButtons flex justify-center	items-center">
@@ -62,7 +62,7 @@ const Footer = (props: any) => {
             <a
               key={link.key}
               href={link.href}
-              className="iconLink m-2"
+              className="iconLink m-3 hover:text-bghl text-[2.2em] delay-100"
               target="_blank"
               rel="noreferrer"
             >
@@ -73,7 +73,8 @@ const Footer = (props: any) => {
       </div>
 
 
-      <div className="horizontalRule" />
+      <div className="horizontalRule h-[1.5px] w-10/12 mx-auto bg-white
+      my-3" />
 
 
       <div className="linksBlock">
