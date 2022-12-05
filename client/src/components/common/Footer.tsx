@@ -50,19 +50,19 @@ let checkExternal = (link: SMLink) => {
  */
 const Footer = (props: any) => {
   return (
-    <footer className="footer">
+    <footer className="footer bg-zinc-900/90">
       {/* <NewsletterForm /> */}
 
 
       <div className="smBlock">
         <br></br>
-        <h4 className="stayConnected">Stay Connected with UBC Data Science!</h4>
-        <div className="smButtons">
+        <h4 className="stayConnected text-center">Stay Connected with UBC Data Science!</h4>
+        <div className="smButtons flex justify-center	items-center">
           {data.smButtons.map((link) => (
             <a
               key={link.key}
               href={link.href}
-              className="iconLink"
+              className="iconLink m-2"
               target="_blank"
               rel="noreferrer"
             >

@@ -13,6 +13,8 @@ import titleImage from "../images/1.gif";
 
 
 
+
+
 /**
  * Renders the Home page.
  * @returns {JSX.Element} JSX Component.
@@ -72,24 +74,21 @@ const Home = () => {
         </div>
       </div>
 
-      <div id="sponsorUs">
+      <div id="sponsorUs" className="bg-sponsor h-40">
         {/* <AnimationOnScroll animateIn="fadeIn"> */}
-          <h1 className="sponsor-us--title">Become a Sponsor!</h1>
+          <h1 className="sponsor-us--title text-5xl font-bold	text-center p-2">Become a Sponsor!</h1>
         {/* </AnimationOnScroll> */}
         {/* <AnimationOnScroll animateIn="fadeIn" delay={200}> */}
-          <code className="sponsor-us--text">
+          <p className="sponsor-us--text mx-auto text-center">
             Learn about our sponsorship benefits by {""}
             <a
               href="/media/UBCDsci_Sponsorship_Package.pdf"
               className="sponsor-us--link"
               download
-            >
-              <code style={{ fontWeight: "bold", fontSize: "105%" }}>
-                downloading our sponsorship package
-              </code>
+            >downloading our sponsorship package
             </a>
             .
-          </code>
+          </p>
         {/* </AnimationOnScroll> */}
       </div>
     </>

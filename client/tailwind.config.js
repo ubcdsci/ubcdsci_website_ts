@@ -30,6 +30,9 @@ module.exports = {
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
       },
+      backgroundImage: {
+        sponsor: "url('/src/images/subackground.jpeg')",
+      },
     },
   },
   plugins: [

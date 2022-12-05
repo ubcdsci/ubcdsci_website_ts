@@ -23,8 +23,8 @@ const ContactUs = () => {
     //   iteration="1"
     //   fillMode="none"
     // >
-      <div className="contactus--content">
-        <div className="contactus">
+      <div className="contactus--content flex py-40">
+        <div className="contactus w-1/3">
           <h1>
             UBC Data Science
             <br />
@@ -82,11 +82,10 @@ const ContactUs = () => {
         <iframe
           title="map-location"
           src="https://maps.google.com/maps?q=6133%20University%20Blvd,%20Vancouver%20BC&t=k&z=17&ie=UTF8&iwloc=&output=embed"
-          width="800"
-          height="450"
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          className="w-1/2"
         />
       </div>
     // </MovingText>
