@@ -1,0 +1,132 @@
+.NavBar {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  height: 4.25rem;
+  background-color: rgba(var(--bg-dark), 0.9);
+  box-shadow: 0 0 10px rgba(var(--bg-dark), 0.1);
+  backdrop-filter: blur(10px);
+
+  * {
+    font-family: 'Roboto Mono', sans-serif;
+  }
+}
+
+.NavBarScrolled {
+  @extend .NavBar;
+  // position: fixed;
+}
+
+.Container {
+  margin: auto;
+
+  .NavButtons {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+
+    @media screen and (min-width: 1920px) {
+      gap: 4rem;
+    }
+  }
+}
+
+$home-button-size: 2.5rem;
+$home-button-size-hover: calc($home-button-size + 0.2rem);
+.HomeButton {
+  width: $home-button-size;
+  height: $home-button-size;
+  fill: white;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    width: $home-button-size-hover;
+    height: $home-button-size-hover;
+    fill: rgb(var(--primary));
+    filter: drop-shadow(0 0 10px rgba(#fff, 0.2));
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.HomeButtonCurrentLocation {
+  @extend .HomeButton;
+  width: $home-button-size-hover;
+  height: $home-button-size-hover;
+  fill: rgb(var(--primary));
+  filter: drop-shadow(0 0 10px rgba(#fff, 0.2));
+}
+
+.NavButton {
+  color: white;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    color: rgb(var(--primary-light));
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.NavButtonCurrentLocation {
+  @extend .NavButton;
+  color: rgb(var(--primary-light));
+}
+
+.RegistrationButton {
+  @extend .NavButton;
+  padding: 0.5rem 0.75rem;
+  background-color: rgba(var(--primary-dark), 1);
+  border-radius: 20px;
+
+  &:hover {
+    color: white;
+    background-color: rgba(var(--primary), 1);
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.Button {
+  .DropDownMenu {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-height: 0;
+    overflow-y: hidden;
+  }
+
+  &:hover {
+    .DropDownMenu {
+      max-height: 100vh;
+      padding-top: 0.25rem;
+      transition: max-height 0.5s linear;
+    }
+  }
+}
+
+.DropDownContent {
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  background-color: rgba(var(--bg-dark), 0.9);
+  border: 2px solid rgba(var(--bg-dark), 1);
+
+  a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+      color: rgb(var(--primary-light));
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}

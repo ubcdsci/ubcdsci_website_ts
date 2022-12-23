@@ -33,7 +33,7 @@ export interface Page {
   key: string;
   text: string;
   href: string;
-  dropDowns: DropDowns[];
+  dropDowns?: DropDowns[];
 }
 
 // Data for loading the navigation bar.
@@ -48,13 +48,13 @@ export const navbarData: Page[] = [
       {
         text: "Executive Team",
         href: "#executiveTeam",
-        dropDowns: [
-          // { text: "President", href: "#president" },
-          // { text: "Vice President", href: "#vicePresident" },
-          // { text: "Secretary", href: "#secretary" },
-          // { text: "Treasurer", href: "#treasurer" },
-          // { text: "Webmaster", href: "#webmaster" },
-        ],
+        // dropDowns: [
+        //   { text: "President", href: "#president" },
+        //   { text: "Vice President", href: "#vicePresident" },
+        //   { text: "Secretary", href: "#secretary" },
+        //   { text: "Treasurer", href: "#treasurer" },
+        //   { text: "Webmaster", href: "#webmaster" },
+        // ],
       },
       { text: "FAQ", href: "#faq" },
     ],
@@ -103,7 +103,7 @@ export const navbarData: Page[] = [
     key: "Contact Us",
     text: "Contact Us",
     href: "/contact-us",
-    dropDowns: [],
+    // dropDowns: [],
   },
 ];
 
