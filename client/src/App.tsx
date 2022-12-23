@@ -1,5 +1,5 @@
 // Library imports.
-import { useState } from "react";
+// import { useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 // Component imports.
@@ -37,32 +37,30 @@ const routes = [
 
 
 const App = () => {
-  const [darkToggle, setDarkToggle] = useState(false)
+  // const [darkToggle, setDarkToggle] = useState(false);
 
   return (
-    <>
-      <BrowserRouter>
-        <Background src="https://images5.alphacoders.com/115/1156667.png" />
+    <BrowserRouter>
+      <Background src="https://images5.alphacoders.com/115/1156667.png" />
 
-        <Routes>
-          {routes.map(({ path, name, element }) => (
-            <Route
-              key={name}
-              path={path}
-              element={
-                <>
-                  <TabTitle title={name} />
-                  <NavBar currentLocation={name} />
-                  {element}
-                </>
-            } />
-          ))}
-        </Routes>
+      <Routes>
+        {routes.map(({ path, name, element }) => (
+          <Route
+            key={name}
+            path={path}
+            element={
+              <>
+                <TabTitle title={name} />
+                <NavBar currentLocation={name} />
+                {element}
+              </>
+          } />
+        ))}
+      </Routes>
 
-        <Footer />
-        <ScrollToTop />
-      </BrowserRouter>
-    </>
+      <Footer />
+      <ScrollToTop />
+    </BrowserRouter>
   );
 }
 
