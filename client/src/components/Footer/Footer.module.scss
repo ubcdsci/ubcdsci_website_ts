@@ -1,15 +1,13 @@
+@use '../../_definitions.scss' as *;
+
 .Footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem 0;
-
-  width: 100%;
-  height: auto;
-  background-color: rgba(var(--bg-dark), 0.9);
-  box-shadow: 0 0 10px rgba(var(--bg-dark), 0.1);
-  backdrop-filter: blur(10px);
+  
+  @extend .DarkBackground;
 }
 
 .SocialMediaBlock {
@@ -64,6 +62,11 @@
 
   width: 100%;
   height: auto;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
   a {
     color: #fff;

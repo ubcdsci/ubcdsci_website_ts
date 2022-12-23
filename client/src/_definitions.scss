@@ -1,0 +1,5 @@
+.DarkBackground {
+  background-color: rgba(var(--bg-dark), 0.9);
+  box-shadow: 0 0 10px rgba(var(--bg-dark), 0.1);
+  backdrop-filter: blur(10px);
+}
