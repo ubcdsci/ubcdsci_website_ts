@@ -1,10 +1,10 @@
 // Library imports.
 // import { useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // Component imports.
 import Background from "./components/Background/Background";
-import TabTitle from "./components/common/TabTitle";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
@@ -36,6 +36,30 @@ const routes = [
 ];
 
 
+/**
+ * Sets the title for the browser tab.
+ * @param {String} props.title The title to set.
+ * @returns {JSX.Element} JSX Component.
+ */
+const TabTitle = (props: any) => {
+  return (
+    <Helmet>
+      <title>{props.title} – UBC Data Science Club</title>
+      {props.description !== undefined ? (
+        <meta name="description" content={props.description} />
+      ) : (
+        <meta name="description" content={`
+          AMS UBC Data Science Club
+        `} />
+      )}
+    </Helmet>
+  );
+};
+
+/**
+ * Renders the web app.
+ * @returns {JSX.Element} JSX Component.
+ */
 const App = () => {
   // const [darkToggle, setDarkToggle] = useState(false);
 
@@ -62,6 +86,6 @@ const App = () => {
       <ScrollToTop />
     </BrowserRouter>
   );
-}
+};
 
 export default App;

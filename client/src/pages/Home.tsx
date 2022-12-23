@@ -1,5 +1,4 @@
 // Library imports.
-import React from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
 // Component imports.
@@ -9,10 +8,6 @@ import GreenButton from "../components/GreenButton";
 // Media imports.
 import titleImage from "../images/1.gif";
 // import FAQImage from "../images/3.gif";
-
-
-
-
 
 
 /**
@@ -75,10 +70,10 @@ const Home = () => {
       </div>
 
       <div id="sponsorUs" className="bg-sponsor h-80 bg-blend-lighten	bg-bg p-10">
-        {/* <AnimationOnScroll animateIn="fadeIn"> */}
+        <AnimationOnScroll animateIn="fadeIn">
           <h1 className="sponsor-us--title text-5xl font-bold	text-center p-2">Become a Sponsor!</h1>
-        {/* </AnimationOnScroll> */}
-        {/* <AnimationOnScroll animateIn="fadeIn" delay={200}> */}
+        </AnimationOnScroll>
+        <AnimationOnScroll animateIn="fadeIn" delay={200}>
           <p className="sponsor-us--text mx-auto text-center">
             Learn about our sponsorship benefits by {""}
             <a
@@ -89,7 +84,7 @@ const Home = () => {
             </a>
             .
           </p>
-        {/* </AnimationOnScroll> */}
+        </AnimationOnScroll>
       </div>
     </>
   );

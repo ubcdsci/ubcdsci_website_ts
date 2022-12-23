@@ -3,17 +3,17 @@ import { HashLink as Link } from "react-router-hash-link";
 import { animateScroll as scroll } from "react-scroll";
 
 // Interface imports.
-import { SMLink } from "../../utils/config";
+import { SMLink } from "../../configs/config";
 
 // Component imports.
-import { footerData as data } from "../../utils/config";
+import { footerData as data } from "../../configs/config";
 // import NewsletterForm from "./NewsletterForm";
 
 // Style imports.
 import styles from "./Footer.module.scss";
 
 // Media imports.
-import VectorLogo from "../common/VectorLogo";
+import VectorLogo from "../VectorLogo";
 
 
 // Action event definitions.

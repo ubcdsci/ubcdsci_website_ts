@@ -2,7 +2,7 @@
 
 
 // Component imports.
-import { projectsListData as data } from "../utils/config";
+import { projectsListData as data } from "../configs/config";
 import Card from "../components/Card";
 
 // Media imports.

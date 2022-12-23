@@ -6,17 +6,17 @@ import { useMediaQuery } from "react-responsive";
 import { BsList, BsX } from "react-icons/bs";
 
 // Interface imports.
-import { DropDowns, Page } from "../../utils/config";
+import { DropDowns, Page } from "../../configs/config";
 
 // Style imports.
 import styles from "./NavBar.module.scss";
 
 // Component imports.
-import { navbarData as data } from "../../utils/config";
+import { navbarData as data } from "../../configs/config";
 import SearchBar from '../SearchBar/SearchBar';
 
 // Media imports.
-import VectorLogo from "../common/VectorLogo";
+import VectorLogo from "../VectorLogo";
 
 
 // Check if links to external site and returns element.

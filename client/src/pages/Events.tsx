@@ -2,7 +2,7 @@
 
 
 // Component imports.
-import { workshopData as data } from "../utils/config";
+import { workshopData as data } from "../configs/config";
 import Event from "../components/Event";
 
 // Media imports.

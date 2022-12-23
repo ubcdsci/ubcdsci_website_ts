@@ -3,7 +3,7 @@ import { useState } from "react";
 // import Slider from "react-slick";
 
 // Component imports.
-import { execMembersData as data } from "../utils/config";
+import { execMembersData as data } from "../configs/config";
 
 // Media imports.
 import profileDefault from "../images/squareImage.png";
