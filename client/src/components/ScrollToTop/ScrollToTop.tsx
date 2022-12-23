@@ -30,7 +30,7 @@ const ScrollToTop = (props: any) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, []);
 
   return (
     <BsArrowUpCircle

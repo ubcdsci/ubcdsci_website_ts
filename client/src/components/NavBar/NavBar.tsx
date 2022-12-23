@@ -11,7 +11,7 @@ import styles from "./NavBar.module.scss";
 
 // Component imports.
 import { navbarData as data } from "../../utils/config";
-// import SearchBar from '../SearchBar';
+// import SearchBar from '../SearchBar/SearchBar';
 
 // Media imports.
 import VectorLogo from "../common/VectorLogo";
@@ -81,7 +81,7 @@ const NavBar = (props: any) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, []);
 
   return (
     <nav className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : "" }`}>
@@ -119,9 +119,7 @@ const NavBar = (props: any) => {
           </span>
         </span>
 
-        <span className="search-bar-container">
-          {/* <SearchBar /> */}
-        </span>
+        {/* <SearchBar /> */}
       </div>
     </nav>
   );
