@@ -65,7 +65,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Background src="https://images5.alphacoders.com/115/1156667.png" />
+      <Background src="https://imageio.forbes.com/specials-images/imageserve/5f7f4850ec94d2e71b3693d3/Motion-Abstract-background-Abstract-Wave-line-Infinite-Loop-for-Business-science-and/960x0.jpg?format=jpg&width=960" />
 
       <Routes>
         {routes.map(({ path, name, element }) => (
