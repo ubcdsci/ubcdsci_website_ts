@@ -69,11 +69,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div id="sponsorUs" className="bg-sponsor h-80 bg-blend-lighten	bg-bg p-10">
-        <AnimationOnScroll animateIn="fadeIn">
+      <div id="sponsorUs" className="h-80 p-10">
           <h1 className="sponsor-us--title text-5xl font-bold	text-center p-2">Become a Sponsor!</h1>
-        </AnimationOnScroll>
-        <AnimationOnScroll animateIn="fadeIn" delay={200}>
           <p className="sponsor-us--text mx-auto text-center">
             Learn about our sponsorship benefits by {""}
             <a
@@ -84,7 +81,6 @@ const Home = () => {
             </a>
             .
           </p>
-        </AnimationOnScroll>
       </div>
     </>
   );
