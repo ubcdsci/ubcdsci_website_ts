@@ -26,7 +26,6 @@ nav {
 
 .NavBarScrolled {
   @extend .NavBar;
-  // position: fixed;
 }
 
 .Container {
@@ -169,6 +168,7 @@ $home-button-size-hover: calc($home-button-size + 0.2rem);
   text-align: center;
   position: fixed;
   right: 0;
+  top: 4rem;
   padding: 2rem 0;
   z-index: 100;
 
