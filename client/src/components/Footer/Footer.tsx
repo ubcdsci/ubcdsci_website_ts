@@ -9,10 +9,11 @@ import { SMLink } from "../../utils/config";
 import { footerData as data } from "../../utils/config";
 // import NewsletterForm from "./NewsletterForm";
 
+// Style imports.
+import styles from "./Footer.module.scss";
+
 // Media imports.
-import Icon from "../../images/logo/icon-white.png";
-
-
+import VectorLogo from "../common/VectorLogo";
 
 
 // Action event definitions.
@@ -50,62 +51,47 @@ let checkExternal = (link: SMLink) => {
  */
 const Footer = (props: any) => {
   return (
-    <footer className="footer bg-zinc-900/90">
+    <footer className={styles.Footer}>
       {/* <NewsletterForm /> */}
 
-
-      <div className="smBlock pt-3">
-        <br></br>
-        <h4 className="stayConnected text-center">Stay Connected with UBC Data Science!</h4>
-        <div className="smButtons flex justify-center	items-center">
+      <div className={styles.SocialMediaBlock}>
+        <h4 className={styles.SMText}>
+          Stay Connected with the UBC Data Science Club!
+        </h4>
+        <div className={styles.SMButtons}>
           {data.smButtons.map((link) => (
-            <a
-              key={link.key}
-              href={link.href}
-              className="iconLink m-3 hover:text-bghl text-[2.2em] delay-100"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a key={link.key} href={link.href} target="_blank" rel="noreferrer">
               {link.icon}
             </a>
           ))}
         </div>
       </div>
 
+      <div className={styles.Line} />
 
-      <div className="horizontalRule h-[1.5px] w-10/12 mx-auto bg-white
-      my-3" />
-
-
-      <div className="linksBlock">
+      <div className={styles.LinksBlock}>
         {data.columns.map((col) => (
-          <div key={col.title} className="column">
-            <h4 className="columntitle">
-              <Link
-                to={col.href}
-                className="titleLink"
-                onClick={scrollTop}
-                draggable="false"
-              >
+          <div key={col.title} className={styles.Column}>
+            <p className={styles.ColumnMain}>
+              <Link to={col.href} onClick={scrollTop} draggable="false">
                 {col.title}
               </Link>
-            </h4>
+            </p>
 
-            {col.links.map((link, i) => (
-              <p key={link.text + i}>{checkExternal(link)}</p>
+            { col.links.map((link, i) => (
+              <p key={link.text + i} className={styles.ColumnSub}>
+                {checkExternal(link)}
+              </p>
             ))}
           </div>
         ))}
       </div>
 
-
-      <div className="copyrightBlock">
-        <span className="copyright">
-          <img src={Icon} alt="icon" draggable="false" />
-          <p>
-            Copyright © {new Date().getFullYear()} UBC Data Science Club. <br />
-            All Rights Reserved.
-          </p>
+      <div className={styles.CopyrightBlock}>
+        <VectorLogo alt="" className={styles.Logo} />
+        <span>
+          &copy; {new Date().getFullYear()} UBC Data Science Club. <br />
+          All Rights Reserved.
         </span>
       </div>
     </footer>

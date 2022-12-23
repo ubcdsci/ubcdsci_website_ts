@@ -1,0 +1,118 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+
+  width: 100%;
+  height: auto;
+  background-color: rgba(var(--bg-dark), 0.9);
+  box-shadow: 0 0 10px rgba(var(--bg-dark), 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.SocialMediaBlock {
+  .SMText {
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+  }
+
+  .SMButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1rem 0;
+
+    width: 100%;
+    height: auto;
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: #fff;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        fill: rgba(var(--primary), 1);
+      }
+    }
+  }
+}
+
+.Line {
+  width: 80vw;
+  height: 1px;
+  background-color: #fff;
+  margin: 1.5rem auto;
+}
+
+.LinksBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  gap: 3rem;
+  padding: 1rem 0;
+
+  width: 100%;
+  height: auto;
+
+  a {
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: rgba(var(--primary), 1);
+    }
+  }
+
+  .Column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .ColumnMain {
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    .ColumnSub {
+      font-size: 1.2rem;
+      font-weight: 300;
+      text-transform: lowercase;
+    }
+  }
+}
+
+.CopyrightBlock {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem 0;
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-align: center;
+
+  .Logo {
+    width: 4rem;
+    height: auto;
+    fill: #fff;
+    margin-right: 1.75rem;
+  }
+}
