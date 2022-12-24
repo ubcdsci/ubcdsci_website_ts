@@ -2,16 +2,20 @@
 
 
 // Component imports.
-import ContentStrip from "../components/ContentStrip";
-import ExecProfile from "../components/ExecProfile";
-import FAQ from "../components/FAQ";
+import ContentStrip from "../../components/ContentStrip";
+import ExecProfile from "../../components/ExecProfile";
+import FAQ from "../../components/FAQ";
+
+// Style imports.
+import styles from "./AboutUs.module.scss";
 
 // Media imports.
-import MissionGif from "../images/5.gif";
-import DescriptionGif from "../images/2.gif";
+import MissionGif from "../../images/5.gif";
+import DescriptionGif from "../../images/2.gif";
 
 
 
+// TODO: Complete rework of this page.
 /**
  * Renders the About page.
  * @returns {JSX.Element} JSX Component.
@@ -82,7 +86,6 @@ const AboutUs = () => {
           content={<ExecProfile />}
         />
       </div>
-      {/* <AnimationOnScroll initiallyVisible={true} animateIn="animate__headShake"> */}
         <div id="faq">
           <ContentStrip
             flex= "flex-column"
@@ -91,9 +94,8 @@ const AboutUs = () => {
             content={<FAQ></FAQ>}
           />
         </div>
-      {/* </AnimationOnScroll> */}
     </>
   );
-}
+};
 
 export default AboutUs;

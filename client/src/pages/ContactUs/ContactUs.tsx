@@ -4,25 +4,20 @@
 // Component imports.
 
 
+// Style imports.
+import styles from "./ContactUs.module.scss";
+
 // Media imports.
 
 
 
+// TODO: Complete rework of this page.
 /**
  * Renders the Contact Us page.
  * @returns {JSX.Element} JSX Component.
  */
 const ContactUs = () => {
   return (
-    // <MovingText
-    //   type="fadeIn"
-    //   duration="1500ms"
-    //   delay="0s"
-    //   direction="normal"
-    //   timing="ease"
-    //   iteration="1"
-    //   fillMode="none"
-    // >
       <div className="contactus--content flex py-40">
         <div className="contactus w-1/3">
           <h1>
@@ -88,8 +83,7 @@ const ContactUs = () => {
           className="w-1/2"
         />
       </div>
-    // </MovingText>
   );
-}
+};
 
 export default ContactUs;

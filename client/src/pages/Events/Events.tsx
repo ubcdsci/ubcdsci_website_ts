@@ -2,16 +2,19 @@
 
 
 // Component imports.
-import { workshopData as data } from "../configs/config";
-import Event from "../components/Event";
+import { workshopData as data } from "../../configs/config";
+import Event from "../../components/Event";
+
+// Style imports.
+import styles from "./Events.module.scss";
 
 // Media imports.
-import dsci_workshop from "../images/event/dsci_workshop.png";
-import guest_speaker from "../images/event/guest_speaker.jpg";
-import guest_speaker2 from "../images/event/guest_speaker2.jpg";
+import dsci_workshop from "../../images/event/dsci_workshop.png";
+import guest_speaker from "../../images/event/guest_speaker.jpg";
+import guest_speaker2 from "../../images/event/guest_speaker2.jpg";
 
 
-
+// TODO: Complete rework of this page.
 /**
  * Renders the Events page.
  * @returns {JSX.Element} JSX Component.
