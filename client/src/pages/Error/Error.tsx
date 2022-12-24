@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 // Style imports.
-import styles from "./ErrorPage.module.scss";
+import styles from "./Error.module.scss";
 
 // Media imports.
 import ErrorImage from "../../images/logo/logo.png";
