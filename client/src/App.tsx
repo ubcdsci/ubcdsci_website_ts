@@ -15,7 +15,7 @@ import AboutUs from "./pages/AboutUs";
 import Projects from "./pages/Projects";
 import Events from "./pages/Events";
 import ContactUs from "./pages/ContactUs";
-import PageNotFound from "./pages/PageNotFound";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import SearchResult from "./pages/SearchResult";
 
 // Style imports.
@@ -25,14 +25,14 @@ import SearchResult from "./pages/SearchResult";
 
 
 const routes = [
-  { path: "/",              name: "Main",           element: <Navigate replace to="/home" /> },
-  { path: "/home",          name: "Home",           element: <Home /> },
-  { path: "/about-us",      name: "About Us",       element: <AboutUs /> },
-  { path: "/projects",      name: "Projects",       element: <Projects /> },
-  { path: "/events",        name: "Events",         element: <Events /> },
-  { path: "/contact-us",    name: "Contact Us",     element: <ContactUs /> },
-  { path: "/search-result", name: "Search Results", element: <SearchResult /> },
-  { path: "*",              name: "Page Not Found", element: <PageNotFound /> },
+  { path: "/",              name: "Main",               element: <Navigate replace to="/home" /> },
+  { path: "/home",          name: "Home",               element: <Home /> },
+  { path: "/about-us",      name: "About Us",           element: <AboutUs /> },
+  { path: "/projects",      name: "Projects",           element: <Projects /> },
+  { path: "/events",        name: "Events",             element: <Events /> },
+  { path: "/contact-us",    name: "Contact Us",         element: <ContactUs /> },
+  { path: "/search-result", name: "Search Results",     element: <SearchResult /> },
+  { path: "*",              name: "np.isnan(\"page\")", element: <ErrorPage /> },
 ];
 
 
