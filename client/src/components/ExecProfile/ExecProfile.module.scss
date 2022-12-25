@@ -1,0 +1,39 @@
+.ExecProfile {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+}
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  border-radius: 10px;
+
+  .ExecTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.25rem 0;
+    text-transform: uppercase;
+  }
+
+  .ExecName {
+    color: #ccc;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.CardActive {
+  @extend .Card;
+}
