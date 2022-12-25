@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { animateScroll as scroll } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
-import { BsList, BsX } from "react-icons/bs";
+import { BsList, BsX, BsPencilSquare } from "react-icons/bs";
 
 // Interface imports.
 import { DropDowns, Page } from "../../configs/config";
@@ -113,10 +113,21 @@ const NavBar = (props: any) => {
           </div>
           
           <div className={`${toggleNavMenu ? styles.HamburgerMenu : styles.HamburgerMenuClosed}`}>
+            <SearchBar />
+            
             <ul className={styles.NavButtonsMenu}>
               <li>
-                <SearchBar />
+                <a
+                  href="https://ubc.ca1.qualtrics.com/jfe/form/SV_1FdLWUY6hb2KIwC"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={styles.NavButtonRegister}
+                >
+                  <BsPencilSquare />
+                  <p>Register Now</p>
+                </a>
               </li>
+
               {data.map((page) => (
                 <li key={page.key}>
                   <Link
@@ -124,7 +135,8 @@ const NavBar = (props: any) => {
                     onClick={scrollTop}
                     className={(props.currentLocation === page.key ? styles.NavButtonCurrentLocation : styles.NavButton)}
                   >
-                    {page.text}
+                    {page.mobileIcon}
+                    <p>{page.text}</p>
                   </Link>
                 </li>
               ))}
@@ -155,7 +167,7 @@ const NavBar = (props: any) => {
                 </span>
               ))}
               
-              <span> 
+              <span>
                 <a
                   target="_blank"
                   href="https://ubc.ca1.qualtrics.com/jfe/form/SV_1FdLWUY6hb2KIwC"

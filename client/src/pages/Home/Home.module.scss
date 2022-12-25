@@ -1,0 +1,93 @@
+@use '../../configs/_definitions.scss' as *;
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 5vh 10vw;
+}
+
+.MainContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  padding-bottom: 4rem;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+
+    .Buttons {
+      justify-content: space-evenly;
+    }
+
+    img {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .TextBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+
+      &:nth-child(2) {
+        color: rgb(var(--primary));
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .Buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+  }
+
+  img {
+    max-width: 40vw;
+    padding-left: 5rem;
+  }
+}
+
+.SponsorContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: rgb(var(--primary));
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}

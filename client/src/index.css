@@ -28,6 +28,9 @@ code {
 :root {
   --primary: 100, 240, 100;
   --primary-dark: 50, 200, 50;
+  --primary-darker: 0, 160, 0;
   --primary-light: 160, 250, 160;
+  --primary-lighter: 200, 255, 200;
+
   --bg-dark: 10, 10, 10;
 }

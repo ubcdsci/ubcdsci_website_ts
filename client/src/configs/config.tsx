@@ -1,5 +1,8 @@
 // Library imports.
-import { BsDiscord, BsInstagram, BsFacebook } from "react-icons/bs";
+import {
+  BsDiscord, BsInstagram, BsFacebook,
+  BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset, BsFillPersonBadgeFill, BsPeople
+} from "react-icons/bs";
 
 // Media imports.
 import bomberland from "../images/bomberland.gif";
@@ -33,6 +36,7 @@ export interface Page {
   key: string;
   text: string;
   href: string;
+  mobileIcon?: JSX.Element;
   dropDowns?: DropDowns[];
 }
 
@@ -42,6 +46,7 @@ export const navbarData: Page[] = [
     key: "About Us",
     text: "About Us",
     href: "/about-us",
+    mobileIcon: <BsPeopleFill />,
     dropDowns: [
       { text: "Club Description", href: "#clubDescription" },
       { text: "Mission Statement", href: "#missionStatement" },
@@ -63,6 +68,7 @@ export const navbarData: Page[] = [
     key: "Events",
     text: "Events",
     href: "/events",
+    mobileIcon: <BsCalendar3 />,
     dropDowns: [
       { text: "Ongoing Events", href: "#ongoingEvents" },
       { text: "Upcoming Events", href: "#upcomingEvents" },
@@ -73,6 +79,7 @@ export const navbarData: Page[] = [
     key: "Projects",
     text: "Projects",
     href: "/projects",
+    mobileIcon: <BsJournalText />,
     dropDowns: [
       { text: "Bomberland", href: "#bomberland" },
       { text: "Deepfake Detection", href: "#deepfake-detection" },
@@ -85,6 +92,7 @@ export const navbarData: Page[] = [
   //   key: "Membership",
   //   text: "Membership",
   //   href: "/membership",
+  //   mobileIcon: <BsFillPersonBadgeFill />,
   //   dropDowns: [
   //     { text: "Information", href: "#information" },
   //     { text: "Benefits", href: "#benefits" },
@@ -94,6 +102,7 @@ export const navbarData: Page[] = [
   //   key: "Partners",
   //   text: "Partners",
   //   href: "/partners",
+  //   mobileIcon: <BsPeople />,
   //   dropDowns: [
   //     { text: "Affiliates", href: "#affiliates" },
   //     { text: "Sponsors", href: "#sponsors" },
@@ -103,6 +112,7 @@ export const navbarData: Page[] = [
     key: "Contact Us",
     text: "Contact Us",
     href: "/contact-us",
+    mobileIcon: <BsHeadset />,
     // dropDowns: [],
   },
 ];
@@ -199,7 +209,7 @@ export const footerData: {smButtons: SMButton[], columns: Column[]} = {
     //     { text: "Affiliates", href: "/partners#affiliates" },
     //     { text: "Sponsors", href: "/partners#sponsors" },
     //   ],
-    // }
+    // },
     {
       title: "Contact Us",
       href: "/contact-us",

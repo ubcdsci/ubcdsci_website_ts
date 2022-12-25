@@ -15,9 +15,10 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-
   height: 4.25rem;
-  @extend .DarkBackground;
+  
+  padding-top: 1.5rem;
+  transition: all 0.25s ease-in-out;
 
   * {
     font-family: 'Roboto Mono', sans-serif;
@@ -26,6 +27,10 @@ nav {
 
 .NavBarScrolled {
   @extend .NavBar;
+  @extend .DarkBackground;
+
+  padding-top: 0;
+  transition: all 0.25s ease-in-out;
 }
 
 .Container {
@@ -70,6 +75,10 @@ $home-button-size-hover: calc($home-button-size + 0.2rem);
 }
 
 .NavButton {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
   color: white;
   text-decoration: none;
   transition: all 0.25s ease-in-out;
@@ -78,11 +87,26 @@ $home-button-size-hover: calc($home-button-size + 0.2rem);
     color: rgb(var(--primary-light));
     transition: all 0.2s ease-in-out;
   }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .NavButtonCurrentLocation {
   @extend .NavButton;
   color: rgb(var(--primary-light));
+}
+
+.NavButtonRegister {
+  @extend .NavButton;
+  font-weight: 600;
+
+  &:hover {
+    color: white;
+    transition: all 0.2s ease-in-out;
+  }
 }
 
 .RegistrationButton {
@@ -165,8 +189,8 @@ $home-button-size-hover: calc($home-button-size + 0.2rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   position: fixed;
+  gap: 2rem;
   right: 0;
   top: 4rem;
   padding: 2rem 0;
@@ -174,8 +198,12 @@ $home-button-size-hover: calc($home-button-size + 0.2rem);
 
   width: 100vw;
   height: 100vh;
-  max-height: 100vh;
   transition: transform 0.3s ease-in-out;
+
+  input {
+    width: 18rem !important;
+    margin-left: 2rem;
+  }
 
   @extend .DarkBackground;
 }
@@ -188,7 +216,11 @@ $home-button-size-hover: calc($home-button-size + 0.2rem);
 .NavButtonsMenu {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-right: 1rem;
   gap: 2rem;
   font-size: larger;
+
+  p {
+    min-width: 10rem;
+  }
 }
