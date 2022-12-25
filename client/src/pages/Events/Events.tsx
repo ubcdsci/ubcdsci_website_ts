@@ -1,9 +1,6 @@
-// Library imports.
-
-
 // Component imports.
 import { workshopData as data } from "../../configs/config";
-import Event from "../../components/Event";
+import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill } from "react-icons/bs";
 
 // Style imports.
 import styles from "./Events.module.scss";
@@ -14,6 +11,50 @@ import guest_speaker from "../../images/event/guest_speaker.jpg";
 import guest_speaker2 from "../../images/event/guest_speaker2.jpg";
 
 
+/**
+ * Renders an Event post.
+ * @param {*} props Properties passed to the component.
+ * @returns {JSX.Element} JSX Component.
+ */
+const EventPost = (props: {title : string, date : Date, img : string, body : string}) => {
+  const date = props.date;
+  const postUrl = `/events/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}/${props.title.toLowerCase().replace(/ /g, "-")}`;
+
+  return (
+    <div className={styles.EventPost}>
+      <div className={styles.Options}>
+        <BsLink45Deg className={styles.Copy} title="Copy Event Details" />
+        {/* <BsTrashFill className={styles.Delete} title="Delete Post" />
+        <BsPencilFill className={styles.Edit} title="Edit Post" /> */}
+      </div>
+
+      <div className={styles.LineDividerTop} />
+
+      <h1 className={styles.Title}>
+        <a href={postUrl} rel="noreferrer">{props.title}</a>
+      </h1>
+
+      <div className={styles.Date} title="Add to Calendar">
+        <BsCalendarEvent />
+        {props.date.toLocaleDateString()}
+      </div>
+
+      { props.img && <img alt="" src={props.img} /> }
+
+      <div className={styles.EventBody}>
+        {props.body}
+      </div>
+
+      <div className={styles.MoreButton}>
+        <a href={postUrl} target="_blank" rel="noreferrer">Learn More</a>
+        <BsChevronDoubleRight />
+      </div>
+
+      <div className={styles.LineDividerBottom} />
+    </div>
+  );
+};
+
 // TODO: Complete rework of this page.
 /**
  * Renders the Events page.
@@ -21,11 +62,66 @@ import guest_speaker2 from "../../images/event/guest_speaker2.jpg";
  */
 const Events = () => {
   return (
-    <>
-      <div id="upcomingEvents"></div>
+    <div className={styles.Events}>
+      <div id="upcomingEvents" className={styles.Upcoming}>
+        <EventPost
+          title="Simple Test Post"
+          date={new Date()}
+          body={`
+            Join us every other Sunday to learn from data science workshops hosted by our club president on our Discord server!
+            Come for an hour to learn more about data science and machine learning techniques!
+          `}
+          img={dsci_workshop}
+        />
 
-      <div id="pastEvents">
-        <Event
+        <EventPost
+          title="Interview: Becoming a DATA SCIENTIST"
+          date={new Date()}
+          body={`
+            Our club is presenting a member-exclusive event *Panel Interview: Becoming a Data Scientist*.
+            Five data science professionals are invited to share their personal journeys in navigating their career paths to where they are today, in data science.
+            Come meet, eat pizza and ask questions to our amazing panel of data scientists:
+          `}
+          img={guest_speaker}
+        />
+      </div>
+
+      <div id="ongoingEvents" className={styles.Ongoing}>
+        {/* <Event
+          title="Data Science Workship Series!!!"
+          date="June 11. 2022"
+          body={`
+            Join us every other Sunday to learn from data science workshops hosted by our club presidenton our discord server!
+            Come for an hour to learn more about data science and machine learning techniques!
+          `}
+          img={dsci_workshop}
+        >
+          <p style={{ fontWeight: "bold" }}>Upcoming and Previous Workshops:</p>
+          <table style={{ width: "90%" }}>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Topic</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((workshop) => {
+                return (
+                  <tr key={workshop.date + workshop.topic}>
+                    <td style={{ paddingRight: "1rem", marginLeft: "1rem" }}>
+                      {workshop.date}
+                    </td>
+                    <td style={{ padding: "3px" }}>{workshop.topic}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </Event> */}
+      </div>
+
+      <div id="pastEvents" className={styles.Past}>
+        {/* <Event
           title="Interview: Becoming a DATA SCIENTIST"
           date="March 29. 2022"
           body={`
@@ -58,6 +154,7 @@ const Events = () => {
           </p>
           <p style={{ fontWeight: "bold" }}>Free pizza and drinks provided!</p>
         </Event>
+
         <Event
           title="JOIN OUR EXEC TEAM!"
           date="March 24. 2022"
@@ -71,43 +168,9 @@ const Events = () => {
             If you have any questions, feel free to DM us on any platform. We're
             excited to see and meet you all soon!
           </p>
-        </Event>
+        </Event> */}
       </div>
-
-      <div id="ongoingEvents">
-        <Event
-          title="Data Science Workship Series!!!"
-          date="June 11. 2022"
-          body={`
-            Join us every other Sunday to learn from data science workshops hosted by our club presidenton our discord server!
-            Come for an hour to learn more about data science and machine learning techniques!
-          `}
-          img={dsci_workshop}
-        >
-          <p style={{ fontWeight: "bold" }}>Upcoming and Previous Workshops:</p>
-          <table style={{ width: "90%" }}>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Topic</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((workshop) => {
-                return (
-                  <tr key={workshop.date + workshop.topic}>
-                    <td style={{ paddingRight: "1rem", marginLeft: "1rem" }}>
-                      {workshop.date}
-                    </td>
-                    <td style={{ padding: "3px" }}>{workshop.topic}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </Event>
-      </div>
-    </>
+    </div>
   );
 }
 
