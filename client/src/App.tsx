@@ -61,7 +61,7 @@ const App = () => {
       <BrowserRouter>
         <Background
           src="https://images5.alphacoders.com/115/1156667.png"
-          opacity={0.75}
+          opacity={0.75}></Background>
 
         <Routes>
           {routes.map(({ path, name, element }) => (
