@@ -1,6 +1,6 @@
 // Library imports.
 import { useState } from "react";
-import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
+import { BsFillCaretDownFill } from "react-icons/bs";
 
 // Component imports.
 
@@ -29,8 +29,8 @@ const Accordion = (props: {item: {question : any, answer : any}, index: number})
           {props.item.question}
         </div>
 
-        <div className={styles.AccordionButton}>
-          { isOpen ? <BsFillCaretUpFill /> : <BsFillCaretDownFill /> }
+        <div className={isOpen ? styles.ButtonUp : styles.ButtonDown}>
+          <BsFillCaretDownFill />
         </div>
       </div>
     

@@ -297,14 +297,144 @@ export interface FAQContent {
 /*
   {
     question: "",
-    answer: ``,
+    answer:
+      <blockquote>
+      </blockquote>
   },
 */
 export const faqData : FAQContent[] = [
   {
-    question: "What is Data Science?",
-    answer: `No`,
+    question: "Why join the UBC Data Science Club?",
+    answer:
+      <blockquote>
+        The UBC Data Science Club is a great place to learn about data science and meet other students who are interested in the field.
+        We host a variety of events, including <code>workshops, guest speakers, and datathons</code>.
+        We also have a number of projects that you can get involved with, and we are always looking for new members to join! 📈
+
+        <br/><br/>
+
+        By joining the club, you will have the opportunity to:
+        <ol style={{listStyle: "decimal", marginLeft: "2rem", marginTop: "0.25rem"}}>
+          <li>Learn data science through <code>team-based projects</code> and <code>competitions</code></li>
+          <li>Build <code>something great</code>, regardless of your level of experience</li>
+          <li>Gain <code>useful</code> and <code>employable</code> skills in data science</li>
+          <li>Learn about <code>cutting-edge techniques</code> in data science and their <code>applications</code></li>
+          <li>Develop your <code>teamwork</code> & <code>communication</code> skills</li>
+        </ol>
+      </blockquote>
   },
+  {
+    question: "How do I register to become a member?",
+    answer:
+      <blockquote>
+        You can register to become a member by filling out the&nbsp;
+        <a
+          href='https://ubc.ca1.qualtrics.com/jfe/form/SV_1FdLWUY6hb2KIwC'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+         membership form
+        </a>.
+
+        <br /><br />
+
+        Be ready to pay a <code>$8 membership fee</code> (membership is good for <code>one school year</code>). 💵
+      </blockquote>
+  },
+  {
+    question: "I have no experience in data science. Can I still participate?",
+    answer:
+      <blockquote>
+        Yes, you absolutely can! There's nothing from stopping you! 😄
+        
+        <br /><br />
+
+        We welcome students of <code>all skill levels and backgrounds</code> into our club.
+        We believe that data science can be best learned by applying it through hands-on experience.
+        So go on and join a project group today and start learning!
+      </blockquote>
+  },
+  {
+    question: "How can I join a project?",
+    answer:
+      <blockquote>
+        To join a project group, first sign up through our&nbsp;
+        <a
+          href='https://ubc.ca1.qualtrics.com/jfe/form/SV_1FdLWUY6hb2KIwC'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          registration link
+        </a>,
+        then fill out the pinned form found in the <code>#announcement</code> channel on our&nbsp;
+        <a
+          href='https://discord.gg/4AycB34acK'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Discord Server
+        </a>. ✏️
+        
+        <br /><br />
+
+        Learn more about our ongoing projects&nbsp;
+        <a
+          href='/projects'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          here
+        </a>.
+      </blockquote>
+  },
+  {
+    question: "What does a project lead do and how do I become one?",
+    answer:
+      <blockquote>
+        Project leads are responsible for two main things:
+        <ol style={{listStyle: "decimal", marginLeft: "2rem", marginTop: "0.25rem", marginBottom: "0.25rem"}}>
+          <li><code>Advancing the progress of a project</code> / competition by managing or co-managing a team of members on the project, and</li>
+          <li><code>Interfacing with the executive team</code> to ensure that the goals are in line with the broader mission of the team.</li>
+        </ol>
+        After participating as an active member of a project for at least <code>one semester</code>,
+        members can become a lead for their own project, provided a recommendation by their project lead. ⚙️
+
+        <br /><br />
+
+        If you are interested in becoming a project lead and starting a project of your own,
+        please fill out the project creation form, which can be accessed in the <code>#projects-general</code> channel on our&nbsp;
+        <a
+          href='https://discord.gg/4AycB34acK'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Discord Server
+        </a>.
+      </blockquote>
+  },
+  {
+    question: "Are the club projects open source?",
+    answer:
+      <blockquote>
+        For the time being, all project source code will remain <code>closed</code>.
+        
+        <br /><br />
+
+        In the future we may allow some of our completed projects to become open source,
+        but due to having collaborations with other organizations on projects, it will be on a <code>per-project basis</code>.
+        
+        <br /><br />
+        
+        For an up-to-date view of our public works, check out our&nbsp;
+        <a
+          href='https://github.com/ubcdsci'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          GitHub page
+        </a>. 📑
+      </blockquote>
+  }
 ];
 
 /* -------------------------------------------------------------------------- */
