@@ -1,3 +1,5 @@
+@use '../../configs/definitions' as *;
+
 .Events {
   display: flex;
   flex-direction: column;
@@ -19,16 +21,8 @@
   flex-direction: column;
   justify-content: center;
   padding: 1rem 3rem;
-  border-radius: 15px;
-  
-  background-color: rgba(var(--bg-mid), 0.1);
-  backdrop-filter: blur(3px);
-  transition: all 0.25s ease-in-out;
 
-  &:hover {
-    backdrop-filter: blur(10px);
-    transition: all 0.25s ease-in-out;
-  }
+  @extend .LightBlock;
 
   .LineDividerTop,
   .LineDividerBottom {
