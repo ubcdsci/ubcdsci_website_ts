@@ -26,7 +26,7 @@ const Projects = () => {
       </h1>
       <h1 className="subheading text-center opacity-80
       font-bold my-3">Click on the cards to learn more...</h1>
-      <div className="projectsGrid grid lg:grid-cols-2 justify-evenly md:grid-cols-1">
+      <div className="projectsGrid grid md:grid-cols-1 lg:grid-cols-2 justify-evenly gap-10 sm:px-0 md:px-10">
         {data.map((project, index) => (
             <Card
               key={index}
