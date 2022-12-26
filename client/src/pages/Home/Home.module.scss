@@ -13,8 +13,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem;
-  padding-bottom: 4rem;
+  min-height: calc(100vh - 4rem);
+  padding: 0 3rem;
+  margin-top: -5vh;
 
   @media screen and (max-width: 1024px) {
     flex-direction: column;
@@ -61,6 +62,7 @@
   }
 }
 
+.RecentEvents,
 .SponsorContent {
   display: flex;
   flex-direction: column;

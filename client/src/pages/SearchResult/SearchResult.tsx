@@ -2,11 +2,12 @@
 
 
 // Style imports.
-
+import styles from "./SearchResult.module.scss";
 
 // Media imports.
 
 
+// TODO: Get started on this page.
 /**
  * Renders the Search Result page.
  * @returns {JSX.Element} JSX Component.
@@ -21,6 +22,6 @@ const SearchResult = () => {
       </div>
     </>
   );
-}
+};
 
 export default SearchResult;

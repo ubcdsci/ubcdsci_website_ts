@@ -4,10 +4,14 @@
 // Component imports.
 
 
+// Style imports.
+import styles from "./ContactUs.module.scss";
+
 // Media imports.
 
 
 
+// TODO: Complete rework of this page.
 /**
  * Renders the Contact Us page.
  * @returns {JSX.Element} JSX Component.
@@ -88,8 +92,7 @@ const ContactUs = () => {
           className="lg:w-1/2 bg-white w-full h-96 lg:h-auto"
         />
       </div>
-    // </MovingText>
   );
-}
+};
 
 export default ContactUs;

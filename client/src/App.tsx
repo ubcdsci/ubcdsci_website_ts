@@ -11,12 +11,12 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 // Pages imports.
 import Home from "./pages/Home/Home";
-import AboutUs from "./pages/AboutUs";
-import Projects from "./pages/Projects";
-import Events from "./pages/Events";
-import ContactUs from "./pages/ContactUs";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import Projects from "./pages/Projects/Projects";
+import Events from "./pages/Events/Events";
+import ContactUs from "./pages/ContactUs/ContactUs";
 import ErrorPage from "./pages/Error/Error";
-import SearchResult from "./pages/SearchResult";
+import SearchResult from "./pages/SearchResult/SearchResult";
 
 
 const routes = [

@@ -49,27 +49,23 @@ nav {
   }
 }
 
-$home-button-size: 2.5rem;
-$home-button-size-hover: calc($home-button-size + 0.2rem);
 .HomeButton {
-  width: $home-button-size;
-  height: $home-button-size;
+  width: 2.5rem;
+  height: 2.5rem;
   fill: white;
   transition: all 0.25s ease-in-out;
 
   &:hover {
-    width: $home-button-size-hover;
-    height: $home-button-size-hover;
+    scale: 1.1;
     fill: rgb(var(--primary));
     filter: drop-shadow(0 0 10px rgba(#fff, 0.2));
-    transition: all 0.2s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 }
 
 .HomeButtonCurrentLocation {
   @extend .HomeButton;
-  width: $home-button-size-hover;
-  height: $home-button-size-hover;
+  scale: 1.1;
   fill: rgb(var(--primary));
   filter: drop-shadow(0 0 10px rgba(#fff, 0.2));
 }

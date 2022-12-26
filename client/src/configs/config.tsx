@@ -287,6 +287,26 @@ export const execMembersData = [
   },
 ];
 
+// Interface definitions for faq content.
+export interface FAQContent {
+  question: any;
+  answer: any;
+}
+
+// Data for the FAQ section.
+/*
+  {
+    question: "",
+    answer: ``,
+  },
+*/
+export const faqData : FAQContent[] = [
+  {
+    question: "What is Data Science?",
+    answer: `No`,
+  },
+];
+
 /* -------------------------------------------------------------------------- */
 /*                                 PAGES DATA                                 */
 /* -------------------------------------------------------------------------- */

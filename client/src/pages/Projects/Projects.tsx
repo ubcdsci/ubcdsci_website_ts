@@ -2,13 +2,17 @@
 
 
 // Component imports.
-import { projectsListData as data } from "../configs/config";
-import Card from "../components/Card";
+import { projectsListData as data } from "../../configs/config";
+import Card from "../../components/Card";
+
+// Style imports.
+import styles from "./Projects.module.scss";
 
 // Media imports.
 
 
 
+// TODO: Complete rework of this page.
 /**
  * Renders the Projects page.
  * @returns {JSX.Element} JSX Component.
@@ -24,15 +28,6 @@ const Projects = () => {
       font-bold my-3">Click on the cards to learn more...</h1>
       <div className="projectsGrid grid lg:grid-cols-2 justify-evenly md:grid-cols-1">
         {data.map((project, index) => (
-          // <MovingText
-          //   type="fadeIn"
-          //   duration="2000ms"
-          //   delay="0s"
-          //   direction="normal"
-          //   timing="ease"
-          //   iteration="1"
-          //   fillMode="none"
-          // >
             <Card
               key={index}
               title={project.title}
@@ -66,11 +61,10 @@ const Projects = () => {
                 </a>
               </p>
             </Card>
-          // </MovingText>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default Projects;
