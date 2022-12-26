@@ -35,7 +35,7 @@ const ErrorPage = () => {
         <p>
           Looks like we have a missing page or something.<br />
           Let's just go ahead and set&nbsp;
-          <span>na.rm=TRUE</span>... <br />
+          <code>na.rm=TRUE</code>... <br />
           ...and voila! A nice&nbsp;
           <Link to="/home" onClick={scrollTop}>clean page</Link> is waiting for you!
         </p>
