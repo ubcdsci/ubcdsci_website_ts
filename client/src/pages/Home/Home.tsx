@@ -3,6 +3,7 @@ import { useMediaQuery } from "react-responsive";
 
 // Component imports.
 import GreenButton from "../../components/GreenButton";
+import CarouselFrame from "../../components/CarouselFrame";
 
 // Style imports.
 import styles from "./Home.module.scss";
@@ -17,6 +18,7 @@ import titleImage from "../../images/1.gif";
  */
 const Home = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
+  const events = false;
 
   return (
     <div className={styles.Home}>
@@ -41,6 +43,22 @@ const Home = () => {
         
         { !isMobile && <img src={titleImage} alt="title" /> }
       </div>
+
+      <div className={styles.RecentEvents}>
+        <h1>Recent Events</h1>
+
+        <div className={styles.Events}>
+          { events ?
+            <>
+              
+            </>
+            :
+            <p>No events found.</p>
+          }
+        </div>
+      </div>
+
+      <CarouselFrame />
 
       <div className={styles.SponsorContent}>
           <h1>Become a Sponsor!</h1>
