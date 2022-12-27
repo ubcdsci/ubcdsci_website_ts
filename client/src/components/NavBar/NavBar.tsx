@@ -23,13 +23,13 @@ import VectorLogo from "../VectorLogo";
 const checkExternal = (link: DropDowns, pageLink: string) => {
   if (link.external) {
     return (
-      <a href={link.href} className="ddLink" target="_blank" rel="noreferrer">
+      <a href={link.href} target="_blank" rel="noreferrer">
         {link.text}
       </a>
     );
   } else {
     return (
-      <Link smooth to={`${pageLink}${link.href}`} className="ddLink">
+      <Link smooth to={`${pageLink}${link.href}`}>
         {link.text}
       </Link>
     );

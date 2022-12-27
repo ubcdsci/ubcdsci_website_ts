@@ -1,5 +1,5 @@
 // Library imports.
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Component imports.
 import { execMembersData as data } from "../../configs/config";
@@ -12,27 +12,65 @@ import profileDefault from "../../images/profileDefault.png";
 
 
 /**
+ * Creates a Card component.
+ * @param {number} index Data index.
+ * @param {boolean} isCurrent Whether the card is isCurrent.
+ * @returns {JSX.Element} JSX Component.
+ */
+const Card = (props: { index : number, isCurrent? : boolean, onClick? : any }) => {
+  return (
+    <div className={props.isCurrent ? styles.CardActive : styles.Card} onClick={props.onClick}>
+      <img src={data[props.index].image || profileDefault} alt={data[props.index].name} />
+
+      <div className={styles.CardContent}>
+        <h1 className={styles.ExecTitle}>{data[props.index].title}</h1>
+        <h1 className={styles.ExecName}>{data[props.index].name}</h1>
+        { props.isCurrent &&
+          <blockquote>{data[props.index].description}</blockquote>
+        }
+      </div>
+    </div>
+  );
+};
+
+/**
  * Renders an ExecProfile.
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
 const ExecProfile = (props: any) => {
-  const [imageIndex, setImageIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex]       = useState(0);
+  const [nextIndex, setNextIndex]       = useState(0);
+
+  const previous = () => {
+    (currentIndex === 0) ?
+      setCurrentIndex(data.length - 1) : setCurrentIndex(currentIndex - 1);
+  };
+
+  const next = () => {
+    (currentIndex === data.length - 1) ?
+      setCurrentIndex(0) : setCurrentIndex(currentIndex + 1);
+  };
+
+  useEffect(() => {
+    if (currentIndex === 0) {
+      setPrevIndex(data.length - 1);
+      setNextIndex(currentIndex + 1);
+    } else if (currentIndex === data.length - 1) {
+      setPrevIndex(currentIndex - 1);
+      setNextIndex(0);
+    } else {
+      setPrevIndex(currentIndex - 1);
+      setNextIndex(currentIndex + 1);
+    }
+  }, [currentIndex]);
 
   return (
     <div className={styles.ExecProfile}>
-      { data.map((member, index) => (
-        <div key={index} className={index === imageIndex ? styles.CardActive : styles.Card}>
-          <img src={member.image || profileDefault} alt={member.name} />
-
-          <div className={styles.CardContent}>
-            <h1 className={styles.ExecTitle}>{member.title}</h1>
-            <h1 className={styles.ExecName}>{member.name}</h1>
-            <blockquote>{member.description}</blockquote>
-            {/* { index === imageIndex && <blockquote>{member.description}</blockquote> } */}
-          </div>
-        </div>
-      ))}
+      <Card index={prevIndex} onClick={previous} />
+      <Card index={currentIndex} isCurrent={true} />
+      <Card index={nextIndex} onClick={next} />
     </div>
   );
 };
