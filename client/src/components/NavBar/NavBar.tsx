@@ -5,8 +5,8 @@ import { animateScroll as scroll } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 import { BsList, BsX, BsPencilSquare } from "react-icons/bs";
 
-// Interface imports.
-import { DropDowns, Page } from "../../configs/config";
+// Type declarations imports.
+import { DropDowns, Page } from "../../declarations";
 
 // Style imports.
 import styles from "./NavBar.module.scss";

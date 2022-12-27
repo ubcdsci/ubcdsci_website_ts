@@ -4,6 +4,13 @@ import {
   BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset, BsFillPersonBadgeFill, BsPeople
 } from "react-icons/bs";
 
+// Type declarations imports.
+import { 
+  Page,
+  SMButton, Column,
+  ExecMemberContent, FAQContent, ProjectContent, WorkshopContent,
+} from "../declarations";
+
 // Media imports.
 import bomberland from "../images/bomberland.gif";
 import fishnet from "../images/Fishnet.jpg";
@@ -23,22 +30,6 @@ import FAQImage from "../images/3.gif";
 /* -------------------------------------------------------------------------- */
 
 /* ------------------------------- NAVBAR DATA ------------------------------ */
-// Interface definition for dropdowns.
-export interface DropDowns {
-  href: string;
-  text: string;
-  external?: boolean;
-  dropDowns?: DropDowns[];
-}
-
-// Interface definition for pages.
-export interface Page {
-  key: string;
-  text: string;
-  href: string;
-  mobileIcon?: JSX.Element;
-  dropDowns?: DropDowns[];
-}
 
 // Data for loading the navigation bar.
 export const navbarData: Page[] = [
@@ -118,29 +109,9 @@ export const navbarData: Page[] = [
 ];
 
 /* ------------------------------ FOOTER DATA ------------------------------- */
-// Interface defintions for social media buttons.
-export interface SMButton {
-  key: string;
-  icon: JSX.Element;
-  href: string;
-}
-
-// Data for loading the social media links.
-export interface SMLink {
-  text: string;
-  href: string;
-  external?: boolean;
-}
-
-// Interface definitions for columns.
-export interface Column {
-  title: string;
-  href: string;
-  links: SMLink[];
-}
 
 // Data for loading the footer bar.
-export const footerData: {smButtons: SMButton[], columns: Column[]} = {
+export const footerData: { smButtons: SMButton[], columns: Column[] } = {
   smButtons: [
     {
       key: "Discord",
@@ -219,8 +190,9 @@ export const footerData: {smButtons: SMButton[], columns: Column[]} = {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                               COMPONENTS DATA                              */
+/*                                 PAGES DATA                                 */
 /* -------------------------------------------------------------------------- */
+
 // Data for the executive team section.
 /*
   {
@@ -232,13 +204,13 @@ export const footerData: {smButtons: SMButton[], columns: Column[]} = {
     image: "",
   },
 */
-export const execMembersData = [
+export const execMembersData : ExecMemberContent[] = [
   {
     title: "President",
     name: "James Ross",
     description: `
-    I’m a third year student in computer science leading the club in order to share my interest in data science with other students!
-
+      I'm a third year student in computer science leading the club in order to share
+      my interest in data science with other students!
     `,
     image: james_profile,
   },
@@ -246,7 +218,8 @@ export const execMembersData = [
     title: "Treasurer",
     name: "Linda Liu",
     description: `
-    Hi, I’m Linda and I study CS at UBC. I’m excited to learn more about data science and help create opportunities for others to learn too.
+      Hi, I'm Linda and I study CS at UBC.
+      I'm excited to learn more about data science and help create opportunities for others to learn too.
     `,
     image: FAQImage,
   },
@@ -254,8 +227,8 @@ export const execMembersData = [
     title: "Marketing",
     name: "Bryan Chang",
     description: `
-    My name is Bryan and I’m a second year student in science. I joined because applied math is cool and I think the club logo is pretty dope.
-
+      My name is Bryan and I'm a second year student in science.
+      I joined because applied math is cool and I think the club logo is pretty dope.
     `,
     image: bryan_profile,
   },
@@ -263,8 +236,8 @@ export const execMembersData = [
     title: "Outreach",
     name: "Aditya Varma",
     description: `
-    My name is Aditya Varma and I’m a 2nd year Chemical and Biological Engineer. I am a Big Data and AI-ML enthusiast who loves to work and build new projects.
-
+      My name is Aditya Varma and I'm a 2nd year Chemical and Biological Engineer.
+      I am a Big Data and AI-ML enthusiast who loves to work and build new projects.
     `,
     image: aditya_profile,
   },
@@ -272,8 +245,10 @@ export const execMembersData = [
     title: "Event Planning",
     name: "Jaskeerat Sarin Singh",
     description: `
-    I'm a 2nd year student in Computer Science. I am passionate about math and machine learning. My research interests are trustworthiness and reliability of ML, and computer vision. Feel free to reach out anytime! 
-
+      I'm a 2nd year student in Computer Science.
+      I am passionate about math and machine learning.
+      My research interests are trustworthiness and reliability of ML, and computer vision.
+      Feel free to reach out anytime!
     `,
     image: jaskeerat_profile,
   },
@@ -281,17 +256,12 @@ export const execMembersData = [
     title: "Webmaster",
     name: "Marcus Lai",
     description: `
-      I'm a second year student in CS and Math. I'm interested in data and optimization, lmk if you want to collaborate on something!
+      I'm a second year student in CS and Math.
+      I'm interested in data and optimization, lmk if you want to collaborate on something!
     `,
     image: marcus_profile,
   },
 ];
-
-// Interface definitions for faq content.
-export interface FAQContent {
-  question: any;
-  answer: any;
-}
 
 // Data for the FAQ section.
 /*
@@ -437,29 +407,28 @@ export const faqData : FAQContent[] = [
   }
 ];
 
-/* -------------------------------------------------------------------------- */
-/*                                 PAGES DATA                                 */
-/* -------------------------------------------------------------------------- */
 // Data for the projects page.
 /*
   {
     title: "",
-    src: null,
+    id: "",
+    image: null,
     concepts: "",
     tech: "",
     lead: "",
     body: `
       
     `,
+    tags: [],
     competition_info: "",
     github: "https://github.com/ubcdsci/"
   }
 */
-export const projectsListData = [
+export const projectsListData : ProjectContent[] = [
   {
     title: "Bomberland",
     id: "bomberland",
-    src: bomberland,
+    image: bomberland,
     concepts: "Teaching a computer to play games better than a human",
     tech: "Python, PyTorch, more TBD",
     body: `
@@ -467,25 +436,30 @@ export const projectsListData = [
       With applications to robotics, healthcare, and even the stock market, bomberland hopes to look at the fundamentals of reinforcement learning and gain a better understanding of this promising area of research.
       To do so, the bomberland project involves teaching a model to compete in a 2D grid world against multiple other agents.
     `,
+    tags: [],
     competition_info: "https://www.gocoder.one/bomberland",
     github: "https://github.com/ubcdsci/bomberland",
   },
   {
     title: "Deepfake Detection",
     id: "deepfake-detection",
-    src: deepfake,
+    image: deepfake,
     concepts: "Differentiating between real and fake humans",
-    tech: "Python, pytorch, opencv",
-    body: `Despite the advancement of editing software, videos of people have been notoriously difficult to fake. That is, until now. Modern machine learning algorithms have made it simple for anyone to create deepfakes, or hyper-realistic videos where a human has been altered to look like somebody entirely different. This technology has been for anything from creating advertisements containing celebrities to fake political campaigns (https://www.technologyreview.com/2020/12/24/1015380/best-ai-deepfakes-of-2020/). How can we differentiate between the real and the fake? This project aims to answer that question by designing computer vision techniques to counteract this technology.
-
-
+    tech: "Python, PyTorch, OpenCV",
+    body: `
+      Despite the advancement of editing software, videos of people have been notoriously difficult to fake.
+      That is, until now. Modern machine learning algorithms have made it simple for anyone to create deepfakes, or hyper-realistic videos where a human has been altered to look like somebody entirely different.
+      This technology has been for anything from creating advertisements containing celebrities to fake political campaigns (https://www.technologyreview.com/2020/12/24/1015380/best-ai-deepfakes-of-2020/).
+      How can we differentiate between the real and the fake?
+      This project aims to answer that question by designing computer vision techniques to counteract this technology.
     `,
+    tags: [],
     github: "https://github.com/ubcdsci/deepfake-detection",
   },
   {
     title: "Fishnet",
     id: "fishnet",
-    src: fishnet,
+    image: fishnet,
     concepts: "Applying computer vision to the fishing industry",
     tech: "Python, PyTorch, OpenCV",
     body: `
@@ -493,12 +467,13 @@ export const projectsListData = [
       By applying computer vision techniques to on-board cameras on fishing boats, members of the fishnet project will help design methods to locate and identify fish within video feeds.
       Longer-term, more lofty goals for this project include tracking fish through time and identifying bycatch, especially endangered species.
     `,
+    tags: [],
     github: "https://github.com/ubcdsci/nethack-rl",
   },
   {
     title: "Human Pose Estimation",
     id: "human-pose-estimation",
-    src: HPE2,
+    image: HPE2,
     concepts: "Computer Vision, Human-Computer Interaction",
     tech: "Python, PyTorch, OpenCV",
     body: `
@@ -506,18 +481,22 @@ export const projectsListData = [
       Human pose estimation is the data science club project that investigates this interaction, implementing state of the art human pose estimation algorithms to extract pose information from image and video feeds.
       In the longer term, we will be exploring ways to apply these algorithms to augmented reality and similar problems.
     `,
+    tags: [],
     github: "https://github.com/ubcdsci/pose",
   },
   {
     title: "Spaces",
     id: "spaces",
-    src: spaces,
+    image: spaces,
     concepts: "Understanding and predicting the usage of public spaces",
-    tech: "Python, spaCy, tweepy, more TBD",
-    body: `Twitter stores a lot of data. As of 2017, the amount of data stored across all of their clusters totalled over 500 PB. With millions of tweets being added to this total each day, the spaces project aims to gain real time insights into public spaces worldwide by leveraging this data. Members who are part of the spaces project implement state of the art natural language processing methods and apply them to the content of tweets in order to build real time heatmaps of activity across regions. Future goals include building activity profiles of regions and predicting activity into the future.
-
-      
+    tech: "Python, spaCy, tweepy",
+    body: `
+      Twitter stores a lot of data. As of 2017, the amount of data stored across all of their clusters totalled over 500 PB.
+      With millions of tweets being added to this total each day, the spaces project aims to gain real time insights into public spaces worldwide by leveraging this data.
+      Members who are part of the spaces project implement state of the art natural language processing methods and apply them to the content of tweets in order to build real time heatmaps of activity across regions.
+      Future goals include building activity profiles of regions and predicting activity into the future.
     `,
+    tags: [],
     github: "https://github.com/ubcdsci/",
   },
 ];
@@ -529,7 +508,7 @@ export const projectsListData = [
     topic: ""
   },
 */
-export const workshopData = [
+export const workshopData : WorkshopContent[] = [
   {
     date: "Sept 4. 2022",
     topic: "Transformers and their Application: Attention is All you Need",

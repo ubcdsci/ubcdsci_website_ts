@@ -2,8 +2,8 @@
 import { HashLink as Link } from "react-router-hash-link";
 import { animateScroll as scroll } from "react-scroll";
 
-// Interface imports.
-import { SMLink } from "../../configs/config";
+// Type declarations imports.
+import { SMLink } from "../../declarations";
 
 // Component imports.
 import { footerData as data } from "../../configs/config";
