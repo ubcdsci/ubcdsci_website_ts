@@ -35,7 +35,7 @@ const Accordion = (props: {item: {question : any, answer : any}, index: number})
       </div>
     
       <div className={styles.AccordionItemAnswer}>
-        <p>{props.item.answer}</p>
+        {props.item.answer}
       </div>
     </div>
   );

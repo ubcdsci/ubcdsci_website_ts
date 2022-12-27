@@ -21,7 +21,7 @@ const ContentStrip = (props: {flex : string, title : string, imageSource? : stri
     <div className={`${styles.ContentStrip} ${props.flex === "row" ? styles.FlexRow : styles.FlexColumn}`}>
       <div className={styles.ContentText}>
         <h1>{props.title}</h1>
-        <p>{props.text}</p>
+        {props.text}
       </div>
 
       {props.content}

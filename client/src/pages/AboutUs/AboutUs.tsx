@@ -93,7 +93,7 @@ const AboutUs = () => {
           content={
             <div className={styles.Accordion}>
               {data.map((item, index) => (
-                <AccordionItem item={item} index={index} />
+                <AccordionItem key={index} item={item} index={index} />
               ))}
             </div>
           }
