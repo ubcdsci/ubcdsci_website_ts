@@ -1,18 +1,23 @@
 .ScrollToTop {
   position: fixed;
-  bottom: 20px;
-  right: 25px;
-  width: 3.5rem;
-  height: 3.5rem;
-  opacity: 0.75;
+  bottom: 2vh;
+  right: 2vw;
+  width: 3rem;
+  height: 3rem;
+  opacity: 1;
   cursor: pointer;
 
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   z-index: 100;
+
+  &:hover {
+    color: rgb(var(--primary-light));
+  }
 }
 
 .ScrollToTopHidden {
   @extend .ScrollToTop;
   opacity: 0;
   visibility: hidden;
+  transform: translateX(100%);
 }
