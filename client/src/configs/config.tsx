@@ -414,7 +414,7 @@ export const faqData : FAQContent[] = [
     id: "",
     image: null,
     concepts: "",
-    tech: "",
+    tech: [],
     lead: "",
     body: `
       
@@ -430,12 +430,12 @@ export const projectsListData : ProjectContent[] = [
     id: "bomberland",
     image: bomberland,
     concepts: "Teaching a computer to play games better than a human",
-    tech: "Python, PyTorch, more TBD",
-    body: `
-      Reinforcement learning is a hot topic within the field of data science, as it explores a more "natural" way of teaching an agent to act within a specified environment.
-      With applications to robotics, healthcare, and even the stock market, bomberland hopes to look at the fundamentals of reinforcement learning and gain a better understanding of this promising area of research.
-      To do so, the bomberland project involves teaching a model to compete in a 2D grid world against multiple other agents.
-    `,
+    tech: ["Python", "PyTorch"],
+    body:
+      <blockquote>
+        <code>Reinforcement learning</code> is a topic that has been <i>booming</i> within the field of data science,
+        as it explores a more "natural" way of teaching an agent to act within a specified environment. 💣
+      </blockquote>,
     tags: [],
     competition_info: "https://www.gocoder.one/bomberland",
     github: "https://github.com/ubcdsci/bomberland",
@@ -444,15 +444,33 @@ export const projectsListData : ProjectContent[] = [
     title: "Deepfake Detection",
     id: "deepfake-detection",
     image: deepfake,
-    concepts: "Differentiating between real and fake humans",
-    tech: "Python, PyTorch, OpenCV",
-    body: `
-      Despite the advancement of editing software, videos of people have been notoriously difficult to fake.
-      That is, until now. Modern machine learning algorithms have made it simple for anyone to create deepfakes, or hyper-realistic videos where a human has been altered to look like somebody entirely different.
-      This technology has been for anything from creating advertisements containing celebrities to fake political campaigns (https://www.technologyreview.com/2020/12/24/1015380/best-ai-deepfakes-of-2020/).
-      How can we differentiate between the real and the fake?
-      This project aims to answer that question by designing computer vision techniques to counteract this technology.
-    `,
+    concepts: "Differentiating between the real and fake",
+    tech: ["Python", "PyTorch", "OpenCV"],
+    body:
+      <blockquote>
+        Despite the advancements in media editing software, videos of people have been notoriously difficult to fake. That is, until now. 🎥
+        
+        <br /><br />
+
+        Modern <code>machine learning algorithms</code> have made it simple for anyone to create <code>deepfakes</code>,
+        or hyper-realistic videos where a human has been altered to look like somebody entirely different.
+        
+        <br /><br />
+        
+        This technology has been capable of creating many things over the recent years, from making advertisements containing celebrities to&nbsp;
+        <a
+          href='https://www.technologyreview.com/2020/12/24/1015380/best-ai-deepfakes-of-2020/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+         fake political campaigns
+        </a>. ⭐
+        
+        <br /><br />
+        
+        How can we differentiate between the real and the fake?
+        This project aims to answer that question by designing <code>computer vision</code> techniques to counteract this technology. 📸
+      </blockquote>,
     tags: [],
     github: "https://github.com/ubcdsci/deepfake-detection",
   },
@@ -461,12 +479,22 @@ export const projectsListData : ProjectContent[] = [
     id: "fishnet",
     image: fishnet,
     concepts: "Applying computer vision to the fishing industry",
-    tech: "Python, PyTorch, OpenCV",
-    body: `
-      Our first project collaboration, and an impactful one at that, Fishnet aims to tackle a variety of problems present within the fishing industry.
-      By applying computer vision techniques to on-board cameras on fishing boats, members of the fishnet project will help design methods to locate and identify fish within video feeds.
-      Longer-term, more lofty goals for this project include tracking fish through time and identifying bycatch, especially endangered species.
-    `,
+    tech: ["Python", "PyTorch", "OpenCV"],
+    body:
+      <blockquote>
+        Our <code>first collaboration</code> on a project, and one that makes an impact too!
+        Fishnet aims to tackle a variety of problems present within the fishing industry. 🐟
+
+        <br /><br />
+
+        By applying <code>computer vision</code> techniques to on-board cameras on fishing boats,
+        members of the fishnet project will help design methods to locate and identify fish within video feeds. 🛶
+        
+        <br /><br />
+        
+        Longer-term, more lofty goals for this project include <code>tracking</code> fish
+        through time and <code>identifying</code> by catch, especially endangered species. 🎣
+      </blockquote>,
     tags: [],
     github: "https://github.com/ubcdsci/nethack-rl",
   },
@@ -474,13 +502,22 @@ export const projectsListData : ProjectContent[] = [
     title: "Human Pose Estimation",
     id: "human-pose-estimation",
     image: HPE2,
-    concepts: "Computer Vision, Human-Computer Interaction",
-    tech: "Python, PyTorch, OpenCV",
-    body: `
-      From augmented reality headsets to autonomous vehicles, the demand for computer vision systems requiring complex human-machine interaction is ever increasing.
-      Human pose estimation is the data science club project that investigates this interaction, implementing state of the art human pose estimation algorithms to extract pose information from image and video feeds.
-      In the longer term, we will be exploring ways to apply these algorithms to augmented reality and similar problems.
-    `,
+    concepts: "Computer vision and human-computer interactions",
+    tech: ["Python", "PyTorch", "OpenCV"],
+    body:
+      <blockquote>
+        From <code>augmented reality</code> headsets to <code>autonomous</code> vehicles,
+        the demand for <code>computer vision</code> systems requiring complex <code>human-machine interaction</code> is ever increasing. 🤖
+
+        <br /><br />
+
+        Human pose estimation is a data science club project that investigates this interaction,
+        implementing state of the art human-pose <code>estimation algorithms</code> to extract pose information from image and video feeds. 🧘
+
+        <br /><br />
+
+        In the longer term, we will be exploring ways to apply these <code>algorithms</code> to <code>augmented reality</code> and similar problems. 📱
+      </blockquote>,
     tags: [],
     github: "https://github.com/ubcdsci/pose",
   },
@@ -489,13 +526,21 @@ export const projectsListData : ProjectContent[] = [
     id: "spaces",
     image: spaces,
     concepts: "Understanding and predicting the usage of public spaces",
-    tech: "Python, spaCy, tweepy",
-    body: `
-      Twitter stores a lot of data. As of 2017, the amount of data stored across all of their clusters totalled over 500 PB.
-      With millions of tweets being added to this total each day, the spaces project aims to gain real time insights into public spaces worldwide by leveraging this data.
-      Members who are part of the spaces project implement state of the art natural language processing methods and apply them to the content of tweets in order to build real time heatmaps of activity across regions.
-      Future goals include building activity profiles of regions and predicting activity into the future.
-    `,
+    tech: ["Python", "spaCy", "tweepy"],
+    body:
+      <blockquote>
+        Twitter stores <code>a lot of data</code>. As of 2017, the amount of data stored across all of their clusters totalled over <code>500 Petabytes</code>.
+        With millions of tweets being added to this total each day, the spaces project aims to gain <code>real-time insights</code> into public spaces worldwide by leveraging this data.
+        
+        <br /><br />
+
+        Members who are part of the spaces project implement state-of-the-art <code>natural language processing</code> methods and apply
+        them to the content of tweets in order to build <code>real-time heatmaps</code> of activity across regions. 🗺️
+        
+        <br /><br />
+
+        Future goals include building activity profiles of regions and predicting activity into the future. 📈
+      </blockquote>,
     tags: [],
     github: "https://github.com/ubcdsci/",
   },

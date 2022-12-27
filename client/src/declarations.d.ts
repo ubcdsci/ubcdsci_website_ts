@@ -54,10 +54,10 @@ export interface ProjectContent {
   id: string;
   image: any;
   concepts: string;
-  tech: string;
+  tech: string[];
   lead?: string;
   body: any;
-  tags: string[];
+  tags?: string[];
   competition_info?: string;
   github: string;
 };

@@ -1,0 +1,138 @@
+.Projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 8vw;
+
+  h1:nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  h1:nth-child(2) {
+    color: #ccc;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  .ProjectsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    width: 100%;
+
+    @media screen and (max-width: 1280px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-shadow: 0 0 0.5rem 0.1rem rgba(#000, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 0.5rem 0.1rem rgba(#000, 0.2);
+  }
+
+  .ProjectCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    height: 28rem;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    background: rgba(#fff, 0.1);
+    box-shadow: 7px 7px #222;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      backdrop-filter: blur(10px);
+      background: rgba(#fff, 0.25);
+      box-shadow: 8px 8px #555;
+      transition: all 0.4s ease-in-out;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin: 0;
+      border-left: 0.25rem solid rgb(var(--primary));
+      padding-left: 0.5rem;
+    }
+
+    a {
+      text-decoration: underline;
+      color: rgb(var(--primary));
+    }
+
+    .Back {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      padding: 2rem 0;
+      gap: 0.5rem;
+      width: 90%;
+      transition: width 0.2s ease-in-out;
+
+      h1 {
+        text-align: center;
+        border-left: none;
+        font-size: 2rem;
+      }
+
+      .Links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+      }
+    }
+
+    .Front {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      gap: 0.5rem;
+      width: 50%;
+      transition: width 0.2s ease-in-out;
+
+      img {
+        pointer-events: none;
+        object-fit: cover;
+      }
+
+      .Tech {
+        display: flex;
+        gap: 0.5rem;
+        width: fit-content;
+        padding: 0.25rem 0.5rem;
+        border-radius: 20px;
+        background: rgba(#000, 0.5);
+
+        p {
+          font-size: 0.8rem;
+          font-weight: 500;
+          font-family: 'Consolas', 'Courier New', monospace;
+          color: rgb(var(--primary-lighter));
+        }
+      }
+      
+      @media screen and (max-width: 1024px) {
+        width: 60%;
+      }
+    }
+  }
+}

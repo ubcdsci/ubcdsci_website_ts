@@ -1,9 +1,11 @@
 // Library imports.
+import { useState } from "react";
 
+// Type declarations imports.
+import { ProjectContent } from "../../declarations";
 
 // Component imports.
 import { projectsListData as data } from "../../configs/config";
-import Card from "../../components/Card";
 
 // Style imports.
 import styles from "./Projects.module.scss";
@@ -11,56 +13,79 @@ import styles from "./Projects.module.scss";
 // Media imports.
 
 
+/**
+ * Creates a Card component.
+ * @param {*} props Properties passed to the component.
+ * @returns {JSX.Element} JSX Component.
+ */
+const Card = (props: {project : ProjectContent, children?: any}) => {
+  const [orientation, setOrientation] = useState(false);
 
-// TODO: Complete rework of this page.
+  const handleCardClick = () => {
+    setOrientation((x) => !x);
+  };
+
+  return (
+    <div className={styles.Card}>
+      <div className={styles.ProjectCard} id={props.project.id} onClick={handleCardClick}>
+        {orientation ? (
+          <div className={styles.Back}>
+            <h1>{props.project.title}</h1>
+            {props.project.body}
+
+            <div className={styles.Links}>
+              { props.project.competition_info && (
+                <a href={props.project.competition_info} target="_blank" rel="noreferrer">
+                  Competition Info
+                </a>
+              )}
+              <a href={props.project.github} target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className={styles.Front}>
+              <h1 className="projectCard--title font-bold text-2xl">{props.project.title}</h1>
+
+              <div className={styles.Tech}>
+                { props.project.tech.map((tech : string, index : number) => (
+                  <p key={index}>
+                    {tech}{index !== (props.project.tech.length - 1) && ","}
+                  </p>
+                ))}
+              </div>
+
+              <p>{props.project.concepts}</p>
+            </div>
+
+            <div className="imgDiv w-3/5 flex justify-end h-full">
+              <img
+                className="projectImage object-cover	"
+                alt={"project: " + props.project.title}
+                src={props.project.image}
+              />
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+
 /**
  * Renders the Projects page.
  * @returns {JSX.Element} JSX Component.
  */
 const Projects = () => {
   return (
-    <div className="content pt-5 pb-20">
-      <br></br>
-      <h1 className="heading text-center text-3xl font-bold">
-        Become a Member and Join a Project Group Today!
-      </h1>
-      <h1 className="subheading text-center opacity-80
-      font-bold my-3">Click on the cards to learn more...</h1>
-      <div className="projectsGrid grid md:grid-cols-1 lg:grid-cols-2 justify-evenly gap-10 sm:px-0 md:px-10">
+    <div className={styles.Projects}>
+      <h1>Become a Member and Join a Project Group Today!</h1>
+      <h1>Click on the cards to learn more...</h1>
+
+      <div className={styles.ProjectsGrid}>
         {data.map((project, index) => (
-            <Card
-              key={index}
-              title={project.title}
-              id={project.id}
-              src={project.src}
-              concepts={project.concepts}
-              tech={project.tech}
-              body={project.body}
-            >
-              <p>
-                {project.competition_info && (
-                  <>
-                    <a
-                      className="cardLink no-underline text-sm text-[#006aff]"
-                      href={project.competition_info}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Competition Info
-                    </a>
-                    &nbsp;|&nbsp;
-                  </>
-                )}
-                <a
-                  className="cardLink no-underline text-sm text-[#006aff]"
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github
-                </a>
-              </p>
-            </Card>
+          <Card key={index} project={project} />
         ))}
       </div>
     </div>
