@@ -59,9 +59,7 @@ const App = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-        <Background
-          src="https://images5.alphacoders.com/115/1156667.png"
-          opacity={0.75}></Background>
+        <Background src="https://images5.alphacoders.com/115/1156667.png" opacity={0.8} blur={4} />
 
         <Routes>
           {routes.map(({ path, name, element }) => (
