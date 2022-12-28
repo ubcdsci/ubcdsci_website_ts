@@ -33,6 +33,10 @@ nav {
   transition: all 0.25s ease-in-out;
 }
 
+.NavBarHidden {
+  transform: translateY(-100%);
+}
+
 .Container {
   display: flex;
   margin: auto;

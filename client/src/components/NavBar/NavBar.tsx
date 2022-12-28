@@ -1,5 +1,5 @@
 // Library imports.
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { animateScroll as scroll } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
@@ -65,8 +65,11 @@ const createDropDown = (page: (Page | DropDowns), pageLink: string) => {
  * @returns {JSX.Element} JSX Component.
  */
 const NavBar = (props: any) => {
-  const [scrolled, setScrolled] = useState(false);
   const [toggleNavMenu, setToggleNavMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [mouseOver, setMouseOver] = useState(false);
+  const [scrollOffset, setScrollOffset] = useState(0);
 
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
@@ -75,29 +78,44 @@ const NavBar = (props: any) => {
     scroll.scrollToTop({ duration: 500, delay: 0, smooth: "easeInOutQuart" });
   };
 
-  const handleScroll = () => {
-    const offset = window.scrollY;
-    const navbarHeight = document.getElementsByClassName(styles.NavBar)[0].clientHeight;
-
-    (offset > navbarHeight) ? setScrolled(true) : setScrolled(false);
-  };
-
   const toggleMenu = () => {
     setToggleNavMenu(!toggleNavMenu);
   };
 
+  const handleScroll = useCallback(
+    (e : Event) => {
+      const offset = window.scrollY;
+      const navbarHeight = document.getElementsByClassName(styles.NavBar)[0].clientHeight;
+
+      setScrolled(offset > navbarHeight);
+      setVisible(offset <= scrollOffset || mouseOver);
+      setScrollOffset(offset);
+    }, [scrollOffset, mouseOver]
+  );
+
+  const handleMouseEnter = (e: any) => {
+    setMouseOver(true);
+    setVisible(true);
+  };
+
+  const handleMouseLeave = (e: any) => {
+    setMouseOver(false);
+    // setVisible(!scrolled);
+  };
+
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    setScrollOffset(window.scrollY);
+    window.addEventListener("scroll", (e) => handleScroll(e));
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", (e) => handleScroll(e));
     };
-  }, []);
+  }, [handleScroll]);
 
   return (
-    <nav>
+    <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       { isMobile ?
         <>
-          <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : "" }`}>
+          <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : ""}`}>
             <div className={styles.MobileContainer}>
               <Link to="/home" onClick={scrollTop} className={styles.HomeButton}>
                 <VectorLogo
@@ -144,7 +162,7 @@ const NavBar = (props: any) => {
           </div>
         </>
         :
-        <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : "" }`}>
+        <div className={`${styles.NavBar} ${(!visible) ? styles.NavBarHidden : (scrolled) ? styles.NavBarScrolled : ""}`}>
           <div className={styles.Container}>
             <span className={styles.NavButtons}>
               <Link to="/home" onClick={scrollTop}>
