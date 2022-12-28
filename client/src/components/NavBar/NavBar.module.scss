@@ -104,20 +104,7 @@ nav {
   font-weight: 600;
 
   &:hover {
-    color: white;
-    transition: all 0.2s ease-in-out;
-  }
-}
-
-.RegistrationButton {
-  @extend .NavButton;
-  padding: 0.5rem 0.75rem;
-  background-color: rgba(var(--primary-dark), 1);
-  border-radius: 20px;
-
-  &:hover {
-    color: white;
-    background-color: rgba(var(--primary), 1);
+    color: #fff;
     transition: all 0.2s ease-in-out;
   }
 }

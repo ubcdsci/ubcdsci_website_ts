@@ -1,0 +1,18 @@
+.GreenButton {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  background-color: rgba(var(--primary-dark), 1);
+  border-radius: 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    background-color: rgba(var(--primary), 1);
+    transition: all 0.2s ease-in-out;
+  }
+}

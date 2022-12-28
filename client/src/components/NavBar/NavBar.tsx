@@ -14,6 +14,7 @@ import styles from "./NavBar.module.scss";
 // Component imports.
 import { navbarData as data } from "../../configs/config";
 import SearchBar from '../SearchBar/SearchBar';
+import GreenButton from '../GreenButton/GreenButton';
 
 // Media imports.
 import VectorLogo from "../VectorLogo";
@@ -184,17 +185,13 @@ const NavBar = (props: any) => {
                   {createDropDown(page, page.href)}
                 </span>
               ))}
-              
-              <span>
-                <a
-                  target="_blank"
-                  href="https://ubc.ca1.qualtrics.com/jfe/form/SV_1FdLWUY6hb2KIwC"
-                  rel="noreferrer noopener"
-                  className={styles.RegistrationButton}
-                >
-                  Register Now
-                </a>
-              </span>
+
+              <GreenButton
+                text="Register Now"
+                href="https://ubc.ca1.qualtrics.com/jfe/form/SV_1FdLWUY6hb2KIwC"
+                target="_blank"
+                rel="noreferrer noopener"
+              />
             </span>
 
             <SearchBar />

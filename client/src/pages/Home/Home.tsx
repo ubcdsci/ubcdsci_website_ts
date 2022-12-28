@@ -2,8 +2,8 @@
 import { useMediaQuery } from "react-responsive";
 
 // Component imports.
-import GreenButton from "../../components/GreenButton";
-import CarouselFrame from "../../components/CarouselFrame";
+import GreenButton from "../../components/GreenButton/GreenButton";
+import CarouselFrame from "../../components/CarouselFrame/CarouselFrame";
 
 // Style imports.
 import styles from "./Home.module.scss";
@@ -35,7 +35,7 @@ const Home = () => {
             </p>
 
             <div className={styles.Buttons}>
-              <GreenButton text="Ongoing Projects" href="projects" />
+              <GreenButton text="Ongoing Projects" href="/projects" />
               <GreenButton text="Upcoming Events" href="/events" />
               <GreenButton text="Our Club" href="/about-us" />
             </div>
