@@ -11,4 +11,8 @@
     display: grid;
     gap: 1rem;
   }
+
+  @media screen and (max-width: 1024px) {
+    padding: 2rem 5vw;
+  }
 }
