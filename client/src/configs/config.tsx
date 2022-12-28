@@ -9,7 +9,7 @@ import { FaGraduationCap } from "react-icons/fa";
 import { 
   Page,
   SMButton, Column,
-  ExecMemberContent, FAQContent, ProjectContent, WorkshopContent, ContactContent,
+  CarouselContent, ExecMemberContent, FAQContent, ProjectContent, WorkshopContent, ContactContent,
 } from "../declarations";
 
 // Media imports.
@@ -193,6 +193,42 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
 /* -------------------------------------------------------------------------- */
 /*                                 PAGES DATA                                 */
 /* -------------------------------------------------------------------------- */
+
+// Data for the home page carousel.
+/*
+  {
+    title: "",
+    description: `
+
+    `,
+    image: <></>,
+  },
+*/
+export const carouselData: CarouselContent[] = [
+  {
+    title: "Join a Project Group Today!",
+    description: `
+      Find out more about our club projects and sign up to be in a project
+      group through our Discord server!
+    `,
+    image: bomberland,
+  },
+  // {
+  //   title: "Second Slide Label",
+  //   description: `
+  //     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  //   `,
+  //   image: bomberland,
+  // },
+  // {
+  //   title: "Third Slide Label",
+  //   description: `
+  //     Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+  //   `,
+  //   image: bomberland,
+  // },
+];
+
 
 // Data for the executive team section.
 /*

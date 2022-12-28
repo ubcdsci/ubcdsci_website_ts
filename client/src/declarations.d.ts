@@ -37,6 +37,12 @@ export interface Column {
 
 /* ----------------- TYPE DEFINITIONS FOR ABOUT PAGE CONTENT ---------------- */
 
+export interface CarouselContent {
+  title: string;
+  description: string;
+  image: any;
+};
+
 export interface ExecMemberContent {
   title: string;
   name: string;
