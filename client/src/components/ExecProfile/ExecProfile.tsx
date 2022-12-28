@@ -1,5 +1,5 @@
 // Library imports.
-import { useState, useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 // Component imports.
 import { execMembersData as data } from "../../configs/config";
@@ -10,6 +10,8 @@ import styles from "./ExecProfile.module.scss";
 // Media imports.
 import profileDefault from "../../images/profileDefault.png";
 
+
+const AUTO_TIME = 8; // Seconds.
 
 /**
  * Creates a Card component.
@@ -48,10 +50,11 @@ const ExecProfile = (props: any) => {
       setCurrentIndex(data.length - 1) : setCurrentIndex(currentIndex - 1);
   };
 
-  const next = () => {
-    (currentIndex === data.length - 1) ?
+  const next = useCallback(
+    () => { (currentIndex === data.length - 1) ?
       setCurrentIndex(0) : setCurrentIndex(currentIndex + 1);
-  };
+    }, [currentIndex]
+  );
 
   useEffect(() => {
     if (currentIndex === 0) {
@@ -65,6 +68,14 @@ const ExecProfile = (props: any) => {
       setNextIndex(currentIndex + 1);
     }
   }, [currentIndex]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, AUTO_TIME * 1000);
+
+    return () => clearInterval(interval);
+  }, [next]);
 
   return (
     <div className={styles.ExecProfile}>
