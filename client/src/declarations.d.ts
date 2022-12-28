@@ -66,3 +66,10 @@ export interface WorkshopContent {
   date: string;
   topic: string;
 };
+
+export interface ContactContent {
+  title: string;
+  link: string;
+  icon: JSX.Element;
+  text: string;
+};

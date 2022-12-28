@@ -1,14 +1,15 @@
 // Library imports.
 import {
-  BsDiscord, BsInstagram, BsFacebook,
+  BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
   BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset, BsFillPersonBadgeFill, BsPeople
 } from "react-icons/bs";
+import { FaGraduationCap } from "react-icons/fa";
 
 // Type declarations imports.
 import { 
   Page,
   SMButton, Column,
-  ExecMemberContent, FAQContent, ProjectContent, WorkshopContent,
+  ExecMemberContent, FAQContent, ProjectContent, WorkshopContent, ContactContent,
 } from "../declarations";
 
 // Media imports.
@@ -608,4 +609,46 @@ export const workshopData : WorkshopContent[] = [
     topic:
       "Python Basics and Setting up your Environment: Python, Virtual Environments, Anaconda",
   },
+];
+
+// Data for the contact us page.
+/*
+  {
+    title: "",
+    link: "",
+    icon: <></>,
+    text: "",
+  }
+*/
+export const contactData : ContactContent[] = [
+  {
+    title: "Email",
+    link: "mailto:datascienceclububc@gmail.com",
+    icon: <BsFillEnvelopeFill />,
+    text: "datascienceclububc@gmail.com",
+  },
+  {
+    title: "Discord",
+    link: "https://discord.com/invite/4AycB34acK",
+    icon: <BsDiscord />,
+    text: "UBC Data Science Club",
+  },
+  {
+    title: "Instagram",
+    link: "https://www.instagram.com/ubcdatascienceclub/",
+    icon: <BsInstagram />,
+    text: "@ubcdatascienceclub",
+  },
+  {
+    title: "Facebook",
+    link: "https://www.facebook.com/ubcdatascience",
+    icon: <BsFacebook />,
+    text: "@ubcdatascience",
+  },
+  {
+    title: "Campusbase",
+    link: "https://amscampusbase.ubc.ca/feeds?type=club&type_id=58911",
+    icon: <FaGraduationCap />,
+    text: "AMS Data Science Club @ UBC",
+  }
 ];
