@@ -28,16 +28,16 @@ code {
 }
 
 /* ::-webkit-scrollbar {
-  width: 10px;
+  width: 1rem;
 }
 ::-webkit-scrollbar-track {
   display: none;
 }
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #777;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #aaa;
 } */
 
 :root {
