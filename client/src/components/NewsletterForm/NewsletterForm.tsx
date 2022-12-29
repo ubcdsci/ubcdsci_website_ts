@@ -1,14 +1,17 @@
 // Library imports.
-import React from "react";
 import { useForm } from "react-hook-form";
 
 // Component imports.
 import { ErrorMessage } from "@hookform/error-message";
 
+// Style imports.
+import styles from "./NewsletterForm.module.scss";
+
 // Media imports.
 
+
 /**
- * Renders a NewsletterForm sign-up block.
+ * Renders a NewsletterForm component.
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
@@ -35,31 +38,26 @@ const NewsletterForm = (props: any) => {
       },
       body: JSON.stringify(formInfo),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    .then((res) => res.json())
+    .then((data) => console.log(data));
   };
 
   return (
-    <form
-      action=""
-      className="newsletterForm"
-      autoComplete="on"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <div className="headerBlock">
-        <h2>Subscribe to Our Newsletter!</h2>
+    <form className={styles.NewsletterForm} autoComplete="on" onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.Header}>
+        <h2>Sign Up For Our Newsletter!</h2>
         <p>
-          Stay up to date and receive the latest information about club
-          meetings, events, <br />
-          workshops and more by subscribing to our newsletter!
+          Stay up to date and receive the latest information on&nbsp;
+          <code>club meetings</code>, <code>events</code>, <code>workshops</code>, and
+          more by subscribing to our <code>newsletter</code>.
         </p>
       </div>
 
-      <div className="inputBlock">
-        <fieldset className="emailInput">
-          <legend>EMAIL *</legend>
+      <div className={styles.Fields}>
+        <fieldset className={styles.Email}>
+          <legend>Email *</legend>
 
-          <label htmlFor="email" className="emailLabel" />
+          <label htmlFor="email" />
           <input
             type="email"
             onFocus={(e) => {
@@ -78,15 +76,15 @@ const NewsletterForm = (props: any) => {
             errors={errors}
             name="email"
             render={({ message }) => (
-              <span className="fieldErrorMessage">{message}</span>
+              <code className={styles.Error}>{message}</code>
             )}
           />
         </fieldset>
 
-        <fieldset className="nameInput">
-          <legend>NAME</legend>
+        <fieldset className={styles.Name}>
+          <legend>Name</legend>
 
-          <label htmlFor="firstName" className="firstNameLabel" />
+          <label htmlFor="firstName" />
           <input
             type="text"
             onFocus={(e) => {
@@ -96,7 +94,7 @@ const NewsletterForm = (props: any) => {
           />
           <p>First Name</p>
 
-          <label htmlFor="lastName" className="lastNameLabel" />
+          <label htmlFor="lastName" />
           <input
             type="text"
             onFocus={(e) => {
@@ -107,10 +105,10 @@ const NewsletterForm = (props: any) => {
           <p>Last Name</p>
         </fieldset>
 
-        <fieldset className="studentInfoInput">
-          <legend>STUDENT INFORMATION</legend>
+        <fieldset className={styles.StudentInfo}>
+          <legend>Student Info</legend>
 
-          <label htmlFor="faculty" className="facultyLabel" />
+          <label htmlFor="faculty" />
           <input
             type="text"
             onFocus={(e) => {
@@ -147,7 +145,7 @@ const NewsletterForm = (props: any) => {
           </datalist>
           <p>Faculty / School</p>
 
-          <label htmlFor="id" className="studentIdLabel" />
+          <label htmlFor="id" />
           <input
             type="text"
             onFocus={(e) => {
@@ -170,19 +168,18 @@ const NewsletterForm = (props: any) => {
             errors={errors}
             name="studentId"
             render={({ message }) => (
-              <span className="fieldErrorMessage">{message}</span>
+              <code className={styles.Error}>{message}</code>
             )}
           />
         </fieldset>
 
-        <p className="disclaimer">* REQUIRED FIELDS</p>
-
-        <div className="submitButton" title="Submit htmlForm">
-          <input type="submit" value="Submit" />
+        <div className={styles.Submission}>
+          <h3>* REQUIRED FIELDS</h3>
+          <button type="submit">Submit</button>
         </div>
       </div>
     </form>
   );
-}
+};
 
 export default NewsletterForm;
