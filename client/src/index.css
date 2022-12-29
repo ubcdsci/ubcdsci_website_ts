@@ -48,6 +48,8 @@ code {
   --primary-lighter: 200, 255, 200;
 
   --contrast: 200, 100, 255;
+  --success: 100, 240, 100;
+  --error: 255, 60, 60;
 
   --bg-dark: 10, 10, 10;
   --bg-light: 250, 250, 250;
