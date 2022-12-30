@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const eventPostSchema = new mongoose.Schema({
+  postDate: Date,
   title: String,
   description: String,
   date: Date,

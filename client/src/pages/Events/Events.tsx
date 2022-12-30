@@ -1,6 +1,9 @@
+// Library imports.
+import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill } from "react-icons/bs";
+
 // Component imports.
 import { workshopData as data } from "../../configs/config";
-import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill } from "react-icons/bs";
+import PostForm from "../../components/PostForm/PostForm";
 
 // Style imports.
 import styles from "./Events.module.scss";
@@ -63,6 +66,8 @@ const EventPost = (props: {title : string, date : Date, img : string, body : str
 const Events = () => {
   return (
     <div className={styles.Events}>
+      <PostForm />
+
       <div id="upcomingEvents" className={styles.Upcoming}>
         <EventPost
           title="Simple Test Post"

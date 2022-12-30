@@ -17,6 +17,7 @@ import Events from "./pages/Events/Events";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import ErrorPage from "./pages/Error/Error";
 import SearchResult from "./pages/SearchResult/SearchResult";
+import NewsletterForm from "./components/NewsletterForm/NewsletterForm";
 
 
 const routes = [
@@ -76,6 +77,7 @@ const App = () => {
           ))}
         </Routes>
 
+        <NewsletterForm />
         <Footer />
         <ScrollToTop />
       </BrowserRouter>
