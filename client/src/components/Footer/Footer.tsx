@@ -90,7 +90,7 @@ const Footer = (props: any) => {
       <div className={styles.CopyrightBlock}>
         <VectorLogo alt="" className={styles.Logo} />
         <span>
-          &copy; {new Date().getFullYear()} UBC Data Science Club. <br />
+          &copy; 2022-{new Date().getFullYear()} UBC Data Science Club. <br />
           All Rights Reserved.
         </span>
       </div>

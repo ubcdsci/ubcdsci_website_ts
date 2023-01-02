@@ -47,6 +47,8 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
             <div className={styles.Front}>
               <h1 className="projectCard--title font-bold text-2xl">{props.project.title}</h1>
 
+              <p>{props.project.concepts}</p>
+
               <div className={styles.Tech}>
                 { props.project.tech.map((tech : string, index : number) => (
                   <p key={index}>
@@ -54,8 +56,6 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
                   </p>
                 ))}
               </div>
-
-              <p>{props.project.concepts}</p>
             </div>
 
             <div className="imgDiv w-3/5 flex justify-end h-full">

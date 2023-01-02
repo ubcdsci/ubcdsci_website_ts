@@ -20,7 +20,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  color: rgb(var(--contrast));
+  /* font-family: "Montserrat",
+    sans-serif; */
+  color: rgb(var(--primary));
 }
 
 ::-webkit-scrollbar {
