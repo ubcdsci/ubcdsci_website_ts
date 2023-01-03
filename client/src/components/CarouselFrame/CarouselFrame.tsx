@@ -42,7 +42,7 @@ const CarouselItem = (props: { index : number, onClick? : any }) => {
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-const CarouselFrame = (props: any) => {
+const CarouselFrame = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex]       = useState(0);
   const [nextIndex, setNextIndex]       = useState(0);
@@ -81,15 +81,19 @@ const CarouselFrame = (props: any) => {
 
   return (
     <div className={styles.CarouselFrame}>
-      <div className={styles.LeftArrow} onClick={previous}>
-        <BsArrowLeft />
-      </div>
+      { (data.length > 1) &&
+        <div className={styles.LeftArrow} onClick={previous}>
+          <BsArrowLeft />
+        </div>
+      }
 
       <CarouselItem index={currentIndex} />
 
-      <div className={styles.RightArrow} onClick={next}>
-        <BsArrowRight />
-      </div>
+      { (data.length > 1) &&
+        <div className={styles.RightArrow} onClick={next}>
+          <BsArrowRight />
+        </div>
+      }
 
       <div className={styles.Dots}>
         {data.map((item: CarouselContent, index: number) => {
