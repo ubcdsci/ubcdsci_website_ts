@@ -1,5 +1,5 @@
 // Library imports.
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
 // Type declarations imports.
@@ -15,7 +15,7 @@ import styles from "./CarouselFrame.module.scss";
 // import HPE from "../../images/HPE.png";
 
 
-const AUTO_TIME = 8; // Seconds.
+const AUTO_TIME = 10; // Seconds.
 
 /**
  * Creates a Carousel Item component.
@@ -23,8 +23,19 @@ const AUTO_TIME = 8; // Seconds.
  * @returns {JSX.Element} JSX Component.
  */
 const CarouselItem = (props: { index : number, onClick? : any }) => {
+  const carousel = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (carousel.current) {
+      carousel.current.classList.add(styles.AnimateBox);
+      setTimeout(() => {
+        carousel.current && carousel.current.classList.remove(styles.AnimateBox);
+      }, 400);
+    }
+  }, [props.index]);
+
   return (
-    <div className={styles.CarouselItem}>
+    <div className={styles.CarouselItem} ref={carousel}>
       <h1>{data[props.index].title}</h1>
 
       <div className={styles.ImageContainer}>
@@ -47,10 +58,11 @@ const CarouselFrame = () => {
   const [prevIndex, setPrevIndex]       = useState(0);
   const [nextIndex, setNextIndex]       = useState(0);
 
-  const previous = () => {
-    (currentIndex === 0) ?
+  const previous = useCallback(
+    () => { (currentIndex === 0) ?
       setCurrentIndex(data.length - 1) : setCurrentIndex(currentIndex - 1);
-  };
+    }, [currentIndex]
+  );
 
   const next = useCallback(
     () => { (currentIndex === data.length - 1) ?
@@ -70,6 +82,18 @@ const CarouselFrame = () => {
       setNextIndex(currentIndex + 1);
     }
   }, [currentIndex]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft")
+        previous();
+      else if (event.key === "ArrowRight")
+        next();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [previous, next]);
 
   useEffect(() => {
     const interval = setInterval(() => {

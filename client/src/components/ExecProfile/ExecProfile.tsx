@@ -1,5 +1,5 @@
 // Library imports.
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 
 // Component imports.
 import { execMembersData as data } from "../../configs/config";
@@ -11,7 +11,7 @@ import styles from "./ExecProfile.module.scss";
 import profileDefault from "../../images/profileDefault.png";
 
 
-const AUTO_TIME = 8; // Seconds.
+const AUTO_TIME = 10; // Seconds.
 
 /**
  * Creates a Card component.
@@ -20,8 +20,19 @@ const AUTO_TIME = 8; // Seconds.
  * @returns {JSX.Element} JSX Component.
  */
 const Card = (props: { index : number, isCurrent? : boolean, onClick? : any }) => {
+  const carousel = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (carousel.current) {
+      carousel.current.classList.add(styles.AnimateBox);
+      setTimeout(() => {
+        carousel.current && carousel.current.classList.remove(styles.AnimateBox);
+      }, 400);
+    }
+  }, [props.index]);
+
   return (
-    <div className={props.isCurrent ? styles.CardActive : styles.Card} onClick={props.onClick}>
+    <div className={props.isCurrent ? styles.CardActive : styles.Card} onClick={props.onClick} ref={carousel}>
       <img src={data[props.index].image || profileDefault} alt={data[props.index].name} />
 
       <div className={styles.CardContent}>
@@ -40,15 +51,16 @@ const Card = (props: { index : number, isCurrent? : boolean, onClick? : any }) =
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-const ExecProfile = (props: any) => {
+const ExecProfile = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex]       = useState(0);
   const [nextIndex, setNextIndex]       = useState(0);
 
-  const previous = () => {
-    (currentIndex === 0) ?
+  const previous = useCallback(
+    () => { (currentIndex === 0) ?
       setCurrentIndex(data.length - 1) : setCurrentIndex(currentIndex - 1);
-  };
+    }, [currentIndex]
+  );
 
   const next = useCallback(
     () => { (currentIndex === data.length - 1) ?
@@ -70,6 +82,18 @@ const ExecProfile = (props: any) => {
   }, [currentIndex]);
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft")
+        previous();
+      else if (event.key === "ArrowRight")
+        next();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [previous, next]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       next();
     }, AUTO_TIME * 1000);
@@ -82,6 +106,19 @@ const ExecProfile = (props: any) => {
       <Card index={prevIndex} onClick={previous} />
       <Card index={currentIndex} isCurrent={true} />
       <Card index={nextIndex} onClick={next} />
+
+       <div className={styles.Dots}>
+        {data.map((item, index: number) => {
+          return (
+            <div
+              key={index} 
+              className={index === currentIndex ? styles.DotActive : styles.Dot}
+              onClick={() => setCurrentIndex(index)}
+              title={`${item.title} - ${item.name}`}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

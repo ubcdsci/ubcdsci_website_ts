@@ -1,9 +1,41 @@
 .ExecProfile {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-rows: auto 1fr;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  grid-gap: 1rem;
+
+  .Dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    grid-column: 1 / 4;
+    grid-row: 2;
+
+    .Dot {
+      width: 3rem;
+      height: 0.75rem;
+      border-radius: 1rem;
+      background: rgba(#fff, 0.5);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: rgb(var(--primary-light));
+        transform: scale(1.05);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    .DotActive {
+      @extend .Dot;
+      background: rgb(var(--primary));
+      transition: all 0.2s ease-in-out;
+    }
+  }
 }
 
 .CardActive {
@@ -45,7 +77,7 @@
     font-size: 1.1rem;
     font-style: italic;
     margin: 0.5rem 0;
-    padding: 0.5rem 8vw;
+    padding: 0.5rem 4vw;
     max-width: 80vw;
     min-height: 20vh;
   }
@@ -77,5 +109,16 @@
 
   .ExecTitle {
     color: #fff;
+  }
+}
+
+.AnimateBox {
+  animation: AnimateBox 0.4s ease-in-out;
+
+  @keyframes AnimateBox {
+    0% {
+      opacity: 0;
+      scale: 0.5;
+    }
   }
 }
