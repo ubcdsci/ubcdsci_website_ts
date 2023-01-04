@@ -1,5 +1,5 @@
 // Library imports.
-// import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
@@ -8,6 +8,7 @@ import Background from "./components/Background/Background";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import NewsletterForm from "./components/NewsletterForm/NewsletterForm";
 
 // Pages imports.
 import Home from "./pages/Home/Home";
@@ -15,12 +16,12 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Projects from "./pages/Projects/Projects";
 import Events from "./pages/Events/Events";
 import ContactUs from "./pages/ContactUs/ContactUs";
-import ErrorPage from "./pages/Error/Error";
 import SearchResult from "./pages/SearchResult/SearchResult";
-import NewsletterForm from "./components/NewsletterForm/NewsletterForm";
+import Admin from "./pages/Admin/Admin";
+import ErrorPage from "./pages/Error/Error";
 
 
-const routes = [
+const routes : {path : string, name : string, element : JSX.Element}[] = [
   { path: "/",              name: "Main",               element: <Navigate replace to="/home" /> },
   { path: "/home",          name: "Home",               element: <Home /> },
   { path: "/about-us",      name: "About Us",           element: <AboutUs /> },
@@ -57,6 +58,28 @@ const TabTitle = (props: {title : string, description? : string}) => {
 const App = () => {
   // const [darkToggle, setDarkToggle] = useState(false);
 
+  const handleLogin = (username : string, password : string) => {
+    console.log(username + " " + password);
+  };
+
+  // const formInfo = {
+  //   username: "usertest2",
+  //   password: "passwordtest2",
+  // }
+
+  // useEffect(() => {
+  //   fetch("/home", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(formInfo),
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => console.log(data))
+  //   .catch(err => console.log(err));
+  // }, []);
+
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -72,12 +95,20 @@ const App = () => {
                   <TabTitle title={name} />
                   <NavBar currentLocation={name} />
                   {element}
+                  <NewsletterForm />
                 </>
             } />
           ))}
+
+          <Route path="/auth" element={
+            <>
+              <TabTitle title="Admin Login" />
+              <NavBar currentLocation="Admin Login" />
+              <Admin onLogin={handleLogin} />
+            </>
+          } />
         </Routes>
 
-        <NewsletterForm />
         <Footer />
         <ScrollToTop />
       </BrowserRouter>
