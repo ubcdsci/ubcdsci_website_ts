@@ -45,7 +45,7 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
         ) : (
           <>
             <div className={styles.Front}>
-              <h1 className="projectCard--title font-bold text-2xl">{props.project.title}</h1>
+              <h1>{props.project.title}</h1>
 
               <p>{props.project.concepts}</p>
 
@@ -58,9 +58,8 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
               </div>
             </div>
 
-            <div className="imgDiv w-3/5 flex justify-end h-full">
+            <div className={styles.Image}>
               <img
-                className="projectImage object-cover	"
                 alt={"project: " + props.project.title}
                 src={props.project.image}
               />

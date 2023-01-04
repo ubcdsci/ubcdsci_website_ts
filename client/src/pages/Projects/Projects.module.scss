@@ -109,6 +109,11 @@
       width: 50%;
       transition: width 0.2s ease-in-out;
 
+      h1 {
+        font-weight: bold;
+        font-size: 1.75rem;
+      }
+
       img {
         pointer-events: none;
         object-fit: cover;
@@ -132,6 +137,18 @@
       
       @media screen and (max-width: 1024px) {
         width: 60%;
+      }
+    }
+
+    .Image {
+      display: flex;
+      justify-content: flex-end;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }

@@ -27,7 +27,6 @@ let checkExternal = (link: SMLink) => {
     return (
       <a
         href={link.href}
-        className="small"
         draggable="false"
         target="_blank"
         rel="noreferrer"
@@ -37,7 +36,7 @@ let checkExternal = (link: SMLink) => {
     );
   } else {
     return (
-      <Link smooth to={link.href} className="small" draggable="false">
+      <Link smooth to={link.href} draggable="false">
         {link.text}
       </Link>
     );

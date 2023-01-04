@@ -1,7 +1,8 @@
 # **UBC Data Science Club Website** 🌐
 
 ## **Overview** 📖
-> This repository holds the source code for the [UBC Data Science Club's website](https://ubcdsci.club/home). Written in **TypeScript**, the frontend uses **React**, **Tailwind CSS**, and **SASS/SCSS**, while the backend uses **Node.js**, **Express** and **MongoDB**.
+> This repository holds the source code for the [UBC Data Science Club's website](https://ubcdsci.club/home). \
+Written in **TypeScript**, the frontend uses **React** and **Sass/SCSS**, while the backend uses **Node.js**, **Express** and **MongoDB**.
 
 ## **Getting Started** 🚀
 > CLIENT:
@@ -35,7 +36,6 @@
 
 > CLIENT:
 1. [React Docs](https://reactjs.org/docs/getting-started.html)
-1. [Tailwind CSS Docs](https://tailwindcss.com/docs)
 1. [SASS/SCSS Docs](https://sass-lang.com/documentation)
 
 > SERVER:
