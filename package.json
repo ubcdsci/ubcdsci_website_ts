@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "c": "cd client && npm start",
-    "s": "cd server && npm run dev",
+    "s": "cd server && npm start",
     "ni": "(cd server && npm install) && (cd ../client && npm install)",
     "yi": "(cd server && yarn install) && (cd ../client && yarn install)"
   },
