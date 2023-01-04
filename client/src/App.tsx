@@ -1,7 +1,9 @@
 // Library imports.
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { animateScroll as scroll } from "react-scroll";
 
 // Component imports.
 import Background from "./components/Background/Background";
@@ -57,28 +59,52 @@ const TabTitle = (props: {title : string, description? : string}) => {
  */
 const App = () => {
   // const [darkToggle, setDarkToggle] = useState(false);
+  const [user, setUser] = useState<{ token: string, user: string, id: number }>();
 
-  const handleLogin = (username : string, password : string) => {
-    console.log(username + " " + password);
+  const handleLogin = (data : any) => {
+    axios.post("/auth/verify", data)
+      .then((res) => {
+        if (res.data.success) {
+          alert("Logged in successfully!");
+          setUser(data);
+          localStorage.setItem("userData", JSON.stringify({
+            token: data.token, user: data.user, id: data.id
+          }));
+        } else {
+          console.log(res.data.message);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  // const formInfo = {
-  //   username: "usertest2",
-  //   password: "passwordtest2",
-  // }
+  const handleLogout = () => {
+    if (!window.confirm("Are you sure you want to logout?")) return;
 
-  // useEffect(() => {
-  //   fetch("/home", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formInfo),
-  //   })
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
-  //   .catch(err => console.log(err));
-  // }, []);
+    setUser(undefined);
+    localStorage.removeItem("userData");
+    window.history.replaceState({}, document.title, "/auth/login");
+    window.location.reload();
+    scroll.scrollToTop({ duration: 500, delay: 0, smooth: "ease" });
+  };
+
+  const logoutButtonStyle = {
+    alignSelf: 'center',
+    width: '100%',
+    paddingBottom: '2rem',
+    background: 'rgba(var(--bg-dark), 0.8)',
+    color: 'rgb(var(--primary-light))',
+    fontWeight: 'bold',
+    transition: 'all 0.2s ease-in-out',
+  }
+  
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("userData");
+    if (loggedInUser) {
+      handleLogin(JSON.parse(loggedInUser));
+    }
+  }, []);
 
   return (
     <HelmetProvider>
@@ -100,17 +126,23 @@ const App = () => {
             } />
           ))}
 
-          <Route path="/auth" element={
+          <Route path="/auth/login" element={user ? <Navigate replace to="/home" /> :
             <>
               <TabTitle title="Admin Login" />
               <NavBar currentLocation="Admin Login" />
               <Admin onLogin={handleLogin} />
-            </>
+            </> 
           } />
         </Routes>
 
         <Footer />
         <ScrollToTop />
+
+        { user &&
+          <button onClick={handleLogout} style={logoutButtonStyle}>
+            Logout of {user.user}
+          </button>
+        }
       </BrowserRouter>
     </HelmetProvider>
   );

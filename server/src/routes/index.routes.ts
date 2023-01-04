@@ -9,9 +9,8 @@ const router = express.Router();
 router.use('/user', user);
 router.use('/auth', auth);
 
-
 router.get('/', (req, res) => {
-  
+  res.send({ message: 'Welcome to the API!' });
 });
 
 export default router;

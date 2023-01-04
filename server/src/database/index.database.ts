@@ -1,12 +1,12 @@
 // Library imports.
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.DATABASE_URL || 'mongodb://localhost:27017/ubc-dsc';
+import { dbUrl } from '../configs/env.configs';
 
 mongoose.set('strictQuery', false);
 
-const db = mongoose.connect(MONGODB_URI)
-  .then(() => console.log(`[Database]: Connected to database on ${MONGODB_URI}`))
+const db = mongoose.connect(dbUrl)
+  .then(() => console.log(`[Database]: Connected to database on ${dbUrl}`))
   .catch(err => console.error('[Database]: Failed to connect to MongoDB', err.message));
 
 export default db;

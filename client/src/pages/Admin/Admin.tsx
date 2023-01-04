@@ -1,5 +1,5 @@
 // Library imports.
-import { useState } from "react";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 // Component imports.
@@ -17,9 +17,6 @@ import logo from "../../images/logo/logo.png";
  * @returns {JSX.Element} JSX Component.
  */
 const Admin = (props : any) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
   // Destructure useForm object for usage.
   const {
     register,
@@ -27,19 +24,15 @@ const Admin = (props : any) => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = async (formInfo: any) => {
-    await fetch("/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formInfo),
-    })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  const onSubmit = (formInfo: any) => {
+    axios.post('/auth/login', { username: formInfo.username, password: formInfo.password })
+      .then((res) => {
+        (res.data.success) ? props.onLogin(res.data) : alert(res);
+      })
+      .catch((err) => {
+        alert("Failed to login. Please try again.");
+      });
   };
-
-  // props.onLogin(username, password);
 
   return (
     <form className={styles.Admin} autoComplete="on" onSubmit={handleSubmit(onSubmit)}>
@@ -54,9 +47,6 @@ const Admin = (props : any) => {
           <label htmlFor="username" />
           <input
             type="username"
-            onFocus={(e) => {
-              e.target.value = "";
-            }}
             {...register("username", {
               required: "Please enter admin username.",
             })}
@@ -76,9 +66,6 @@ const Admin = (props : any) => {
           <label htmlFor="password" />
           <input
             type="password"
-            onFocus={(e) => {
-              e.target.value = "";
-            }}
             {...register("password", {
               required: "Please enter admin password.",
             })}
