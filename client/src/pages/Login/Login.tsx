@@ -1,22 +1,31 @@
 // Library imports.
-import axios from "axios";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useForm } from "react-hook-form";
+
+// API imports.
+import { login, reset } from '../../api/auth/authSlice';
+
+// Utility imports.
+import { scrollTop } from "../../utils/mouseScrolling";
 
 // Component imports.
 import { ErrorMessage } from "@hookform/error-message";
 
 // Style imports.
-import styles from "./Admin.module.scss";
+import styles from "./Login.module.scss";
 
 // Media imports.
 import logo from "../../images/logo/logo.png";
 
 
 /**
- * Renders the Admin page.
+ * Renders the Login page.
  * @returns {JSX.Element} JSX Component.
  */
-const Admin = (props : any) => {
+const Login = (props : any) => {
   // Destructure useForm object for usage.
   const {
     register,
@@ -24,22 +33,39 @@ const Admin = (props : any) => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isError, isSuccess, message } = useSelector((state : any) => state.auth);
+
   const onSubmit = (formInfo: any) => {
-    axios.post('/auth/login', { username: formInfo.username, password: formInfo.password })
-      .then((res) => {
-        (res.data.success) ? props.onLogin(res.data) : alert(res);
-      })
-      .catch((err) => {
-        alert("Failed to login. Please try again.");
-      });
+    const userData = { username: formInfo.username, password: formInfo.password };
+
+    dispatch(login(userData) as any);
   };
 
+  useEffect(() => {
+    (isError) && toast.error(message);
+
+    if (isSuccess) {
+      toast(`🕊️ Successfully logged in as ${user.user}.`, {
+        progressStyle: {
+          background: "rgb(var(--primary-dark))",
+        },
+      });
+      navigate('/');
+      scrollTop(0);
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   return (
-    <form className={styles.Admin} autoComplete="on" onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.Login} autoComplete="on" onSubmit={handleSubmit(onSubmit)}>
       <img src={logo} alt="logo" className={styles.Logo} />
 
       <div className={styles.Fields}>
-        <h1>Login as Administrator</h1>
+        <h1>Log in as Administrator</h1>
 
         <fieldset>
           <legend>Username</legend>
@@ -87,4 +113,4 @@ const Admin = (props : any) => {
   );
 };
 
-export default Admin;
+export default Login;

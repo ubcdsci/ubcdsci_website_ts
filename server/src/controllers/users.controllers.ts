@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import asyncHandler from 'express-async-handler';
 
-import { jwtSecret, jwtExpire, username as USER, password as PASS } from '../configs/env.configs';
+import { jwtSecret, jwtExpire } from '../configs/env.configs';
 
 import { User } from '../database/index.database';
 
@@ -27,7 +27,7 @@ import { User } from '../database/index.database';
 
 //   const salt = bcrypt.genSaltSync(12);
 //   const hashedPassword = bcrypt.hashSync(PASS, salt);
-//   const user = await User.create({ username: USER, password: hashedPassword });
+//   const user = await User.create({ username, password: hashedPassword });
 
 //   if (user) {
 //     res.status(201).json({

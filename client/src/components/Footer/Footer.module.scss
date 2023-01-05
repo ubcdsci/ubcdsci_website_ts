@@ -118,3 +118,15 @@
     margin-right: 1.75rem;
   }
 }
+
+.LogoutButton {
+  align-self: center;
+  letter-spacing: 0.05rem;
+  font-size: 0.8rem;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: rgb(var(--primary));
+    scale: 1.05;
+  }
+}

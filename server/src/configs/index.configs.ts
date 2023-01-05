@@ -3,18 +3,18 @@ import path from 'path';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import { env } from './env.configs';
+dotenv.config();
+
+import { nodeEnv } from './env.configs';
 import { errorHandler } from '../middlewares/error.middlewares';
 
-
-dotenv.config();
 
 const app : Express = express();
 app.use(cors());
 app.use(express.json());
 
 // Serves client build folder in production.
-if (env === 'production') {
+if (nodeEnv === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 
   app.get('*', (req, res) =>

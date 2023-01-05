@@ -1,7 +1,9 @@
 // Library imports.
 import { HashLink as Link } from "react-router-hash-link";
-import { animateScroll as scroll } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
+
+// Utility imports.
+import { scrollTop } from "../../utils/mouseScrolling";
 
 // Component imports.
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -12,11 +14,6 @@ import styles from "./Error.module.scss";
 // Media imports.
 import ErrorImage from "../../images/logo/logo.png";
 
-
-// Action event definitions.
-let scrollTop = () => {
-  scroll.scrollToTop({ duration: 500, delay: 0, smooth: "easeInOutQuart" });
-};
 
 /**
  * Renders the 404 Error page.
@@ -37,7 +34,7 @@ const ErrorPage = () => {
           Let's just go ahead and set&nbsp;
           <code>na.rm=TRUE</code>... <br />
           ...and voila! A nice&nbsp;
-          <Link to="/home" onClick={scrollTop}>clean page</Link> is waiting for you!
+          <Link to="/home" onClick={() => scrollTop()}>clean page</Link> is waiting for you!
         </p>
 
         <h4 className={styles.Search}>(alternatively, try using the search bar below)</h4>

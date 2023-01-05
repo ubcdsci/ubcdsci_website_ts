@@ -1,4 +1,5 @@
 // Library imports.
+import { useSelector } from 'react-redux';
 import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill } from "react-icons/bs";
 
 // Component imports.
@@ -64,9 +65,11 @@ const EventPost = (props: {title : string, date : Date, img : string, body : str
  * @returns {JSX.Element} JSX Component.
  */
 const Events = () => {
+  const { user } = useSelector((state : any) => state.auth);
+
   return (
     <div className={styles.Events}>
-      <PostForm />
+      { user && user.user && <PostForm />}
 
       <div id="upcomingEvents" className={styles.Upcoming}>
         <EventPost

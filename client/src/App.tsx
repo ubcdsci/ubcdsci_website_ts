@@ -1,9 +1,9 @@
 // Library imports.
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { animateScroll as scroll } from "react-scroll";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Component imports.
 import Background from "./components/Background/Background";
@@ -19,7 +19,7 @@ import Projects from "./pages/Projects/Projects";
 import Events from "./pages/Events/Events";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import SearchResult from "./pages/SearchResult/SearchResult";
-import Admin from "./pages/Admin/Admin";
+import Login from "./pages/Login/Login";
 import ErrorPage from "./pages/Error/Error";
 
 
@@ -59,52 +59,7 @@ const TabTitle = (props: {title : string, description? : string}) => {
  */
 const App = () => {
   // const [darkToggle, setDarkToggle] = useState(false);
-  const [user, setUser] = useState<{ token: string, user: string, id: number }>();
-
-  const handleLogin = (data : any) => {
-    axios.post("/auth/verify", data)
-      .then((res) => {
-        if (res.data.success) {
-          alert("Logged in successfully!");
-          setUser(data);
-          localStorage.setItem("userData", JSON.stringify({
-            token: data.token, user: data.user, id: data.id
-          }));
-        } else {
-          console.log(res.data.message);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const handleLogout = () => {
-    if (!window.confirm("Are you sure you want to logout?")) return;
-
-    setUser(undefined);
-    localStorage.removeItem("userData");
-    window.history.replaceState({}, document.title, "/auth/login");
-    window.location.reload();
-    scroll.scrollToTop({ duration: 500, delay: 0, smooth: "ease" });
-  };
-
-  const logoutButtonStyle = {
-    alignSelf: 'center',
-    width: '100%',
-    paddingBottom: '2rem',
-    background: 'rgba(var(--bg-dark), 0.8)',
-    color: 'rgb(var(--primary-light))',
-    fontWeight: 'bold',
-    transition: 'all 0.2s ease-in-out',
-  }
-  
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("userData");
-    if (loggedInUser) {
-      handleLogin(JSON.parse(loggedInUser));
-    }
-  }, []);
+  const { user } = useSelector((state : any) => state.auth);
 
   return (
     <HelmetProvider>
@@ -126,23 +81,29 @@ const App = () => {
             } />
           ))}
 
-          <Route path="/auth/login" element={user ? <Navigate replace to="/home" /> :
-            <>
-              <TabTitle title="Admin Login" />
-              <NavBar currentLocation="Admin Login" />
-              <Admin onLogin={handleLogin} />
-            </> 
+          <Route path="/login" element={
+            (user && user.username) ? <Navigate replace to="/home" /> :
+              <>
+                <TabTitle title="Admin Login" />
+                <NavBar currentLocation="Admin Login" />
+                <Login />
+              </> 
           } />
         </Routes>
 
         <Footer />
         <ScrollToTop />
-
-        { user &&
-          <button onClick={handleLogout} style={logoutButtonStyle}>
-            Logout of {user.user}
-          </button>
-        }
+        <ToastContainer
+          position="bottom-left"
+          autoClose={3000}
+          pauseOnHover={false}
+          pauseOnFocusLoss={false}
+          toastStyle={{
+            backgroundColor: "rgba(var(--primary-light), 0.25)",
+            color: "white",
+            backdropFilter: "blur(20px)",
+          }}
+        />
       </BrowserRouter>
     </HelmetProvider>
   );
