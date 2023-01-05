@@ -2,7 +2,7 @@
 
 ## **Overview** 📖
 > This repository holds the source code for the [UBC Data Science Club's website](https://ubcdsci.club/home). \
-Written in **TypeScript**, the frontend uses **React** and **Sass/SCSS**, while the backend uses **Node.js**, **Express** and **MongoDB**.
+Written in **TypeScript**, the frontend uses **React + Redux** and **Sass/SCSS**, while the backend uses **Node.js**, **Express** and **MongoDB**.
 
 ## **Getting Started** 🚀
 > CLIENT:
@@ -21,12 +21,12 @@ Written in **TypeScript**, the frontend uses **React** and **Sass/SCSS**, while 
 
 ## **Dev Tasks** 📝
 > CLIENT:
-- Create a login page for admin
+- ~~Create a login page for admin~~
 - Create an admin dashboard for controlling event posts, etc.
 - Create a search results page with pagination and filter
 
 > SERVER:
-- Set up and test login authentication
+- ~~Set up and test login authentication~~
 - Set up and test admin dashboard and event posting
 - Set up and test search results and pagination
 - Include visitor analytics
@@ -36,6 +36,7 @@ Written in **TypeScript**, the frontend uses **React** and **Sass/SCSS**, while 
 
 > CLIENT:
 1. [React Docs](https://reactjs.org/docs/getting-started.html)
+1. [Redux Docs](https://redux.js.org/introduction/getting-started)
 1. [SASS/SCSS Docs](https://sass-lang.com/documentation)
 
 > SERVER:
