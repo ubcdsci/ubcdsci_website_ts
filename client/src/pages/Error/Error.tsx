@@ -12,7 +12,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import styles from "./Error.module.scss";
 
 // Media imports.
-import ErrorImage from "../../images/logo/logo.png";
+import { ReactComponent as Logo } from "../../images/logo/logo-colour.svg";
 
 
 /**
@@ -41,7 +41,7 @@ const ErrorPage = () => {
         <SearchBar />
       </div>
 
-      { !isMobile && <img src={ErrorImage} alt="Not even this graphic wants to load :/" /> }
+      { !isMobile && <Logo className={styles.Logo} /> }
     </div>
   );
 };

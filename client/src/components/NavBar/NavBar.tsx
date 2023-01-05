@@ -19,7 +19,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import GreenButton from '../GreenButton/GreenButton';
 
 // Media imports.
-import VectorLogo from "../VectorLogo";
+import { ReactComponent as Logo } from "../../images/logo/logo-bw.svg";
 
 
 // Check if links to external site and returns element.
@@ -121,10 +121,7 @@ const NavBar = (props: any) => {
           <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : ""}`}>
             <div className={styles.MobileContainer}>
               <Link to="/home" onClick={handleScrollingTop} className={styles.HomeButton}>
-                <VectorLogo
-                  alt="Home"
-                  className={(props.currentLocation === "Home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)}
-                />
+                <Logo className={(props.currentLocation === "Home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
               </Link>
               
               <button className={styles.HamburgerMenuButton} onClick={toggleMenu}>
@@ -169,10 +166,7 @@ const NavBar = (props: any) => {
           <div className={styles.Container}>
             <span className={styles.NavButtons}>
               <Link to="/home" onClick={handleScrollingTop}>
-                <VectorLogo
-                  alt="Home"
-                  className={(props.currentLocation === "Home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)}
-                />
+                <Logo className={(props.currentLocation === "Home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
               </Link>
 
               {data.map((page) => (

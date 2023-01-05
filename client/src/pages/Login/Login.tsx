@@ -18,7 +18,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import styles from "./Login.module.scss";
 
 // Media imports.
-import logo from "../../images/logo/logo.png";
+import { ReactComponent as Logo } from "../../images/logo/logo-colour.svg";
 
 
 /**
@@ -62,7 +62,7 @@ const Login = (props : any) => {
 
   return (
     <form className={styles.Login} autoComplete="on" onSubmit={handleSubmit(onSubmit)}>
-      <img src={logo} alt="logo" className={styles.Logo} />
+      <Logo className={styles.Logo} />
 
       <div className={styles.Fields}>
         <h1>Log in as Administrator</h1>

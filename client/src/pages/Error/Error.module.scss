@@ -8,14 +8,17 @@
     padding-top: 2.5rem;
   }
 
-  img {
-    width: 25vw;
-    animation: pulse 5s ease-in-out infinite;
+  .Logo {
+    height: auto;
+    width: 24vw;
 
-    @keyframes pulse {
-      0% { scale: 1; }
-      50% { scale: 1.05; }
-      100% { scale: 1; }
+    animation: breathe 5s ease-in-out infinite;
+
+    @keyframes breathe {
+      50% {
+        scale: 1.1;
+        filter: drop-shadow(0 0 1rem rgba(var(--primary), 0.5));
+      }
     }
   }
 

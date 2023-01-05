@@ -19,7 +19,8 @@ import { footerData as data } from "../../configs/config";
 import styles from "./Footer.module.scss";
 
 // Media imports.
-import VectorLogo from "../VectorLogo";
+import { ReactComponent as Logo } from "../../images/logo/logo-bw.svg";
+
 
 /**
  * Renders a Footer.
@@ -100,7 +101,7 @@ const Footer = (props: any) => {
       </div>
 
       <div className={styles.CopyrightBlock}>
-        <VectorLogo alt="" className={styles.Logo} />
+        <Logo className={styles.Logo} />
         <span>
           &copy; 2022-{new Date().getFullYear()} UBC Data Science Club. <br />
           All Rights Reserved.
