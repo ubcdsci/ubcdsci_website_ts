@@ -1,14 +1,12 @@
 // Library imports.
 import { useState, useEffect } from "react";
-import { animateScroll as scroll } from "react-scroll";
 import { BsArrowUpCircle } from "react-icons/bs";
 
-// Component imports.
+// Utility imports.
+import { scrollTop } from "../../utils/mouseScrolling";
 
 // Style imports.
 import styles from "./ScrollToTop.module.scss";
-
-// Media imports.
 
 
 /**
@@ -36,9 +34,7 @@ const ScrollToTop = (props: any) => {
     <BsArrowUpCircle
       className={`${visible ? styles.ScrollToTopHidden : styles.ScrollToTop}`}
       title="Return to top"
-      onClick={() => {
-        scroll.scrollToTop({ duration: 500, delay: 0, smooth: "ease" });
-      }}
+      onClick={() => scrollTop()}
     />
   );
 };

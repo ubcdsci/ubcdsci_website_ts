@@ -1,9 +1,11 @@
 // Library imports.
 import { useState, useEffect, useCallback } from "react";
 import { HashLink as Link } from "react-router-hash-link";
-import { animateScroll as scroll } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 import { BsList, BsX, BsPencilSquare } from "react-icons/bs";
+
+// Utility imports.
+import { scrollTop } from "../../utils/mouseScrolling";
 
 // Type declarations imports.
 import { DropDowns, Page } from "../../declarations";
@@ -74,9 +76,9 @@ const NavBar = (props: any) => {
 
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
-  const scrollTop = () => {
+  const handleScrollingTop = () => {
     setToggleNavMenu(false);
-    scroll.scrollToTop({ duration: 500, delay: 0, smooth: "easeInOutQuart" });
+    scrollTop();
   };
 
   const toggleMenu = () => {
@@ -89,7 +91,7 @@ const NavBar = (props: any) => {
       const navbarHeight = document.getElementsByClassName(styles.NavBar)[0].clientHeight;
 
       setScrolled(offset > navbarHeight);
-      setVisible(offset <= scrollOffset || mouseOver);
+      setVisible(offset <= scrollOffset || mouseOver); // replace !scrolled with offset <= scrollOffset for visibility when scrolling up
       setScrollOffset(offset);
     }, [scrollOffset, mouseOver]
   );
@@ -118,7 +120,7 @@ const NavBar = (props: any) => {
         <>
           <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : ""}`}>
             <div className={styles.MobileContainer}>
-              <Link to="/home" onClick={scrollTop} className={styles.HomeButton}>
+              <Link to="/home" onClick={handleScrollingTop} className={styles.HomeButton}>
                 <VectorLogo
                   alt="Home"
                   className={(props.currentLocation === "Home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)}
@@ -151,7 +153,7 @@ const NavBar = (props: any) => {
                 <li key={page.key}>
                   <Link
                     to={page.href}
-                    onClick={scrollTop}
+                    onClick={handleScrollingTop}
                     className={(props.currentLocation === page.key ? styles.NavButtonCurrentLocation : styles.NavButton)}
                   >
                     {page.mobileIcon}
@@ -166,7 +168,7 @@ const NavBar = (props: any) => {
         <div className={`${styles.NavBar} ${(!visible) ? styles.NavBarHidden : (scrolled) ? styles.NavBarScrolled : ""}`}>
           <div className={styles.Container}>
             <span className={styles.NavButtons}>
-              <Link to="/home" onClick={scrollTop}>
+              <Link to="/home" onClick={handleScrollingTop}>
                 <VectorLogo
                   alt="Home"
                   className={(props.currentLocation === "Home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)}
@@ -177,7 +179,7 @@ const NavBar = (props: any) => {
                 <span key={page.key} className={styles.Button}>
                   <Link
                     to={page.href}
-                    onClick={scrollTop}
+                    onClick={handleScrollingTop}
                     className={(props.currentLocation === page.key ? styles.NavButtonCurrentLocation : styles.NavButton)}
                   >
                     {page.text}
