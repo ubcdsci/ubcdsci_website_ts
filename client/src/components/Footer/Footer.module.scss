@@ -117,6 +117,17 @@
     fill: #fff;
     margin-right: 1.75rem;
   }
+
+  @media screen and (max-width: 1024px) {
+    padding: 1rem 0;
+    font-size: 0.6rem;
+
+    .Logo {
+      width: 2.5rem;
+      height: auto;
+      margin-right: 1rem;
+    }
+  }
 }
 
 .LogoutButton {

@@ -1,6 +1,6 @@
 .ScrollToTop {
   position: fixed;
-  bottom: 2vh;
+  bottom: 2.5vh;
   right: 2vw;
   width: 3rem;
   height: 3rem;
@@ -12,6 +12,7 @@
 
   &:hover {
     color: rgb(var(--primary-light));
+    scale: 1.1;
   }
 }
 

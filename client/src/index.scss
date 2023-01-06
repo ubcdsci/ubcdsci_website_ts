@@ -190,3 +190,13 @@ code {
 .grecaptcha-badge { 
   visibility: hidden;
 }
+
+.ProgressBar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: rgb(var(--primary-dark));
+  transform-origin: 0%;
+}

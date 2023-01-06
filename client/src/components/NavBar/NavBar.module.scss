@@ -29,12 +29,13 @@ nav {
   @extend .NavBar;
   @extend .DarkBackground;
 
-  padding-top: 0;
+  padding: 1rem 0;
   transition: all 0.25s ease-in-out;
 }
 
 .NavBarHidden {
   transform: translateY(-100%);
+  opacity: 0;
 }
 
 .Container {

@@ -1,5 +1,6 @@
 // Library imports.
 import { useState, useEffect, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 import { useMediaQuery } from "react-responsive";
 import { BsList, BsX, BsPencilSquare } from "react-icons/bs";
@@ -69,9 +70,10 @@ const NavBar = (props: any) => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mouseOver, setMouseOver] = useState(false);
-  const [scrollOffset, setScrollOffset] = useState(0);
+  // const [scrollOffset, setScrollOffset] = useState(0);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
+  const location = useLocation();
+  const isMobile = useMediaQuery({ query: "(max-width: 1080px)" });
 
   const handleScrollingTop = () => {
     setToggleNavMenu(false);
@@ -85,12 +87,12 @@ const NavBar = (props: any) => {
   const handleScroll = useCallback(
     (e : Event) => {
       const offset = window.scrollY;
-      const navbarHeight = document.getElementsByClassName(styles.NavBar)[0].clientHeight;
+      const threshold = document.getElementsByClassName(styles.NavBar)[0].clientHeight || 0;
 
-      setScrolled(offset > navbarHeight);
-      setVisible(offset <= scrollOffset || mouseOver); // replace !scrolled with offset <= scrollOffset for visibility when scrolling up
-      setScrollOffset(offset);
-    }, [scrollOffset, mouseOver]
+      setScrolled(offset > threshold);
+      setVisible((!scrolled || offset <= threshold) || mouseOver); // replace !scrolled with offset <= scrollOffset for visibility when scrolling up
+      // setScrollOffset(offset);
+    }, [scrolled, mouseOver]
   );
 
   const handleMouseEnter = (e: any) => {
@@ -104,7 +106,7 @@ const NavBar = (props: any) => {
   };
 
   useEffect(() => {
-    setScrollOffset(window.scrollY);
+    // setScrollOffset(window.scrollY);
     window.addEventListener("scroll", (e) => handleScroll(e));
     return () => {
       window.removeEventListener("scroll", (e) => handleScroll(e));
@@ -115,10 +117,10 @@ const NavBar = (props: any) => {
     <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       { isMobile ?
         <>
-          <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : ""}`}>
+          <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : ""} ${toggleNavMenu ? styles.NavBarScrolled : ""}`}>
             <div className={styles.MobileContainer}>
               <Link to="/home" onClick={handleScrollingTop} className={styles.HomeButton}>
-                <Logo className={(props.currentLocation === "Home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
+                <Logo className={(location.pathname === "/home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
               </Link>
               
               <button className={styles.HamburgerMenuButton} onClick={toggleMenu}>
@@ -148,7 +150,7 @@ const NavBar = (props: any) => {
                   <Link
                     to={page.href}
                     onClick={handleScrollingTop}
-                    className={(props.currentLocation === page.key ? styles.NavButtonCurrentLocation : styles.NavButton)}
+                    className={(location.pathname === page.href ? styles.NavButtonCurrentLocation : styles.NavButton)}
                   >
                     {page.mobileIcon}
                     <p>{page.text}</p>
@@ -163,7 +165,7 @@ const NavBar = (props: any) => {
           <div className={styles.Container}>
             <span className={styles.NavButtons}>
               <Link to="/home" onClick={handleScrollingTop}>
-                <Logo className={(props.currentLocation === "Home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
+                <Logo className={(location.pathname === "/home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
               </Link>
 
               {data.map((page) => (
@@ -171,7 +173,7 @@ const NavBar = (props: any) => {
                   <Link
                     to={page.href}
                     onClick={handleScrollingTop}
-                    className={(props.currentLocation === page.key ? styles.NavButtonCurrentLocation : styles.NavButton)}
+                    className={(location.pathname === page.href ? styles.NavButtonCurrentLocation : styles.NavButton)}
                   >
                     {page.text}
                   </Link>

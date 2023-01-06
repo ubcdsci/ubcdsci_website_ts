@@ -42,6 +42,7 @@
 
       &:nth-child(2) {
         color: rgb(var(--primary));
+        text-shadow: 0 0 0.75rem rgb(var(--primary-darker));
       }
     }
 
@@ -94,4 +95,12 @@
       transition: all 0.2s ease-in-out;
     }
   }
+}
+
+.RecentEvents {
+  padding-bottom: 2rem;
+}
+
+.SponsorContent {
+  padding-top: 4rem;
 }

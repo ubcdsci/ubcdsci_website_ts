@@ -18,8 +18,12 @@ import styles from "./Projects.module.scss";
 const Card = (props: {project : ProjectContent, children?: any}) => {
   const [orientation, setOrientation] = useState(false);
 
-  const handleCardClick = () => {
-    setOrientation((x) => !x);
+  const handleCardClick = (e : any) => {
+    const element = e.target;
+
+    if (element.tagName !== "A") {
+      setOrientation((x) => !x);
+    }
   };
 
   return (
@@ -76,8 +80,10 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
 const Projects = () => {
   return (
     <div className={styles.Projects}>
-      <h1>Become a Member and Join a Project Group Today!</h1>
-      <h1>Click on the cards to learn more...</h1>
+      <div className={styles.Header}>
+        <h1>Become a Member and Join a Project Group Today!</h1>
+        <h1>Click on the cards to learn more...</h1>
+      </div>
 
       <div className={styles.ProjectsGrid}>
         {data.map((project, index) => (
