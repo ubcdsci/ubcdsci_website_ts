@@ -43,12 +43,21 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: rgba(var(--bg-mid), 0.1);
+  background: linear-gradient(0deg, rgba(var(--logo-green-dark), 0.3), rgba(var(--logo-blue-dark), 0.3));
   border-radius: 10px;
   padding: 2rem 1rem;
+  margin: 1rem 0;
   opacity: 1;
   cursor: auto;
   transition: all 0.2s ease-in-out;
+
+  animation: float 3s ease-in-out infinite;
+
+  @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 
   .ExecTitle {
     color: rgba(var(--primary-light));
