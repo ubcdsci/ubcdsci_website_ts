@@ -2,9 +2,6 @@
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 
-// Type declarations imports.
-
-
 // Component imports.
 import { ErrorMessage } from "@hookform/error-message";
 

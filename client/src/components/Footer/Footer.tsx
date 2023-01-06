@@ -9,9 +9,6 @@ import { scrollTop } from "../../utils/mouseScrolling";
 // API imports.
 import { logout, reset } from '../../api/auth/authSlice';
 
-// Type declarations imports.
-import { SMLink } from "../../declarations";
-
 // Component imports.
 import { footerData as data } from "../../configs/config";
 
@@ -91,8 +88,8 @@ const Footer = (props: any) => {
               </Link>
             </p>
 
-            { col.links.map((link, i) => (
-              <p key={link.text + i} className={styles.ColumnSub}>
+            { col.links.map((link : SMLink, index : number) => (
+              <p key={index} className={styles.ColumnSub}>
                 {checkExternal(link)}
               </p>
             ))}

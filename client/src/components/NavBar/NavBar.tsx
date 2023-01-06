@@ -7,9 +7,6 @@ import { BsList, BsX, BsPencilSquare } from "react-icons/bs";
 // Utility imports.
 import { scrollTop } from "../../utils/mouseScrolling";
 
-// Type declarations imports.
-import { DropDowns, Page } from "../../declarations";
-
 // Style imports.
 import styles from "./NavBar.module.scss";
 

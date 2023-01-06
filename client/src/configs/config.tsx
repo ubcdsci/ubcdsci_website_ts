@@ -5,13 +5,6 @@ import {
 } from "react-icons/bs";
 import { FaGraduationCap } from "react-icons/fa";
 
-// Type declarations imports.
-import { 
-  Page,
-  SMButton, Column,
-  CarouselContent, ExecMemberContent, FAQContent, ProjectContent, WorkshopContent, ContactContent,
-} from "../declarations";
-
 // Media imports.
 import Bomberland from "../images/bomberland.gif";
 import Fishnet from "../images/Fishnet.jpg";

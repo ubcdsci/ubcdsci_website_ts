@@ -2,9 +2,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
-// Type declarations imports.
-import { CarouselContent } from "../../declarations";
-
 // Component imports.
 import { carouselData as data } from "../../configs/config";
 

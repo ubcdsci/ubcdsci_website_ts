@@ -1,9 +1,6 @@
 // Library imports.
 import { useState } from "react";
 
-// Type declarations imports.
-import { ProjectContent } from "../../declarations";
-
 // Component imports.
 import { projectsListData as data } from "../../configs/config";
 
