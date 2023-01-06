@@ -1,7 +1,9 @@
 // Library imports.
 import express from 'express';
 // import bcrypt from 'bcrypt';
-// import { username as USER, password as PASS } from '../../configs/env.configs';
+
+// import env from '../../configs/env.configs';
+
 // import { User } from '../../database/index.database';
 
 import { verifyToken } from '../../middlewares/auth.middlewares';
@@ -16,8 +18,8 @@ export default router;
 
 
 // const salt = bcrypt.genSaltSync(12);
-// const hashedPassword = bcrypt.hashSync(PASS, salt);
-// const user1 = new User({ username: USER, password: hashedPassword });
+// const hashedPassword = bcrypt.hashSync(env.PASSWORD, salt);
+// const user1 = new User({ username: env.USERNAME, password: hashedPassword });
 // user1.save()
 //   .then(() => console.log('User has been created!'))
 //   .catch(() => console.log('User already exists!'));

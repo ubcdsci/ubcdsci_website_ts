@@ -39,9 +39,19 @@ const Login = (props : any) => {
   const { user, isError, isSuccess, message } = useSelector((state : any) => state.auth);
 
   const onSubmit = (formInfo: any) => {
-    const userData = { username: formInfo.username, password: formInfo.password };
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute("6Ld4FtQjAAAAAAHZSqbluStI6BP4UGvOM18W9ldW", { action: "login" })
+        .then((token : string) => {
+          const userData : UserFormData = {
+            username: formInfo.username,
+            password: formInfo.password,
+            captchaToken: token
+          };
 
-    dispatch(login(userData) as any);
+          dispatch(login(userData) as any);
+        });
+    });
   };
 
   useEffect(() => {
@@ -106,6 +116,16 @@ const Login = (props : any) => {
         </fieldset>
 
         <div className={styles.Submission}>
+          <div className={styles.CaptchaNotice}>
+            This site is protected by reCAPTCHA and the Google&nbsp;
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">
+              Privacy Policy
+            </a> and&nbsp;
+            <a href="https://policies.google.com/terms" target="_blank" rel="noreferrer">
+              Terms of Service
+            </a> apply.
+          </div>
+
           <button type="submit">Submit</button>
         </div>
       </div>

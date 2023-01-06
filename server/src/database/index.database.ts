@@ -15,13 +15,13 @@ export {
 /* -------------------------------------------------------------------------- */
 import mongoose from 'mongoose';
 
-import { dbUrl } from '../configs/env.configs';
+import env from '../configs/env.configs';
 
 mongoose.set('strictQuery', false);
 
 const db = async () => {
   try {
-    const conn = await mongoose.connect(dbUrl);
+    const conn = await mongoose.connect(env.DATABASE_URL);
     console.log(`[Database]: Connected to database on ${conn.connection.host}`);
   } catch (err) {
     console.error('[Database]: Failed to connect to MongoDB', err)

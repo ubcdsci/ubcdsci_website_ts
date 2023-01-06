@@ -1,12 +1,36 @@
-export const nodeEnv = process.env.NODE_ENV || 'development';
+// Node Environment.
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
-export const host  = process.env.HOST || 'localhost';
-export const port  = process.env.PORT || 3001;
+// Server.
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || '3001';
 
-export const dbUrl = process.env.DATABASE_URL || 'mongodb://localhost:27017/ubc-dsc';
+// Database.
+const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/ubc-dsc';
 
-export const jwtSecret = process.env.JWT_SECRET || 'secret';
-export const jwtExpire = process.env.JWT_EXPIRE || '1d';
+// JSON Web Token.
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
+const JWT_EXPIRE = process.env.JWT_EXPIRE || '1d';
 
-export const username = process.env.DSCI_USER || 'username';
-export const password = process.env.DSCI_PASS || 'password';
+// ReCaptcha.
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY || 'secret';
+
+// Login.
+const DSCI_USER = process.env.DSCI_USER || 'username';
+const DSCI_PASS = process.env.DSCI_PASS || 'password';
+
+
+// Export all the environment variables.
+const env = {
+  NODE_ENV,
+  HOST,
+  PORT,
+  DATABASE_URL,
+  JWT_SECRET,
+  JWT_EXPIRE,
+  RECAPTCHA_SECRET_KEY,
+  DSCI_USER,
+  DSCI_PASS,
+};
+
+export default env;

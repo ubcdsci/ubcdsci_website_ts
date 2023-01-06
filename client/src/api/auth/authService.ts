@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const API_URL = '/api/users/';
 
-// const register = async (userData : { username : any, password : any }) => {
+// const register = async (userData : UserFormData) => {
 //   const res = await axios.post(API_URL + 'register', userData);
 
 //   (res.data) && localStorage.setItem('user', JSON.stringify(res.data));
@@ -12,7 +12,7 @@ const API_URL = '/api/users/';
 //   return res.data;
 // };
 
-const login = async (userData : { username : any, password : any }) => {
+const login = async (userData : UserFormData) => {
   const res = await axios.post(API_URL + 'login', userData);
 
   (res.data) && localStorage.setItem('user', JSON.stringify(res.data));

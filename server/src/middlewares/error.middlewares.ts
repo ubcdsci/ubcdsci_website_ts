@@ -1,4 +1,4 @@
-import { nodeEnv } from '../configs/env.configs';
+import env from '../configs/env.configs';
 
 /**
  * Handle errors.
@@ -11,6 +11,6 @@ export const errorHandler = (err : any, req : any, res : any, next : any) => {
   res.json({
     success: false,
     message: err.message,
-    stack: nodeEnv === 'production' ? null : err.stack,
+    stack: env.NODE_ENV === 'production' ? null : err.stack,
   });
 };

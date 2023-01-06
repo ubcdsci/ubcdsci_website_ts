@@ -65,14 +65,13 @@
     .Submission {
       grid-area: submit;
       display: flex;
-      justify-content: flex-end;
       align-items: center;
       gap: 1rem;
       padding: 1rem 0;
 
       button {
         height: 2.5rem;
-        width: 50%;
+        min-width: 45%;
         padding: 0 1rem;
         outline: none;
         border-radius: 0.5rem;
@@ -81,6 +80,23 @@
 
         &:hover {
           background: rgba(var(--primary), 0.8);
+        }
+      }
+
+      .CaptchaNotice {
+        padding-right: 1rem;
+        font-size: 0.75rem;
+        color: #bbb;
+
+        a {
+          color: #bbb;
+          text-decoration: underline;
+          text-underline-offset: 0.1rem;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            color: rgb(var(--primary));
+          }
         }
       }
     }

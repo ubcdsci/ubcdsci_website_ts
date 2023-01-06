@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-import { nodeEnv } from './env.configs';
+import env from './env.configs';
 import { errorHandler } from '../middlewares/error.middlewares';
 
 
@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serves client build folder in production.
-if (nodeEnv === 'production') {
+if (env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 
   app.get('*', (req, res) =>
