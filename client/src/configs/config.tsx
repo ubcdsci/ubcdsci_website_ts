@@ -13,18 +13,20 @@ import {
 } from "../declarations";
 
 // Media imports.
-import bomberland from "../images/bomberland.gif";
-import fishnet from "../images/Fishnet.jpg";
+import Bomberland from "../images/bomberland.gif";
+import Fishnet from "../images/Fishnet.jpg";
 import HPE2 from "../images/HPE2.png";
-import deepfake from "../images/Deepfake.jpeg";
-import spaces from "../images/spaces.webp";
+import Deepfake from "../images/Deepfake.jpeg";
+import Spaces from "../images/spaces.webp";
 
-import bryan_profile from "../images/exec/bryan.png";
-import james_profile from "../images/exec/james.png";
-import marcus_profile from "../images/exec/marcus.png";
-import aditya_profile from "../images/exec/aditya.jpeg";
-import jaskeerat_profile from "../images/exec/jaskeerat.jpg";
-import FAQImage from "../images/3.gif";
+// import Placeholder from "../images/execs/_placeholder.png";
+import President from "../images/execs/president.png";
+import Treasurer from "../images/execs/treasurer.png";
+import Marketing from "../images/execs/marketing.png";
+import Outreach from "../images/execs/outreach.png";
+import EventPlanning from "../images/execs/event-planning.png";
+import Webmaster from "../images/execs/webmaster.png";
+
 
 /* -------------------------------------------------------------------------- */
 /*                           COMMON COMPONENTS DATA                           */
@@ -42,17 +44,7 @@ export const navbarData: Page[] = [
     dropDowns: [
       { text: "Club Description", href: "#clubDescription" },
       { text: "Mission Statement", href: "#missionStatement" },
-      {
-        text: "Executive Team",
-        href: "#executiveTeam",
-        // dropDowns: [
-        //   { text: "President", href: "#president" },
-        //   { text: "Vice President", href: "#vicePresident" },
-        //   { text: "Secretary", href: "#secretary" },
-        //   { text: "Treasurer", href: "#treasurer" },
-        //   { text: "Webmaster", href: "#webmaster" },
-        // ],
-      },
+      { text: "Executive Team", href: "#executiveTeam" },
       { text: "FAQ", href: "#faq" },
     ],
   },
@@ -211,7 +203,7 @@ export const carouselData: CarouselContent[] = [
       Find out more about our club projects and sign up to be in a project
       group through our Discord server!
     `,
-    image: bomberland,
+    image: Bomberland,
   },
   // {
   //   title: "Second Slide Label",
@@ -249,7 +241,7 @@ export const execMembersData : ExecMemberContent[] = [
       I'm a third year student in computer science leading the club in order to share
       my interest in data science with other students!
     `,
-    image: james_profile,
+    image: President,
   },
   {
     title: "Treasurer",
@@ -258,7 +250,7 @@ export const execMembersData : ExecMemberContent[] = [
       Hi, I'm Linda and I study CS at UBC.
       I'm excited to learn more about data science and help create opportunities for others to learn too.
     `,
-    image: FAQImage,
+    image: Treasurer,
   },
   {
     title: "Marketing",
@@ -267,7 +259,7 @@ export const execMembersData : ExecMemberContent[] = [
       My name is Bryan and I'm a second year student in science.
       I joined because applied math is cool and I think the club logo is pretty dope.
     `,
-    image: bryan_profile,
+    image: Marketing,
   },
   {
     title: "Outreach",
@@ -276,7 +268,7 @@ export const execMembersData : ExecMemberContent[] = [
       My name is Aditya Varma and I'm a 2nd year Chemical and Biological Engineer.
       I am a Big Data and AI-ML enthusiast who loves to work and build new projects.
     `,
-    image: aditya_profile,
+    image: Outreach,
   },
   {
     title: "Event Planning",
@@ -287,7 +279,7 @@ export const execMembersData : ExecMemberContent[] = [
       My research interests are trustworthiness and reliability of ML, and computer vision.
       Feel free to reach out anytime!
     `,
-    image: jaskeerat_profile,
+    image: EventPlanning,
   },
   {
     title: "Webmaster",
@@ -296,7 +288,7 @@ export const execMembersData : ExecMemberContent[] = [
       I'm a second year student in CS and Math.
       I'm interested in data and optimization, lmk if you want to collaborate on something!
     `,
-    image: marcus_profile,
+    image: Webmaster,
   },
 ];
 
@@ -465,7 +457,7 @@ export const projectsListData : ProjectContent[] = [
   {
     title: "Bomberland",
     id: "bomberland",
-    image: bomberland,
+    image: Bomberland,
     concepts: "Teaching a computer to play games better than a human",
     tech: ["Python", "PyTorch"],
     body:
@@ -480,7 +472,7 @@ export const projectsListData : ProjectContent[] = [
   {
     title: "Deepfake Detection",
     id: "deepfake-detection",
-    image: deepfake,
+    image: Deepfake,
     concepts: "Differentiating between the real and fake",
     tech: ["Python", "PyTorch", "OpenCV"],
     body:
@@ -514,7 +506,7 @@ export const projectsListData : ProjectContent[] = [
   {
     title: "Fishnet",
     id: "fishnet",
-    image: fishnet,
+    image: Fishnet,
     concepts: "Applying computer vision to the fishing industry",
     tech: ["Python", "PyTorch", "OpenCV"],
     body:
@@ -561,7 +553,7 @@ export const projectsListData : ProjectContent[] = [
   {
     title: "Spaces",
     id: "spaces",
-    image: spaces,
+    image: Spaces,
     concepts: "Understanding and predicting the usage of public spaces",
     tech: ["Python", "spaCy", "tweepy"],
     body:

@@ -11,11 +11,10 @@ import ExecProfile from "../../components/ExecProfile/ExecProfile";
 import styles from "./AboutUs.module.scss";
 
 // Media imports.
-import MissionGif from "../../images/5.gif";
 import DescriptionGif from "../../images/2.gif";
+import MissionGif from "../../images/5.gif";
 
 
-// TODO: Complete rework of this page.
 /**
  * Renders the About page.
  * @returns {JSX.Element} JSX Component.

@@ -10,9 +10,9 @@ import PostForm from "../../components/PostForm/PostForm";
 import styles from "./Events.module.scss";
 
 // Media imports.
-import dsci_workshop from "../../images/event/dsci_workshop.png";
-import guest_speaker from "../../images/event/guest_speaker.jpg";
-import guest_speaker2 from "../../images/event/guest_speaker2.jpg";
+import dsci_workshop from "../../images/events/dsci_workshop.png";
+import guest_speaker from "../../images/events/guest_speaker.jpg";
+import guest_speaker2 from "../../images/events/guest_speaker2.jpg";
 
 
 /**
@@ -59,7 +59,7 @@ const EventPost = (props: {title : string, date : Date, img : string, body : str
   );
 };
 
-// TODO: Complete rework of this page.
+
 /**
  * Renders the Events page.
  * @returns {JSX.Element} JSX Component.
