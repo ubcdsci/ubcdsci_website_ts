@@ -11,6 +11,7 @@ import CarouselFrame from "../../components/CarouselFrame/CarouselFrame";
 
 // Style imports.
 import styles from "./Home.module.scss";
+// import Scene from "../../components/ThreeModels/Scene";
 
 // Media imports.
 import titleImage from "../../images/1.gif";
@@ -32,25 +33,35 @@ const Home = () => {
   return (
     <div className={styles.Home}>
       <div className={styles.MainContent}>
-        { isMobile && <img src={titleImage} alt="title" /> }
+        { isMobile && 
+          // <div className={styles.SceneContainer}>
+          //   <Scene />
+          // </div>
+          <img src={titleImage} alt="title" />
+        }
 
         <div className={styles.TextBlock}>
-            <h1>UBC</h1>
-            <h1>Data Science Club</h1>
+          <h1>UBC</h1>
+          <h1>Data Science Club</h1>
 
-            <p>
-              A student-led club that aims to provide students with an
-              opportunity to learn about data science through hands-on learning.
-            </p>
+          <p>
+            A student-led club that aims to provide students with an
+            opportunity to learn about data science through hands-on learning.
+          </p>
 
-            <div className={styles.Buttons}>
-              <GreenButton text="Ongoing Projects" href="/projects" />
-              <GreenButton text="Upcoming Events" href="/events" />
-              <GreenButton text="Our Club" href="/about-us" />
-            </div>
+          <div className={styles.Buttons}>
+            <GreenButton text="Ongoing Projects" href="/projects" />
+            <GreenButton text="Upcoming Events" href="/events" />
+            <GreenButton text="Our Club" href="/about-us" />
+          </div>
         </div>
         
-        { !isMobile && <img src={titleImage} alt="title" /> }
+        { !isMobile && 
+          // <div className={styles.SceneContainer}>
+          //   <Scene />
+          // </div>
+          <img src={titleImage} alt="title" />
+        }
       </div>
 
       <motion.div

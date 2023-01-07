@@ -5,18 +5,20 @@ import { Helmet } from "react-helmet-async";
 import { AnimatePresence, motion } from "framer-motion";
 
 // Component imports.
-import NavBar from "./NavBar/NavBar";
-import NewsletterForm from "./NewsletterForm/NewsletterForm";
+import NewsletterForm from "../NewsletterForm/NewsletterForm";
 
 // Pages imports.
-import Home from "../pages/Home/Home";
-import AboutUs from "../pages/AboutUs/AboutUs";
-import Projects from "../pages/Projects/Projects";
-import Events from "../pages/Events/Events";
-import ContactUs from "../pages/ContactUs/ContactUs";
-import SearchResult from "../pages/SearchResult/SearchResult";
-import Login from "../pages/Login/Login";
-import ErrorPage from "../pages/Error/Error";
+import Home from "../../pages/Home/Home";
+import AboutUs from "../../pages/AboutUs/AboutUs";
+import Projects from "../../pages/Projects/Projects";
+import Events from "../../pages/Events/Events";
+import ContactUs from "../../pages/ContactUs/ContactUs";
+import SearchResult from "../../pages/SearchResult/SearchResult";
+import Login from "../../pages/Login/Login";
+import ErrorPage from "../../pages/Error/Error";
+
+// Style imports.
+import styles from "./AnimatedRoutes.module.scss";
 
 
 const routes : {path : string, name : string, element : JSX.Element}[] = [
@@ -69,10 +71,8 @@ const AnimatedRoutes = (props: any) => {
             element={
               <>
                 <TabTitle title={name} />
-                <NavBar />
-
                 <motion.div
-                  className="PageContainer"
+                  className={styles.PageContainer}
                   initial={{ opacity: 0.1 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration }}
@@ -88,10 +88,8 @@ const AnimatedRoutes = (props: any) => {
           (user && user.username) ? <Navigate replace to="/home" /> :
             <>
               <TabTitle title="Admin Login" />
-              <NavBar />
-
               <motion.div
-                className="PageContainer"
+                className={styles.PageContainer}
                 initial={{ opacity: 0.1 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration }}

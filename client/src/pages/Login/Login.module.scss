@@ -3,7 +3,6 @@
   justify-content: space-evenly;
   align-items: center;
   margin-top: 2rem;
-  padding: 15vh 10vw;
 
   .Logo {
     height: auto;
@@ -108,7 +107,6 @@
 
   @media screen and (max-width: 1024px) {
     flex-direction: column;
-    padding: 10vh 5vw;
     gap: 4rem;
 
     .Logo {

@@ -2,11 +2,6 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 5rem;
-
-  @media screen and (max-width: 1024px) {
-    padding-top: 2.5rem;
-  }
 
   .Logo {
     height: auto;
