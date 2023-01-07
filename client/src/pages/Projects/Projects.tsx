@@ -1,5 +1,9 @@
 // Library imports.
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+// Utility imports.
+import { screenFade } from "../../utils/framerAnims";
 
 // Component imports.
 import { projectsListData as data } from "../../configs/config";
@@ -18,16 +22,24 @@ import styles from "./Projects.module.scss";
 const Card = (props: {project : ProjectContent, children?: any}) => {
   const [orientation, setOrientation] = useState(false);
 
-  const handleCardClick = (e : any) => {
-    const element = e.target;
+  const duration = 0.5;
+  const viewport = {
+    once: true
+  };
 
-    if (element.tagName !== "A") {
-      setOrientation((x) => !x);
-    }
+  const handleCardClick = (e : any) => {
+    (e.target.tagName !== "A") && setOrientation((x) => !x);
   };
 
   return (
-    <div className={styles.Card}>
+    <motion.div
+      className={styles.Card}
+      initial="offscreen"
+      whileInView="onscreen"
+      variants={screenFade}
+      viewport={viewport}
+      transition={{ duration }}
+    >
       <div className={styles.ProjectCard} id={props.project.id} onClick={handleCardClick}>
         {orientation ? (
           <div className={styles.Back}>
@@ -68,7 +80,7 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
           </>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

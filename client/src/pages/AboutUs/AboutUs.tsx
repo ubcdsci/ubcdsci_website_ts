@@ -1,5 +1,8 @@
 // Library imports.
+import { motion } from "framer-motion";
 
+// Utility imports.
+import { screenLeftToRight, screenRightToLeft, screenFade } from "../../utils/framerAnims";
 
 // Component imports.
 import { faqData as data } from "../../configs/config";
@@ -20,9 +23,21 @@ import MissionGif from "../../images/5.gif";
  * @returns {JSX.Element} JSX Component.
  */
 const AboutUs = () => {
+  const duration = 0.5;
+  const viewport = {
+    once: true
+  };
+
   return (
     <div className={styles.AboutUs}>
-      <div id="clubDescription">
+      <motion.div
+        id="clubDescription"
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={screenLeftToRight}
+        viewport={viewport}
+        transition={{ duration }}
+      >
         <ContentStrip
           flex="row"
           title="Club Description"
@@ -36,9 +51,16 @@ const AboutUs = () => {
           }
           imageSource={MissionGif}
         />
-      </div>
+      </motion.div>
 
-      <div id="missionStatement">
+      <motion.div
+        id="missionStatement"
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={screenRightToLeft}
+        viewport={viewport}
+        transition={{ duration }}
+      >
         <ContentStrip
           flex="row"
           title="Our Mission Statement"
@@ -75,17 +97,31 @@ const AboutUs = () => {
           }
           imageSource={DescriptionGif}
         />
-      </div>
+      </motion.div>
 
-      <div id="executiveTeam">
+      <motion.div
+        id="executiveTeam"
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={screenFade}
+        viewport={viewport}
+        transition={{ duration }}
+      >
         <ContentStrip
           flex="column"
           title="Club Executives"
           content={<ExecProfile />}
         />
-      </div>
+      </motion.div>
 
-      <div id="faq">
+      <motion.div
+        id="faq"
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={screenFade}
+        viewport={viewport}
+        transition={{ duration }}
+      >
         <ContentStrip
           flex="column"
           title="FAQ"
@@ -97,7 +133,7 @@ const AboutUs = () => {
             </div>
           }
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -1,5 +1,9 @@
 // Library imports.
 import { useMediaQuery } from "react-responsive";
+import { motion } from "framer-motion";
+
+// Utility imports.
+import { screenFade } from "../../utils/framerAnims";
 
 // Component imports.
 import GreenButton from "../../components/GreenButton/GreenButton";
@@ -19,6 +23,11 @@ import titleImage from "../../images/1.gif";
 const Home = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
   const events = false;
+
+  const duration = 0.5;
+  const viewport = {
+    once: true
+  };
 
   return (
     <div className={styles.Home}>
@@ -44,7 +53,14 @@ const Home = () => {
         { !isMobile && <img src={titleImage} alt="title" /> }
       </div>
 
-      <div className={styles.RecentEvents}>
+      <motion.div
+        className={styles.RecentEvents}
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={screenFade}
+        viewport={viewport}
+        transition={{ duration }}
+      >
         <h1>Recent Events</h1>
 
         <div className={styles.Events}>
@@ -56,11 +72,26 @@ const Home = () => {
             <p>No events found.</p>
           }
         </div>
-      </div>
+      </motion.div>
 
-      <CarouselFrame />
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={screenFade}
+        viewport={viewport}
+        transition={{ duration }}
+      >
+        <CarouselFrame />
+      </motion.div>
 
-      <div className={styles.SponsorContent}>
+      <motion.div
+        className={styles.SponsorContent}
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={screenFade}
+        viewport={viewport}
+        transition={{ duration }}
+      >
           <h1>Become a Sponsor!</h1>
 
           <p>
@@ -70,7 +101,7 @@ const Home = () => {
             </a>
             &nbsp;our sponsorship package.
           </p>
-      </div>
+      </motion.div>
     </div>
   );
 };
