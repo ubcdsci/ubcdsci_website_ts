@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 2rem;
+  padding: 6rem 0;
+  gap: 2rem;
 
   .Logo {
     height: auto;
@@ -74,11 +75,11 @@
         padding: 0 1rem;
         outline: none;
         border-radius: 0.5rem;
-        background: rgba(var(--primary), 0.5);
+        background: rgba(var(--primary-darker), 1);
         transition: all 0.25s ease-in-out;
 
         &:hover {
-          background: rgba(var(--primary), 0.8);
+          background: rgba(var(--primary-dark), 1);
         }
       }
 
@@ -99,18 +100,20 @@
         }
       }
     }
-
-    @media screen and (max-width: 1024px) {
-      width: 90%;
-    }
   }
 
   @media screen and (max-width: 1024px) {
     flex-direction: column;
-    gap: 4rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    gap: 3rem;
 
     .Logo {
       max-width: 30vw;
+    }
+
+    .Fields {
+      width: 80%;
     }
   }
 }

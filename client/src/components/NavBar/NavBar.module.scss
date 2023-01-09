@@ -186,7 +186,7 @@ nav {
 
   width: 100vw;
   height: 100vh;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
   input {
     width: 18rem !important;
@@ -199,6 +199,7 @@ nav {
 .HamburgerMenuClosed {
   @extend .HamburgerMenu;
   transform: translateX(100%);
+  opacity: 0;
 }
 
 .NavButtonsMenu {

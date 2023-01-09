@@ -1,5 +1,6 @@
 // Library imports.
 import { useEffect, useState, useCallback, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 
 // Component imports.
 import { execMembersData as data } from "../../configs/config";
@@ -55,6 +56,10 @@ const ExecProfile = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex]       = useState(0);
   const [nextIndex, setNextIndex]       = useState(0);
+  const [touchStart, setTouchStart]     = useState(0);
+  const [touchEnd, setTouchEnd]         = useState(0);
+
+  const isMobile = useMediaQuery({ query: "(max-width: 800px)" });
 
   const previous = useCallback(
     () => { (currentIndex === 0) ?
@@ -67,6 +72,20 @@ const ExecProfile = () => {
       setCurrentIndex(0) : setCurrentIndex(currentIndex + 1);
     }, [currentIndex]
   );
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStart(event.touches[0].clientX);
+    setTouchEnd(event.touches[0].clientX);
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEnd(event.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 150) next();
+    else if (touchEnd - touchStart > 150) previous();
+  };
 
   useEffect(() => {
     if (currentIndex === 0) {
@@ -102,10 +121,15 @@ const ExecProfile = () => {
   }, [next]);
 
   return (
-    <div className={styles.ExecProfile}>
-      <Card index={prevIndex} onClick={previous} />
+    <div
+      className={styles.ExecProfile}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {!isMobile && <Card index={prevIndex} onClick={previous} /> }
       <Card index={currentIndex} isCurrent={true} />
-      <Card index={nextIndex} onClick={next} />
+      {!isMobile && <Card index={nextIndex} onClick={next} /> }
 
        <div className={styles.Dots}>
         {data.map((item, index: number) => {

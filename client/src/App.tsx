@@ -5,6 +5,9 @@ import { motion, useScroll } from "framer-motion";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// Config imports.
+import { bgImgSrc, bgBlur, bgOverlayAlpha } from "./configs/aesthetics";
+
 // Component imports.
 import Background from "./components/Background/Background";
 import NavBar from "./components/NavBar/NavBar";
@@ -15,8 +18,6 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 // import Scene from "./components/ThreeModels/Scene";
 // import Kamdo from './components/ThreeModels/Model';
 
-
-const backgroundImage = "https://images5.alphacoders.com/115/1156667.png";
 
 /**
  * Renders the web app.
@@ -29,7 +30,7 @@ const App = () => {
   return (
     <HelmetProvider>
       <Router>
-        <Background src={backgroundImage} opacity={0.8} blur={4} />
+        <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} />
 
         {/* <div style={{
           position: "fixed",

@@ -203,14 +203,14 @@ export const carouselData: CarouselContent[] = [
   //   description: `
   //     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   //   `,
-  //   image: bomberland,
+  //   image: Bomberland,
   // },
   // {
   //   title: "Third Slide Label",
   //   description: `
   //     Praesent commodo cursus magna, vel scelerisque nisl consectetur.
   //   `,
-  //   image: bomberland,
+  //   image: Bomberland,
   // },
 ];
 

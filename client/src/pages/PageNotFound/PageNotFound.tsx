@@ -9,7 +9,7 @@ import { scrollTop } from "../../utils/mouseScrolling";
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 // Style imports.
-import styles from "./Error.module.scss";
+import styles from "./PageNotFound.module.scss";
 
 // Media imports.
 import { ReactComponent as Logo } from "../../images/logo/logo-colour.svg";
@@ -23,7 +23,9 @@ const ErrorPage = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
   return (
-    <div className={styles.ErrorPage}>
+    <div className={styles.PageNotFound}>
+      { isMobile && <Logo className={styles.Logo} /> }
+
       <div className={styles.TextBlock}>
         <h1 className={styles.Oops}>OOPS!</h1>
 

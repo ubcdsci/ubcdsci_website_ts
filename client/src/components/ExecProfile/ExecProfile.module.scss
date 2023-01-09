@@ -5,7 +5,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  grid-gap: 1rem;
+  gap: 1rem;
+  width: 80vw;
 
   .Dots {
     display: flex;
@@ -34,6 +35,17 @@
       @extend .Dot;
       background: rgb(var(--primary));
       transition: all 0.2s ease-in-out;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0;
+    padding: 0 1rem;
+
+    .Dots {
+      gap: 1rem;
     }
   }
 }

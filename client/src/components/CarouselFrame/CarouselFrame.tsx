@@ -54,6 +54,8 @@ const CarouselFrame = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex]       = useState(0);
   const [nextIndex, setNextIndex]       = useState(0);
+  const [touchStart, setTouchStart]     = useState(0);
+  const [touchEnd, setTouchEnd]         = useState(0);
 
   const previous = useCallback(
     () => { (currentIndex === 0) ?
@@ -66,6 +68,20 @@ const CarouselFrame = () => {
       setCurrentIndex(0) : setCurrentIndex(currentIndex + 1);
     }, [currentIndex]
   );
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStart(event.touches[0].clientX);
+    setTouchEnd(event.touches[0].clientX);
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEnd(event.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 150) next();
+    else if (touchEnd - touchStart > 150) previous();
+  };
 
   useEffect(() => {
     if (currentIndex === 0) {
@@ -101,7 +117,12 @@ const CarouselFrame = () => {
   }, [next]);
 
   return (
-    <div className={styles.CarouselFrame}>
+    <div
+      className={styles.CarouselFrame}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       { (data.length > 1) &&
         <div className={styles.LeftArrow} onClick={previous}>
           <BsArrowLeft />

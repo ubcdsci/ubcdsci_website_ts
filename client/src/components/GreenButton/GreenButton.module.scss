@@ -4,7 +4,7 @@
   text-align: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
-  background-color: rgba(var(--primary-dark), 1);
+  background-color: rgba(var(--primary-darker), 1);
   border-radius: 25px;
   color: #fff;
   text-decoration: none;
@@ -12,7 +12,7 @@
 
   &:hover {
     color: #fff;
-    background-color: rgba(var(--primary), 1);
+    background-color: rgba(var(--primary-dark), 1);
     transition: all 0.2s ease-in-out;
   }
 }

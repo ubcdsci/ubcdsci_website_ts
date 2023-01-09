@@ -1,5 +1,5 @@
 // Library imports.
-
+import { useMediaQuery } from "react-responsive";
 
 // Component imports.
 
@@ -17,8 +17,10 @@ import styles from "./ContentStrip.module.scss";
  * @returns {JSX.Element} JSX Component.
  */
 const ContentStrip = (props: {flex : string, title : string, imageSource? : string, text? : JSX.Element, content? : JSX.Element}) => {
+  const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+  
   return (
-    <div className={`${styles.ContentStrip} ${props.flex === "row" ? styles.FlexRow : styles.FlexColumn}`}>
+    <div className={`${styles.ContentStrip} ${(props.flex === "row" && !isMobile) ? styles.FlexRow : styles.FlexColumn}`}>
       <div className={styles.ContentText}>
         <h1>{props.title}</h1>
         {props.text}

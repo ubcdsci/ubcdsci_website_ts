@@ -1,5 +1,6 @@
 // Library imports.
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 
 // Utility imports.
@@ -21,6 +22,7 @@ import styles from "./Projects.module.scss";
  */
 const Card = (props: {project : ProjectContent, children?: any}) => {
   const [orientation, setOrientation] = useState(false);
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
   const duration = 0.5;
   const viewport = {
@@ -44,6 +46,7 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
         {orientation ? (
           <div className={styles.Back}>
             <h1>{props.project.title}</h1>
+            
             {props.project.body}
 
             <div className={styles.Links}>
@@ -57,6 +60,15 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
           </div>
         ) : (
           <>
+            {isMobile && (
+              <div className={styles.Image}>
+                <img
+                  alt={"project: " + props.project.title}
+                  src={props.project.image}
+                />
+              </div>
+            )}
+
             <div className={styles.Front}>
               <h1>{props.project.title}</h1>
 
@@ -71,12 +83,14 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
               </div>
             </div>
 
-            <div className={styles.Image}>
-              <img
-                alt={"project: " + props.project.title}
-                src={props.project.image}
-              />
-            </div>
+            {!isMobile && (
+              <div className={styles.Image}>
+                <img
+                  alt={"project: " + props.project.title}
+                  src={props.project.image}
+                />
+              </div>
+            )}
           </>
         )}
       </div>

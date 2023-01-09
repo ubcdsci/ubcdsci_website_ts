@@ -32,7 +32,14 @@ const Home = () => {
 
   return (
     <div className={styles.Home}>
-      <div className={styles.MainContent}>
+      <motion.div
+        className={styles.MainContent}
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={screenFade}
+        viewport={viewport}
+        transition={{ duration }}
+      >
         { isMobile && 
           // <div className={styles.SceneContainer}>
           //   <Scene />
@@ -62,7 +69,7 @@ const Home = () => {
           // </div>
           <img src={titleImage} alt="title" />
         }
-      </div>
+      </motion.div>
 
       <motion.div
         className={styles.RecentEvents}

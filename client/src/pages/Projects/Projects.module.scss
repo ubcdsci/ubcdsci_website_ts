@@ -1,3 +1,5 @@
+@use '../../configs/definitions' as *;
+
 .Projects {
   display: flex;
   flex-direction: column;
@@ -29,11 +31,11 @@
   .ProjectsGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1.5rem;
     width: 100%;
 
-    @media screen and (max-width: 1280px) {
+    @media screen and (max-width: 1080px) {
       grid-template-columns: 1fr;
+      gap: 1rem;
     }
   }
 }
@@ -57,21 +59,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
     height: 28rem;
     width: 100%;
     overflow-x: hidden;
-    backdrop-filter: blur(5px);
-    // background: rgba(#fff, 0.1);
-    background: linear-gradient(0deg, rgba(var(--logo-green), 0.2), rgba(var(--logo-blue), 0.2));
     outline-color: rgba(#fff, 0.8);
     box-shadow: 7px 7px #222;
     transition: all 0.4s ease-in-out;
 
+    @extend .GradientBlock;
+
     &:hover {
-      backdrop-filter: blur(10px);
       box-shadow: 8px 8px #555;
-      // background: rgba(#fff, 0.2);
       outline: 8px solid transparent;
       transition: all 0.4s ease-in-out;
     }
@@ -93,6 +91,7 @@
       display: flex;
       flex-direction: column;
       align-self: flex-start;
+      overflow-x: hidden;
       padding: 2rem 0;
       gap: 0.5rem;
       width: 90%;
@@ -153,6 +152,24 @@
         height: 100%;
         object-fit: cover;
         pointer-events: none;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .Front,
+      .Back {
+        width: 100%;
+        padding: 2rem;
+      }
+
+      .Image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }

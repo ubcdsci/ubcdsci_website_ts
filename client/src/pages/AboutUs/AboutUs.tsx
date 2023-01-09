@@ -67,7 +67,7 @@ const AboutUs = () => {
           text={
             <blockquote>
               <p>The purposes of this AMS Club are as follows:</p>
-              
+              <br />
               <ol style={{listStyle: "decimal", display: "flex", flexDirection: "column", gap: "1rem", marginLeft: "1rem"}}>
                 <li>
                   Provide students with engaging projects to learn and apply skills in data science.
@@ -86,7 +86,7 @@ const AboutUs = () => {
                   to learn through mentoring.
                 </li>
               </ol>
-
+              <br />
               <p>
                 The UBC Data Science Club's goal is to provide students with an
                 opportunity to learn about data science algorithms and

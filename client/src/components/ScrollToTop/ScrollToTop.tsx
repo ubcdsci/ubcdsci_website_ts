@@ -33,7 +33,7 @@ const ScrollToTop = (props: any) => {
   return (
     <BsArrowUpCircle
       className={`${visible ? styles.ScrollToTopHidden : styles.ScrollToTop}`}
-      title="Return to top"
+      title="Return to Top"
       onClick={() => scrollTop()}
     />
   );
