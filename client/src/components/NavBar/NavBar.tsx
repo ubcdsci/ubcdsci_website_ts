@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 import { useMediaQuery } from "react-responsive";
-import { BsList, BsX, BsPencilSquare } from "react-icons/bs";
+import { BsPencilSquare, BsHouseFill } from "react-icons/bs";
 
 // Utility imports.
 import { scrollTop } from "../../utils/mouseScrolling";
@@ -123,8 +123,10 @@ const NavBar = (props: any) => {
                 <Logo className={(location.pathname === "/home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
               </Link>
               
-              <button className={styles.HamburgerMenuButton} onClick={toggleMenu}>
-                { toggleNavMenu ? <BsX /> : <BsList /> }
+              <button className={`${toggleNavMenu ? styles.HamburgerMenuButtonClosed : styles.HamburgerMenuButton}`} onClick={toggleMenu}>
+                <div />
+                <div />
+                <div />
               </button>
             </div>
           </div>
@@ -141,8 +143,19 @@ const NavBar = (props: any) => {
                   className={styles.NavButtonRegister}
                 >
                   <BsPencilSquare />
-                  <p>Register Now</p>
+                  <p>Register Now!</p>
                 </a>
+              </li>
+
+              <li>
+                <Link
+                  to={'/home'}
+                  onClick={handleScrollingTop}
+                  className={(location.pathname === '/home' ? styles.NavButtonCurrentLocation : styles.NavButton)}
+                >
+                  <BsHouseFill />
+                  <p>Home</p>
+                </Link>
               </li>
 
               {data.map((page) => (

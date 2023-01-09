@@ -15,7 +15,7 @@ import Events from "../../pages/Events/Events";
 import ContactUs from "../../pages/ContactUs/ContactUs";
 import SearchResult from "../../pages/SearchResult/SearchResult";
 import Login from "../../pages/Login/Login";
-import ErrorPage from "../../pages/Error/Error";
+import ErrorPage from "../../pages/PageNotFound/PageNotFound";
 
 // Style imports.
 import styles from "./AnimatedRoutes.module.scss";
