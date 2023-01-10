@@ -9,5 +9,16 @@ declare global {
     username: any;
     password: any;
     captchaToken: string;
-  }
+  };
+
+  interface EventPostFormData {
+    id: string;
+    creator: string;
+    title: string;
+    description: string;
+    date?: Date;
+    location?: string;
+    imageUpload?: string;
+    tags?: string[];
+  };
 };

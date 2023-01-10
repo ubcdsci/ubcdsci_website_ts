@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const useSchema = new mongoose.Schema({
-  postDate: {
-    type: Date,
-    unique: true,
+  creator: {
+    type: String,
+    required: true,
   },
   title: {
     type: String,
@@ -21,16 +21,16 @@ const useSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  image: {
+  imageUpload: {
     type: String,
-    required: true,
+    required: false,
   },
-  creator: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+  tags: {
+    type: [String],
+    required: false,
   },
 });
 
-const EventPost = mongoose.model("EventPost", useSchema);
+const EventPost = mongoose.model("EventArticle", useSchema);
 
 export default EventPost;
