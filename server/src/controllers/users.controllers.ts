@@ -1,3 +1,4 @@
+import express from "express";
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
@@ -7,6 +8,7 @@ import env from '../configs/env.configs';
 
 import { User } from '../database/index.database';
 
+const router = express.Router();
 
 /**
  * Register new user.
@@ -103,3 +105,5 @@ const verifyRecaptcha = async (captchaToken : string) => {
 
   return recaptchaResponse.data.success;
 };
+
+export default router;

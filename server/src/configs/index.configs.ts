@@ -11,7 +11,7 @@ import { errorHandler } from '../middlewares/error.middlewares';
 
 const app : Express = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit: '50mb'}));
 
 // Serves client build folder in production.
 if (env.NODE_ENV === 'production') {
