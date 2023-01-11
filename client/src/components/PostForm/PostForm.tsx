@@ -1,6 +1,10 @@
 // Library imports.
 import { useState, useRef } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
+
+// API imports.
+import { createEventPost } from '../../api/eventPosts/eventPostsSlice';
 
 // Component imports.
 import { ErrorMessage } from "@hookform/error-message";
@@ -13,19 +17,36 @@ import styles from "./PostForm.module.scss";
 
 const MAX_TAGS = 10;
 
+// Function for formatting file sizes.
+const formatBytes = (bytes: number, decimals = 2) => {
+  if (bytes === 0)
+    return "0 Bytes";
+
+  const kilo = 1024;
+  const decs = decimals < 0 ? 0 : decimals;
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  const powers = Math.floor(Math.log(bytes) / Math.log(kilo));
+
+  return parseFloat((bytes / Math.pow(kilo, powers)).toFixed(decs)) + " " + sizes[powers];
+};
+
+/**
+ * Renders a PostForm for events.
+ * @param {*} props Properties passed to the component.
+ * @returns {JSX.Element} JSX Component.
+ */
 const PostForm = (props: any) => {
+  const MAX_TITLE_LEN = 50;
+
   const [title, setTitle] = useState("");
   const [body, setBody]   = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<any>(null);
+  const [previewImage, setPreviewImage] = useState<string>("");
   const [tags, setTags]   = useState<string[]>([]);
 
+  const titleWordCountRef = useRef<HTMLParagraphElement>(null);
+  const bodyWordCounterRef = useRef<HTMLParagraphElement>(null);
   const tagsRef = useRef<HTMLInputElement>(null);
-
-  // const bodyTypes = {
-  //     Text: 0,
-  //     BoldText: 1,
-  //     Image: 2
-  // };
 
   // Destructure useForm object for usage.
   const {
@@ -34,30 +55,84 @@ const PostForm = (props: any) => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
+  const dispatch = useDispatch();
+  const { posts, isError, isSuccess, message } = useSelector((state : any) => state.eventPosts);
+
   // Form submission handler.
+  // TODO: COMPLETE THE FIELDS
   const onSubmit = async (formInfo: any) => {
-    await fetch("/events/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formInfo),
-    })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+    if (window.confirm("Are you sure you want to post this article?")) {
+      const eventPostData : EventPostFormData = {
+        id: "",
+        creator: formInfo.creator,
+        title: formInfo.title,
+        description: formInfo.body,
+        date: new Date(),
+        location: formInfo.location,
+        imageUpload: URL.createObjectURL(image),
+        tags: tags,
+      };
+
+      dispatch(createEventPost(eventPostData) as any);
+    }
   };
 
   // Image upload handler.
   const handleImageUpload = (e: any) => {
     const file = e.target.files[0];
     setImage(file);
-    e.target.value = "";
+    setPreviewImage(URL.createObjectURL(file));
+  };
+
+  // Image clear handler.
+  const handleImageClear = (e: any) => {
+    const input = e.target.parentElement.parentElement.querySelector("input");
+    input.value = "";
+    setImage(null);
+    setPreviewImage("");
+  };
+
+  // Function for handling the title field.
+  const handleTitleChange = (e: any) => {
+    setTitle(e.target.value.trim());
+
+    let characterCount = e.target.value.length;
+    (e.target.value === "") && (characterCount = 0);
+    titleWordCountRef.current!.innerHTML = `[ ${characterCount} / ${MAX_TITLE_LEN} characters ]`;
+  };
+
+  // Function for handling the body field.
+  const handleBodyChange = (e: any) => {
+    setBody(e.target.value.trim());
+
+    let wordCount = e.target.value.split(/\s+/).length;
+    (e.target.value === "") && (wordCount = 0);
+    bodyWordCounterRef.current!.innerHTML = `${wordCount} word${wordCount === 1 ? "" : "s"}`;
   };
 
   // Function for appending tags to the tags array.
   const appendTags = (tag: string) => {
+    tag = tag.trim();
     const validTag = tags.includes(tag) || tag === "";
     !validTag && (tags.length < MAX_TAGS) && setTags([...tags, tag]);
+  };
+
+  // Function for removing all tags from the tags array.
+  const handleClearAllTags = () => {
+    if (window.confirm("Are you sure you want to clear all tags?")) {
+      setTags([]);
+    };
+  };
+
+  // Function for resetting the form.
+  const handleFormReset = () => {
+    if (window.confirm("Are you sure you want to reset the form?")) {
+      setTags([]);
+      setTitle("");
+      setBody("");
+      setImage(null);
+      setPreviewImage("");
+    };
   };
 
   return(
@@ -72,10 +147,13 @@ const PostForm = (props: any) => {
           <input
             type="text"
             placeholder={`post.set_title("Insert Title Here...")`}
+            maxLength={MAX_TITLE_LEN}
             {...register("title", {
               required: "Please give your post a title."
             })}
+            onChange={handleTitleChange}
           />
+          <p ref={titleWordCountRef}>[ 0 / {MAX_TITLE_LEN} characters ]</p>
           <ErrorMessage
             errors={errors}
             name="title"
@@ -86,17 +164,18 @@ const PostForm = (props: any) => {
         </fieldset>
 
         <fieldset className={styles.Image}>
-          <legend>Post Image *</legend>
+          <legend>Post Image</legend>
 
           <label htmlFor="image" />
           <input
             type="file"
-            accept="image/png, image/jpeg"
+            accept="image/jpg, image/jpeg, image/png, image/gif"
             {...register("image", {
-              validate: (file) => {
-                if (file) {
-                  return (image !== null) || "Please include a valid image file.";
-                }
+              validate: {
+                lessThan10MB: (file) => (!file[0] || file[0]?.size < 10 * 1000 * 1000)
+                  || "File size must be less than 10MB.",
+                acceptedFormats: (file) => (!file[0] ||file[0]?.type.match(/image\/(jpg|jpeg|png|gif)/))
+                  || "Please upload an image file (JPG, JPEG, PNG, or GIF)."
               }
             })}
             onChange={handleImageUpload}
@@ -110,8 +189,9 @@ const PostForm = (props: any) => {
           />
           { image &&
             <div className={styles.ImagePreview}>
-              <img src={URL.createObjectURL(image)} alt="" />
-              <button type="button" onClick={() => setImage(null)}>Clear Image</button>
+              <img src={previewImage} alt="" />
+              <p>File Size: { formatBytes((image as File).size) }</p>
+              <button type="button" onClick={handleImageClear}>Clear Image</button>
             </div>
           }
         </fieldset>
@@ -127,8 +207,9 @@ const PostForm = (props: any) => {
             {...register("body", {
               required: "Please write something about your post."
             })}
-            onChange={(e) => setBody(e.target.value)}
+            onChange={handleBodyChange}
           />
+          <p ref={bodyWordCounterRef}>0 words</p>
           <ErrorMessage
             errors={errors}
             name="body"
@@ -142,27 +223,25 @@ const PostForm = (props: any) => {
           <legend>Post Tags</legend>
           
           <label htmlFor="tags" />
-          <input
-            type="text"
-            onFocus={(e) => {
-              e.target.value = "";
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                appendTags(e.currentTarget.value);
-                e.currentTarget.value = "";
-              }
-            }}
-            maxLength={30}
-            placeholder={`${(tags.length < MAX_TAGS) ? `Tag #${tags.length + 1}` : "Max Tags Reached"}`}
-            {...register("tags")}
-            ref={tagsRef}
-          />
+          <div className={styles.TagsForm}>
+            <input
+              type="text"
+              onFocus={(e) => {
+                e.target.value = "";
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  appendTags(e.currentTarget.value);
+                  e.currentTarget.value = "";
+                }
+              }}
+              maxLength={30}
+              placeholder={`${(tags.length < MAX_TAGS) ? `Tag #${tags.length + 1}` : "Max Tags Reached"}`}
+              {...register("tags")}
+              ref={tagsRef}
+            />
 
-          <p>You can include up to {MAX_TAGS} tags in your post ({tags.length} / {MAX_TAGS}).</p>
-
-          <div className={styles.TagControls}>
             <button
               type="button"
               onClick={() => {
@@ -177,11 +256,13 @@ const PostForm = (props: any) => {
 
             <button
               type="button"
-              onClick={() => setTags([])}
+              onClick={handleClearAllTags}
             >
               Clear All Tags
             </button>
           </div>
+
+          <p>You can include up to {MAX_TAGS} tags in your post [ {tags.length} / {MAX_TAGS} tags].</p>
 
           <div className={styles.TagsList}>
             {tags.map((tag, index) => (
@@ -201,11 +282,7 @@ const PostForm = (props: any) => {
       <div className={styles.PostControls}>
         <button
           type="reset"
-          onClick={() => {
-            setTags([]);
-            setBody("");
-            setImage(null);
-          }}
+          onClick={handleFormReset}
         >
           Clear Form
         </button>
@@ -223,10 +300,6 @@ const PostForm = (props: any) => {
           Post Article
         </button>
       </div>
-    {/* <button onClick={() => setBody([...body, bodyTypes.Text])}>Add text</button>
-    <button onClick={() => setBody([...body, bodyTypes.Image])}>Add Image</button>
-    <button onClick={() => setBody([...body, bodyTypes.BoldText])}>Add bold text</button>
-    <button onClick={()=>setBody([])}>Clear</button> */}
     </form>
   );
 };

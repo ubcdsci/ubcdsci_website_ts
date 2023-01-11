@@ -1,17 +1,17 @@
 @use '../../configs/definitions.scss' as *;
 
 .PostForm {
+  @extend .DarkBackground;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  border-radius: 1rem;
+  width: 80vw;
   margin-bottom: 1rem;
-  padding: 2rem 10vw;
-  background: rgba(var(--bg-dark), 0.2);
-  border-top: 2px solid rgba(#fff, 0.1);
-  border-bottom: 2px solid rgba(#fff, 0.1);
-  backdrop-filter: blur(10px);
+  padding: 2rem 8vw;
+  background-color: rgba(var(--bg-dark), 0.4);
 }
 
 .Fields {
@@ -23,7 +23,7 @@
   h1 {
     text-align: center;
     text-transform: uppercase;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 600;
   }
 
@@ -40,7 +40,7 @@
     outline: none;
     border-radius: 0.5rem;
     background: rgba(#fff, 0.1);
-    transition: all 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
 
     &:hover,
     &:focus {
@@ -79,8 +79,9 @@
       justify-content: center;
       background: rgba(#fff, 0.1);
       border-radius: 0.5rem;
-      height: 55vh;
-      padding: 2rem;
+      height: 60vh;
+      width: fit-content;
+      padding: 3rem;
 
       img {
         width: 100%;
@@ -101,26 +102,38 @@
     }
   }
 
+  
+  .Title,
+  .Body {
+    p {
+      width: 100%;
+      text-align: right;
+      padding-right: 0.5rem;
+    }
+  }
+
   .Tags {
-    .TagControls {
+    .TagsForm {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      gap: 1rem;
+      width: 100%;
       margin: 0.5rem 0;
+      gap: 1rem;
+
+      input {
+        max-width: 60%;
+      }
 
       button {
+        flex: 1;
         padding: 0.5rem;
-        width: 20%;
+        background: rgb(var(--primary-darker));
+        border-radius: 1rem;
         cursor: pointer;
         transition: all 0.25s ease-in-out;
 
-        &:nth-child(1):hover {
-          color: rgb(var(--success));
-        }
-
-        &:nth-child(2):hover {
-          color: rgb(var(--error));
+        &:hover {
+          background: rgb(var(--primary-dark));
         }
       }
     }
@@ -129,7 +142,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin: 0.5rem 0;
+      margin: 1rem 0;
 
       .Tag {
         display: flex;
@@ -157,28 +170,19 @@
 .PostControls {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: right;
+  gap: 2rem;
   width: 100%;
 
   button {
-    padding: 0.5rem;
-    width: 20%;
+    padding: 0.5rem 1rem;
+    background: rgb(var(--primary-darker));
+    border-radius: 1rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 
-    &:nth-child(1):hover {
-      color: rgb(var(--error));
-      transition: all 0.2s ease-in-out;
-    }
-
-    &:nth-child(2):hover {
-      color: rgb(var(--contrast));
-      transition: all 0.2s ease-in-out;
-    }
-
-    &:nth-child(3):hover {
-      color: rgb(var(--success));
+    &:hover {
+      background: rgb(var(--primary-dark));
       transition: all 0.2s ease-in-out;
     }
   }
