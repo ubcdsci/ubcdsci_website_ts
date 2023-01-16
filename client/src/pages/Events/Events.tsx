@@ -7,7 +7,7 @@ import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTra
 import { screenBottomToTop } from '../../utils/framerAnims';
 
 // Component imports.
-import { workshopData as data } from "../../configs/config";
+// import { workshopData as data } from "../../configs/config";
 import PostForm from "../../components/PostForm/PostForm";
 
 // Style imports.
@@ -15,7 +15,7 @@ import styles from "./Events.module.scss";
 
 // Media imports.
 import dsci_workshop from "../../images/events/dsci_workshop.png";
-import guest_speaker from "../../images/events/guest_speaker.jpg";
+// import guest_speaker from "../../images/events/guest_speaker.jpg";
 import guest_speaker2 from "../../images/events/guest_speaker2.jpg";
 
 
@@ -25,15 +25,16 @@ import guest_speaker2 from "../../images/events/guest_speaker2.jpg";
  * @returns {JSX.Element} JSX Component.
  */
 const EventPost = (props: {title : string, date : Date, body : JSX.Element | string, img : string}) => {
-  const { user } = useSelector((state : any) => state.auth);
+  // const { user } = useSelector((state : any) => state.auth);
 
-  const date = props.date;
-  const postUrl = "";
+  // const date = props.date;
+  // const postUrl = "";
   // `/events/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}/${props.title.toLowerCase().replace(/ /g, "-")}`;
 
   return (
     <div className={styles.EventPost}>
-      <div className={styles.Options}>
+      <br />
+      {/* <div className={styles.Options}>
         <BsLink45Deg className={styles.Copy} title="Copy Event Details" />
         { user && user.user &&
           <>
@@ -41,12 +42,13 @@ const EventPost = (props: {title : string, date : Date, body : JSX.Element | str
             <BsPencilFill className={styles.Edit} title="Edit Post" />
           </>
         }
-      </div>
+      </div> */}
 
       <div className={styles.LineDividerTop} />
 
       <h1 className={styles.Title}>
-        <a href={postUrl} rel="noreferrer">{props.title}</a>
+        {/* <a href={postUrl} rel="noreferrer">{props.title}</a> */}
+        {props.title}
       </h1>
 
       <div className={styles.Date}>
@@ -65,10 +67,10 @@ const EventPost = (props: {title : string, date : Date, body : JSX.Element | str
         {props.body}
       </div>
 
-      <div className={styles.MoreButton}>
+      {/* <div className={styles.MoreButton}>
         <a href={postUrl} target="_blank" rel="noreferrer">Learn More</a>
         <BsChevronDoubleRight />
-      </div>
+      </div> */}
 
       <div className={styles.LineDividerBottom} />
     </div>
@@ -91,15 +93,6 @@ const tempOngoingEventsData : Events[] = [
       Come for an hour to learn more about data science and machine learning techniques!
     `,
     img: dsci_workshop,
-  },
-  {
-    title: "JOIN OUR EXEC TEAM!",
-    date: new Date("March 24. 2022"),
-    body: `
-      Our executive election is happening THIS Sunday, March 27 at 3pm, online and in-person!
-      If you'd like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details.
-      All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!
-    `,
   },
 ];
 
@@ -125,7 +118,16 @@ const tempPastEventsData : Events[] = [
       Five data science professionals are invited to share their personal journeys in navigating their career paths to where they are today, in data science.
       Come meet, eat pizza and ask questions to our amazing panel of data scientists!
     </p>,
-    img: guest_speaker,
+    img: guest_speaker2,
+  },
+  {
+    title: "JOIN OUR EXEC TEAM!",
+    date: new Date("March 24. 2022"),
+    body: `
+      Our executive election is happening THIS Sunday, March 27 at 3pm, online and in-person!
+      If you'd like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details.
+      All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!
+    `,
   },
 ];
 

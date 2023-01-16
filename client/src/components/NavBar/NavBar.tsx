@@ -132,7 +132,7 @@ const NavBar = (props: any) => {
           </div>
           
           <div className={`${toggleNavMenu ? styles.HamburgerMenu : styles.HamburgerMenuClosed}`}>
-            <SearchBar />
+            {/* <SearchBar /> */}
             
             <ul className={styles.NavButtonsMenu}>
               <li>
@@ -202,7 +202,7 @@ const NavBar = (props: any) => {
               />
             </span>
 
-            <SearchBar />
+            {/* <SearchBar /> */}
           </div>
         </div>
       }

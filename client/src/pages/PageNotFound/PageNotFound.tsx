@@ -39,8 +39,8 @@ const ErrorPage = () => {
           <Link to="/home" onClick={() => scrollTop()}>clean page</Link> is waiting for you!
         </p>
 
-        <h4 className={styles.Search}>(alternatively, try using the search bar below)</h4>
-        <SearchBar />
+        {/* <h4 className={styles.Search}>(alternatively, try using the search bar below)</h4>
+        <SearchBar /> */}
       </div>
 
       { !isMobile && <Logo className={styles.Logo} /> }

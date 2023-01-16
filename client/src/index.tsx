@@ -20,6 +20,8 @@ const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY || '';
  */
 const Index = () => {
   useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY) return;
+
     const script = document.createElement("script");
     script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
     script.async = true;
@@ -31,12 +33,14 @@ const Index = () => {
       <Provider store={store}>
           <App />
 
-          <div
-            className="g-recaptcha"
-            data-sitekey={RECAPTCHA_SITE_KEY}
-            data-size="invisible"
-            data-callback="onsubmit"
-          />
+          { RECAPTCHA_SITE_KEY && (
+              <div
+                className="g-recaptcha"
+                data-sitekey={RECAPTCHA_SITE_KEY}
+                data-size="invisible"
+                data-callback="onsubmit"
+              />
+            )}
       </Provider>
     </React.StrictMode>
   );

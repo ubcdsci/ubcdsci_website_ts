@@ -39,19 +39,23 @@ const Login = (props : any) => {
   const { user, isError, isSuccess, message } = useSelector((state : any) => state.auth);
 
   const onSubmit = (formInfo: any) => {
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
-        .execute("6Ld4FtQjAAAAAAHZSqbluStI6BP4UGvOM18W9ldW", { action: "login" })
-        .then((token : string) => {
-          const userData : UserFormData = {
-            username: formInfo.username,
-            password: formInfo.password,
-            captchaToken: token
-          };
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute(process.env.REACT_APP_RECAPTCHA_SITE_KEY, { action: "login" })
+          .then((token : string) => {
+            const userData : UserFormData = {
+              username: formInfo.username,
+              password: formInfo.password,
+              captchaToken: token
+            };
 
-          dispatch(login(userData) as any);
-        });
-    });
+            dispatch(login(userData) as any);
+          });
+      });
+    } else {
+      toast.error("Please wait for the reCAPTCHA to load.");
+    }
   };
 
   useEffect(() => {

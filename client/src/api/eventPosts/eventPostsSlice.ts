@@ -13,11 +13,11 @@ const initialState = {
   message: '',
 };
 
-export const fetchAllEventPosts = createAsyncThunk('events/', async () => {
+export const fetchAllEventPosts = createAsyncThunk('events/all', async () => {
   return await eventPostsService.fetchAllEventPosts();
 });
 
-export const createEventPost = createAsyncThunk('events/', async (eventPost : EventPostFormData, thunkAPI) => {
+export const createEventPost = createAsyncThunk('events/create', async (eventPost : EventPostFormData, thunkAPI) => {
   try {
     return await eventPostsService.createEventPost(eventPost);
   } catch (error : any) {
@@ -30,7 +30,7 @@ export const createEventPost = createAsyncThunk('events/', async (eventPost : Ev
   }
 });
 
-export const fetchEventPost = createAsyncThunk('events/', async (id : string, thunkAPI) => {
+export const fetchEventPost = createAsyncThunk('events/post', async (id : string, thunkAPI) => {
   try {
     return await eventPostsService.getEventPost(id);
   } catch (error : any) {
@@ -43,7 +43,7 @@ export const fetchEventPost = createAsyncThunk('events/', async (id : string, th
   }
 });
 
-export const updateEventPost = createAsyncThunk('events/', async (eventPost : EventPostFormData, thunkAPI) => {
+export const updateEventPost = createAsyncThunk('events/update', async (eventPost : EventPostFormData, thunkAPI) => {
   try {
     return await eventPostsService.updateEventPost(eventPost);
   } catch (error : any) {
@@ -56,7 +56,7 @@ export const updateEventPost = createAsyncThunk('events/', async (eventPost : Ev
   }
 });
 
-export const deleteEventPost = createAsyncThunk('events/', async (id : string, thunkAPI) => {
+export const deleteEventPost = createAsyncThunk('events/delete', async (id : string, thunkAPI) => {
   try {
     return await eventPostsService.deleteEventPost(id);
   } catch (error : any) {
@@ -95,6 +95,7 @@ export const eventPostsSlice = createSlice({
         state.isError = true
         state.message = action.payload as string
       })
+
       .addCase(createEventPost.pending, (state) => {
         state.isLoading = true
       })
@@ -108,6 +109,7 @@ export const eventPostsSlice = createSlice({
         state.isError = true
         state.message = action.payload as string
       })
+
       .addCase(fetchEventPost.pending, (state) => {
         state.isLoading = true
       })
@@ -121,6 +123,7 @@ export const eventPostsSlice = createSlice({
         state.isError = true
         state.message = action.payload as string
       })
+
       .addCase(updateEventPost.pending, (state) => {
         state.isLoading = true
       })
@@ -138,6 +141,7 @@ export const eventPostsSlice = createSlice({
         state.isError = true
         state.message = action.payload as string
       })
+
       .addCase(deleteEventPost.pending, (state) => {
         state.isLoading = true
       })
