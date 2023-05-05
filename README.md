@@ -5,21 +5,31 @@
 Written in **TypeScript**, the frontend uses **React + Redux** and **Sass/SCSS**, while the backend uses **Node.js**, **Express** and **MongoDB**.
 
 ## **Getting Started** 🚀
-> CLIENT:
-1. Install [Node.js](https://nodejs.org/en/download/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) (or [NPM](https://www.npmjs.com/get-npm))
-1. Navigate to the `client` directory
-1. Run `yarn install` or `npm install`
-1. Run `yarn start` or `npm start`
-1. The frontend should now be running on `localhost:3000`
+> PREREQUISITES:
+1. Install [Node.js + NPM](https://nodejs.org/en/download/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) (recommended package manager).
+1. Install [MongoDB](https://www.mongodb.com/try/download/community) and [MongoDB Compass](https://www.mongodb.com/try/download/compass) (optional).
 
-> SERVER:
-1. Install [Node.js](https://nodejs.org/en/download/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) (or [NPM](https://www.npmjs.com/get-npm))
-1. Navigate to the `server` directory
-1. Run `yarn install` or `npm install`
-1. Run `yarn start` or `npm start`
-1. The backend should now be running on `localhost:3001`
+> RUNNING:
+1. Install `concurrently` globally:
+```
+yarn global add concurrently
+```
+```
+npm install -g concurrently
+```
+2. Install all dependencies for both the client and server by running one of the following commands in the main directory:
+```
+npm run yarn-i
+```
+```
+npm run npm-i
+```
+3. From the main directory run:
+```
+npm start
+```
 
-## **Dev Tasks** 📝
+## **Development Tasks** 📝
 > CLIENT:
 - ~~Create a login page for admin~~
 - Create an admin dashboard for controlling event posts, etc.

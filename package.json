@@ -6,8 +6,9 @@
   "scripts": {
     "c": "cd client && npm start",
     "s": "cd server && npm start",
-    "ni": "(cd server && npm install) && (cd ../client && npm install)",
-    "yi": "(cd server && yarn install) && (cd ../client && yarn install)"
+    "npm-i": "concurrently \"cd server && npm install\" \"cd client && npm install\"",
+    "yarn-i": "concurrently \"cd server && yarn install\" \"cd client && yarn install\"",
+    "start": "concurrently \"npm run c\" \"npm run s\""
   },
   "repository": {
     "type": "git",
