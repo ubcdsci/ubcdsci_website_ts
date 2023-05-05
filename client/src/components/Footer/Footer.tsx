@@ -1,22 +1,22 @@
 // Library imports.
 import { useSelector, useDispatch } from 'react-redux';
-import { HashLink as Link } from "react-router-hash-link";
+import { HashLink as Link } from 'react-router-hash-link';
 import { toast } from 'react-toastify';
 
 // Utility imports.
-import { scrollTop } from "../../utils/mouseScrolling";
+import { scrollTop } from '@/utils/mouseScrolling';
 
 // API imports.
-import { logout, reset } from '../../api/auth/authSlice';
+import { logout, reset } from '@/api/auth/authSlice';
 
 // Component imports.
-import { footerData as data } from "../../configs/config";
+import { footerData as data } from '@/configs/config';
 
 // Style imports.
-import styles from "./Footer.module.scss";
+import styles from './Footer.module.scss';
 
 // Media imports.
-import { ReactComponent as Logo } from "../../images/logo/logo-bw.svg";
+import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
 
 
 /**

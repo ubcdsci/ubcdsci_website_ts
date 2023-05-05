@@ -1,11 +1,11 @@
 // Library imports.
-import { BsFillPinMapFill } from "react-icons/bs";
+import { BsFillPinMapFill } from 'react-icons/bs';
 
 // Component imports.
-import { contactData as data } from "../../configs/config";
+import { contactData as data } from '@/configs/config';
 
 // Style imports.
-import styles from "./ContactUs.module.scss";
+import styles from './ContactUs.module.scss';
 
 // Media imports.
 

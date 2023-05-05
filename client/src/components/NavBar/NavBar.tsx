@@ -1,23 +1,23 @@
 // Library imports.
-import { useState, useEffect, useCallback } from "react";
-import { useLocation } from "react-router-dom";
-import { HashLink as Link } from "react-router-hash-link";
-import { useMediaQuery } from "react-responsive";
-import { BsPencilSquare, BsHouseFill } from "react-icons/bs";
+import { useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+import { useMediaQuery } from 'react-responsive';
+import { BsPencilSquare, BsHouseFill } from 'react-icons/bs';
 
 // Utility imports.
-import { scrollTop } from "../../utils/mouseScrolling";
+import { scrollTop } from '@/utils/mouseScrolling';
 
 // Style imports.
-import styles from "./NavBar.module.scss";
+import styles from './NavBar.module.scss';
 
 // Component imports.
-import { navbarData as data } from "../../configs/config";
-import SearchBar from '../SearchBar/SearchBar';
-import GreenButton from '../GreenButton/GreenButton';
+import { navbarData as data } from '@/configs/config';
+import SearchBar from '@/components/SearchBar/SearchBar';
+import GreenButton from '@/components/GreenButton/GreenButton';
 
 // Media imports.
-import { ReactComponent as Logo } from "../../images/logo/logo-bw.svg";
+import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
 
 
 // Check if links to external site and returns element.

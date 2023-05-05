@@ -2,14 +2,15 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from './configureStore';
-import * as serviceWorker from './serviceWorker';
+
+import { store } from '@/configureStore';
+import * as serviceWorker from '@/serviceWorker';
 
 // Component imports.
-import App from './App';
+import App from '@/App';
 
 // Style imports.
-import './index.scss';
+import '@/index.scss';
 
 
 const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY || '';

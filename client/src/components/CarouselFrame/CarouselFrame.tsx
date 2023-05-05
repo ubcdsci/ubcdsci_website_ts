@@ -1,15 +1,15 @@
 // Library imports.
-import { useEffect, useState, useCallback, useRef } from "react";
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { useEffect, useState, useCallback, useRef } from 'react';
+import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
 
 // Component imports.
-import { carouselData as data } from "../../configs/config";
+import { carouselData as data } from '@/configs/config';
 
 // Style imports.
-import styles from "./CarouselFrame.module.scss";
+import styles from './CarouselFrame.module.scss';
 
 // Media imports.
-// import HPE from "../../images/HPE.png";
+
 
 
 const AUTO_TIME = 10; // Seconds.

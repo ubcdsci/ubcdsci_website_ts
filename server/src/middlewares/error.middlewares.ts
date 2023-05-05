@@ -1,4 +1,4 @@
-import env from '../configs/env.configs';
+import env from '@/configs/env.configs';
 
 /**
  * Handle errors.

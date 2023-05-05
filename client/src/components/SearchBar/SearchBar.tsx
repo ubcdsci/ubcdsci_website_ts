@@ -1,10 +1,10 @@
 // Library imports.
-import { BsSearch } from "react-icons/bs";
+import { BsSearch } from 'react-icons/bs';
 
 // Component imports.
 
 // Style imports.
-import styles from "./SearchBar.module.scss";
+import styles from './SearchBar.module.scss';
 
 // Media imports.
 

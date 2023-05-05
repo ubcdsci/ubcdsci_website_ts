@@ -1,7 +1,7 @@
-import express from "express";
+import express from 'express';
 import asyncHandler from 'express-async-handler';
 
-import { EventPost } from '../database/index.database';
+import { EventPost } from '@/database/index.database';
 
 const router = express.Router();
 

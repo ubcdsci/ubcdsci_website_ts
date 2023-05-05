@@ -1,12 +1,12 @@
 // Library imports.
-import { useState, useEffect } from "react";
-import { BsArrowUpCircle } from "react-icons/bs";
+import { useState, useEffect } from 'react';
+import { BsArrowUpCircle } from 'react-icons/bs';
 
 // Utility imports.
-import { scrollTop } from "../../utils/mouseScrolling";
+import { scrollTop } from '@/utils/mouseScrolling';
 
 // Style imports.
-import styles from "./ScrollToTop.module.scss";
+import styles from './ScrollToTop.module.scss';
 
 
 /**

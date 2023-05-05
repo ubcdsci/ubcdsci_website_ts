@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-import env from './env.configs';
-import { errorHandler } from '../middlewares/error.middlewares';
+import env from '@/configs/env.configs';
+import { errorHandler } from '@/middlewares/error.middlewares';
 
 
 const app : Express = express();

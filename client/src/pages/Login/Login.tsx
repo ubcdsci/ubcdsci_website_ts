@@ -1,24 +1,24 @@
 // Library imports.
-import { useEffect } from "react";
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 
 // API imports.
-import { login, reset } from '../../api/auth/authSlice';
+import { login, reset } from '@/api/auth/authSlice';
 
 // Utility imports.
-import { scrollTop } from "../../utils/mouseScrolling";
+import { scrollTop } from '@/utils/mouseScrolling';
 
 // Component imports.
-import { ErrorMessage } from "@hookform/error-message";
+import { ErrorMessage } from '@hookform/error-message';
 
 // Style imports.
-import styles from "./Login.module.scss";
+import styles from './Login.module.scss';
 
 // Media imports.
-import { ReactComponent as Logo } from "../../images/logo/logo-colour.svg";
+import { ReactComponent as Logo } from '@/images/logo/logo-colour.svg';
 
 
 /**

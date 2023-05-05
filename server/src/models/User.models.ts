@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const useSchema = new mongoose.Schema({
   username: {
@@ -14,6 +14,11 @@ const useSchema = new mongoose.Schema({
   //   type: String,
   //   required: [true, 'Please enter an email'],
   //   unique: true,
+  // },
+  // role: {
+  //   type: String,
+  //   enum: ['user', 'admin'],
+  //   default: 'user',
   // },
 }, { timestamps: true });
 

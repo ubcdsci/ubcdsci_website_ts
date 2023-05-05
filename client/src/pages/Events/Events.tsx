@@ -1,22 +1,20 @@
 // Library imports.
 import { useSelector } from 'react-redux';
-import { motion } from "framer-motion";
-import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill } from "react-icons/bs";
+import { motion } from 'framer-motion';
+import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill } from 'react-icons/bs';
 
 // Utility imports.
-import { screenBottomToTop } from '../../utils/framerAnims';
+import { screenBottomToTop } from '@/utils/framerAnims';
 
 // Component imports.
-// import { workshopData as data } from "../../configs/config";
-import PostForm from "../../components/PostForm/PostForm";
+import PostForm from '@/components/PostForm/PostForm';
 
 // Style imports.
-import styles from "./Events.module.scss";
+import styles from './Events.module.scss';
 
 // Media imports.
-import dsci_workshop from "../../images/events/dsci_workshop.png";
-// import guest_speaker from "../../images/events/guest_speaker.jpg";
-import guest_speaker2 from "../../images/events/guest_speaker2.jpg";
+import dsci_workshop from '@/images/events/dsci_workshop.png';
+import guest_speaker2 from '@/images/events/guest_speaker2.jpg';
 
 
 /**

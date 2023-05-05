@@ -1,20 +1,19 @@
 // Library imports.
-import { useMediaQuery } from "react-responsive";
-import { motion } from "framer-motion";
+import { useMediaQuery } from 'react-responsive';
+import { motion } from 'framer-motion';
 
 // Utility imports.
-import { screenFade } from "../../utils/framerAnims";
+import { screenFade } from '@/utils/framerAnims';
 
 // Component imports.
-import GreenButton from "../../components/GreenButton/GreenButton";
-import CarouselFrame from "../../components/CarouselFrame/CarouselFrame";
+import GreenButton from '@/components/GreenButton/GreenButton';
+import CarouselFrame from '@/components/CarouselFrame/CarouselFrame';
 
 // Style imports.
-import styles from "./Home.module.scss";
-// import Scene from "../../components/ThreeModels/Scene";
+import styles from './Home.module.scss';
 
 // Media imports.
-import titleImage from "../../images/1.gif";
+import titleImage from '@/images/1.gif';
 
 
 /**
@@ -40,10 +39,7 @@ const Home = () => {
         viewport={viewport}
         transition={{ duration }}
       >
-        { isMobile && 
-          // <div className={styles.SceneContainer}>
-          //   <Scene />
-          // </div>
+        { isMobile &&
           <img src={titleImage} alt="title" />
         }
 
@@ -63,10 +59,7 @@ const Home = () => {
           </div>
         </div>
         
-        { !isMobile && 
-          // <div className={styles.SceneContainer}>
-          //   <Scene />
-          // </div>
+        { !isMobile &&
           <img src={titleImage} alt="title" />
         }
       </motion.div>

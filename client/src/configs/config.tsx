@@ -2,23 +2,23 @@
 import {
   BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
   BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset, BsFillPersonBadgeFill, BsPeople
-} from "react-icons/bs";
-import { FaGraduationCap } from "react-icons/fa";
+} from 'react-icons/bs';
+import { FaGraduationCap } from 'react-icons/fa';
 
 // Media imports.
-import Bomberland from "../images/bomberland.gif";
-import Fishnet from "../images/Fishnet.jpg";
-import HPE2 from "../images/HPE2.png";
-import Deepfake from "../images/Deepfake.jpeg";
-import Spaces from "../images/spaces.webp";
+import Bomberland from '@/images/bomberland.gif';
+import Fishnet from '@/images/Fishnet.jpg';
+import HPE2 from '@/images/HPE2.png';
+import Deepfake from '@/images/Deepfake.jpeg';
+import Spaces from '@/images/spaces.webp';
 
-// import Placeholder from "../images/execs/_placeholder.png";
-import President from "../images/execs/president.png";
-import Treasurer from "../images/execs/treasurer.png";
-import Marketing from "../images/execs/marketing.png";
-import Outreach from "../images/execs/outreach.png";
-import EventPlanning from "../images/execs/event-planning.png";
-import Webmaster from "../images/execs/webmaster.png";
+// import Placeholder from '@/images/execs/_placeholder.png';
+import President from '@/images/execs/president.png';
+import Treasurer from '@/images/execs/treasurer.png';
+import Marketing from '@/images/execs/marketing.png';
+import Outreach from '@/images/execs/outreach.png';
+import EventPlanning from '@/images/execs/event-planning.png';
+import Webmaster from '@/images/execs/webmaster.png';
 
 
 /* -------------------------------------------------------------------------- */

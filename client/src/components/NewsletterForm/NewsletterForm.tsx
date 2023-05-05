@@ -1,11 +1,11 @@
 // Library imports.
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 
 // Component imports.
-import { ErrorMessage } from "@hookform/error-message";
+import { ErrorMessage } from '@hookform/error-message';
 
 // Style imports.
-import styles from "./NewsletterForm.module.scss";
+import styles from './NewsletterForm.module.scss';
 
 // Media imports.
 

@@ -1,21 +1,21 @@
 // Library imports.
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 // Utility imports.
-import { screenLeftToRight, screenRightToLeft, screenFade } from "../../utils/framerAnims";
+import { screenLeftToRight, screenRightToLeft, screenFade } from '@/utils/framerAnims';
 
 // Component imports.
-import { faqData as data } from "../../configs/config";
-import AccordionItem from "../../components/AccordionItem/AccordionItem";
-import ContentStrip from "../../components/ContentStrip/ContentStrip";
-import ExecProfile from "../../components/ExecProfile/ExecProfile";
+import { faqData as data } from '@/configs/config';
+import AccordionItem from '@/components/AccordionItem/AccordionItem';
+import ContentStrip from '@/components/ContentStrip/ContentStrip';
+import ExecProfile from '@/components/ExecProfile/ExecProfile';
 
 // Style imports.
-import styles from "./AboutUs.module.scss";
+import styles from './AboutUs.module.scss';
 
 // Media imports.
-import DescriptionGif from "../../images/2.gif";
-import MissionGif from "../../images/5.gif";
+import DescriptionGif from '@/images/2.gif';
+import MissionGif from '@/images/5.gif';
 
 
 /**

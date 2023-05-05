@@ -2,8 +2,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 // Reducer imports.
-import authReducer from './api/auth/authSlice';
-import eventPostsReducer from './api/eventPosts/eventPostsSlice';
+import authReducer from '@/api/auth/authSlice';
+import eventPostsReducer from '@/api/eventPosts/eventPostsSlice';
 
 
 export const store = configureStore({

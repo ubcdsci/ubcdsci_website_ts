@@ -1,5 +1,5 @@
 // Library imports.
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 // Style imports.
 import styles from './Background.module.scss';

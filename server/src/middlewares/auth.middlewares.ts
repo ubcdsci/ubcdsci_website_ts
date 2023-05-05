@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 
-import env from '../configs/env.configs';
+import env from '@/configs/env.configs';
 
-import { User } from '../database/index.database';
+import { User } from '@/database/index.database';
 
 /**
  * Verify JWT token.

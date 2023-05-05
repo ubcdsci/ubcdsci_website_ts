@@ -1,16 +1,16 @@
 // Library imports.
-import { useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { motion } from 'framer-motion';
 
 // Utility imports.
-import { screenFade } from "../../utils/framerAnims";
+import { screenFade } from '@/utils/framerAnims';
 
 // Component imports.
-import { projectsListData as data } from "../../configs/config";
+import { projectsListData as data } from '@/configs/config';
 
 // Style imports.
-import styles from "./Projects.module.scss";
+import styles from './Projects.module.scss';
 
 // Media imports.
 

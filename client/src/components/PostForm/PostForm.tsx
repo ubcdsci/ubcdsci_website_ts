@@ -1,16 +1,16 @@
 // Library imports.
-import { useState, useRef } from "react";
+import { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 
 // API imports.
-import { createEventPost } from '../../api/eventPosts/eventPostsSlice';
+import { createEventPost } from '@/api/eventPosts/eventPostsSlice';
 
 // Component imports.
-import { ErrorMessage } from "@hookform/error-message";
+import { ErrorMessage } from '@hookform/error-message';
 
 // Style imports.
-import styles from "./PostForm.module.scss";
+import styles from './PostForm.module.scss';
 
 // Media imports.
 

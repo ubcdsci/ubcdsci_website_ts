@@ -1,24 +1,24 @@
 // Library imports.
-// import { useSelector } from "react-redux";
-import { Route, Routes, Navigate, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import { AnimatePresence, motion } from "framer-motion";
+import { useSelector } from 'react-redux';
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { AnimatePresence, motion } from 'framer-motion';
 
 // Component imports.
-// import NewsletterForm from "../NewsletterForm/NewsletterForm";
+// import NewsletterForm from '@/components/NewsletterForm/NewsletterForm';
 
 // Pages imports.
-import Home from "../../pages/Home/Home";
-import AboutUs from "../../pages/AboutUs/AboutUs";
-import Projects from "../../pages/Projects/Projects";
-import Events from "../../pages/Events/Events";
-import ContactUs from "../../pages/ContactUs/ContactUs";
-import SearchResult from "../../pages/SearchResult/SearchResult";
-// import Login from "../../pages/Login/Login";
-import ErrorPage from "../../pages/PageNotFound/PageNotFound";
+import Home from '@/pages/Home/Home';
+import AboutUs from '@/pages/AboutUs/AboutUs';
+import Projects from '@/pages/Projects/Projects';
+import Events from '@/pages/Events/Events';
+import ContactUs from '@/pages/ContactUs/ContactUs';
+import SearchResult from '@/pages/SearchResult/SearchResult';
+import Login from '@/pages/Login/Login';
+import ErrorPage from '@/pages/PageNotFound/PageNotFound';
 
 // Style imports.
-import styles from "./AnimatedRoutes.module.scss";
+import styles from './AnimatedRoutes.module.scss';
 
 
 const routes : {path : string, name : string, element : JSX.Element}[] = [
@@ -57,7 +57,7 @@ const TabTitle = (props: {title : string, description? : string}) => {
  */
 const AnimatedRoutes = (props: any) => {
   const location = useLocation();
-  // const { user } = useSelector((state : any) => state.auth);
+  const { user } = useSelector((state : any) => state.auth);
 
   const duration = 0.3;
 
@@ -84,7 +84,7 @@ const AnimatedRoutes = (props: any) => {
           } />
         ))}
 
-        {/* <Route path="/login" element={
+        <Route path="/login" element={
           (user && user.username) ? <Navigate replace to="/home" /> :
             <>
               <TabTitle title="Admin Login" />
@@ -97,7 +97,7 @@ const AnimatedRoutes = (props: any) => {
                 <Login />
               </motion.div>
             </> 
-        } /> */}
+        } />
       </Routes>
     </AnimatePresence>
   );

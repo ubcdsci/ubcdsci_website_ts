@@ -7,7 +7,7 @@ import {
   getEventPostById,
   updateEventPostById,
   deleteEventPostById,
-} from '../../controllers/eventPosts.controllers';
+} from '@/controllers/eventPosts.controllers';
 
 const router = express.Router();
 

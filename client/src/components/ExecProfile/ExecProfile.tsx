@@ -1,15 +1,15 @@
 // Library imports.
-import { useEffect, useState, useCallback, useRef } from "react";
-import { useMediaQuery } from "react-responsive";
+import { useEffect, useState, useCallback, useRef } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 // Component imports.
-import { execMembersData as data } from "../../configs/config";
+import { execMembersData as data } from '@/configs/config';
 
 // Style imports.
-import styles from "./ExecProfile.module.scss";
+import styles from './ExecProfile.module.scss';
 
 // Media imports.
-import profileDefault from "../../images/profileDefault.png";
+import profileDefault from '@/images/profileDefault.png';
 
 
 const AUTO_TIME = 10; // Seconds.

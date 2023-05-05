@@ -4,9 +4,9 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import asyncHandler from 'express-async-handler';
 
-import env from '../configs/env.configs';
+import env from '@/configs/env.configs';
 
-import { User } from '../database/index.database';
+import { User } from '@/database/index.database';
 
 const router = express.Router();
 
@@ -15,39 +15,39 @@ const router = express.Router();
  * @route POST /api/user/register
  * @access Public
  */
-// export const registerUser = asyncHandler(async (req, res) => {
-//   const { username, password, captchaToken } = req.body;
+export const registerUser = asyncHandler(async (req, res) => {
+  const { username, password, captchaToken } = req.body;
 
-//   if (!username || !password) {
-//     res.status(400).json({ message: 'Please provide both a username and a password!' });
-//   }
+  if (!username || !password) {
+    res.status(400).json({ message: 'Please provide both a username and a password!' });
+  }
 
-//   const recaptchaResponse = await verifyRecaptcha(captchaToken);
+  const recaptchaResponse = await verifyRecaptcha(captchaToken);
 
-//   if (!recaptchaResponse) {
-//     res.status(400).json({ message: 'Recaptcha verification failed!' });
-//   } else {
-//     const userExists = await User.findOne({ username });
+  if (!recaptchaResponse) {
+    res.status(400).json({ message: 'Recaptcha verification failed!' });
+  } else {
+    const userExists = await User.findOne({ username });
 
-//     if (userExists) {
-//       res.status(400).json({ message: 'User already exists!' });
-//     }
+    if (userExists) {
+      res.status(400).json({ message: 'User already exists!' });
+    }
 
-//     const salt = bcrypt.genSaltSync(12);
-//     const hashedPassword = bcrypt.hashSync(password, salt);
-//     const user = await User.create({ username, password: hashedPassword });
+    const salt = bcrypt.genSaltSync(12);
+    const hashedPassword = bcrypt.hashSync(password, salt);
+    const user = await User.create({ username, password: hashedPassword });
 
-//     if (user) {
-//       res.status(201).json({
-//         id: user.id,
-//         user: user.username,
-//         token: generateToken(user.id),
-//       });
-//     } else {
-//       res.status(400).json({ message: 'Invalid user data!' });
-//     }
-//   }
-// });
+    if (user) {
+      res.status(201).json({
+        id: user.id,
+        user: user.username,
+        token: generateToken(user.id),
+      });
+    } else {
+      res.status(400).json({ message: 'Invalid user data!' });
+    }
+  }
+});
 
 /**
  * Authenticate user login.

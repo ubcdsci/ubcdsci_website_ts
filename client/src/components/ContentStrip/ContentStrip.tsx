@@ -1,11 +1,11 @@
 // Library imports.
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from 'react-responsive';
 
 // Component imports.
 
 
 // Style imports.
-import styles from "./ContentStrip.module.scss";
+import styles from './ContentStrip.module.scss';
 
 // Media imports.
 

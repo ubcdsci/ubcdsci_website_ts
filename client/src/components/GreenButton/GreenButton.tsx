@@ -1,11 +1,11 @@
 // Library imports.
-import { HashLink as Link } from "react-router-hash-link";
+import { HashLink as Link } from 'react-router-hash-link';
 
 // Component imports.
 
 
 // Style imports.
-import styles from "./GreenButton.module.scss";
+import styles from './GreenButton.module.scss';
 
 // Media imports.
 

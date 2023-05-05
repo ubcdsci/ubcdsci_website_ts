@@ -1,18 +1,18 @@
 // Library imports.
-import { HashLink as Link } from "react-router-hash-link";
-import { useMediaQuery } from "react-responsive";
+import { HashLink as Link } from 'react-router-hash-link';
+import { useMediaQuery } from 'react-responsive';
 
 // Utility imports.
-import { scrollTop } from "../../utils/mouseScrolling";
+import { scrollTop } from "@/utils/mouseScrolling";
 
 // Component imports.
-import SearchBar from '../../components/SearchBar/SearchBar';
+import SearchBar from '@/components/SearchBar/SearchBar';
 
 // Style imports.
 import styles from "./PageNotFound.module.scss";
 
 // Media imports.
-import { ReactComponent as Logo } from "../../images/logo/logo-colour.svg";
+import { ReactComponent as Logo } from '@/images/logo/logo-colour.svg';
 
 
 /**

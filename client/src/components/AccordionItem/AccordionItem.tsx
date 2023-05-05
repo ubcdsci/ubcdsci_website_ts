@@ -1,12 +1,12 @@
 // Library imports.
-import { useState } from "react";
-import { BsFillCaretDownFill } from "react-icons/bs";
+import { useState } from 'react';
+import { BsFillCaretDownFill } from 'react-icons/bs';
 
 // Component imports.
 
 
 // Style imports.
-import styles from "./AccordionItem.module.scss";
+import styles from './AccordionItem.module.scss';
 
 // Media imports.
 

@@ -2,16 +2,16 @@
 import express from 'express';
 // import bcrypt from 'bcrypt';
 
-// import env from '../../configs/env.configs';
+// import env from '@/configs/env.configs';
 
-// import { User } from '../../database/index.database';
+// import { User } from '@/database/index.database';
 
-import { verifyToken } from '../../middlewares/auth.middlewares';
+import { verifyToken } from '@/middlewares/auth.middlewares';
 import {
   // registerUser,
   loginUser,
   getUserProfile,
-} from '../../controllers/users.controllers';
+} from '@/controllers/users.controllers';
 
 const router = express.Router();
 
