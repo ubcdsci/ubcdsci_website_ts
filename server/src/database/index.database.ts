@@ -1,21 +1,9 @@
 /* -------------------------------------------------------------------------- */
-/*                              EXPORTING MODELS                              */
-/* -------------------------------------------------------------------------- */
-import User from '@/models/User.models';
-import EventPost from '@/models/EventPost.models';
-
-export {
-  User,
-  EventPost,
-};
-
-
-/* -------------------------------------------------------------------------- */
 /*                           SETTING UP THE DATABASE                          */
 /* -------------------------------------------------------------------------- */
 import mongoose from 'mongoose';
 
-import env from '../configs/env.configs';
+import env from '@/configs/env.configs';
 
 mongoose.set('strictQuery', false);
 

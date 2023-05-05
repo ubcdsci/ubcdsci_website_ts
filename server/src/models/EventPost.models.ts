@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
-const useSchema = new mongoose.Schema({
+// Schema for the EventPost model
+const EventPostSchema = new mongoose.Schema({
   creator: {
     type: String,
     required: true,
@@ -31,6 +32,7 @@ const useSchema = new mongoose.Schema({
   },
 });
 
-const EventPost = mongoose.model("EventArticle", useSchema);
+// Export the model
+const EventPost = mongoose.model("EventArticle", EventPostSchema);
 
 export default EventPost;

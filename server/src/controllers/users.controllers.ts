@@ -6,7 +6,7 @@ import asyncHandler from 'express-async-handler';
 
 import env from '@/configs/env.configs';
 
-import { User } from '@/database/index.database';
+import { User } from '@/models/index.models';
 
 const router = express.Router();
 
@@ -22,8 +22,11 @@ export const registerUser = asyncHandler(async (req, res) => {
     res.status(400).json({ message: 'Please provide both a username and a password!' });
   }
 
-  const recaptchaResponse = await verifyRecaptcha(captchaToken);
+  if (password.length < 8) {
+    res.status(400).json({ message: "Password must be a minimum of 8 characters long!" });
+  };
 
+  const recaptchaResponse = await verifyRecaptcha(captchaToken);
   if (!recaptchaResponse) {
     res.status(400).json({ message: 'Recaptcha verification failed!' });
   } else {
@@ -41,12 +44,34 @@ export const registerUser = asyncHandler(async (req, res) => {
       res.status(201).json({
         id: user.id,
         user: user.username,
-        token: generateToken(user.id),
+        token: generateToken(user),
       });
     } else {
       res.status(400).json({ message: 'Invalid user data!' });
     }
   }
+});
+
+/**
+ * Delete user.
+ * @route DELETE /api/user/:id
+ * @access Private/Admin
+ */
+export const deleteUser = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    res.status(400).json({ message: 'An error occurred!' });
+  } else {
+    const user = await User.findOne({ id });
+
+    if (user) {
+      await user.remove();
+      res.status(201).json({ message: 'User has been deleted!', user });
+    } else {
+      res.status(400).json({ message: 'User not found!' });
+    };
+  };
 });
 
 /**
@@ -65,11 +90,40 @@ export const loginUser = asyncHandler(async (req, res) => {
     const user = await User.findOne({ username });
     
     if (user && (await bcrypt.compareSync(password, user.password))) {
-      res.status(200).json({ id: user.id, user: username, token: generateToken(user.id) });
+      const maxAge = 3 * 60 * 60 * 1000;
+      const token = generateToken(user, maxAge);
+
+      res.cookie("jwt", token, { httpOnly: true, maxAge });
+      res.status(200).json({ id: user.id, user: username, token });
     } else {
       res.status(400).json({ message: 'Invalid username or password!' });
     };
-  }
+  };
+});
+
+/**
+ * Update user role.
+ * @route PUT /api/user/:id
+ * @access Private/Admin
+ */
+export const updateUserRole = asyncHandler(async (req, res) => {
+  const { id, role } = req.body;
+
+  if (!role || !id) {
+    res.status(400).json({ message: 'An error occurred!' });
+  } else {
+    if (role === "admin") {
+			const user = await User.findOne({ id });
+
+			if (user && user.role !== "admin") {
+        user.role = role;
+        await user.save();
+        res.status(201).json({ message: "User is now an admin!" });
+			} else {
+				res.status(400).json({ message: "User is already an admin!" });
+			};
+		};
+  };
 });
 
 /**
@@ -79,18 +133,25 @@ export const loginUser = asyncHandler(async (req, res) => {
  */
 export const getUserProfile = asyncHandler(async (req : any, res) => {
   res.status(200).json(req.user);
-})
+});
 
 /**
  * Generate JWT token.
  * @access Private
  */
-const generateToken = (id : any) => {
-  return jwt.sign({ id }, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRE });
+const generateToken = (user : any, expires?: string | number | undefined) => {
+  const { id, username, role } = user;
+
+  return jwt.sign(
+    { id, username, role },
+    env.JWT_SECRET,
+    { expiresIn: expires || env.JWT_EXPIRE }
+  );
 };
 
 /**
  * Verify reCaptcha token.
+ * @access Private
  */
 const verifyRecaptcha = async (captchaToken : string) => {
   const recaptchaResponse = await axios.post(

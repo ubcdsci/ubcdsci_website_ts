@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import path from 'path';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ import { errorHandler } from '@/middlewares/error.middlewares';
 const app : Express = express();
 app.use(cors());
 app.use(express.json({limit: '50mb'}));
+app.use(cookieParser());
 
 // Serves client build folder in production.
 if (env.NODE_ENV === 'production') {
