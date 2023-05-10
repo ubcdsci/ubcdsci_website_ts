@@ -7,7 +7,6 @@ import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTra
 import { screenBottomToTop } from '@/utils/framerAnims';
 
 // Component imports.
-import PostForm from '@/components/PostForm/PostForm';
 
 // Style imports.
 import styles from './Events.module.scss';
@@ -143,8 +142,6 @@ const Events = () => {
 
   return (
     <div className={styles.Events}>
-      { user && user.user && <PostForm />}
-
       <div id="ongoingEvents" className={styles.Ongoing}>
         <h1>Ongoing Events</h1>
         { (tempOngoingEventsData.length === 0) ?

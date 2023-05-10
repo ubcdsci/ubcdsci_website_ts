@@ -21,6 +21,8 @@ import styles from './Login.module.scss';
 import { ReactComponent as Logo } from '@/images/logo/logo-colour.svg';
 
 
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
+
 /**
  * Renders the Login page.
  * @returns {JSX.Element} JSX Component.
@@ -40,9 +42,9 @@ const Login = (props : any) => {
 
   const onSubmit = (formInfo: any) => {
     if (window.grecaptcha) {
-      window.grecaptcha.ready(() => {
-        window.grecaptcha
-          .execute(process.env.REACT_APP_RECAPTCHA_SITE_KEY, { action: "login" })
+      window.grecaptcha.enterprise.ready(() => {
+        window.grecaptcha.enterprise
+          .execute(RECAPTCHA_SITE_KEY, { action: "login" })
           .then((token : string) => {
             const userData : UserFormData = {
               username: formInfo.username,

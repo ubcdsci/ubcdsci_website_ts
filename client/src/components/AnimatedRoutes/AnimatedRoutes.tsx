@@ -10,6 +10,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 // Pages imports.
 import Home from '@/pages/Home/Home';
 import AboutUs from '@/pages/AboutUs/AboutUs';
+import AdminPanel from '@/pages/AdminPanel/AdminPanel';
 import Projects from '@/pages/Projects/Projects';
 import Events from '@/pages/Events/Events';
 import ContactUs from '@/pages/ContactUs/ContactUs';
@@ -21,15 +22,24 @@ import ErrorPage from '@/pages/PageNotFound/PageNotFound';
 import styles from './AnimatedRoutes.module.scss';
 
 
-const routes : {path : string, name : string, element : JSX.Element}[] = [
-  { path: "/",              name: "Main",               element: <Navigate replace to="/home" /> },
-  { path: "/home",          name: "Home",               element: <Home /> },
-  { path: "/about-us",      name: "About Us",           element: <AboutUs /> },
-  { path: "/projects",      name: "Projects",           element: <Projects /> },
-  { path: "/events",        name: "Events",             element: <Events /> },
-  { path: "/contact-us",    name: "Contact Us",         element: <ContactUs /> },
-  { path: "/search-result", name: "Search Results",     element: <SearchResult /> },
-  { path: "*",              name: "np.isnan(\"page\")", element: <ErrorPage /> },
+enum Access {
+  PUBLIC,
+  PRIVATE,
+  ADMIN
+}
+
+const routes : {path : string, name : string, element : JSX.Element, access : Access}[] = [
+  { path: "/",              name: "Main",               element: <Navigate replace to="/home" />, access: Access.PUBLIC },
+  { path: "/home",          name: "Home",               element: <Home />, access: Access.PUBLIC },
+  { path: "/about-us",      name: "About Us",           element: <AboutUs />, access: Access.PUBLIC }, 
+  { path: "/contact-us",    name: "Contact Us",         element: <ContactUs />, access: Access.PUBLIC },
+  { path: "/events",        name: "Events",             element: <Events />, access: Access.PUBLIC },
+  { path: "/projects",      name: "Projects",           element: <Projects />, access: Access.PUBLIC },
+  { path: "/search-result", name: "Search Results",     element: <SearchResult />, access: Access.PUBLIC },
+
+  { path: "/admin",         name: "Admin Panel",        element: <AdminPanel />, access: Access.ADMIN },
+
+  { path: "*",              name: "np.isnan(\"page\")", element: <ErrorPage />, access: Access.PUBLIC },
 ];
 
 

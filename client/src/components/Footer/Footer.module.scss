@@ -130,7 +130,7 @@
   }
 }
 
-.LogoutButton {
+.LogInOutButton {
   align-self: center;
   letter-spacing: 0.05rem;
   font-size: 0.8rem;
@@ -138,6 +138,5 @@
 
   &:hover {
     color: rgb(var(--primary));
-    scale: 1.05;
   }
 }

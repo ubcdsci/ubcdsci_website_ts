@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ubcdsci/ubcdsci_website_ts/issues"
   },
-  "homepage": "https://github.com/ubcdsci/ubcdsci_website_ts#readme"
+  "homepage": "https://github.com/ubcdsci/ubcdsci_website_ts#readme",
+  "devDependencies": {
+    "https": "^1.0.0"
+  }
 }

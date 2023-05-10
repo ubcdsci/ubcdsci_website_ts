@@ -41,6 +41,10 @@ const Footer = (props: any) => {
     dispatch(reset());
   };
 
+  const handleLogin = () => {
+    window.location.href = "/login";
+  };
+
   const checkExternal = (link: SMLink) => {
     if (link.external) {
       return (
@@ -105,9 +109,12 @@ const Footer = (props: any) => {
         </span>
       </div>
 
-      { (user && user.user) &&
-        <button className={styles.LogoutButton} onClick={handleLogout}>
+      { (user && user.user) ?
+        <button className={styles.LogInOutButton} onClick={handleLogout}>
           Log out of user "{user.user}"
+        </button> :
+        <button className={styles.LogInOutButton} onClick={handleLogin}>
+          Log in as administrator
         </button>
       }
     </footer>

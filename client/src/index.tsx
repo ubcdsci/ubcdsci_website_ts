@@ -13,7 +13,7 @@ import App from '@/App';
 import '@/index.scss';
 
 
-const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY || '';
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
 
 /**
  * Setting up the index.
@@ -24,7 +24,7 @@ const Index = () => {
     if (!RECAPTCHA_SITE_KEY) return;
 
     const script = document.createElement("script");
-    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
     script.async = true;
     document.head.appendChild(script);
   }, []);
