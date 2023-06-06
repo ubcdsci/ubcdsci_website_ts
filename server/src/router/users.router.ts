@@ -1,7 +1,7 @@
 // Library imports.
 import express from 'express';
 
-// import env from '@/configs/env.configs';
+import env from '@/configs/env.configs';
 import verifyJWT from '@/middlewares/verifyJWT.middlewares';
 import verifyRecaptcha from '@/middlewares/verifyRecaptcha.middlewares';
 import userController from "@/controllers/users.controllers";
@@ -16,8 +16,10 @@ const router = express.Router();
 //   .then(() => console.log('User has been created!'))
 //   .catch(() => console.log('User already exists!'));
 
-router.use(verifyJWT);
-router.use(verifyRecaptcha);
+if (env.NODE_ENV !== 'development') {
+  router.use(verifyJWT);
+  router.use(verifyRecaptcha);
+};
 
 router.route('/')
   .get(userController.getUsers)

@@ -126,7 +126,7 @@ const logout = (req: Request, res: Response): Response | void => {
 		secure: true,
 	});
 	
-	res.json({ message: "Cookie cleared" });
+	res.json({ message: "Cookie cleared!" });
 };
 
 export default {

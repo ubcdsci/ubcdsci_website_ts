@@ -21,11 +21,11 @@ const UserSchema = new mongoose.Schema(
 		//   required: [true, 'Please enter an email'],
 		//   unique: true,
 		// },
-		roles: {
+		roles: [{
 			type: String,
-			enum: ["user", "admin"],
+			enum: ["user", "executive", "admin"],
 			default: "user",
-		},
+		}],
 		active: {
 			type: Boolean,
 			default: true,

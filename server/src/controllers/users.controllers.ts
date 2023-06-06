@@ -56,7 +56,7 @@ const getUser = asyncHandler(
  */
 const createUser = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const { username, password, captchaToken } = req.body;
+    const { username, password, roles } = req.body;
     // Check if username and password are provided.
     if (!username || !password)
       return res.status(400).json({ message: 'All fields are required!' });
@@ -73,9 +73,13 @@ const createUser = asyncHandler(
     // Create user.
     const salt = bcrypt.genSaltSync(12);
     const hashedPassword = bcrypt.hashSync(password, salt);
-    const user = await User.create({ username, password: hashedPassword });
+    const user = await User.create({
+      username,
+      password: hashedPassword,
+      roles: roles || ['user'],
+    });
 
-    if (user)
+    if (!user)
       return res.status(400).json({ message: "Invalid user data!" });
     
     res.status(201).json({ message: `User '${username}' created successfully!` });
