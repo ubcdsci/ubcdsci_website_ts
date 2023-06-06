@@ -1,4 +1,5 @@
 // Library imports.
+import axios from 'axios';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { motion, useScroll } from 'framer-motion';
@@ -9,12 +10,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import { bgImgSrc, bgBlur, bgOverlayAlpha } from '@/configs/aesthetics';
 
 // Component imports.
-import Background from '@/components/Background/Background';
-import NavBar from '@/components/NavBar/NavBar';
-import AnimatedRoutes from '@/components/AnimatedRoutes/AnimatedRoutes';
-import Footer from '@/components/Footer/Footer';
-import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
+import Background from '@/components/Background';
+import NavBar from '@/components/NavBar';
+import AnimatedRoutes from '@/components/AnimatedRoutes';
+import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/ScrollToTop';
+import { useEffect } from 'react';
 
+/**
+ * Sets the auth token for the axios instance.
+ */
+const setAuthToken = (token: string) => {
+  (token) ?
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}` :
+    delete axios.defaults.headers.common["Authorization"];
+}
 
 /**
  * Renders the web app.
@@ -23,6 +33,13 @@ import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
 const App = () => {
   // const [darkToggle, setDarkToggle] = useState(false);
   const { scrollYProgress } = useScroll();
+
+  // Set the auth token for the axios instance.
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    const parsedUser = user ? JSON.parse(user) : null;
+    setAuthToken(parsedUser?.token || "");
+  }, []);
 
   return (
     <HelmetProvider>

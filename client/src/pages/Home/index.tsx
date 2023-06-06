@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 import { screenFade } from '@/utils/framerAnims';
 
 // Component imports.
-import GreenButton from '@/components/GreenButton/GreenButton';
-import CarouselFrame from '@/components/CarouselFrame/CarouselFrame';
+import GreenButton from '@/components/GreenButton';
+import CarouselFrame from '@/components/CarouselFrame';
 
 // Style imports.
 import styles from './Home.module.scss';

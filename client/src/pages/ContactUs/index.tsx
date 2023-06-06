@@ -19,12 +19,12 @@ const ContactUs = () => {
     <div className={styles.ContactUs}>
       <div className={styles.Content}>
         <h1>UBC Data Science <br /> Club Room</h1>
-        <h2><BsFillPinMapFill /> 6133 University Blvd <br /> Vancouver, BC, V6T 1Z1</h2>
+        <h2><BsFillPinMapFill /> 6133 University Blvd <br /> Vancouver, BC V6T 1Z1</h2>
 
         <div className={styles.Contacts}>
           { data.map((item, index) => (
             <div key={index} className={styles.Contact}>
-              <p>{item.icon} {item.title}</p>
+              <p>{item.icon} {item.title}:</p>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
                 {item.text}
               </a>

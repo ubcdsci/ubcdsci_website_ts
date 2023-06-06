@@ -13,8 +13,8 @@ import styles from './NavBar.module.scss';
 
 // Component imports.
 import { navbarData as data } from '@/configs/config';
-import SearchBar from '@/components/SearchBar/SearchBar';
-import GreenButton from '@/components/GreenButton/GreenButton';
+import SearchBar from '@/components/SearchBar';
+import GreenButton from '@/components/GreenButton';
 
 // Media imports.
 import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';

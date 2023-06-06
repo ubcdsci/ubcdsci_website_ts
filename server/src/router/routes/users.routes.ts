@@ -7,6 +7,7 @@ import express from 'express';
 // import { User } from '@/models/index.models';
 
 import {
+  verifyToken,
   verifyAdmin,
   verifyUser,
 } from '@/middlewares/auth.middlewares';
@@ -32,6 +33,7 @@ router.post("/login", loginUser);
 
 // User routes.
 router.get("/user", verifyUser, (req, res) => res.send("User Route"));
+router.route("/verify").post(verifyToken);
 
 // Admin routes.
 router.get("/admin", verifyAdmin, (req, res) => res.send("Admin Route"));

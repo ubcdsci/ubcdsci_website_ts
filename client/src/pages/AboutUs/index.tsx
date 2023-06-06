@@ -6,9 +6,9 @@ import { screenLeftToRight, screenRightToLeft, screenFade } from '@/utils/framer
 
 // Component imports.
 import { faqData as data } from '@/configs/config';
-import AccordionItem from '@/components/AccordionItem/AccordionItem';
-import ContentStrip from '@/components/ContentStrip/ContentStrip';
-import ExecProfile from '@/components/ExecProfile/ExecProfile';
+import AccordionItem from '@/components/AccordionItem';
+import ContentStrip from '@/components/ContentStrip';
+import ExecProfile from '@/components/ExecProfile';
 
 // Style imports.
 import styles from './AboutUs.module.scss';

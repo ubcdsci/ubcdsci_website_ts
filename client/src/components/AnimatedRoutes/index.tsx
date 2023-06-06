@@ -3,32 +3,34 @@ import { useSelector } from 'react-redux';
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
+import authService from '@/api/auth/authService';
 
 // Component imports.
 // import NewsletterForm from '@/components/NewsletterForm/NewsletterForm';
 
 // Pages imports.
-import Home from '@/pages/Home/Home';
-import AboutUs from '@/pages/AboutUs/AboutUs';
-import AdminPanel from '@/pages/AdminPanel/AdminPanel';
-import Projects from '@/pages/Projects/Projects';
-import Events from '@/pages/Events/Events';
-import ContactUs from '@/pages/ContactUs/ContactUs';
-import SearchResult from '@/pages/SearchResult/SearchResult';
-import Login from '@/pages/Login/Login';
-import ErrorPage from '@/pages/PageNotFound/PageNotFound';
+import Home from '@/pages/Home';
+import AboutUs from '@/pages/AboutUs';
+import AdminPanel from '@/pages/AdminPanel';
+import Projects from '@/pages/Projects';
+import Events from '@/pages/Events';
+import ContactUs from '@/pages/ContactUs';
+import SearchResult from '@/pages/SearchResult';
+import Login from '@/pages/Login';
+import ErrorPage from '@/pages/PageNotFound';
 
 // Style imports.
 import styles from './AnimatedRoutes.module.scss';
+import { useEffect } from 'react';
 
 
 enum Access {
   PUBLIC,
-  PRIVATE,
   ADMIN
 }
 
 const routes : {path : string, name : string, element : JSX.Element, access : Access}[] = [
+  // Public routes.
   { path: "/",              name: "Main",               element: <Navigate replace to="/home" />, access: Access.PUBLIC },
   { path: "/home",          name: "Home",               element: <Home />, access: Access.PUBLIC },
   { path: "/about-us",      name: "About Us",           element: <AboutUs />, access: Access.PUBLIC }, 
@@ -37,8 +39,10 @@ const routes : {path : string, name : string, element : JSX.Element, access : Ac
   { path: "/projects",      name: "Projects",           element: <Projects />, access: Access.PUBLIC },
   { path: "/search-result", name: "Search Results",     element: <SearchResult />, access: Access.PUBLIC },
 
-  { path: "/admin",         name: "Admin Panel",        element: <AdminPanel />, access: Access.ADMIN },
+  // Admin routes.
+  { path: "/dashboard",     name: "Admin Panel",        element: <AdminPanel />, access: Access.ADMIN },
 
+  // Error route.
   { path: "*",              name: "np.isnan(\"page\")", element: <ErrorPage />, access: Access.PUBLIC },
 ];
 
@@ -71,10 +75,16 @@ const AnimatedRoutes = (props: any) => {
 
   const duration = 0.3;
 
+  // Check if the user is logged in.
+  const validateToken = () => {
+    return (user && user.user && user.token);
+  };
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        {routes.map(({ path, name, element }) => (
+        {routes.map(({ path, name, element, access }) => (
+          access === Access.PUBLIC ?
           <Route
             key={name}
             path={path}
@@ -91,11 +101,30 @@ const AnimatedRoutes = (props: any) => {
                 </motion.div>
                 {/* <NewsletterForm /> */}
               </>
-          } />
+          } /> :
+          <Route
+            key={name}
+            path={path}
+            element={
+              validateToken() ?
+                <>
+                  <TabTitle title={name} />
+                  <motion.div
+                    className={styles.PageContainer}
+                    initial={{ opacity: 0.1 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration }}
+                  >
+                    {element}
+                  </motion.div>
+                </> :
+                <Navigate replace to="/login" />
+            } />
         ))}
 
         <Route path="/login" element={
-          (user && user.username) ? <Navigate replace to="/home" /> :
+          validateToken() ?
+            <Navigate replace to="/home" /> :
             <>
               <TabTitle title="Admin Login" />
               <motion.div
