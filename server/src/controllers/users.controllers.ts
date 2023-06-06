@@ -1,170 +1,161 @@
-import express from "express";
-import axios from 'axios';
-import jwt from 'jsonwebtoken';
+import { Request, Response } from "express";
 import bcrypt from 'bcrypt';
 import asyncHandler from 'express-async-handler';
 
-import env from '@/configs/env.configs';
-
 import { User } from '@/models/index.models';
 
-const router = express.Router();
 
 /**
- * Register new user.
- * @route POST /api/user/register
- * @access Public
+ * Get all users.
+ * @route GET /users
+ * @access Private
  */
-export const registerUser = asyncHandler(async (req, res) => {
-  const { username, password, captchaToken } = req.body;
+const getUsers = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+		// Get all users from database.
+		const users = await User.find().select("-password").lean();
 
-  if (!username || !password) {
-    res.status(400).json({ message: 'Please provide both a username and a password!' });
+    // Check if users exist.
+		if (!users)
+      return res.status(400).json({ message: "No users found!" });
+
+		res.status(200).json(users);
+	}
+);
+
+
+/**
+ * Get user by id.
+ * @route GET /users/:id
+ * @access Private
+ */
+const getUser = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+    const { id } = req.params;
+
+    // Check if user id is valid.
+    if (!id)
+      return res.status(400).json({ message: "An error occurred!" });
+
+    // Get user from database.
+    const user = await User.findById(id).select("-password").lean().exec();
+
+    // Check if user exists.
+    if (!user)
+      return res.status(400).json({ message: "User not found!" });
+
+    res.status(200).json(user);
   }
+);
 
-  if (password.length < 8) {
-    res.status(400).json({ message: "Password must be a minimum of 8 characters long!" });
-  };
 
-  const recaptchaResponse = await verifyRecaptcha(captchaToken);
-  if (!recaptchaResponse) {
-    res.status(400).json({ message: 'Recaptcha verification failed!' });
-  } else {
-    const userExists = await User.findOne({ username });
+/**
+ * Create a new user.
+ * @route POST /users
+ * @access Private
+ */
+const createUser = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+    const { username, password, captchaToken } = req.body;
+    // Check if username and password are provided.
+    if (!username || !password)
+      return res.status(400).json({ message: 'All fields are required!' });
 
-    if (userExists) {
-      res.status(400).json({ message: 'User already exists!' });
-    }
+    // Check if password is valid length.
+    if (password.length < 8)
+      return res.status(400).json({ message: "Password must be a minimum of 8 characters long!" });
 
+    // Check if user already exists.
+    const foundUser = await User.findOne({ username }).lean().exec();
+    if (foundUser)
+      return res.status(400).json({ message: 'User already exists!' });
+
+    // Create user.
     const salt = bcrypt.genSaltSync(12);
     const hashedPassword = bcrypt.hashSync(password, salt);
     const user = await User.create({ username, password: hashedPassword });
 
-    if (user) {
-      res.status(201).json({
-        id: user.id,
-        user: user.username,
-        token: generateToken(user),
-      });
-    } else {
-      res.status(400).json({ message: 'Invalid user data!' });
-    }
+    if (user)
+      return res.status(400).json({ message: "Invalid user data!" });
+    
+    res.status(201).json({ message: `User '${username}' created successfully!` });
   }
-});
+);
+
+
+/**
+ * Update user.
+ * @route PATCH /users
+ * @access Private
+ */
+const updateUser = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+    const { id, username, password, roles, active } = req.body;
+
+    // Confirm user data is valid.
+    if (!id || !username || !password)
+      return res.status(400).json({ message: "An error occurred!" });
+
+    // Check if user exists.
+    const user = await User.findById(id).exec();
+    if (!user)
+      return res.status(400).json({ message: "User not found!" });
+
+    // Check for duplicates.
+    const duplicate = await User.findOne({ username }).lean().exec();
+    if (duplicate && duplicate?._id.toString() !== id)
+      return res.status(409).json({ message: "Duplicate username" });
+    
+    // Update user.
+    user.username = username;
+    user.roles = roles;
+    user.active = active;
+
+    // Check if password is being updated.
+    if (password)
+      user.password = await bcrypt.hash(password, 10);
+    
+    // Save user.
+    const updatedUser = await user.save();
+    if (updatedUser)
+      return res.status(400).json({ message: "Invalid user data!" });
+    
+    res.status(201).json({ message: "User updated successfully!" });
+  }
+);
+
 
 /**
  * Delete user.
- * @route DELETE /api/user/:id
- * @access Private/Admin
+ * @route DELETE /users
+ * @access Private
  */
-export const deleteUser = asyncHandler(async (req, res) => {
-  const { id } = req.params;
+const deleteUser = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+    const { id } = req.body;
 
-  if (!id) {
-    res.status(400).json({ message: 'An error occurred!' });
-  } else {
-    const user = await User.findOne({ id });
-
-    if (user) {
-      await user.remove();
-      res.status(201).json({ message: 'User has been deleted!', user });
-    } else {
-      res.status(400).json({ message: 'User not found!' });
-    };
-  };
-});
-
-/**
- * Authenticate user login.
- * @route POST /api/user/login
- * @access Public
- */
-export const loginUser = asyncHandler(async (req, res) => {
-  const { username, password, captchaToken } = req.body;
-
-  const recaptchaResponse = await verifyRecaptcha(captchaToken);
-
-  if (!recaptchaResponse) {
-    res.status(400).json({ message: 'Recaptcha verification failed!' });
-  } else {
-    const user = await User.findOne({ username });
+    // Confirm user id.
+    if (!id)
+      return res.status(400).json({ message: "An error occurred!" });
     
-    if (user && (await bcrypt.compareSync(password, user.password))) {
-      const maxAge = 3 * 60 * 60 * 1000;
-      const token = generateToken(user, maxAge);
+    // Check if user exists.
+    const user = await User.findById(id).exec();
+    if (!user)
+      return res.status(400).json({ message: "User not found!" });
+    
+    // Delete user.
+    const deletedUser = await user.remove();
+    if (!deletedUser)
+      return res.status(400).json({ message: "Invalid user data!" });
+    
+    res.status(201).json({ message: "User deleted successfully!" });
+  }
+);
 
-      res.cookie("jwt", token, { httpOnly: true, maxAge });
-      res.status(200).json({ id: user.id, user: username, token });
-    } else {
-      res.status(400).json({ message: 'Invalid username or password!' });
-    };
-  };
-});
-
-/**
- * Update user role.
- * @route PUT /api/user/:id
- * @access Private/Admin
- */
-export const updateUserRole = asyncHandler(async (req, res) => {
-  const { id, role } = req.body;
-
-  if (!role || !id) {
-    res.status(400).json({ message: 'An error occurred!' });
-  } else {
-    if (role === "admin") {
-			const user = await User.findOne({ id });
-
-			if (user && user.role !== "admin") {
-        user.role = role;
-        await user.save();
-        res.status(201).json({ message: "User is now an admin!" });
-			} else {
-				res.status(400).json({ message: "User is already an admin!" });
-			};
-		};
-  };
-});
-
-/**
- * Get user profile.
- * @route GET /api/user/profile
- * @access Private
- */
-export const getUserProfile = asyncHandler(async (req : any, res) => {
-  res.status(200).json(req.user);
-});
-
-/**
- * Generate JWT token.
- * @access Private
- */
-const generateToken = (user : any, expires?: string | number | undefined) => {
-  const { id, username, role } = user;
-
-  return jwt.sign(
-    { id, username, role },
-    env.JWT_SECRET,
-    { expiresIn: expires || env.JWT_EXPIRE }
-  );
+export default {
+  getUsers,
+  getUser,
+  createUser,
+  updateUser,
+  deleteUser,
 };
-
-/**
- * Verify reCaptcha token.
- * @access Private
- */
-const verifyRecaptcha = async (captchaToken : string) => {
-  const recaptchaResponse = await axios.post(
-    `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRET_KEY}&response=${captchaToken}`,
-    {},
-    {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-      },
-    }
-  );
-
-  return recaptchaResponse.data.success;
-};
-
-export default router;

@@ -1,16 +1,22 @@
-import env from '@/configs/env.configs';
+import { NextFunction, Request, Response } from 'express';
+
+import logger from "@/middlewares/logger.middlewares";
+
 
 /**
  * Handle errors.
  * @access Public
  */
-export const errorHandler = (err : any, req : any, res : any, next : any) => {
-  const statusCode = res.statusCode ? res.statusCode : 500;
+const errorHandler = (err : Error, req : Request, res : Response, next : NextFunction) => {
+  logger.logEvents(
+    `${err.name}: ${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}`,
+    'errLog.log'
+  );
+  console.log(err.stack);
 
-  res.status(statusCode);
-  res.json({
-    success: false,
-    message: err.message,
-    stack: env.NODE_ENV === 'production' ? null : err.stack,
-  });
+  const status = res.statusCode ? res.statusCode : 500;
+  res.status(status);
+  res.json({ success: false, message: err.message });
 };
+
+export default errorHandler;
