@@ -15,14 +15,23 @@
     padding: 2rem 3rem;
 
     .Contacts {
-      display: grid;
-      grid-template-columns: auto auto;
-      gap: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2vh;
 
-      @media screen and (max-width: 600px),
-      screen and (min-width: 1024px) {
-        grid-template-columns: auto;
-        gap: 1rem;
+      div {
+        font-size: x-large;
+
+        p {
+          font-weight: bold;
+          font-size: x-large;
+        }
+
+        svg {
+          width: auto;
+          height: auto;
+        }
       }
     }
 
