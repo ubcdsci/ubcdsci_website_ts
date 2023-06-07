@@ -2,7 +2,6 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt, { VerifyCallback } from "jsonwebtoken";
-import env from "@/configs/env.configs";
 import asyncHandler from "express-async-handler";
 
 // Model imports.
@@ -39,14 +38,14 @@ const login = asyncHandler(async (req: Request, res: Response): Promise<any> => 
 				roles: foundUser.roles,
 			},
 		},
-		env.ACCESS_TOKEN_SECRET,
+		process.env.ACCESS_TOKEN_SECRET as string,
 		{ expiresIn: "15m" }
 	);
 
 	// Create refresh token.
 	const refreshToken = jwt.sign(
 		{ username: foundUser.username },
-		env.REFRESH_TOKEN_SECRET,
+		process.env.REFRESH_TOKEN_SECRET as string,
 		{ expiresIn: "7d" }
 	);
 
@@ -78,7 +77,7 @@ const refresh = (req: Request, res: Response): Response | void => {
 
 	jwt.verify(
 		refreshToken,
-		env.REFRESH_TOKEN_SECRET,
+		process.env.REFRESH_TOKEN_SECRET as string,
 		asyncHandler(async (err: any, decoded: any): Promise<any> => {
 			if (err)
 				return res.status(403).json({ message: "Forbidden" });
@@ -98,7 +97,7 @@ const refresh = (req: Request, res: Response): Response | void => {
 						roles: foundUser.roles,
 					},
 				},
-				env.ACCESS_TOKEN_SECRET,
+				process.env.ACCESS_TOKEN_SECRET as string,
 				{ expiresIn: "15m" }
 			);
 

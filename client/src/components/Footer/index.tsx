@@ -1,21 +1,15 @@
 // Library imports.
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import { toast } from 'react-toastify';
 
-// Utility imports.
 import { scrollTop } from '@/utils/mouseScrolling';
-
-// API imports.
-import { logout, reset } from '@/api/auth/authSlice';
-
-// Component imports.
 import { footerData as data } from '@/configs/config';
+import useAuth from '@/hooks/useAuth';
+import { useSendLogoutMutation } from '@/features/auth/authApiSlice';
 
-// Style imports.
 import styles from './Footer.module.scss';
-
-// Media imports.
 import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
 
 
@@ -25,45 +19,45 @@ import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
  * @returns {JSX.Element} JSX Component.
  */
 const Footer = (props: any) => {
-  const { user } = useSelector((state : any) => state.auth);
-  
-  const dispatch = useDispatch();
+  const { username } = useAuth();
 
-  const handleLogout = () => {
-    toast("🕊️ Successfully logged out.", {
-      progressStyle: {
-        background: "rgb(var(--primary-dark))",
-      },
-    });
-    scrollTop(0);
+  const navigate = useNavigate();
 
-    dispatch(logout() as any);
-    dispatch(reset());
-  };
+  const [sendLogout, {
+    isLoading,
+    isSuccess,
+    isError,
+    error
+  }] = useSendLogoutMutation();
 
-  const handleLogin = () => {
-    window.location.href = "/login";
-  };
-
-  const checkExternal = (link: SMLink) => {
-    if (link.external) {
-      return (
-        <a
-          href={link.href}
-          draggable="false"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {link.text}
-        </a>
-      );
-    } else {
-      return (
-        <Link smooth to={link.href} draggable="false">
-          {link.text}
-        </Link>
-      );
+  // Handle logout.
+  useEffect(() => {
+    if (isSuccess) {
+      navigate('/login');
+      toast("🕊️ Successfully logged out.", {
+        progressStyle: {
+          background: "rgb(var(--primary-dark))",
+        },
+      });
+      scrollTop(0);
+    } else if (isError) {
+      toast.error(`🐛 ${error?.message}`);
     }
+  }, [isSuccess, isError, error, navigate]);
+
+  // Returns the appropriate link.
+  const checkExternal = (link: SMLink) => {
+    return (
+      <Link
+        smooth
+        to={link.href}
+        draggable="false"
+        target={link.external ? "_blank" : "_self"}
+        rel={link.external ? "noreferrer" : ""}
+      >
+        {link.text}
+      </Link>
+    );
   };
 
   return (
@@ -109,11 +103,11 @@ const Footer = (props: any) => {
         </span>
       </div>
 
-      { (user && user.user) ?
-        <button className={styles.LogInOutButton} onClick={handleLogout}>
-          Log out of user "{user.user}"
+      { (username) ?
+        <button className={styles.LogInOutButton} onClick={sendLogout}>
+          Log out of user "{username}"
         </button> :
-        <button className={styles.LogInOutButton} onClick={handleLogin}>
+        <button className={styles.LogInOutButton} onClick={() => navigate('/login')}>
           Log in as administrator
         </button>
       }

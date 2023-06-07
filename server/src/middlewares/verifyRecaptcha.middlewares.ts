@@ -1,8 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import axios from "axios";
 
-import env from "@/configs/env.configs";
-
 
 /**
  * Verify reCaptcha token.
@@ -16,7 +14,7 @@ const verifyRecaptcha = (req: Request | any, res: Response, next: NextFunction):
   
   const token = header.split(" ")[1];
   axios.post(
-    `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+    `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
     {},
     {
       headers: {

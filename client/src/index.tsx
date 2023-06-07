@@ -1,9 +1,10 @@
 // Library imports.
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
-import { store } from '@/configureStore';
+import { store } from '@/app/store';
 import * as serviceWorker from '@/serviceWorker';
 
 // Component imports.
@@ -13,41 +14,18 @@ import App from '@/App';
 import '@/index.scss';
 
 
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
+// Disable React DevTools in production.
+// if (process.env.NODE_ENV === 'production')
+//   disableReactDevTools();
 
-/**
- * Setting up the index.
- * @returns {JSX.Element} JSX Component.
- */
-const Index = () => {
-  useEffect(() => {
-    if (!RECAPTCHA_SITE_KEY) return;
-
-    const script = document.createElement("script");
-    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
-    script.async = true;
-    document.head.appendChild(script);
-  }, []);
-
-  return (
-    <React.StrictMode>
-      <Provider store={store}>
-          <App />
-
-          { RECAPTCHA_SITE_KEY && (
-              <div
-                className="g-recaptcha"
-                data-sitekey={RECAPTCHA_SITE_KEY}
-                data-size="invisible"
-                data-callback="onsubmit"
-              />
-            )}
-      </Provider>
-    </React.StrictMode>
-  );
-};
-
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<Index />);
+// Render the app.
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
 
 
 // If you want your app to work offline and load faster, you can change

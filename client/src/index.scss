@@ -200,3 +200,14 @@ code {
   background: rgb(var(--primary-dark));
   transform-origin: 0%;
 }
+
+.PageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 5vh 8vw;
+
+  @media screen and (max-width: 1280px) {
+    padding: 2rem 2vw;
+  }
+}

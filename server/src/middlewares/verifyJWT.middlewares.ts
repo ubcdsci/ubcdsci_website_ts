@@ -1,8 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-import env from "@/configs/env.configs";
-
 
 /**
  * Verify JWT.
@@ -17,7 +15,7 @@ const verifyJWT = (req: Request | any, res: Response, next: NextFunction): Respo
 	const token = authHeader.split(" ")[1];
 	jwt.verify(
 		token,
-		env.ACCESS_TOKEN_SECRET,
+		process.env.ACCESS_TOKEN_SECRET as string,
 		(err: any, decoded: any): any => {
 			if (err)
         return res.status(403).json({ message: "Forbidden" });

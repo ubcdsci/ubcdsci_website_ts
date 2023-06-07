@@ -18,12 +18,12 @@ export default ({ mode }) => {
 		server: {
 			port: 3000,
 			proxy: {
-				"/api": {
-					target: process.env.VITE_API_BASE_URL || "http://127.0.0.1:3001",
+				"/": {
+					target: process.env.VITE_API_BASE_URL || "https://127.0.0.1:3001",
 					changeOrigin: true,
 					secure: true,
 					agent: new https.Agent(),
-					rewrite: (path) => path.replace(/^\/api/, ""),
+					rewrite: (path) => path.replace(/^\//, ""),
 				},
 			},
 		},

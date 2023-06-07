@@ -12,10 +12,11 @@ import { bgImgSrc, bgBlur, bgOverlayAlpha } from '@/configs/aesthetics';
 // Component imports.
 import Background from '@/components/Background';
 import NavBar from '@/components/NavBar';
-import AnimatedRoutes from '@/components/AnimatedRoutes';
+import Routes from '@/Routes';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { useEffect } from 'react';
+
 
 /**
  * Sets the auth token for the axios instance.
@@ -26,6 +27,8 @@ const setAuthToken = (token: string) => {
     delete axios.defaults.headers.common["Authorization"];
 }
 
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
+
 /**
  * Renders the web app.
  * @returns {JSX.Element} JSX Component.
@@ -33,6 +36,17 @@ const setAuthToken = (token: string) => {
 const App = () => {
   // const [darkToggle, setDarkToggle] = useState(false);
   const { scrollYProgress } = useScroll();
+
+  // Load the reCAPTCHA script.
+  useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY)
+      return;
+
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    document.head.appendChild(script);
+  }, []);
 
   // Set the auth token for the axios instance.
   useEffect(() => {
@@ -47,7 +61,7 @@ const App = () => {
         <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} />
 
         <NavBar />
-        <AnimatedRoutes />
+        <Routes />
         <Footer />
 
         <motion.div className="ProgressBar" style={{ scaleX: scrollYProgress }} />
@@ -64,6 +78,15 @@ const App = () => {
           }}
         />
       </Router>
+
+      { RECAPTCHA_SITE_KEY && (
+          <div
+            className="g-recaptcha"
+            data-sitekey={RECAPTCHA_SITE_KEY}
+            data-size="invisible"
+            data-callback="onsubmit"
+          />
+        )}
     </HelmetProvider>
   );
 };

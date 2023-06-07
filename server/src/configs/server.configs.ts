@@ -1,19 +1,26 @@
 import express, { Express, Request, Response } from 'express';
 import path from 'path';
+import fs from 'fs';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 
-import env from '@/configs/env.configs';
+import corsOptions from './corsOptions.configs';
 import logger from "@/middlewares/logger.middlewares";
 import errorHandler from '@/middlewares/error.middlewares';
 
 
 dotenv.config();
 
+// Set up HTTPS server.
+export const httpsParams = {
+	key: fs.readFileSync(__dirname + process.env.SSL_KEY_FILE, 'utf8'),
+	cert: fs.readFileSync(__dirname + process.env.SSL_CRT_FILE, 'utf8'),
+};
+
 const app: Express = express();
 app.use(logger.logger);
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json({limit: '50mb'}));
 app.use(cookieParser());
 
@@ -21,7 +28,7 @@ app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname, "public")));
 
 // Serves client build folder in production.
-if (env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 
   app.get('*', (req: Request, res: Response) =>
@@ -31,7 +38,7 @@ if (env.NODE_ENV === 'production') {
   );
 } else {
   app.get('/', (req: Request, res: Response) => res.send('Please set to production'));
-}
+};
 
 app.use(errorHandler);
 

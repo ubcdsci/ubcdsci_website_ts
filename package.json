@@ -2,7 +2,6 @@
   "name": "ubcdsci_website_typescript",
   "version": "1.0.0",
   "description": "UBC Data Science Club Website Source Code (Written in TS)",
-  "main": "index.js",
   "scripts": {
     "c": "cd client && npm start",
     "s": "cd server && npm start",

@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
-import authService from '@/api/auth/authService';
 
 // Component imports.
 // import NewsletterForm from '@/components/NewsletterForm/NewsletterForm';
@@ -16,12 +15,8 @@ import Projects from '@/pages/Projects';
 import Events from '@/pages/Events';
 import ContactUs from '@/pages/ContactUs';
 import SearchResult from '@/pages/SearchResult';
-import Login from '@/pages/Login';
+import Login from '@/features/auth/Login';
 import ErrorPage from '@/pages/PageNotFound';
-
-// Style imports.
-import styles from './AnimatedRoutes.module.scss';
-import { useEffect } from 'react';
 
 
 enum Access {
@@ -51,7 +46,6 @@ const routes : {path : string, name : string, element : JSX.Element, access : Ac
  * Sets the title for the browser tab.
  * @param {string} title The title to set.
  * @param {string} description The description to set.
- * @returns {JSX.Element} JSX Component.
  */
 const TabTitle = (props: {title : string, description? : string}) => {
   return (
@@ -65,26 +59,19 @@ const TabTitle = (props: {title : string, description? : string}) => {
   );
 };
 
+
 /**
  * Renders all the page routes, with animation.
- * @returns {JSX.Element} JSX Component.
  */
 const AnimatedRoutes = (props: any) => {
   const location = useLocation();
-  const { user } = useSelector((state : any) => state.auth);
 
   const duration = 0.3;
-
-  // Check if the user is logged in.
-  const validateToken = () => {
-    return (user && user.user && user.token);
-  };
 
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        {routes.map(({ path, name, element, access }) => (
-          access === Access.PUBLIC ?
+        {routes.map(({ path, name, element }) => (
           <Route
             key={name}
             path={path}
@@ -92,7 +79,7 @@ const AnimatedRoutes = (props: any) => {
               <>
                 <TabTitle title={name} />
                 <motion.div
-                  className={styles.PageContainer}
+                  className="PageContainer"
                   initial={{ opacity: 0.1 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration }}
@@ -101,41 +88,21 @@ const AnimatedRoutes = (props: any) => {
                 </motion.div>
                 {/* <NewsletterForm /> */}
               </>
-          } /> :
-          <Route
-            key={name}
-            path={path}
-            element={
-              validateToken() ?
-                <>
-                  <TabTitle title={name} />
-                  <motion.div
-                    className={styles.PageContainer}
-                    initial={{ opacity: 0.1 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration }}
-                  >
-                    {element}
-                  </motion.div>
-                </> :
-                <Navigate replace to="/login" />
-            } />
+          } />
         ))}
 
         <Route path="/login" element={
-          validateToken() ?
-            <Navigate replace to="/home" /> :
-            <>
-              <TabTitle title="Admin Login" />
-              <motion.div
-                className={styles.PageContainer}
-                initial={{ opacity: 0.1 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration }}
-              >
-                <Login />
-              </motion.div>
-            </> 
+          <>
+            <TabTitle title="Admin Login" />
+            <motion.div
+              className="PageContainer"
+              initial={{ opacity: 0.1 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration }}
+            >
+              <Login />
+            </motion.div>
+          </> 
         } />
       </Routes>
     </AnimatePresence>
