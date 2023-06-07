@@ -4,6 +4,12 @@ import jwtDecode from "jwt-decode";
 import { selectCurrentToken } from "@/features/auth/authSlice";
 
 
+enum Roles {
+	Admin = "admin",
+	Executive = "executive",
+	User = "user",
+}
+
 /**
  * Authorization roles.
  */

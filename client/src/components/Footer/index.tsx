@@ -43,7 +43,7 @@ const Footer = (props: any) => {
     } else if (isError) {
       toast.error(`🐛 ${error?.message}`);
     }
-  }, [isSuccess, isError, error, navigate]);
+  }, [isSuccess, isError, error]);
 
   // Returns the appropriate link.
   const checkExternal = (link: SMLink) => {

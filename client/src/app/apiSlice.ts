@@ -4,8 +4,15 @@ import { BaseQueryApi, BaseQueryArg, BaseQueryExtraOptions, BaseQueryResult } fr
 import { ComponentState } from "react";
 
 
+enum tagTypes {
+	User = "User",
+}
+
+/**
+ * Base query with credentials and authorization header.
+ */
 const baseQuery = fetchBaseQuery({
-	baseUrl: process.env.VITE_BASE_API_URL || "http://127.0.0.1:3001",
+	baseUrl: "http://127.0.0.1:3001/api",
 	credentials: "include",
 	prepareHeaders: (headers, { getState }: ComponentState) => {
 		const token = getState().auth.token;
@@ -23,9 +30,6 @@ const baseQuery = fetchBaseQuery({
  */
 const baseQueryWithReauth = async (
   args: BaseQueryArg<any>, api: BaseQueryApi, extraOptions: BaseQueryExtraOptions<any>) => {
-	// console.log(args) // request url, method, body
-	// console.log(api) // signal, dispatch, getState()
-	// console.log(extraOptions) //custom like {shout: true}
 
 	let result = await baseQuery(args, api, extraOptions as any);
 

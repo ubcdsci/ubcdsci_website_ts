@@ -54,6 +54,28 @@
       }
     }
 
+    .Persist {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 1rem;
+      padding: 1rem 0;
+
+      legend {
+        margin: 0;
+        padding: 0;
+        width: fit-content;
+        font-size: large;
+        font-weight: bold;
+      }
+
+      input {
+        height: 3vh;
+        width: 3vh;
+        cursor: pointer;
+      }
+    }
+
     p {
       margin: 0.25rem 0;
     }

@@ -3,7 +3,8 @@
 # dependencies
 *node_modules
 *.env
-*.pem
+*.crt
+*.key
 /.pnp
 .pnp.js
 

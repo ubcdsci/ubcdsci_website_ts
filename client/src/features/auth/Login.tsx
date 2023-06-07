@@ -40,15 +40,17 @@ const Login = (props : any) => {
 
   // Handle form submission.
   const handleSubmit = async () => {
+    // Check if reCAPTCHA is loaded.
     if (window.grecaptcha) {
       window.grecaptcha.enterprise.ready(() => {
         window.grecaptcha.enterprise
           .execute(RECAPTCHA_SITE_KEY, { action: "login" })
           .then(async (captchaToken : string) => {
+            // TODO: something for captchaToken
             try {
               // Attempt to login.
               const { accessToken } = await login({ username, password }).unwrap();
-              dispatch(setCredentials({ accessToken, captchaToken }));
+              dispatch(setCredentials({ accessToken }));
               setUsername('');
               setPassword('');
               
@@ -64,7 +66,7 @@ const Login = (props : any) => {
               // Failed to login.
               let errorMessage = "No Server Response";
               if (err.status) {
-                switch (err.status) {
+                switch (err.originalStatus) {
                   case 400:
                     errorMessage = 'Missing Username or Password';
                     break;
@@ -76,7 +78,8 @@ const Login = (props : any) => {
                     break;
                 }
               }
-              toast.error(`🐦 ${ err.status } - ${ errorMessage }`);
+
+              toast.error(`🐦 Error ${ err.status } - ${ errorMessage }`);
             }
           });
       });
@@ -99,12 +102,15 @@ const Login = (props : any) => {
   const handlePersist = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPersist(e.target.checked);
   };
-
+  
   return (
     <form
       className={styles.Login}
       autoComplete="on"
-      onSubmit={handleSubmit}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
     >
       <Logo className={styles.Logo} />
 
@@ -140,7 +146,7 @@ const Login = (props : any) => {
           />
         </fieldset>
 
-        <fieldset>
+        <fieldset className={styles.Persist}>
           <legend>Trust This Device</legend>
 
           <label htmlFor="persist" />

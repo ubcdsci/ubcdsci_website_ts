@@ -1,18 +1,15 @@
-import https from "https";
-
-import app, { httpsParams } from "@/configs/server.configs";
+import app from "@/configs/server.configs";
 import database from "@/database/index.database";
 import router from "@/router/index.router";
 
+const isSecure = process.env.HTTPS === "true" ? true : false;
 
 database();
-app.use("/", router);
+app.use("/api", router);
 
-let server: any = https.createServer(httpsParams, app);
-
-server.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
 	console.log(
-		`[Server]: Server is running at http${process.env.HTTPS ? "s" : ""}://${
+		`[Server]: Server is running at http${isSecure ? "s" : ""}://${
 			process.env.HOST
 		}:${process.env.PORT}`
 	);

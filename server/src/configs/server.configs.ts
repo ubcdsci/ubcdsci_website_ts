@@ -1,6 +1,5 @@
 import express, { Express, Request, Response } from 'express';
 import path from 'path';
-import fs from 'fs';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
@@ -11,12 +10,6 @@ import errorHandler from '@/middlewares/error.middlewares';
 
 
 dotenv.config();
-
-// Set up HTTPS server.
-export const httpsParams = {
-	key: fs.readFileSync(__dirname + process.env.SSL_KEY_FILE, 'utf8'),
-	cert: fs.readFileSync(__dirname + process.env.SSL_CRT_FILE, 'utf8'),
-};
 
 const app: Express = express();
 app.use(logger.logger);
