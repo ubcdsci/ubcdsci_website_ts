@@ -18,15 +18,6 @@ import ScrollToTop from '@/components/ScrollToTop';
 import { useEffect } from 'react';
 
 
-/**
- * Sets the auth token for the axios instance.
- */
-const setAuthToken = (token: string) => {
-  (token) ?
-    axios.defaults.headers.common["Authorization"] = `Bearer ${token}` :
-    delete axios.defaults.headers.common["Authorization"];
-}
-
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
 
 /**
@@ -46,13 +37,6 @@ const App = () => {
     script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
     script.async = true;
     document.head.appendChild(script);
-  }, []);
-
-  // Set the auth token for the axios instance.
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    const parsedUser = user ? JSON.parse(user) : null;
-    setAuthToken(parsedUser?.token || "");
   }, []);
 
   return (

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 import { useLoginMutation } from './authApiSlice';
 import { setCredentials } from './authSlice';
+import useAuth from '@/hooks/useAuth';
 import usePersist from '@/hooks/usePersist';
 
 import { scrollTop } from '@/utils/mouseScrolling';
@@ -25,12 +26,22 @@ const Login = (props : any) => {
   const [password, setPassword] = useState<string>('');
   const [persist, setPersist] = usePersist();
 
+  const { username: currentUser } = useAuth();
+
   const userRef = useRef<HTMLInputElement>(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [login, { isLoading }] = useLoginMutation();
+
+  // Redirect if already logged in.
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/');
+      scrollTop(0);
+    }
+  }, [currentUser]);
 
   // Focus on input field.
   useEffect(() => {
@@ -46,7 +57,7 @@ const Login = (props : any) => {
         window.grecaptcha.enterprise
           .execute(RECAPTCHA_SITE_KEY, { action: "login" })
           .then(async (captchaToken : string) => {
-            // TODO: something for captchaToken
+            // TODO: something for captchaToken.
             try {
               // Attempt to login.
               const { accessToken } = await login({ username, password }).unwrap();

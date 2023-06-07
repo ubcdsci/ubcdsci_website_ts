@@ -1,13 +1,16 @@
 // Library imports.
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { HashLink as Link } from 'react-router-hash-link';
 import { toast } from 'react-toastify';
 
 import { scrollTop } from '@/utils/mouseScrolling';
 import { footerData as data } from '@/configs/config';
 import useAuth from '@/hooks/useAuth';
-import { useSendLogoutMutation } from '@/features/auth/authApiSlice';
+import usePersist from '@/hooks/usePersist';
+import { useSendLogoutMutation, useRefreshMutation } from '@/features/auth/authApiSlice';
+import { selectCurrentToken } from '@/features/auth/authSlice';
 
 import styles from './Footer.module.scss';
 import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
@@ -20,8 +23,11 @@ import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
  */
 const Footer = (props: any) => {
   const { username } = useAuth();
+  const [persist] = usePersist();
+  const [refresh] = useRefreshMutation();
 
   const navigate = useNavigate();
+  const token = useSelector(selectCurrentToken);
 
   const [sendLogout, {
     isLoading,
@@ -44,6 +50,20 @@ const Footer = (props: any) => {
       toast.error(`🐛 ${error?.message}`);
     }
   }, [isSuccess, isError, error]);
+
+  // Handle refresh.
+  useEffect(() => {
+    const verifyRefreshToken = async () => {
+      try {
+        await refresh();
+      } catch (err) {
+        // console.error(err);
+      }
+    }
+
+    if (!token && persist)
+      verifyRefreshToken();
+  }, [token, refresh]);
 
   // Returns the appropriate link.
   const checkExternal = (link: SMLink) => {
