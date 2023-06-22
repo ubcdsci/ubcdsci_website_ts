@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import asyncHandler from 'express-async-handler';
 
-import { Post, EventPost, User } from '@/models/index.models';
+import { Post, User } from '@/models/index.models';
 
 
 /**
  * Get all posts.
  * @route GET /posts
- * @access Private
+ * @access Public
  */
 const getPosts = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -26,7 +26,7 @@ const getPosts = asyncHandler(
 /**
  * Get post by id.
  * @route GET /posts/:id
- * @access Private
+ * @access Public
  */
 const getPost = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -51,44 +51,40 @@ const getPost = asyncHandler(
 /**
  * Create a new post.
  * @route POST /posts
- * @access Private
+ * @access Protected
  */
 const createPost = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const { user_id, title, description, date, location, images, tags } = req.body;
+    const { author, title, description, date, location, images, tags } = req.body;
     // Check if post details are valid.
     if (!title || !description)
       return res.status(400).json({ message: 'A title and description are required!' });
 
+    // Verify user exists.
+    const user = await User.findById(author).exec();
+    if (!user)
+      return res.status(400).json({ message: "User not found!" });
+
     // Create post.
     const post = await Post.create({
-      title,
-      description,
-      date,
-      location,
-      images,
-      tags,
-    });
+			author,
+			title,
+			description,
+			date,
+			location,
+			images,
+			tags,
+		});
 
     if (!post)
       return res.status(400).json({ message: "Invalid post data!" });
-
-    // Verify user exists.
-    const user = await User.findById(user_id).exec();
-    if (!user)
-      return res.status(400).json({ message: "User not found!" });
     
-    const postID = post._id;
-    const userID = user._id;
-    
-    // Create event post.
-    const eventPost = await EventPost.create({
-			user_id: userID,
-			post_id: postID,
-		});
-
-    if (!eventPost)
-      return res.status(400).json({ message: "Invalid event post data!" });
+    // Update user's posts.
+    User.findByIdAndUpdate(
+      author,
+      { $push: { posts: post._id } },
+      { new: true }
+    ).exec();
     
     res.status(201).json({ message: `Post '${title}' created successfully!` });
   }
@@ -98,7 +94,7 @@ const createPost = asyncHandler(
 /**
  * Update post.
  * @route PATCH /posts
- * @access Private
+ * @access Protected
  */
 const updatePost = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -133,12 +129,12 @@ const updatePost = asyncHandler(
 
 /**
  * Delete post.
- * @route DELETE /posts
- * @access Private
+ * @route DELETE /posts/:id
+ * @access Protected
  */
 const deletePost = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const { id } = req.body;
+    const { id } = req.params;
 
     // Confirm post id.
     if (!id)
@@ -149,12 +145,14 @@ const deletePost = asyncHandler(
     if (!post)
       return res.status(400).json({ message: "Post not found!" });
     
+    // Remove post from user's posts.
+    User.findByIdAndUpdate(
+      post.author,
+      { $pull: { posts: id } },
+      { new: true }
+    ).exec();
+    
     // Delete post.
-    const eventPost = await EventPost.findOne({ post_id: id }).exec();
-    
-    if (eventPost)
-      eventPost.remove();
-    
     const deletedPost = await post.remove();
     if (!deletedPost)
       return res.status(400).json({ message: "Invalid post data!" });

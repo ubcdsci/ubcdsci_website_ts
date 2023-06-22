@@ -20,10 +20,10 @@ if (process.env.NODE_ENV !== 'development') {
 router.route('/')
   .get(userController.getUsers)
   .post(userController.createUser)
-  .patch(userController.updateUser)
-  .delete(userController.deleteUser);
+  .patch(userController.updateUser);
 
 router.route('/:id')
-  .get(userController.getUser);
+  .get(userController.getUser)
+  .delete(userController.deleteUser);
 
 export default router;

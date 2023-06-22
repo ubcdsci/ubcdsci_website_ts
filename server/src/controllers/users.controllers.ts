@@ -8,7 +8,7 @@ import { User } from '@/models/index.models';
 /**
  * Get all users.
  * @route GET /users
- * @access Private
+ * @access Protected
  */
 const getUsers = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -27,7 +27,7 @@ const getUsers = asyncHandler(
 /**
  * Get user by id.
  * @route GET /users/:id
- * @access Private
+ * @access Protected
  */
 const getUser = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -52,7 +52,7 @@ const getUser = asyncHandler(
 /**
  * Create a new user.
  * @route POST /users
- * @access Private
+ * @access Protected
  */
 const createUser = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -90,7 +90,7 @@ const createUser = asyncHandler(
 /**
  * Update user.
  * @route PATCH /users
- * @access Private
+ * @access Protected
  */
 const updateUser = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -131,12 +131,12 @@ const updateUser = asyncHandler(
 
 /**
  * Delete user.
- * @route DELETE /users
- * @access Private
+ * @route DELETE /users/:id
+ * @access Protected
  */
 const deleteUser = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const { id } = req.body;
+    const { id } = req.params;
 
     // Confirm user id.
     if (!id)

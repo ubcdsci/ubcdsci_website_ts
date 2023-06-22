@@ -3,6 +3,11 @@ import mongoose from 'mongoose';
 // Schema for the Post model
 const PostSchema = new mongoose.Schema(
   {
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: [true, "Please provide an author for this post."],
+    },
     title: {
       type: String,
       required: [true, "Please provide a title for this post."],
