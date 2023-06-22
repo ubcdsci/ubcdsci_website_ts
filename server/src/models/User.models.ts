@@ -16,11 +16,11 @@ const UserSchema = new mongoose.Schema(
 			minLength: 8,
 			required: [true, "Please enter a password"],
 		},
-		// email: {
-		//   type: String,
-		//   required: [true, 'Please enter an email'],
-		//   unique: true,
-		// },
+		email: {
+		  type: String,
+		  required: false,
+		  unique: true,
+		},
 		roles: [{
 			type: String,
 			enum: ["user", "executive", "admin"],
@@ -31,9 +31,7 @@ const UserSchema = new mongoose.Schema(
 			default: true,
 		},
 	},
-	{
-    timestamps: true
-  }
+	{ timestamps: true }
 );
 
 // Export the model.
