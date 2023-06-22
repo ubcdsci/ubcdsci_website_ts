@@ -121,7 +121,7 @@ const updateUser = asyncHandler(
     
     // Save user.
     const updatedUser = await user.save();
-    if (updatedUser)
+    if (!updatedUser)
       return res.status(400).json({ message: "Invalid user data!" });
     
     res.status(201).json({ message: "User updated successfully!" });

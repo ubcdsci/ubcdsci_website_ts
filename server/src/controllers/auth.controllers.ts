@@ -26,7 +26,7 @@ const login = asyncHandler(async (req: Request, res: Response): Promise<any> => 
 		return res.status(401).json({ message: "Unauthorized" });
 
 	// Check if password is correct.
-	const match = await bcrypt.compare(password, foundUser.password);
+	const match = await bcrypt.compare(password, foundUser.password as string);
 	if (!match)
 		return res.status(401).json({ message: "Unauthorized" });
 

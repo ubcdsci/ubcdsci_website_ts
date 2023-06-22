@@ -3,12 +3,17 @@ import express from 'express';
 
 import verifyJWT from '@/middlewares/verifyJWT.middlewares';
 import verifyRecaptcha from '@/middlewares/verifyRecaptcha.middlewares';
-import userController from "@/controllers/users.controllers";
+import postController from "@/controllers/posts.controllers";
 
 
 const router = express.Router();
 
 // Public routes.
+router.route('/')
+  .get(postController.getPosts)
+
+router.route('/:id')
+  .get(postController.getPost)
 
 
 // Protected routes.
@@ -18,12 +23,8 @@ if (process.env.NODE_ENV !== 'development') {
 };
 
 router.route('/')
-  .get(userController.getUsers)
-  .post(userController.createUser)
-  .patch(userController.updateUser)
-  .delete(userController.deleteUser);
-
-router.route('/:id')
-  .get(userController.getUser);
+  .post(postController.createPost)
+  .patch(postController.updatePost)
+  .delete(postController.deletePost);
 
 export default router;
