@@ -9,7 +9,8 @@ import userController from "@/controllers/users.controllers";
 const router = express.Router();
 
 // Public routes.
-
+router.route('/')
+  .post(userController.createUser);
 
 // Protected routes.
 if (process.env.NODE_ENV !== 'development') {
@@ -18,12 +19,11 @@ if (process.env.NODE_ENV !== 'development') {
 };
 
 router.route('/')
-  .get(userController.getUsers)
-  .post(userController.createUser)
-  .patch(userController.updateUser);
+  .get(userController.getUsers);
 
 router.route('/:id')
   .get(userController.getUser)
+  .patch(userController.updateUser)
   .delete(userController.deleteUser);
 
 export default router;

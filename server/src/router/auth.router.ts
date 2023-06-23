@@ -11,10 +11,13 @@ const router = express.Router();
 router.route('/')
   .post(loginLimiter, authController.login);
 
+router.route('/step2')
+  .post(authController.loginStep2);
+
 router.route('/refresh')
   .get(authController.refresh);
 
-router.route('/logout')
+router.route('/logout/:id')
   .post(authController.logout);
 
 

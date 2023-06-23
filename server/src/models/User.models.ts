@@ -13,12 +13,13 @@ const UserSchema = new mongoose.Schema(
 		},
 		password: {
 			type: String,
-			minLength: 8,
 			required: [true, "Please enter a password"],
 		},
 		email: {
 		  type: String,
-		  required: false,
+			minlength: 6,
+			validate: /\S+@\S+\.\S+/,
+		  required: true,
 		  unique: true,
 		},
 		roles: [{
@@ -26,6 +27,14 @@ const UserSchema = new mongoose.Schema(
 			enum: ["user", "executive", "admin"],
 			default: ["user"],
 		}],
+		twoFactorAuth: {
+			type: Boolean,
+			default: false,
+		},
+		twoFactorAuthSecret: {
+			type: String,
+			default: "",
+		},
 		active: {
 			type: Boolean,
 			default: true,

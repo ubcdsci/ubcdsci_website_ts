@@ -1,12 +1,14 @@
+// Library imports.
 import { Request, Response } from "express";
 import asyncHandler from 'express-async-handler';
 
+// Model imports.
 import { Post, User } from '@/models/index.models';
 
 
 /**
  * Get all posts.
- * @route GET /posts
+ * @route GET /api/posts
  * @access Public
  */
 const getPosts = asyncHandler(
@@ -25,7 +27,7 @@ const getPosts = asyncHandler(
 
 /**
  * Get post by id.
- * @route GET /posts/:id
+ * @route GET /api/posts/:id
  * @access Public
  */
 const getPost = asyncHandler(
@@ -37,11 +39,10 @@ const getPost = asyncHandler(
       return res.status(400).json({ message: "An error occurred!" });
 
     // Get post from database.
-    const post = await Post.findById(id).lean().exec();
-
-    // Check if post exists.
-    if (!post)
+    const post = await Post.findById(id).lean().exec().catch((err: any) => {
+      console.log(err);
       return res.status(400).json({ message: "Post not found!" });
+    });
 
     res.status(200).json(post);
   }
@@ -50,7 +51,7 @@ const getPost = asyncHandler(
 
 /**
  * Create a new post.
- * @route POST /posts
+ * @route POST /api/posts
  * @access Protected
  */
 const createPost = asyncHandler(
@@ -61,9 +62,10 @@ const createPost = asyncHandler(
       return res.status(400).json({ message: 'A title and description are required!' });
 
     // Verify user exists.
-    const user = await User.findById(author).exec();
-    if (!user)
+    await User.findById(author).exec().catch((err: any) => {
+      console.log(err);
       return res.status(400).json({ message: "User not found!" });
+    });
 
     // Create post.
     const post = await Post.create({
@@ -93,12 +95,13 @@ const createPost = asyncHandler(
 
 /**
  * Update post.
- * @route PATCH /posts
+ * @route PATCH /api/posts/:id
  * @access Protected
  */
 const updatePost = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const { id, title, description, date, location, images, tags } = req.body;
+    const { id } = req.params;
+    const { title, description, date, location, images, tags } = req.body;
 
     // Confirm post data is valid.
     if (!id)
@@ -118,9 +121,10 @@ const updatePost = asyncHandler(
     post.tags = tags;
 
     // Save post.
-    const updatedPost = await post.save();
-    if (!updatedPost)
+    await post.save().catch((err: any) => {
+      console.log(err);
 			return res.status(400).json({ message: "Invalid post data!" });
+    });
     
     res.status(201).json({ message: `Post updated successfully!` });
   }
@@ -129,7 +133,7 @@ const updatePost = asyncHandler(
 
 /**
  * Delete post.
- * @route DELETE /posts/:id
+ * @route DELETE /api/posts/:id
  * @access Protected
  */
 const deletePost = asyncHandler(
@@ -153,9 +157,10 @@ const deletePost = asyncHandler(
     ).exec();
     
     // Delete post.
-    const deletedPost = await post.remove();
-    if (!deletedPost)
+    await post.remove().catch((err: any) => {
+      console.log(err);
       return res.status(400).json({ message: "Invalid post data!" });
+    });
     
     res.status(201).json({ message: "Post deleted successfully!" });
   }

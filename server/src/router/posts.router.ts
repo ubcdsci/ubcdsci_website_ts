@@ -23,10 +23,10 @@ if (process.env.NODE_ENV !== 'development') {
 };
 
 router.route('/')
-  .post(postController.createPost)
-  .patch(postController.updatePost);
+  .post(postController.createPost);
 
 router.route('/:id')
+  .patch(postController.updatePost)
   .delete(postController.deletePost);
 
 export default router;
