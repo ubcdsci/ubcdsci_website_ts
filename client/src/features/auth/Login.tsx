@@ -12,10 +12,16 @@ import usePersist from '@/hooks/usePersist';
 import { scrollTop } from '@/utils/mouseScrolling';
 
 import styles from './Login.module.scss';
-import { ReactComponent as Logo} from '@/images/logo/logo-colour.svg';
+import { LogoColour as Logo } from '@/components/Logos';
 
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
+
+declare global {
+  interface Window {
+    grecaptcha: any
+  }
+}
 
 /**
  * Renders the Login page.
@@ -60,7 +66,16 @@ const Login = (props : any) => {
             // TODO: something for captchaToken.
             try {
               // Attempt to login.
-              const { accessToken } = await login({ username, password }).unwrap();
+              const { accessToken, loginStep2VerificationToken } = await login({ username, password }).unwrap();
+
+              // Check if two-factor authentication is required.
+              if (loginStep2VerificationToken) {
+                toast.info(`🦜 Two-factor authentication required.`);
+                sessionStorage.setItem('loginStep2VerificationToken', loginStep2VerificationToken);
+                navigate('/login/2fa');
+                return;
+              }
+
               dispatch(setCredentials({ accessToken }));
               setUsername('');
               setPassword('');
@@ -85,7 +100,7 @@ const Login = (props : any) => {
                     errorMessage = 'Unauthorized';
                     break;
                   default:
-                    errorMessage = err.data?.message;
+                    errorMessage = err.data?.message || 'Unknown Error';
                     break;
                 }
               }

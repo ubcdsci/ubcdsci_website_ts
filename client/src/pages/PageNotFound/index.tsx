@@ -12,7 +12,7 @@ import SearchBar from '@/components/SearchBar';
 import styles from "./PageNotFound.module.scss";
 
 // Media imports.
-import { ReactComponent as Logo } from '@/images/logo/logo-colour.svg';
+import { LogoColour as Logo } from '@/components/Logos';
 
 
 /**

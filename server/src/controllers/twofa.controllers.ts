@@ -15,33 +15,33 @@ import { User } from "@/models/index.models";
  */
 const generate = asyncHandler(
 	async (req: Request, res: Response): Promise<any> => {
-    const { email } = req.body;
+    const { username } = req.body;
 
     // Check if user exists.
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
     if (!user)
       return res.status(400).json({ message: "User not found" });
 
-    // Check if 2FA is already enabled.
-		if (user.twoFactorAuth) {
+		// Check if secret already exists.
+		if (user.twoFactorAuthSecret !== "") {
 			return res.status(400).json({
-				message: "2FA already verified and enabled",
-				twoFactorAuth: user.twoFactorAuth,
+				message: "2FA secret already exists",
+				twoFactorAuthEnabled: user.twoFactorAuthEnabled,
 			});
 		}
 
 		const secret = authenticator.generateSecret();
 		user.twoFactorAuthSecret = secret;
 		user.save();
-		const appName = "Express 2FA Demo";
+		const appName = "UBC Data Science Club";
 
 		return res.json({
 			message: "2FA secret generated successfully",
 			secret: secret,
 			qrImageDataUrl: await qrcode.toDataURL(
-				authenticator.keyuri(email, appName, secret)
+				authenticator.keyuri(username, appName, secret)
 			),
-			twoFactorAuth: user.twoFactorAuth,
+			twoFactorAuthEnabled: user.twoFactorAuthEnabled,
 		});
 	}
 );
@@ -54,35 +54,22 @@ const generate = asyncHandler(
  */
 const verify = asyncHandler(
 	async (req: Request, res: Response): Promise<any> => {
-    const { email, token } = req.body;
+    const { username, token } = req.body;
 
     // Check if user exists.
-		const user = await User.findOne({ email });
+		const user = await User.findOne({ username }).select("-password");
 		if (!user)
       return res.status(400).json({ message: "User not found" });
-
-    // Check if 2FA is already enabled.
-		if (user.twoFactorAuth) {
-			return res.json({
-				message: "2FA already verified and enabled!",
-				twoFactorAuth: user.twoFactorAuth,
-			});
-		}
 
     // Check if token is valid.
 		const checkToken = token.replaceAll(" ", "");
 		if (!authenticator.check(checkToken, user.twoFactorAuthSecret)) {
 			return res.status(400).json({
-				message: "OTP verification failed: Invalid token",
-				twoFactorAuth: user.twoFactorAuth,
+				message: "OTP verification failed: Invalid token"
 			});
 		} else {
-			user.twoFactorAuth = true;
-			user.save();
-
 			return res.json({
-				message: "Successfully verified OTP!",
-				twoFactorAuth: user.twoFactorAuth,
+				message: "Successfully verified OTP!"
 			});
 		}
 	}

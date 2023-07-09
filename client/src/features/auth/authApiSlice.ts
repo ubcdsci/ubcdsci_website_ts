@@ -7,7 +7,7 @@ import { logOut, setCredentials } from "./authSlice";
  */
 export const authApiSlice = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
-    // Login.
+		// Login.
 		login: builder.mutation({
 			query: (credentials) => ({
 				url: "/auth",
@@ -16,10 +16,19 @@ export const authApiSlice = apiSlice.injectEndpoints({
 			}),
 		}),
 
-    // Logout.
+		// Login 2FA.
+		twoFactor: builder.mutation({
+			query: (credentials) => ({
+				url: "/auth/step2",
+				method: "POST",
+				body: { ...credentials },
+			}),
+		}),
+
+		// Logout.
 		sendLogout: builder.mutation({
-			query: () => ({
-				url: "/auth/logout",
+			query: (id) => ({
+				url: `/auth/logout/${id}`,
 				method: "POST",
 			}),
 			async onQueryStarted(arg, { dispatch, queryFulfilled }) {
@@ -35,7 +44,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
 			},
 		}),
 
-    // Refresh.
+		// Refresh.
 		refresh: builder.mutation({
 			query: () => ({
 				url: "/auth/refresh",
@@ -51,11 +60,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
 				}
 			},
 		}),
+		
 	}),
 });
 
 export const {
   useLoginMutation,
+	useTwoFactorMutation,
   useSendLogoutMutation,
-  useRefreshMutation
+  useRefreshMutation,
 } = authApiSlice;

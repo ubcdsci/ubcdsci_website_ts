@@ -15,7 +15,9 @@ import { User } from '@/models/index.models';
 const getUsers = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
 		// Get all users from database.
-		const users = await User.find().select("-password").lean();
+		const users = await User.find()
+      .select("-password -__v -updatedAt -twoFactorAuthEnabled -twoFactorAuthSecret")
+      .lean();
 
     // Check if users exist.
 		if (!users)
@@ -40,10 +42,14 @@ const getUser = asyncHandler(
       return res.status(400).json({ message: "An error occurred!" });
 
     // Get user from database.
-    const user = await User.findById(id).select("-password").lean().exec().catch((err: any) => {
-      console.log(err);
-      return res.status(400).json({ message: "User not found!" });
-    });
+    const user = await User.findById(id)
+			.select("-password -__v -updatedAt -twoFactorAuthEnabled -twoFactorAuthSecret")
+			.lean()
+			.exec()
+			.catch((err: any) => {
+				console.log(err);
+				return res.status(400).json({ message: "User not found!" });
+			});
 
     res.status(200).json(user);
   }
@@ -104,7 +110,7 @@ const createUser = asyncHandler(
 const updateUser = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
     const { id } = req.params;
-    const { username, password, email, roles, active } = req.body;
+    const { username, password, email, roles } = req.body;
 
     // Confirm user data is valid.
     if (!id)
@@ -123,7 +129,6 @@ const updateUser = asyncHandler(
     // Update user.
     user.username = username ?? user.username;
     user.roles = roles ?? user.roles;
-    user.active = active ?? user.active;
 
     // Check if password is being updated.
     if (password) {

@@ -20,6 +20,7 @@ function loginHelper(user: any, res: Response): Response {
 	const accessToken = jwt.sign(
 		{
 			UserInfo: {
+				id: user._id,
 				username: user.username,
 				roles: user.roles,
 			},
@@ -43,6 +44,11 @@ function loginHelper(user: any, res: Response): Response {
 		maxAge: 7 * 24 * 60 * 60 * 1000,
 	});
 
+	// Set user login statuses.
+	user.active = true;
+	user.lastLogin = new Date();
+	user.save();
+
 	// Send token to client.
 	return res.json({
 		message: "Successfully logged in!",
@@ -62,25 +68,25 @@ const login = asyncHandler(
 		
 		// Check if username and password are provided.
 		if (!username || !password)
-			return res.status(400).json({ message: "All fields are required" });
+			return res.status(400).json({ message: "All fields are required!" });
 
-		// Check if user exists and is active.
+		// Check if user exists.
 		const foundUser = await User.findOne({ username }).exec();
-		if (!foundUser || !foundUser.active)
-			return res.status(401).json({ message: "Unauthorized" });
+		if (!foundUser)
+			return res.status(401).json({ message: "User not found." });
 
 		// Check if password is correct.
 		const match = await bcrypt.compare(password, foundUser.password as string);
 		if (!match)
-			return res.status(401).json({ message: "Unauthorized" });
+			return res.status(401).json({ message: "Incorrect password!" });
 
 		// Two-factor authentication.
-		if (foundUser.twoFactorAuth) {
+		if (foundUser.twoFactorAuthEnabled) {
 			// Create 2fa token.
 			const loginStep2VerificationToken = jwt.sign(
 				{
 					loginStep2Verification: {
-						email: foundUser.email,
+						username: foundUser.username,
 					},
 				},
 				process.env.ACCESS_TOKEN_SECRET as string,
@@ -107,7 +113,7 @@ const login = asyncHandler(
  */
 const loginStep2 = asyncHandler(
 	async (req: Request, res: Response): Promise<any> => {
-		const { loginStep2VerificationToken, twoFactorAuthToken } = req.body;
+		const { loginStep2VerificationToken } = req.body;
 
 		// Check if token is provided.
 		if (!loginStep2VerificationToken)
@@ -119,26 +125,21 @@ const loginStep2 = asyncHandler(
 				loginStep2VerificationToken,
 				process.env.ACCESS_TOKEN_SECRET as string
 			);
+			
 		} catch (err) {
 			return res.status(401).json({ message: "Unauthorized" });
 		};
 
-		// Create access token.
-		const token = twoFactorAuthToken.replaceAll(" ", "");
-
 		// Check if user exists.
+		const username = jwt.decode(loginStep2VerificationToken) as any;
 		const foundUser = await User.findOne({
-			email: loginStep2VerificationToken.loginStep2Verification.email,
+			username: username.loginStep2Verification.username,
 		});
+
 		if (!foundUser)
 			return res.status(400).json({ message: "User not found!" });
 
-		// Check if token is valid.
-		if (!authenticator.check(token, foundUser.twoFactorAuthSecret)) {
-			return res.status(400).json({ message: "OTP verification failed: Invalid token" });
-		} else {
-			loginHelper(foundUser, res);
-		};
+		loginHelper(foundUser, res);
 	}
 );
 
@@ -175,6 +176,7 @@ const refresh = asyncHandler(
 				const accessToken = jwt.sign(
 					{
 						UserInfo: {
+							id: foundUser._id,
 							username: foundUser.username,
 							roles: foundUser.roles,
 						},
@@ -207,14 +209,14 @@ const logout = asyncHandler(
 		if (!user)
 			return res.status(400).json({ message: "User not found!" });
 
-		// Disable 2fa.
-		user.twoFactorAuth = false;
-		user.twoFactorAuthSecret = "";
+		// Set user logout statuses.
+		user.active = false;
 		user.save();
 
 		// Check if cookie exists.
 		const cookies = req.cookies;
-		if (!cookies?.jwt) return res.sendStatus(204);
+		if (!cookies?.jwt)
+			return res.status(204).json({ message: "No cookie found!" });
 
 		// Clear cookie.
 		res.clearCookie("jwt", {
@@ -223,7 +225,7 @@ const logout = asyncHandler(
 			secure: true,
 		});
 
-		res.json({ message: "Cookie cleared!" });
+		res.json({ message: "Successfully logged out!" });
 	}
 );
 

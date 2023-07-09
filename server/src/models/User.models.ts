@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema(
 			enum: ["user", "executive", "admin"],
 			default: ["user"],
 		}],
-		twoFactorAuth: {
+		twoFactorAuthEnabled: {
 			type: Boolean,
 			default: false,
 		},
@@ -38,6 +38,10 @@ const UserSchema = new mongoose.Schema(
 		active: {
 			type: Boolean,
 			default: true,
+		},
+		lastLogin: {
+			type: Date,
+			default: Date.now(),
 		},
 		posts: [{
 			type: mongoose.Schema.Types.ObjectId,

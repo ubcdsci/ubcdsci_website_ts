@@ -13,7 +13,7 @@ import { useSendLogoutMutation, useRefreshMutation } from '@/features/auth/authA
 import { selectCurrentToken } from '@/features/auth/authSlice';
 
 import styles from './Footer.module.scss';
-import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
+import { LogoBW as Logo } from '../Logos';
 
 
 /**
@@ -22,7 +22,7 @@ import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
  * @returns {JSX.Element} JSX Component.
  */
 const Footer = (props: any) => {
-  const { username } = useAuth();
+  const { id, username } = useAuth();
   const [persist] = usePersist();
   const [refresh] = useRefreshMutation();
 
@@ -123,8 +123,8 @@ const Footer = (props: any) => {
         </span>
       </div>
 
-      { (username) ?
-        <button className={styles.LogInOutButton} onClick={sendLogout}>
+      { (id && username) ?
+        <button className={styles.LogInOutButton} onClick={() => sendLogout(id)}>
           Log out of user "{username}"
         </button> :
         <button className={styles.LogInOutButton} onClick={() => navigate('/login')}>

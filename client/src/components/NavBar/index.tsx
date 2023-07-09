@@ -17,7 +17,7 @@ import SearchBar from '@/components/SearchBar';
 import GreenButton from '@/components/GreenButton';
 
 // Media imports.
-import { ReactComponent as Logo } from '@/images/logo/logo-bw.svg';
+import { LogoBW as Logo } from '../Logos';
 
 
 // Check if links to external site and returns element.

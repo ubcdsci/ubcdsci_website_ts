@@ -1,5 +1,4 @@
 // Library imports.
-import { useSelector } from 'react-redux';
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -15,7 +14,9 @@ import Projects from '@/pages/Projects';
 import Events from '@/pages/Events';
 import ContactUs from '@/pages/ContactUs';
 import SearchResult from '@/pages/SearchResult';
+
 import Login from '@/features/auth/Login';
+import TwoFactor from '@/features/auth/TwoFactor';
 import ErrorPage from '@/pages/PageNotFound';
 
 
@@ -103,6 +104,23 @@ const AnimatedRoutes = (props: any) => {
               <Login />
             </motion.div>
           </> 
+        } />
+
+        
+        <Route path="/login/2fa" element={
+          sessionStorage.getItem("loginStep2VerificationToken") ?
+          <>
+            <TabTitle title="Two-Factor Authentication" />
+            <motion.div
+              className="PageContainer"
+              initial={{ opacity: 0.1 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration }}
+            >
+              <TwoFactor />
+            </motion.div>
+          </> :
+          <Navigate to="/login" replace />
         } />
       </Routes>
     </AnimatePresence>
