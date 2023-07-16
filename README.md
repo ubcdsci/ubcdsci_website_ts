@@ -1,67 +1,49 @@
 # **UBC Data Science Club Website** 🌐
 
 ## **Overview** 📖
-This repository holds the source code for the [UBC Data Science Club's website](https://ubcdsci.club/home). \
-Written in **TypeScript**, the frontend uses **React + Redux** and **Sass/SCSS**, while the backend uses **Node.js**, **Express** and **MongoDB**.
+This repository holds the source code for the [UBC Data Science Club's website](https://ubcdsci.club/). \
+Written in **TypeScript**, this website uses **React + Vite**, **Sass/SCSS**, and **Firebase**.
 
 ## **Getting Started** 🚀
+
 ### PREREQUISITES:
 1. Install [Node.js + NPM](https://nodejs.org/en/download/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) (recommended package manager).
-1. Install [MongoDB](https://www.mongodb.com/try/download/community).
+2. Set up a [Firebase](https://firebase.google.com/) project and enable **Authentication** and **Firestore**.
+3. Create a `.env` file in the root directory of this project and add the following environment variables:
 
-### SETUP:
-1. Install `concurrently` globally:
 ```bash
-yarn global add concurrently
-```
-```bash
-npm install -g concurrently
-```
-2. Install dependencies for both client and server:
-```bash
-npm run yarn-i
-```
-```bash
-npm run npm-i
+VITE_FIREBASE_API_KEY=<your-firebase-api-key>
+VITE_FIREBASE_AUTH_DOMAIN=<your-firebase-auth-domain>
+VITE_FIREBASE_PROJECT_ID=<your-firebase-project-id>
+VITE_FIREBASE_STORAGE_BUCKET=<your-firebase-storage-bucket>
+VITE_FIREBASE_MESSAGING_SENDER_ID=<your-firebase-messaging-sender-id>
+VITE_FIREBASE_APP_ID=<your-firebase-app-id>
 ```
 
-### RUN LOCALLY:
+### DEVELOPMENT:
+Install all the dependencies for this project by running the following command:
+
+```bash
+yarn install
+```
+
+To run locally, run the following command:
+
 ```bash
 npm start
 ```
 
-## **Useful Tools** 🛠️
-> [Postman](https://www.postman.com/downloads/) for testing API endpoints.
+## **Tasks** 📝
+Tasks will be added as issues on [GitHub](https://github.com/ubcdsci/ubcdsci_website_ts/issues). To claim a task, assign yourself to the issue. When you are ready to work on the task, create a new branch with the following naming convention:
 
-> [MongoDB Compass](https://www.mongodb.com/try/download/compass) for viewing the database.
+```bash
+DSC-<issue-number>
+```
 
-> [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) for debugging React components.
+When you are ready to submit your changes, create a pull request and assign someone to review your code. Once your code has been reviewed, you can merge your branch into `main`.
 
-> Some useful VS Code extensions [here](.vscode/extensions.json).
-
-## **Development Tasks** 📝
-> CLIENT:
-- Create an admin dashboard for controlling event posts, etc.
-- Create a search results page with pagination and filter
-
-> SERVER:
-- Set up and test admin dashboard and event posting
-- Set up and test search results and pagination
-- Include visitor analytics (if possible)
-
-## **Docs & Resources** 📑
-[TypeScript Docs](https://www.typescriptlang.org/docs/home.html)
-
-> CLIENT:
-1. [React Docs](https://reactjs.org/docs/getting-started.html)
-1. [Redux Docs](https://redux.js.org/introduction/getting-started)
-1. [SASS/SCSS Docs](https://sass-lang.com/documentation)
-
-> SERVER:
-1. [Node.js Docs](https://nodejs.org/en/docs/)
-1. [Express Docs](https://expressjs.com/en/4x/api.html)
-1. [Mongoose Docs](https://mongoosejs.com/docs/guide.html)
-
-I would strongly recommend this [tutorial](https://www.youtube.com/playlist?list=PL0Zuz27SZ-6P4dQUsoDatjEGpmBpcOW8V) for learning the MERN stack.
-
-As for database design, and although MongoDB is not a relational database, I would recommend taking some UBC courses such as CPSC 304, CPSC 368, or COMM 335.
+## **Resources** 📑
+[TypeScript Docs](https://www.typescriptlang.org/docs/home.html) \
+[React Docs](https://reactjs.org/docs/getting-started.html) \
+[Firebase Docs](https://firebase.google.com/docs) \
+[SASS/SCSS Docs](https://sass-lang.com/documentation)
