@@ -1,7 +1,7 @@
 import type { FirebaseOptions } from "firebase/app";
 import { initializeApp } from "firebase/app";
 
-import { getAuth, Persistence } from "firebase/auth";
+import { getAuth, browserLocalPersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
@@ -22,6 +22,6 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
 
-auth.setPersistence('local' as unknown as Persistence);
+auth.setPersistence(browserLocalPersistence);
 
 export { db, storage, auth };
