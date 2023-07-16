@@ -3,7 +3,6 @@
     "hediet.vscode-drawio",
     "dbaeumer.vscode-eslint",
     "pkief.material-icon-theme",
-    "mongodb.mongodb-vscode",
     "esbenp.prettier-vscode"
   ]
 }
