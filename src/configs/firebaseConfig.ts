@@ -1,12 +1,13 @@
 import type { FirebaseOptions } from "firebase/app";
 import { initializeApp } from "firebase/app";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 import { getAuth, browserLocalPersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 // Configurations for Firebase.
-// TODO: Move to .env file.
+// TODO: Change to production config when deploying.
 const firebaseConfig: FirebaseOptions = {
 	apiKey: "AIzaSyCiSduBcerHcnvoLBVuaee5wqXTlgUdLX8",
 	authDomain: "ubc-dsciclub-site.firebaseapp.com",
@@ -17,6 +18,11 @@ const firebaseConfig: FirebaseOptions = {
 };
 
 const app = initializeApp(firebaseConfig);
+
+initializeAppCheck(app, {
+	provider: new ReCaptchaV3Provider("6Lex_ysnAAAAAC3DzwneICZeitx4saCGjiAh-R82"),
+	isTokenAutoRefreshEnabled: true,
+});
 
 const db = getFirestore(app);
 const storage = getStorage(app);

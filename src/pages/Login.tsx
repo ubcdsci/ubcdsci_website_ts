@@ -11,17 +11,8 @@ import styles from '@/assets/styles/pages/Login.module.scss';
 import { LogoColour as Logo } from '@/components/Logos';
 
 
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
-
-declare global {
-  interface Window {
-    grecaptcha: any;
-  }
-}
-
 /**
- * Renders the Login page.
- * @returns {JSX.Element} JSX Component.
+ * Renders the Login page component.
  */
 const Login = (props : any) => {
   const [username, setUsername] = useState<string>('');
@@ -32,40 +23,16 @@ const Login = (props : any) => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Redirect if user is already logged in.
-    if (auth.currentUser) {
-      scrollTop();
-      navigate('/home');
-    }
-
-    // Focus on input field.
-    if (userRef) userRef.current?.focus();
-  }, [auth.currentUser]);
-
   // Handle form submission.
   const handleSubmit = async () => {
-    // Check if reCAPTCHA is loaded.
-    if (window.grecaptcha) {
-      window.grecaptcha.enterprise.ready(() => {
-        window.grecaptcha.enterprise
-          .execute(RECAPTCHA_SITE_KEY, { action: "login" })
-          .then(async (captchaToken : string) => {
-            // TODO: something for captchaToken.
-
-            // Attempt sign in.
-            try {
-              await signInWithEmailAndPassword(auth, username, password);
-              toastSuccess("Successfully logged in.");
-              scrollTop();
-              navigate('/home');
-            } catch (err: any) {
-              toastError("Failed to log in.");
-            }
-          });
-      });
-    } else {
-      toastError("Please wait for the reCAPTCHA to load.");
+    // Attempt sign in.
+    try {
+      await signInWithEmailAndPassword(auth, username, password);
+      toastSuccess("Successfully logged in.");
+      scrollTop();
+      navigate('/home');
+    } catch (err: any) {
+      toastError("Failed to log in.");
     }
   };
 
@@ -80,10 +47,22 @@ const Login = (props : any) => {
   };
 
   // Handle persistence checkbox.
+  // TODO: Implement with Firebase.
   const handlePersist = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPersist(e.target.checked);
   };
   
+  useEffect(() => {
+    // Redirect if user is already logged in.
+    if (auth.currentUser) {
+      scrollTop();
+      navigate('/home');
+    }
+
+    // Focus on input field.
+    if (userRef) userRef.current?.focus();
+  }, [auth.currentUser]);
+
   return (
     <form
       className={styles.Login}
