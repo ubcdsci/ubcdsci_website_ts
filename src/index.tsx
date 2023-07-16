@@ -15,8 +15,8 @@ import '@/index.scss';
 
 
 // Disable React DevTools in production.
-// if (process.env.NODE_ENV === 'production')
-//   disableReactDevTools();
+if (process.env.NODE_ENV === 'production')
+  disableReactDevTools();
 
 // Render the app.
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
