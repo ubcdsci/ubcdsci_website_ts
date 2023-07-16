@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
-import { toast } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
+import { toastError, toastSuccess } from '@/utils/toastMessages';
 import { scrollTop } from '@/utils/mouseScrolling';
+import { auth } from '@/configs/firebaseConfig';
 import { footerData as data } from '@/configs/config';
 
 import styles from '@/assets/styles/components/Footer.module.scss';
@@ -11,15 +12,34 @@ import { LogoBW as Logo } from './Logos';
 
 
 /**
- * Renders a Footer.
- * @param {*} props Properties passed to the component.
- * @returns {JSX.Element} JSX Component.
+ * Renders the Footer component.
  */
 const Footer = (props: any) => {
   const navigate = useNavigate();
 
-  // Returns the appropriate link.
-  const checkExternal = (link: SMLink) => {
+  const [user] = useAuthState(auth);
+
+  /**
+   * Handles the logout process.
+   * @async
+   */
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      toastSuccess("Successfully logged out.");
+      scrollTop();
+      navigate('/home');
+    } catch (err: any) {
+      toastError("Failed to log out.");
+    }
+  };
+
+  /**
+   * Checks if the link leads to an external site. \
+   * If so, return a link with the proper attributes.
+   * @param link Link to check.
+   */
+  const checkExternal = (link: SMLink): React.ReactElement => {
     return (
       <Link
         smooth
@@ -76,14 +96,14 @@ const Footer = (props: any) => {
         </span>
       </div>
 
-      {/* { (id && username) ?
-        <button className={styles.LogInOutButton} onClick={() => sendLogout(id)}>
-          Log out of user "{username}"
+      { (user) ?
+        <button className={styles.LogInOutButton} onClick={() => handleLogout()}>
+          Log out of "{ user.email }"
         </button> :
         <button className={styles.LogInOutButton} onClick={() => navigate('/login')}>
           Log in as administrator
         </button>
-      } */}
+      }
     </footer>
   );
 }

@@ -1,7 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
+import { auth } from '@/configs/firebaseConfig';
+
+import { toastError, toastSuccess } from '@/utils/toastMessages';
 import { scrollTop } from '@/utils/mouseScrolling';
 
 import styles from '@/assets/styles/pages/Login.module.scss';
@@ -12,7 +15,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
 
 declare global {
   interface Window {
-    grecaptcha: any
+    grecaptcha: any;
   }
 }
 
@@ -29,11 +32,16 @@ const Login = (props : any) => {
 
   const navigate = useNavigate();
 
-  // Focus on input field.
   useEffect(() => {
-    if (userRef)
-      userRef.current?.focus();
-  }, []);
+    // Redirect if user is already logged in.
+    if (auth.currentUser) {
+      scrollTop();
+      navigate('/home');
+    }
+
+    // Focus on input field.
+    if (userRef) userRef.current?.focus();
+  }, [auth.currentUser]);
 
   // Handle form submission.
   const handleSubmit = async () => {
@@ -44,17 +52,20 @@ const Login = (props : any) => {
           .execute(RECAPTCHA_SITE_KEY, { action: "login" })
           .then(async (captchaToken : string) => {
             // TODO: something for captchaToken.
+
+            // Attempt sign in.
             try {
-              // Attempt to login.
-              
+              await signInWithEmailAndPassword(auth, username, password);
+              toastSuccess("Successfully logged in.");
+              scrollTop();
+              navigate('/home');
             } catch (err: any) {
-              // Failed to login.
-              
+              toastError("Failed to log in.");
             }
           });
       });
     } else {
-      toast.error("Please wait for the reCAPTCHA to load.");
+      toastError("Please wait for the reCAPTCHA to load.");
     }
   };
 
