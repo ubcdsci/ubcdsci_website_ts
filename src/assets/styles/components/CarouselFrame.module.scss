@@ -1,0 +1,148 @@
+@use '@/assets/styles/_definitions.scss' as *;
+
+.CarouselFrame {
+  @extend .LightBlock;
+
+  display: grid;
+  grid-template-columns: 8vw auto 8vw;
+  grid-template-rows: auto 2vh;
+  gap: 1rem;
+  width: 80vw;
+  padding: 2rem 1rem;
+
+  .Arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    width: 100%;
+    max-height: 75vh;
+    cursor: pointer;
+
+    svg {
+      font-size: 3.5rem;
+      color: rgba(#fff, 0.8);
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover > svg {
+      color: rgba(#fff, 1);
+      transform: scale(1.1);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .LeftArrow {
+    @extend .Arrow;
+    grid-column: 1;
+  }
+
+  .RightArrow {
+    @extend .Arrow;
+    grid-column: 3;
+  }
+
+  .Dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    grid-column: 1 / 4;
+    grid-row: 2;
+
+    .Dot {
+      width: 3rem;
+      height: 0.75rem;
+      border-radius: 1rem;
+      background: rgba(#fff, 0.5);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: rgb(var(--primary-light));
+        transform: scale(1.05);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    .DotActive {
+      @extend .Dot;
+      background: rgb(var(--primary));
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 90vw;
+  }
+}
+
+.CarouselItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2;
+  gap: 1rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .ImageContainer {
+    width: 100%;
+    max-height: 65vh;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+      filter: brightness(0.85);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+        filter: brightness(1);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      max-height: 40vh;
+    }
+  }
+
+  p {
+    width: 100%;
+    background: rgba(var(--bg-dark), 0.2);
+    border-radius: 0.75rem;
+    padding: 1rem 5vw;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+}
+
+.AnimateBox {
+  animation: AnimateBox 0.4s ease-in-out;
+
+  @keyframes AnimateBox {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

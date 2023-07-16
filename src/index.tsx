@@ -1,17 +1,15 @@
-// Library imports.
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
-import { store } from '@/app/store';
-import * as serviceWorker from '@/serviceWorker';
+import * as serviceWorker from './serviceWorker';
 
-// Component imports.
-import App from '@/App';
+import App from './App';
 
-// Style imports.
-import '@/index.scss';
+import './assets/styles/index.scss';
 
 
 // Disable React DevTools in production.
@@ -21,9 +19,18 @@ if (process.env.NODE_ENV === 'production')
 // Render the app.
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <App />
+    <ToastContainer
+      position="bottom-left"
+      autoClose={3000}
+      pauseOnHover={false}
+      pauseOnFocusLoss={false}
+      toastStyle={{
+        backgroundColor: "rgba(var(--primary-light), 0.25)",
+        color: "white",
+        backdropFilter: "blur(20px)",
+      }}
+    />
   </React.StrictMode>
 );
 

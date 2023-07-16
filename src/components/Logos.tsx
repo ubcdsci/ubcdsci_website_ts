@@ -1,4 +1,3 @@
-// Library imports.
 import { SVGProps } from "react";
 
 

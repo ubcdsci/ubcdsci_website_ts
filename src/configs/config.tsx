@@ -6,19 +6,19 @@ import {
 import { FaGraduationCap } from 'react-icons/fa';
 
 // Media imports.
-import Bomberland from '@/images/bomberland.gif';
-import Fishnet from '@/images/Fishnet.jpg';
-import HPE2 from '@/images/HPE2.png';
-import Deepfake from '@/images/Deepfake.jpeg';
-import Spaces from '@/images/spaces.webp';
+import Bomberland from '@/assets/images/bomberland.gif';
+import Fishnet from '@/assets/images/Fishnet.jpg';
+import HPE2 from '@/assets/images/HPE2.png';
+import Deepfake from '@/assets/images/Deepfake.jpeg';
+import Spaces from '@/assets/images/spaces.webp';
 
-// import Placeholder from '@/images/execs/_placeholder.png';
-import President from '@/images/execs/president.png';
-import Treasurer from '@/images/execs/treasurer.png';
-import Marketing from '@/images/execs/marketing.png';
-import Outreach from '@/images/execs/outreach.png';
-import EventPlanning from '@/images/execs/event-planning.png';
-import Webmaster from '@/images/execs/webmaster.png';
+// import Placeholder from '@/assets/images/execs/_placeholder.png';
+import President from '@/assets/images/execs/president.png';
+import Treasurer from '@/assets/images/execs/treasurer.png';
+import Marketing from '@/assets/images/execs/marketing.png';
+import Outreach from '@/assets/images/execs/outreach.png';
+import EventPlanning from '@/assets/images/execs/event-planning.png';
+import Webmaster from '@/assets/images/execs/webmaster.png';
 
 
 /* -------------------------------------------------------------------------- */

@@ -1,0 +1,177 @@
+@use '@/assets/styles/_definitions.scss' as *;
+
+.Events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  gap: 4rem;
+}
+
+.Upcoming,
+.Ongoing,
+.Past {
+  h1:nth-child(1) {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+  }
+}
+
+.Upcoming {
+  display: flex;
+  flex-direction: column;
+}
+
+.NoEvents {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.EventPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 3rem;
+  margin-top: 1rem;
+
+  @extend .LightBlock;
+
+  .LineDividerTop,
+  .LineDividerBottom {
+    width: 4rem;
+    height: 1px;
+    background-color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .LineDividerBottom {
+    align-self: flex-end;
+    margin: 1rem 0;
+  }
+
+  .Options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-right: -1.4rem;
+    padding: 0.4rem;
+    align-self: flex-end;
+    transition: all 0.3s ease-in-out;
+
+    .Copy {
+      font-size: 1.6rem;
+    }
+
+    .Edit,
+    .Delete {
+      font-size: 1.25rem;
+    }
+
+    .Copy,
+    .Edit,
+    .Delete {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: rgb(var(--primary));
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .Title {
+    margin-bottom: 0.25rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 0.1rem;
+
+    a {
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: rgb(var(--primary));
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+
+  .Date {
+    display: flex;
+    align-items: center;
+    margin-left: 0.1rem;
+    margin-bottom: 0.25rem;
+    gap: 0.5rem;
+    color: #ccc;
+    font-family: 'Roboto Mono', monospace;
+    // cursor: pointer;
+    // transition: all 0.2s ease-in-out;
+
+    // &:hover {
+    //   color: rgb(var(--primary-light));
+    //   transition: all 0.2s ease-in-out;
+    // }
+  }
+
+  img {
+    align-self: center;
+    padding: 0.5rem 2rem;
+    object-fit: cover;
+  }
+
+  .EventBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .MoreButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    gap: 0.2rem;
+    width: fit-content;
+    height: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    a {
+      font-weight: 500;
+    }
+
+    &:hover,
+    a:hover {
+      color: rgb(var(--primary-light));
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding: 1rem 2rem;
+
+    img {
+      align-self: center;
+      padding: 0.5rem 0;
+      object-fit: cover;
+    }
+
+    .EventBody {
+      padding: 1rem 0;
+    }
+  }
+}

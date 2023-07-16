@@ -1,0 +1,235 @@
+@use '@/assets/styles/_definitions.scss' as *;
+
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.NavBar {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.25rem;
+  
+  padding-top: 1.5rem;
+  transition: all 0.25s ease-in-out;
+
+  * {
+    font-family: 'Roboto Mono', sans-serif;
+  }
+}
+
+.NavBarScrolled {
+  @extend .NavBar;
+  @extend .DarkBackground;
+
+  padding: 1rem 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.NavBarHidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.Container {
+  display: flex;
+  margin: auto;
+  gap: 3rem;
+
+  .NavButtons {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+
+    @media screen and (min-width: 1920px) {
+      gap: 4rem;
+    }
+  }
+}
+
+.HomeButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: white;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    scale: 1.1;
+    fill: rgb(var(--primary));
+    filter: drop-shadow(0 0 10px rgba(#fff, 0.2));
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+.HomeButtonCurrentLocation {
+  @extend .HomeButton;
+  scale: 1.1;
+  fill: rgb(var(--primary));
+  filter: drop-shadow(0 0 10px rgba(#fff, 0.2));
+}
+
+.NavButton {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    color: rgb(var(--primary-light));
+    transition: all 0.2s ease-in-out;
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.NavButtonCurrentLocation {
+  @extend .NavButton;
+  color: rgb(var(--primary-light));
+}
+
+.NavButtonRegister {
+  @extend .NavButton;
+  font-weight: bold;
+}
+
+.Button {
+  .DropDownMenu {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-height: 0;
+    overflow-y: hidden;
+  }
+
+  &:hover {
+    .DropDownMenu {
+      max-height: 100vh;
+      padding-top: 0.25rem;
+      transition: max-height 0.5s linear;
+    }
+  }
+}
+
+.DropDownContent {
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  background-color: rgba(var(--bg-dark), 0.9);
+  border: 2px solid rgba(var(--bg-dark), 1);
+
+  a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+      color: rgb(var(--primary-light));
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                MOBILE NAVBAR                               */
+/* -------------------------------------------------------------------------- */
+.MobileContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1.5rem;
+
+  .HamburgerMenuButton {
+    width: 2rem;
+    height: 2.5rem;
+    transition: all 0.25s ease-in-out;
+
+    div {
+      margin: 0.4rem 0;
+      width: 100%;
+      height: 0.2rem;
+      background-color: #fff;
+      border-radius: 10px;
+      transition: all 0.25s ease-in-out;
+    }
+  }
+
+  .HamburgerMenuButtonClosed {
+    @extend .HamburgerMenuButton;
+
+    div {
+      margin: 0;
+
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(0.1rem, 0.2rem);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(0.1rem, -0.2rem);
+      }
+    }
+  }
+}
+
+.HamburgerMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  gap: 2rem;
+  right: 0;
+  top: 4rem;
+  padding: 2rem 0;
+  z-index: 100;
+
+  width: 100vw;
+  height: 100vh;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  input {
+    width: 18rem !important;
+    margin-left: 2rem;
+  }
+
+  @extend .DarkBackground;
+}
+
+.HamburgerMenuClosed {
+  @extend .HamburgerMenu;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.NavButtonsMenu {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
+  gap: 2rem;
+  font-size: larger;
+  overflow-y: auto;
+
+  p {
+    min-width: 10rem;
+  }
+}

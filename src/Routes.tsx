@@ -1,12 +1,9 @@
-// Library imports.
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
 
-// Component imports.
 // import NewsletterForm from '@/components/NewsletterForm/NewsletterForm';
 
-// Pages imports.
 import Home from '@/pages/Home';
 import AboutUs from '@/pages/AboutUs';
 import AdminPanel from '@/pages/AdminPanel';
@@ -14,9 +11,7 @@ import Projects from '@/pages/Projects';
 import Events from '@/pages/Events';
 import ContactUs from '@/pages/ContactUs';
 import SearchResult from '@/pages/SearchResult';
-
-import Login from '@/features/auth/Login';
-import TwoFactor from '@/features/auth/TwoFactor';
+import Login from '@/pages/Login';
 import ErrorPage from '@/pages/PageNotFound';
 
 
@@ -28,25 +23,26 @@ enum Access {
 const routes : {path : string, name : string, element : JSX.Element, access : Access}[] = [
   // Public routes.
   { path: "/",              name: "Main",               element: <Navigate replace to="/home" />, access: Access.PUBLIC },
-  { path: "/home",          name: "Home",               element: <Home />, access: Access.PUBLIC },
-  { path: "/about-us",      name: "About Us",           element: <AboutUs />, access: Access.PUBLIC }, 
-  { path: "/contact-us",    name: "Contact Us",         element: <ContactUs />, access: Access.PUBLIC },
-  { path: "/events",        name: "Events",             element: <Events />, access: Access.PUBLIC },
-  { path: "/projects",      name: "Projects",           element: <Projects />, access: Access.PUBLIC },
-  { path: "/search-result", name: "Search Results",     element: <SearchResult />, access: Access.PUBLIC },
+  { path: "/home",          name: "Home",               element: <Home />,                        access: Access.PUBLIC },
+  { path: "/about-us",      name: "About Us",           element: <AboutUs />,                     access: Access.PUBLIC }, 
+  { path: "/contact-us",    name: "Contact Us",         element: <ContactUs />,                   access: Access.PUBLIC },
+  { path: "/events",        name: "Events",             element: <Events />,                      access: Access.PUBLIC },
+  { path: "/projects",      name: "Projects",           element: <Projects />,                    access: Access.PUBLIC },
+  { path: "/search-result", name: "Search Results",     element: <SearchResult />,                access: Access.PUBLIC },
+  { path: "/login",         name: "Admin Login",        element: <Login />,                       access: Access.PUBLIC },
 
   // Admin routes.
   { path: "/dashboard",     name: "Admin Panel",        element: <AdminPanel />, access: Access.ADMIN },
 
   // Error route.
-  { path: "*",              name: "np.isnan(\"page\")", element: <ErrorPage />, access: Access.PUBLIC },
+  { path: "*",              name: "np.isnan(\"page\")", element: <ErrorPage />,  access: Access.PUBLIC },
 ];
 
 
 /**
  * Sets the title for the browser tab.
- * @param {string} title The title to set.
- * @param {string} description The description to set.
+ * @param title The title to set.
+ * @param description The description to set.
  */
 const TabTitle = (props: {title : string, description? : string}) => {
   return (
@@ -104,23 +100,6 @@ const AnimatedRoutes = (props: any) => {
               <Login />
             </motion.div>
           </> 
-        } />
-
-        
-        <Route path="/login/2fa" element={
-          sessionStorage.getItem("loginStep2VerificationToken") ?
-          <>
-            <TabTitle title="Two-Factor Authentication" />
-            <motion.div
-              className="PageContainer"
-              initial={{ opacity: 0.1 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration }}
-            >
-              <TwoFactor />
-            </motion.div>
-          </> :
-          <Navigate to="/login" replace />
         } />
       </Routes>
     </AnimatePresence>
