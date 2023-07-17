@@ -6,6 +6,7 @@ import { screenFade } from '@/utils/framerAnims';
 import { projectsListData as data } from '@/configs/config';
 
 import styles from '@/assets/styles/pages/Projects.module.scss';
+import Page from '@/templates/Page';
 
 
 /**
@@ -96,18 +97,20 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
  */
 const Projects = () => {
   return (
-    <div className={styles.Projects}>
-      <div className={styles.Header}>
-        <h1>Become a Member and Join a Project Group Today!</h1>
-        <h1>Click on the cards to learn more...</h1>
-      </div>
+    <Page title="Projects">
+      <div className={styles.Projects}>
+        <div className={styles.Header}>
+          <h1>Become a Member and Join a Project Group Today!</h1>
+          <h1>Click on the cards to learn more...</h1>
+        </div>
 
-      <div className={styles.ProjectsGrid}>
-        {data.map((project, index) => (
-          <Card key={index} project={project} />
-        ))}
+        <div className={styles.ProjectsGrid}>
+          {data.map((project, index) => (
+            <Card key={index} project={project} />
+          ))}
+        </div>
       </div>
-    </div>
+    </Page>
   );
 };
 

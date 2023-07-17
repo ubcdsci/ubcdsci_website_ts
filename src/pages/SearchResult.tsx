@@ -1,4 +1,5 @@
 import styles from '@/assets/styles/pages/SearchResult.module.scss';
+import Page from '@/templates/Page';
 
 
 
@@ -8,11 +9,11 @@ import styles from '@/assets/styles/pages/SearchResult.module.scss';
  */
 const SearchResult = () => {
   return (
-    <>
+    <Page title="Search Result">
       <div className="container">
 
       </div>
-    </>
+    </Page>
   );
 };
 

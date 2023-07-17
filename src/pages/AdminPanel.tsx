@@ -1,4 +1,5 @@
 import styles from '@/assets/styles/pages/AdminPanel.module.scss';
+import Page from '@/templates/Page';
 
 
 
@@ -8,11 +9,13 @@ import styles from '@/assets/styles/pages/AdminPanel.module.scss';
  */
 const AdminPanel = () => {
   return (
-    <div className={styles.AdminPanel}>
-      <div className={styles.Content}>
+    <Page title="Admin Panel">
+      <div className={styles.AdminPanel}>
+        <div className={styles.Content}>
 
+        </div>
       </div>
-    </div>
+    </Page>
   );
 };
 

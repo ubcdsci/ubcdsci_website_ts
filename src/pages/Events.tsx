@@ -10,6 +10,7 @@ import { IEventArticle } from '@/interfaces/IEventArticle';
 import EventArticle from '@/components/EventArticle';
 
 import styles from '@/assets/styles/pages/Events.module.scss';
+import Page from '@/templates/Page';
 
 
 const duration = 0.5;
@@ -19,7 +20,8 @@ const viewport = {
 
 /**
  * Renders the Events page.
- * @returns {JSX.Element} JSX Component.
+ * This page is for all event articles.
+ * @route /events
  */
 const Events = () => {
   const [ongoingEventsData, setOngoingEventsData] = useState<any[]>([]);
@@ -58,70 +60,72 @@ const Events = () => {
   }, []);
 
   return (
-    <div className={styles.Events}>
-      <div id="ongoingEvents" className={styles.Ongoing}>
-        <h1>Ongoing Events</h1>
-        { (ongoingEventsData.length === 0) ?
-          <h2 className={styles.NoEvents}>
-            There are no ongoing events at the moment.
-          </h2> : 
-          ongoingEventsData.map((event: IEventArticle, index: number) => (
-            <motion.div
-              key={event.title}
-              initial="offscreen"
-              whileInView="onscreen"
-              variants={screenBottomToTop}
-              viewport={viewport}
-              transition={{ duration }}
-            >
-              <EventArticle article={event} />
-            </motion.div>
-          ))
-        }
-      </div>
+    <Page title="Events">
+      <div className={styles.Events}>
+        <div id="ongoingEvents" className={styles.Ongoing}>
+          <h1>Ongoing Events</h1>
+          { (ongoingEventsData.length === 0) ?
+            <h2 className={styles.NoEvents}>
+              There are no ongoing events at the moment.
+            </h2> : 
+            ongoingEventsData.map((event: IEventArticle, index: number) => (
+              <motion.div
+                key={event.title}
+                initial="offscreen"
+                whileInView="onscreen"
+                variants={screenBottomToTop}
+                viewport={viewport}
+                transition={{ duration }}
+              >
+                <EventArticle article={event} />
+              </motion.div>
+            ))
+          }
+        </div>
 
-      <div id="upcomingEvents" className={styles.Upcoming}>
-        <h1>Upcoming Events</h1>
-        { (upcomingEventsData.length === 0) ?
-          <h2 className={styles.NoEvents}>
-            There are no upcoming events at the moment.
-          </h2> : 
-          upcomingEventsData.map((event: IEventArticle, index: number) => (
-            <motion.div
-              key={event.title}
-              initial="offscreen"
-              whileInView="onscreen"
-              variants={screenBottomToTop}
-              viewport={viewport}
-              transition={{ duration }}
-            >
-              <EventArticle article={event} />
-            </motion.div>
-          ))
-        }
-      </div>
+        <div id="upcomingEvents" className={styles.Upcoming}>
+          <h1>Upcoming Events</h1>
+          { (upcomingEventsData.length === 0) ?
+            <h2 className={styles.NoEvents}>
+              There are no upcoming events at the moment.
+            </h2> : 
+            upcomingEventsData.map((event: IEventArticle, index: number) => (
+              <motion.div
+                key={event.title}
+                initial="offscreen"
+                whileInView="onscreen"
+                variants={screenBottomToTop}
+                viewport={viewport}
+                transition={{ duration }}
+              >
+                <EventArticle article={event} />
+              </motion.div>
+            ))
+          }
+        </div>
 
-      <div id="pastEvents" className={styles.Past}>
-        <h1>Past Events</h1>
-        { (pastEventsData.length === 0) ?
-          <h2 className={styles.NoEvents}>
-            There are no past events at the moment.
-          </h2> : 
-          pastEventsData.map((event: IEventArticle, index: number) => (
-            <motion.div
-              key={event.title}
-              initial="offscreen"
-              whileInView="onscreen"
-              variants={screenBottomToTop}
-              viewport={viewport}
-              transition={{ duration }}
-            >
-              <EventArticle article={event} />
-            </motion.div>
-          ))
-        }
+        <div id="pastEvents" className={styles.Past}>
+          <h1>Past Events</h1>
+          { (pastEventsData.length === 0) ?
+            <h2 className={styles.NoEvents}>
+              There are no past events at the moment.
+            </h2> : 
+            pastEventsData.map((event: IEventArticle, index: number) => (
+              <motion.div
+                key={event.title}
+                initial="offscreen"
+                whileInView="onscreen"
+                variants={screenBottomToTop}
+                viewport={viewport}
+                transition={{ duration }}
+              >
+                <EventArticle article={event} />
+              </motion.div>
+            ))
+          }
+        </div>
       </div>
-    </div>
+    </Page>
   );
 }
 
