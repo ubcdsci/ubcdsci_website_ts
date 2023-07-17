@@ -24,5 +24,4 @@ export const screenBottomToTop = {
 };
 
 
-
 export * as FramerAnims from './framerAnims';
