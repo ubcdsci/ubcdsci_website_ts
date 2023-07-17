@@ -42,6 +42,10 @@ DSC-<issue-number>
 
 When you are ready to submit your changes, create a pull request and assign someone to review your code. Once your code has been reviewed, you can merge your branch into `main`.
 
+## **Management** 📊
+- [Firebase Console](https://console.firebase.google.com/)
+- [ReCaptcha v3](https://www.google.com/recaptcha/admin/) (enforce reCAPTCHA v3 on Firebase App Check)
+
 ## **Resources** 📑
 [TypeScript Docs](https://www.typescriptlang.org/docs/home.html) \
 [React Docs](https://reactjs.org/docs/getting-started.html) \
