@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { doc, onSnapshot } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { motion } from 'framer-motion';
-import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill, BsMap } from 'react-icons/bs';
+import { BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill, BsMap, BsXLg, BsCloudUploadFill } from 'react-icons/bs';
 
 import { auth, db } from '@/configs/firebaseConfig';
 import { ROUTES } from '@/configs/routes';
@@ -36,7 +36,8 @@ const EventPost = () => {
    * Handles copying event details to clipboard.
    */
   const handleCopyDetails = () => {
-    const details = `Event: ${article?.title}\nDate: ${article?.date.toDate().toLocaleDateString()}\nLocation: ${article?.location}`;
+    const description = article?.description.replace(/<[^>]*>?/gm, '').replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+    const details = `Event: ${article?.title}\nDate: ${article?.date.toDate().toLocaleDateString()}\nLocation: ${article?.location}\n\n${description}`;
     navigator.clipboard.writeText(details);
     toastInfo("Copied event details to clipboard.");
   };
@@ -65,13 +66,31 @@ const EventPost = () => {
   };
 
   /**
-   * Handles editing the post.
-   * TODO: Implement edit mode
+   * Handles entering editing mode.
    */
-  const handleEditPost = () => {
+  const handleEdit = () => {
+    if (!article) return;
+    setEditMode(true);
+  }
+
+  /**
+   * Handles exiting edit mode.
+   */
+  const handleCancelEdit = () => {
+    if (!article) return;
+    setEditMode(false);
+  }
+
+  /**
+   * Handles saving and publishing the post.
+   * TODO: Implement
+   */
+  const handleSavePost = () => {
     if (!article) return;
 
-    setEditMode(true);
+    if (!window.confirm("Are you sure you want to save and publish this post?")) return;
+
+    setEditMode(false);
   }
 
   // Get all EventArticles from the database.
@@ -116,11 +135,25 @@ const EventPost = () => {
                   title="Delete Post"
                   onClick={handleDeletePost}
                 />
-                <BsPencilFill
-                  className={styles.Edit}
-                  title="Edit Post"
-                  onClick={handleEditPost}
-                />
+                { editMode ?
+                  <>
+                    <BsCloudUploadFill
+                      className={styles.Edit}
+                      title="Save And Publish"
+                      onClick={handleSavePost}
+                    />
+                    <BsXLg
+                      className={styles.Edit}
+                      title="Cancel Edit"
+                      onClick={handleCancelEdit}
+                    />
+                  </> :
+                  <BsPencilFill
+                    className={styles.Edit}
+                    title="Edit Post"
+                    onClick={handleEdit}
+                  />
+                }
               </>
             }
           </div>

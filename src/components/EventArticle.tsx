@@ -1,34 +1,29 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
-import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill, BsMap, BsClock } from 'react-icons/bs';
+import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsGearFill, BsMap } from 'react-icons/bs';
 
 import { auth, db } from '@/configs/firebaseConfig';
 import { IEventArticle } from '@/interfaces/IEventArticle';
 
 import styles from '@/assets/styles/components/EventArticle.module.scss';
 import { toastInfo } from '@/utils/toastMessages';
+import { Link } from 'react-router-dom';
 
 
 /**
  * Renders an Event Article component.
  */
 const EventArticle = (props: { article?: IEventArticle }) => {
-  const [dropdown, setDropdown] = useState<boolean>(false);
   const [article, setArticle] = useState<IEventArticle>();
 
   const { id } = useParams<{id: string}>();
 
   const [user] = useAuthState(auth);
 
-  
-  /**
-   * Handles the dropdown menu.
-   */
-  const handleDropdown = () => {
-    setDropdown(!dropdown);
-  };
+  const navigate = useNavigate();
 
   /**
    * Handles copying event details to clipboard.
@@ -40,21 +35,12 @@ const EventArticle = (props: { article?: IEventArticle }) => {
   };
 
   /**
-   * Handles deleting the post.
-   * TODO: Implement
+   * Handles editing the post. \
+   * Redirects to the EventPost page.
    */
-  const handleDeletePost = () => {
+  const handleManagePost = () => {
     if (!article) return;
-
-  };
-
-  /**
-   * Handles editing the post.
-   * TODO: Implement
-   */
-  const handleEditPost = () => {
-    if (!article) return;
-
+    navigate(`/events/${article.id}`);
   }
 
   // Sets the article data given the article ID.
@@ -84,18 +70,11 @@ const EventArticle = (props: { article?: IEventArticle }) => {
           onClick={handleCopyDetails}
         />
         { user &&
-          <>
-            <BsTrashFill
-              className={styles.Delete}
-              title="Delete Post"
-              onClick={handleDeletePost}
-            />
-            <BsPencilFill
-              className={styles.Edit}
-              title="Edit Post"
-              onClick={handleEditPost}
-            />
-          </>
+          <BsGearFill
+            className={styles.Manage}
+            title="Manage Post"
+            onClick={handleManagePost}
+          />
         }
       </div>
 
@@ -115,6 +94,14 @@ const EventArticle = (props: { article?: IEventArticle }) => {
           <BsMap />
           {article.location}
         </div>
+
+        <div className={styles.Tags}>
+          { article.tags.map((tag, index) => (
+            <code key={index} className={styles.Tag}>
+              { tag }
+            </code>
+          ))}
+        </div>
       </h1>
 
       <div className={styles.Body}>
@@ -127,19 +114,25 @@ const EventArticle = (props: { article?: IEventArticle }) => {
           <img alt="" src={article.imageURLs[0]} draggable={false} />
         }
 
-        <div className={styles.EventBody}>
-          { article.description }
-        </div>
+        {/* <div
+          className={styles.EventBody}
+          dangerouslySetInnerHTML={{ __html: article.description }}
+        /> */}
 
-        <div className={styles.MoreButton}>
-          <a href={`/events/${article.id}`} target="_blank" rel="noreferrer">
-            Learn More
-          </a>
-          <BsChevronDoubleRight />
+        <div className={styles.PostDate}>
+          {`Posted on ${article.createdAt.toDate().toLocaleDateString()}` }
         </div>
       </div>
 
+
       <div className={styles.LineDividerBottom} />
+
+      <div className={styles.MoreButton}>
+        <Link to={`/events/${article.id}`} target="_parent">
+          Learn More
+        </Link>
+        <BsChevronDoubleRight />
+      </div>
     </div>
   ) :
   <></>;
