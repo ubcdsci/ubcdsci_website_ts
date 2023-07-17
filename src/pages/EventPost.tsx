@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { doc, onSnapshot } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { motion } from 'framer-motion';
@@ -115,6 +116,16 @@ const EventPost = () => {
   return article ? (
     <Page title={`Event`}>
       <div className={styles.EventPost}>
+        <Helmet>
+          <title>
+            {article.title} &ndash; UBC Data Science Club
+          </title>
+          <meta
+            name="description"
+            content={ article.description || "AMS UBC Data Science Club" }
+          />
+        </Helmet>
+
         <motion.div
           initial="offscreen"
           whileInView="onscreen"

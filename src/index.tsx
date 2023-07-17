@@ -13,7 +13,7 @@ import './assets/styles/index.scss';
 
 
 // Disable React DevTools in production.
-if (process.env.NODE_ENV === 'production')
+if (import.meta.env.NODE_ENV === 'production')
   disableReactDevTools();
 
 // Render the app.

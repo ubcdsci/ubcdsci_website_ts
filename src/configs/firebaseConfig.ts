@@ -19,6 +19,9 @@ const firebaseConfig: FirebaseOptions = {
 
 const app = initializeApp(firebaseConfig);
 
+// if (import.meta.env.NODE_ENV === "development")
+// 	self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+
 initializeAppCheck(app, {
 	provider: new ReCaptchaV3Provider("6Lex_ysnAAAAAC3DzwneICZeitx4saCGjiAh-R82"),
 	isTokenAutoRefreshEnabled: true,

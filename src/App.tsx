@@ -10,8 +10,8 @@ import ScrollToTop from './components/ScrollToTop';
 
 
 const BKGD_SRC = "/media/background-hd.png"; // https://images5.alphacoders.com/115/1156667.png
-const BKGD_OVERLAY_ALPHA = 0.6;
-const BKGD_BLUR = 2;
+const BKGD_OVERLAY_ALPHA = 0.7;
+const BKGD_BLUR = 3;
 
 
 /**

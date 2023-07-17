@@ -43,14 +43,17 @@ const Events = () => {
       // Sort events into their respective categories.
       querySnapshot.forEach((doc) => {
         const data = doc.data();
-        const date = new Date(data.date.seconds * 1000);
 
-        if (date > new Date())
-          upcomingEvents.push({ ...data, id: doc.id });
-        else if (date < new Date())
-          pastEvents.push({ ...data, id: doc.id });
-        else
+        // For ongoing events, set the creation date past now.
+        if (new Date(data.createdAt.seconds * 1000) > new Date()) {
           ongoingEvents.push({ ...data, id: doc.id });
+          return;
+        }
+
+        if (new Date(data.date.seconds * 1000) > new Date())
+          upcomingEvents.push({ ...data, id: doc.id });
+        else
+          pastEvents.push({ ...data, id: doc.id });
       });
 
       setOngoingEventsData(ongoingEvents);
