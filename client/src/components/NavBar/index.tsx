@@ -196,7 +196,7 @@ const NavBar = (props: any) => {
 
               <GreenButton
                 text="Register Now"
-                href="https://ubc.ca1.qualtrics.com/jfe/form/SV_1FdLWUY6hb2KIwC"
+                href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy"
                 target="_blank"
                 rel="noreferrer noopener"
               />
