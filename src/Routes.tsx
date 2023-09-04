@@ -15,8 +15,8 @@ import Events from '@/pages/Events';
 import ContactUs from '@/pages/ContactUs';
 import SearchResult from '@/pages/SearchResult';
 
-import Login from '@/features/auth/Login';
-import TwoFactor from '@/features/auth/TwoFactor';
+// import Login from '@/features/auth/Login';
+// import TwoFactor from '@/features/auth/TwoFactor';
 import ErrorPage from '@/pages/PageNotFound';
 
 
@@ -92,7 +92,7 @@ const AnimatedRoutes = (props: any) => {
           } />
         ))}
 
-        <Route path="/login" element={
+        {/* <Route path="/login" element={
           <>
             <TabTitle title="Admin Login" />
             <motion.div
@@ -104,10 +104,9 @@ const AnimatedRoutes = (props: any) => {
               <Login />
             </motion.div>
           </> 
-        } />
+        } /> */}
 
-        
-        <Route path="/login/2fa" element={
+        {/* <Route path="/login/2fa" element={
           sessionStorage.getItem("loginStep2VerificationToken") ?
           <>
             <TabTitle title="Two-Factor Authentication" />
@@ -121,7 +120,7 @@ const AnimatedRoutes = (props: any) => {
             </motion.div>
           </> :
           <Navigate to="/login" replace />
-        } />
+        } /> */}
       </Routes>
     </AnimatePresence>
   );
