@@ -321,7 +321,7 @@ export const faqData : FAQContent[] = [
       <blockquote>
         You can register to become a member by filling out the&nbsp;
         <a
-          href='https://ubc.ca1.qualtrics.com/jfe/form/SV_1FdLWUY6hb2KIwC'
+          href='https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy'
           target='_blank'
           rel='noopener noreferrer'
         >
