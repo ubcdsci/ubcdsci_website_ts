@@ -18,7 +18,7 @@ import Treasurer from '@/images/execs/treasurer.png';
 import Marketing from '@/images/execs/marketing.png';
 import Outreach from '@/images/execs/outreach.png';
 import EventPlanning from '@/images/execs/event-exec.png';
-import Webmaster from '@/images/execs/webmaster.png';
+import Webmaster from '@/images/execs/webmasterHeadshot.png';
 
 
 /* -------------------------------------------------------------------------- */
@@ -279,7 +279,7 @@ export const execMembersData : ExecMemberContent[] = [
     name: "Ryan Yae",
     description: `
       I am a third year student, currently studying Psychology in the Faculty of Arts. 
-      I have interest in software developement.
+      Pursuing software development is my passion and I hope that I get to see in you at lots of events!
     `,
     image: Webmaster,
   },
