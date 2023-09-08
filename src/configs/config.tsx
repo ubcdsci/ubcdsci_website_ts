@@ -17,7 +17,7 @@ import President from '@/images/execs/president.png';
 import Treasurer from '@/images/execs/treasurer.png';
 import Marketing from '@/images/execs/marketing.png';
 import Outreach from '@/images/execs/outreach.png';
-import EventPlanning from '@/images/execs/event-planning.png';
+import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmaster.png';
 
 
@@ -264,8 +264,8 @@ export const execMembersData : ExecMemberContent[] = [
     image: Outreach,
   },
   {
-    title: "Event Planning",
-    name: "Jaskeerat Sarin Singh",
+    title: "Events Executive",
+    name: "Stallon Pinto",
     description: `
       I'm a 2nd year student in Computer Science.
       I am passionate about math and machine learning.
@@ -276,10 +276,10 @@ export const execMembersData : ExecMemberContent[] = [
   },
   {
     title: "Webmaster",
-    name: "Marcus Lai",
+    name: "Ryan Yae",
     description: `
-      I'm a second year student in CS and Math.
-      I'm interested in data and optimization, lmk if you want to collaborate on something!
+      I am a third year student, currently studying Psychology in the Faculty of Arts. 
+      I have interest in software developement.
     `,
     image: Webmaster,
   },
