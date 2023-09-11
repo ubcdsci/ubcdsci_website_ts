@@ -65,7 +65,7 @@ const createDropDown = (page: (Page | DropDowns), pageLink: string) => {
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-const NavBar = (props: any) => {
+const NavBar = () => {
   const [toggleNavMenu, setToggleNavMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -85,7 +85,7 @@ const NavBar = (props: any) => {
   };
 
   const handleScroll = useCallback(
-    (e : Event) => {
+    () => {
       const offset = window.scrollY;
       const threshold = document.getElementsByClassName(styles.NavBar)[0].clientHeight || 0;
 
@@ -95,21 +95,21 @@ const NavBar = (props: any) => {
     }, [scrolled, mouseOver]
   );
 
-  const handleMouseEnter = (e: any) => {
+  const handleMouseEnter = () => {
     setMouseOver(true);
     setVisible(true);
   };
 
-  const handleMouseLeave = (e: any) => {
+  const handleMouseLeave = () => {
     setMouseOver(false);
     // setVisible(!scrolled);
   };
 
   useEffect(() => {
     // setScrollOffset(window.scrollY);
-    window.addEventListener("scroll", (e) => handleScroll(e));
+    window.addEventListener("scroll", () => handleScroll());
     return () => {
-      window.removeEventListener("scroll", (e) => handleScroll(e));
+      window.removeEventListener("scroll", () => handleScroll());
     };
   }, [handleScroll]);
 

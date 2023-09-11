@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import { scrollTop } from "@/utils/mouseScrolling";
 
 // Component imports.
-import SearchBar from '@/components/SearchBar';
+// import SearchBar from '@/components/SearchBar';
 
 // Style imports.
 import styles from "./PageNotFound.module.scss";

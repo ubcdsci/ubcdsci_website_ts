@@ -52,10 +52,10 @@ const CarouselItem = (props: { index : number, onClick? : any }) => {
  */
 const CarouselFrame = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [prevIndex, setPrevIndex]       = useState(0);
-  const [nextIndex, setNextIndex]       = useState(0);
-  const [touchStart, setTouchStart]     = useState(0);
-  const [touchEnd, setTouchEnd]         = useState(0);
+  const [, setPrevIndex] = useState(0);
+  const [, setNextIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const previous = useCallback(
     () => { (currentIndex === 0) ?
@@ -138,7 +138,7 @@ const CarouselFrame = () => {
       }
 
       <div className={styles.Dots}>
-        {data.map((item: CarouselContent, index: number) => {
+        {data.map((_, index: number) => {
           return (
             <div
               key={index} 

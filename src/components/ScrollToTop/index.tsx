@@ -14,12 +14,12 @@ import styles from './ScrollToTop.module.scss';
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-const ScrollToTop = (props: any) => {
+const ScrollToTop = () => {
   // Scroll wheel event; show/hide button
   const [visible, setVisible] = useState(true);
 
   const handleScroll = () => {
-    var bodyRect = document.body.getBoundingClientRect();
+    const bodyRect = document.body.getBoundingClientRect();
     setVisible(window.scrollY - bodyRect.top < bodyRect.height / 4);
   };
 

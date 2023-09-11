@@ -1,5 +1,4 @@
 // Library imports.
-import axios from 'axios';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { motion, useScroll } from 'framer-motion';

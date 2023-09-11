@@ -64,7 +64,7 @@ const TabTitle = (props: {title : string, description? : string}) => {
 /**
  * Renders all the page routes, with animation.
  */
-const AnimatedRoutes = (props: any) => {
+const AnimatedRoutes = () => {
   const location = useLocation();
 
   const duration = 0.3;

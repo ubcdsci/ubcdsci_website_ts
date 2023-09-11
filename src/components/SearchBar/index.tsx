@@ -15,7 +15,7 @@ import styles from './SearchBar.module.scss';
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-const SearchBar = (props: any) => {
+const SearchBar = () => {
   // TODO: Include functionality for internal searching.
 
   return (

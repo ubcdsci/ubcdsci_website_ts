@@ -2,7 +2,7 @@
 
 
 // Style imports.
-import styles from './SearchResult.module.scss';
+// import styles from './SearchResult.module.scss';
 
 // Media imports.
 

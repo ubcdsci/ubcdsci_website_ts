@@ -20,7 +20,7 @@ import styles from './Projects.module.scss';
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-const Card = (props: {project : ProjectContent, children?: any}) => {
+const Card = (props: {project: ProjectContent, children?: any}) => {
   const [orientation, setOrientation] = useState(false);
   const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
@@ -64,7 +64,7 @@ const Card = (props: {project : ProjectContent, children?: any}) => {
               <div className={styles.Image}>
                 <img
                   alt={"project: " + props.project.title}
-                  src={props.project.image}
+                  src={props.project.image || ""}
                 />
               </div>
             )}

@@ -1,7 +1,7 @@
 // Library imports.
 import {
   BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
-  BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset, BsFillPersonBadgeFill, BsPeople
+  BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset
 } from 'react-icons/bs';
 import { FaGraduationCap } from 'react-icons/fa';
 

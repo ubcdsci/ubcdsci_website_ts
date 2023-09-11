@@ -1,10 +1,8 @@
 // Library imports.
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
-import { store } from '@/app/store';
 import * as serviceWorker from '@/serviceWorker';
 
 // Component imports.
@@ -15,15 +13,13 @@ import '@/index.scss';
 
 
 // Disable React DevTools in production.
-// if (process.env.NODE_ENV === 'production')
-//   disableReactDevTools();
+if (process.env.NODE_ENV === 'production')
+  disableReactDevTools();
 
 // Render the app.
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <App />
   </React.StrictMode>
 );
 

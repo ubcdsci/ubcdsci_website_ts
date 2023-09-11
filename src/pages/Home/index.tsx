@@ -7,7 +7,6 @@ import { screenFade } from '@/utils/framerAnims';
 
 // Component imports.
 import GreenButton from '@/components/GreenButton';
-import CarouselFrame from '@/components/CarouselFrame';
 
 // Style imports.
 import styles from './Home.module.scss';
@@ -22,7 +21,6 @@ import titleImage from '@/images/1.gif';
  */
 const Home = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
-  const events = false;
 
   const duration = 0.5;
   const viewport = {

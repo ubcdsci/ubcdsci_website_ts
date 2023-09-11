@@ -13,7 +13,7 @@
  * @param {*} props Properties passed to the component.
  * @returns {JSX.Element} JSX Component.
  */
-const ContactForm = (props: any) => {
+const ContactForm = () => {
   return (
     <div className="container">
       <form action="action_page.php">

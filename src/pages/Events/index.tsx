@@ -1,7 +1,6 @@
 // Library imports.
-import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import { BsChevronDoubleRight, BsCalendarEvent, BsLink45Deg, BsPencilFill, BsTrashFill } from 'react-icons/bs';
+import { BsCalendarEvent } from 'react-icons/bs';
 
 // Utility imports.
 import { screenBottomToTop } from '@/utils/framerAnims';
@@ -133,8 +132,6 @@ const tempPastEventsData : Events[] = [
  * @returns {JSX.Element} JSX Component.
  */
 const Events = () => {
-  const { user } = useSelector((state : any) => state.auth);
-
   const duration = 0.5;
   const viewport = {
     once: true
@@ -146,7 +143,7 @@ const Events = () => {
         <h1>Ongoing Events</h1>
         { (tempOngoingEventsData.length === 0) ?
           (<h2 className={styles.NoEvents}>There are no ongoing events at the moment.</h2>) : 
-          (tempOngoingEventsData.map((event : Events, index : number) => (
+          (tempOngoingEventsData.map((event: Events) => (
             <motion.div
               key={event.title}
               initial="offscreen"
@@ -169,7 +166,7 @@ const Events = () => {
         <h1>Upcoming Events</h1>
         { (tempUpcomingEventsData.length === 0) ?
           (<h2 className={styles.NoEvents}>There are no upcoming events at the moment.</h2>) : 
-          (tempUpcomingEventsData.map((event : Events, index : number) => (
+          (tempUpcomingEventsData.map((event: Events) => (
             <motion.div
               key={event.title}
               initial="offscreen"
@@ -192,7 +189,7 @@ const Events = () => {
         <h1>Past Events</h1>
         { (tempPastEventsData.length === 0) ?
           (<h2 className={styles.NoEvents}>There are no past events at the moment.</h2>) : 
-          (tempPastEventsData.map((event : Events, index : number) => (
+          (tempPastEventsData.map((event: Events) => (
             <motion.div
               key={event.title}
               initial="offscreen"

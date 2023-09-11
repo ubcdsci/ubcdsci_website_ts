@@ -55,16 +55,17 @@ type FAQContent = {
 }
 
 type ProjectContent = {
-  title: string;
-  id: string;
-  image: any;
-  concepts: string;
-  tech: string[];
-  lead?: string;rr
-  tags?: string[];
-  competition_info?: string;
-  github: string;
-}
+	id: string;
+	title: string;
+	body: React.ReactNode;
+	image: any;
+	concepts: string;
+	tech: string[];
+	lead?: string;
+	tags?: string[];
+	competition_info?: string;
+	github: string;
+};
 
 type WorkshopContent = {
   date: string;
