@@ -97,3 +97,12 @@ type EventPostFormData = {
 	imageUpload?: string;
 	tags?: string[];
 };
+
+
+/* ----------------------- TYPE DEFINITIONS FOR CLUB INTRO ----------------------- */
+type ClubIntroCardData = {
+  title: string;
+  description1: string;
+  description2?: string;
+  icon?: any;
+}
