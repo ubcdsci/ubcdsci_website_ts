@@ -25,6 +25,10 @@ import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmasterHeadshot.png';
 
 
+import Creating from '@/images/profileDefault.png';
+import Mentors from '@/images/profileDefault.png';
+
+
 /* -------------------------------------------------------------------------- */
 /*                           COMMON COMPONENTS DATA                           */
 /* -------------------------------------------------------------------------- */
@@ -679,17 +683,36 @@ export const contactData : ContactContent[] = [
 ];
 
 
+// Data for ClubIntroCards
+/*
+{
+  title: string;
+  image?: any;
+  description1: string;
+  description2?: string;
+  icon?: any;
+  button: string;
+  color: string;
+}
+*/
 export const clubIntroData : ClubIntroCardData[] = [
   {
     title: "Creating & Inspiring",
+    image: Creating,
     description1: "Enable and encourage students to find opportunities involving data science outside of the club and/or UBC.",
     description2: "Promote learning by hosting and facilitating events for students to explore topics in data science.",
-    icon: <FaPaintbrush />
+    icon: <FaPaintbrush />,
+    button: "View Events",
+    color: "##FF007A"
   },
   {
     title: "Support & Mentors",
+    image: Mentors,
     description1: "Create a supportive environment that empowers students new to data science by learning from experienced individuals, and for the experienced to learn through mentoring.",
-    icon: <FaUser />
+    icon: <FaUser />,
+    button: "View Mentors",
+    color: "#D7CB00"
   },
   
 ]
+
