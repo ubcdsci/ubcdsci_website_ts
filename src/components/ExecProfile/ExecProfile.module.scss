@@ -1,0 +1,145 @@
+.ExecProfile {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-rows: auto 1fr;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 80vw;
+
+  .Dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    grid-column: 1 / 4;
+    grid-row: 2;
+
+    .Dot {
+      width: 3rem;
+      height: 0.75rem;
+      border-radius: 1rem;
+      background: rgba(#fff, 0.5);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: rgb(var(--primary-light));
+        transform: scale(1.05);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    .DotActive {
+      @extend .Dot;
+      background: rgb(var(--primary));
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0;
+    padding: 0 1rem;
+
+    .Dots {
+      gap: 1rem;
+    }
+  }
+}
+
+.CardActive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(var(--logo-green-dark), 0.3), rgba(var(--logo-blue-dark), 0.3));
+  border-radius: 10px;
+  padding: 2rem 1rem;
+  margin: 1rem 0;
+  opacity: 1;
+  cursor: auto;
+  transition: all 0.2s ease-in-out;
+
+  animation: float 3s ease-in-out infinite;
+
+  @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .ExecTitle {
+    color: rgba(var(--primary-light));
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+  }
+
+  .ExecName {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  img {
+    min-height: 20vh;
+    width: 25vw;
+    border-radius: 20px;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  blockquote {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 0.5rem 0;
+    padding: 0.5rem 4vw;
+    max-width: 80vw;
+    min-height: 20vh;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .ExecTitle {
+      font-size: 1.2rem;
+    }
+
+    .ExecName {
+      font-size: 1rem;
+    }
+
+    blockquote {
+      font-size: 1rem;
+    }
+  }
+}
+
+.Card {
+  @extend .CardActive;
+  opacity: 0.5;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .ExecTitle {
+    color: #fff;
+  }
+}
+
+.AnimateBox {
+  animation: AnimateBox 0.4s ease-in-out;
+
+  @keyframes AnimateBox {
+    0% {
+      opacity: 0;
+      scale: 0.5;
+    }
+  }
+}

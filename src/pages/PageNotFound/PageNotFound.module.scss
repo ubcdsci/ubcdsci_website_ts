@@ -1,0 +1,83 @@
+.PageNotFound {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 4rem 0;
+
+  .Logo {
+    height: auto;
+    width: 24vw;
+
+    animation: breathe 5s ease-in-out infinite;
+
+    @keyframes breathe {
+      50% {
+        scale: 1.1;
+        filter: drop-shadow(0 0 1rem rgba(var(--primary), 0.5));
+      }
+    }
+  }
+
+  .TextBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+
+    .Oops {
+      margin: 0.5rem 0;
+      font-size: 5rem;
+      font-weight: bold;
+    }
+
+    .Error {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .Search {
+      text-align: center;
+      margin: 1rem 0;
+    }
+  }
+
+  a {
+    font-size: 1.25rem;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: rgb(var(--primary));
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    padding-bottom: 4rem;
+
+    .Logo {
+      width: 20vw;
+    }
+
+    .TextBlock {
+      .Oops {
+        font-size: 4rem;
+      }
+
+      .Error {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

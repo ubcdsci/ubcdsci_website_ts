@@ -1,0 +1,28 @@
+{
+  "short_name": "UBC DSCI Club",
+  "name": "UBC Data Science Club",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "The UBC Data Science Club is a student-run organization that aims to promote data science and machine learning in the UBC community.",
+  "orientation": "portrait",
+  "lang": "en-US"
+}
