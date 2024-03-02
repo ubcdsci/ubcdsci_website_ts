@@ -2,7 +2,7 @@
 
 .Card {   
     box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-    background-color: #333;
+    background-color: #121212;
     border-radius: 1rem;
     overflow: hidden;
 
@@ -10,10 +10,11 @@
 
     
     .CardTitle {
-        font-size: 2.3em;
+        font-size: 1.8rem;
         color: #fff;
         font-weight: 600;
         margin-bottom: 2rem;
+        padding-right: 20%;
       }
       
     .CardImage {
@@ -22,10 +23,10 @@
       }
 
     .CardContent {
-        padding: 2rem 2rem 2rem 2rem;
-        background-color: #333;
-        transform: translate(0%,-20%);
-        clip-path: polygon(0 0, 60% 0%, 72% 20%, 100% 20%, 100% 100%, 0 100%);
+        padding: 1rem;
+        background-color: #121212;
+        transform: translate(0%,-15%);
+        clip-path: polygon(0 0, 60% 0%, 70% 20%, 100% 20%, 100% 100%, 0 100%);
         border-radius: 11px;
     }
 
@@ -44,9 +45,9 @@
         justify-content: space-between;    
         align-items: center;
         gap: 0.5rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 600;
-        padding: 0.25rem 1.25rem;
+        margin: 1rem 0;
     
 
     }
@@ -55,33 +56,175 @@
       color: #fff;
     }
 
+    .ProjectButtonIcon {
+      font-size: 1.5rem;
+    }
+
+    .ProjectIcon {
+      background-color:#121212;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2.4rem 4.8rem rgba(255, 255, 255, 0.075);;
+
+      font-size: 1.8rem;
+
+      position: absolute;
+      top: 42%;
+      right: 3%;
+    }
+
+
+    @media (min-width: 640px) {
+
+      .CardTitle{
+        font-size: 2rem;
+        padding-right: 20%;
+      }
+
+      .CardContent{
+        padding: 2rem;
+      }
+
+      .CardDesc{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .ProjectButton:link, .ProjectButton:visited {
+        font-size: 1rem;
+    }
+
+    .ProjectButtonIcon {
+      font-size: 1.5rem;
+    }
+    
+    .ProjectIcon{
+      font-size: 2rem;
+    }
+
+
+    }
+
+    @media (min-width: 720px) {
+      .CardTitle{
+        font-size: 1.8rem;
+        padding-right: 20%rem;
+      }
+
+      .CardContent{
+        padding: 2rem 2rem;
+      }
+
+      .ProjectIcon{
+        font-size: 2rem;
+      }
+  
+    }
+
+    @media (min-width: 1024px) {
+     
+      .CardTitle {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+        
+
+      .CardContent {
+          padding: 1.5rem 2rem 2rem 2rem;
+      }
+
+
+      .ProjectButton:link, .ProjectButton:visited {
+          gap: 0.5rem;
+          font-size: 1.1rem;
+          margin: 1rem 0;
+      }
+
+
+      .ProjectButtonIcon {
+        font-size: 2rem;
+      }
+
+      .ProjectIcon {
+        font-size: 2rem;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .CardTitle {
+        font-size: 2.3rem;
+        margin-bottom: 2rem;
+      }
+      
+
+      .CardDesc{
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      .ProjectIcon {
+        font-size: 2.5rem;
+      }
+    }
+
+
   }
   
   
   .CardContainer {
     max-width: 120rem;
-    padding: 3.2rem 3.2rem;
+    padding: 1rem;
     margin: 0 auto;
     
     display: grid;
-    column-gap: 6.4rem;
+    column-gap: 3rem;
     row-gap: 9.6rem;
     
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+
+    @media (min-width: 640px) {
+      padding: 1rem 1rem;
+
+      column-gap: 3.2rem;
+      row-gap: 4.8rem;
+      
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media (min-width: 720px) {
+      padding: 2rem 0rem;
+
+      column-gap: 4.8rem;
+      row-gap: 6.4rem;
+
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      padding: 3.2rem 3.2rem;
+
+      column-gap: 6.4rem;
+      row-gap: 9.6rem;
+      
+    }
+
+    @media (min-width: 1280px) {
+      
+    }
   }
   
   .ClubIntroSection{
     background-color: #000;
-    padding: 4.8rem 9.6rem 9.6rem 9.6rem;
+    padding: 2rem;
     
     .ClubIntroTitle {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 600;
       text-align: center;
+      margin: 2rem 0;
     }
     
     .ClubIntroTitle span {
-      padding: 3rem;
       color: transparent;
       background: linear-gradient(to right,#70FF00,#00E0FF);
       -webkit-text-fill-color: transparent;
@@ -92,7 +235,7 @@
     .Divider {
      width: 100%;
      height: 1px; 
-     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 38%, rgba(0,0,0,1) 38%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 62%, rgba(255,255,255,1) 62%, rgba(0,0,0,1) 100%);
+     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 75%, rgba(255,255,255,1) 75%, rgba(0,0,0,1) 100%);
      margin-bottom: 3rem;
      display: flex; 
      align-items: center; 
@@ -100,7 +243,83 @@
    }
 
    .Divider span {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
    }
+
+   @media (min-width: 640px) {
+    padding: 2rem 4.8rem 4.8rem 4.8rem;
+
+    .ClubIntroTitle {
+      font-size: 2rem;
+      margin: 2rem 0 3rem 0;
+    }
+
+    .ClubIntroTitle span {
+      padding: 0%;
+    }
+
+    .Divider {
+      background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 75%, rgba(255,255,255,1) 75%, rgba(0,0,0,1) 100%);
+      margin-bottom: 1rem;
+    }
+
+    .Divider span {
+      font-size: 0.8rem;
+     }
   }
+
+  @media (min-width: 720px) {
+    padding: 2rem 2rem 2rem 2rem;
+
+    .ClubIntroTitle {
+      font-size: 2rem;
+      margin: 3rem 0;
+      padding: 0 4rem;
+    }
+
+
+    .Divider {
+      background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 35%, rgba(0,0,0,1) 35%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 65%, rgba(255,255,255,1) 65%, rgba(0,0,0,1) 100%);
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 4.8rem 4.8rem 4.8rem 4.8rem;
+    
+    .ClubIntroTitle {
+      font-size: 2.5rem;
+      padding: 0 4rem;
+    }
+    
+    
+    .Divider {
+     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 38%, rgba(0,0,0,1) 38%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 62%, rgba(255,255,255,1) 62%, rgba(0,0,0,1) 100%);
+     margin-bottom: 3rem;
+   
+   }
+
+   .Divider span {
+    font-size: 1rem;
+   }
+  }
+
+  @media (min-width: 1280px) {
+    padding: 4.8rem 9.6rem 9.6rem 9.6rem;
+    
+    .ClubIntroTitle {
+      font-size: 2.5rem;
+    }
+    
+    .ClubIntroTitle span {
+      padding: 2rem;
+    }
+    
+    .Divider {
+     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 38%, rgba(0,0,0,1) 38%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 62%, rgba(255,255,255,1) 62%, rgba(0,0,0,1) 100%);
+   }
+
+   
+  }
+}

@@ -9,6 +9,7 @@ import {clubIntroData as data} from '@/configs/config';
 // Style imports
 import styles from './ClubIntro.module.scss';
 import { FaChevronRight } from "react-icons/fa";
+import { style } from "@motionone/dom";
 
 
 
@@ -29,12 +30,12 @@ const ProjectButton = (props: any) => {
       <span>
         <Link smooth to={`${props.href}#`} className={styles.ProjectButton}>
           {props.text}
-        <FaChevronRight className={styles.ProjectButtonIcon} size={32} color={props.color}/>
+        <FaChevronRight className={styles.ProjectButtonIcon} color={props.color}/>
         </Link>
       </span>
     );
   };
-  
+
 
 /**
  * Creates a card component
@@ -51,7 +52,11 @@ const Card = (props: {index: number}) => {
                 <div className={styles.CardDesc}>{data[props.index].description1}</div>
                 <div className={styles.CardDesc}>{data[props.index].description2 || ""}</div>
             </div>
+            <div className={styles.ProjectIcon} style={{'color': `${data[props.index].color}`}} >
+                {data[props.index].icon}
+            </div>
             <ProjectButton text={data[props.index].button} href="/" color={data[props.index].color}/>
+
         </div>
     );
 }
