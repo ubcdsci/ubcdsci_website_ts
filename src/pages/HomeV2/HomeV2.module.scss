@@ -1,0 +1,95 @@
+@use '../../configs/definitions' as *;
+
+$tablet: 768px;
+$mobile: 480px;
+
+.HeroContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: $tablet) {
+        h1 {
+            font-size: 4rem;
+        }
+    }
+
+    @media (max-width: $mobile) {
+        h1 {
+            font-size: 2rem;
+        }
+    }
+}
+
+.HeroTitle {
+    text-align: center;
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    
+    @media (max-width: $tablet) {
+        font-size: 4rem;
+    }
+}
+
+.Statistical {
+    background: -webkit-linear-gradient(#79eada, #62b2f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.HeroDescription {
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: white;
+    margin: 20px 0;
+
+    @media (max-width: $tablet) {
+        font-size: 1.5rem;
+    }
+}
+
+.Highlight {
+    font-weight: 600;
+}
+
+.EmailRegister {
+    display: flex;
+    gap: 1rem; 
+    margin-top: 2rem; 
+
+    @media (max-width: $mobile) {
+        flex-direction: column;
+    }
+}
+
+.EmailInput {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    border: 2px solid rgb(31,31,31); 
+    background-color: rgb(26,26,26);
+    color: white;
+
+    &::placeholder {
+        color: #AAA;
+    }
+}
+
+.RegisterButton {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background-color: #F00; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: darken(#F00, 10%);
+    }
+}
