@@ -14,6 +14,7 @@ import NavBar from '@/components/NavBar';
 import Routes from '@/Routes';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import TeamIntro from '@/components/TeamIntro';
 import { useEffect } from 'react';
 
 
@@ -44,6 +45,7 @@ const App = () => {
         <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} />
 
         <NavBar />
+        <TeamIntro/>
         <Routes />
         <Footer />
 

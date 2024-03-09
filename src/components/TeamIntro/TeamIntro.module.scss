@@ -1,0 +1,67 @@
+.Card {
+    background-color: #101010;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+
+    .TitleLineContainer {
+        display: flex;
+        align-items: center;
+    }
+
+    
+    .CardTitle {
+        font-size: 1.04rem;
+        font-weight: 600;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        
+
+    }
+
+    .CardLine {
+        flex-grow: 1;
+        height: 1px;
+        background: linear-gradient(to left, transparent, #FFFFFF);
+        margin-left: 20px;
+    }
+
+    .CardTitle2 {
+        font-size: 2.4rem;
+        font-weight: 600;
+        
+    }
+    
+    .GradientText {
+        background: linear-gradient(to right, #24FF00, #00E0FF, #24FF00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+    }
+
+    .BoldText {
+        font-weight: "bold";
+    }
+
+    .CardBody {
+        margin-top: 2em;
+        color: #FFFFFF;
+        display: grid;
+        & > div + div {
+            margin-top: 1em; 
+        }
+      
+        
+    }
+
+}
+
+.CardContainer {
+    max-width: 120rem;
+    padding: 0 3.2rem;
+    margin: 0 auto;
+
+    display: grid;
+}

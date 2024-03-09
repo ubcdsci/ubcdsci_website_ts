@@ -94,6 +94,18 @@ export const navbarData: Page[] = [
   },
 ];
 
+/* ------------------------------- TEAM INTRO DATA --------------------------- */
+
+// Data for loading the team intro.
+export const teamIntroData: TeamIntroContent[] = [
+  {
+    title1: "WHAT WE DO",
+    body1: "We aim to provide students an opportunity to learn about the field of data science and subjects related to data science.",
+    body2: "Members are able to attend events such as workshops, learn from mentors, and join a team to build a project or enter data science competitions.",
+    image: null // placeholder for image
+  }
+];
+
 /* ------------------------------ FOOTER DATA ------------------------------- */
 
 // Data for loading the footer bar.
