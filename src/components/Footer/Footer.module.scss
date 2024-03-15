@@ -1,23 +1,48 @@
 @use '../../configs/_definitions.scss' as *;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .Footer {
   display: flex;
+  background-color: #000;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 0;
-  
-  @extend .DarkBackground;
-}
+  align-items: center; 
+  gap: 2rem;
 
+
+  @extend .DarkBackground;
+  @media only screen and (min-width: 1281px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    padding: 9rem 8rem 14.37rem 8rem;
+    gap: 0.6rem;
+  }
+
+ 
+}
+.LogoBlock{
+
+  margin-top: 5rem;
+  @media only screen and (min-width: 1281px) {
+    margin-right: 4.68rem;
+    margin-left: 1rem;
+    margin-top: 2.25rem
+  }
+  .Logo {
+    
+  }
+}
 .SocialMediaBlock {
+  display: flex;
+  flex-direction: column;
+  
   .SMText {
-    width: 100%;
+    width: auto;
     height: auto;
-    padding: 1rem 0;
-    color: #fff;
-    font-size: 1.1rem;
-    font-family: 'Roboto Mono', monospace;
+    font-size: 2.12rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
     text-align: center;
   }
 
@@ -26,15 +51,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
-    padding: 1rem 0;
-
+    gap: 2rem;
+    margin-top: 2.8rem;
     width: 100%;
     height: auto;
 
     svg {
-      width: 2.3rem;
-      height: 2.3rem;
+      width: 3rem;
+      height: 3rem;
       fill: #fff;
       transition: all 0.3s ease-in-out;
 
@@ -43,34 +67,57 @@
       }
     }
   }
+  
+  @media only screen and (min-width: 1281px) {
+
+    .SMText {
+      width: 31.8rem;
+      height: auto;
+      padding: 1rem 0;
+      margin-top: 1.75rem;
+      // margin-right: 5rem;
+      font-size: 2.12rem;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      text-align: left;
+    }
+  
+    .SMButtons {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2.8rem;
+      width: 100%;
+      height: auto;
+      
+      svg {
+        width: 3rem;
+        height: 3rem;
+      }
+      
+    }
+  }
+  
 }
 
 .Line {
   width: 80vw;
   height: 1px;
   background-color: #fff;
-  margin: 1.5rem auto;
+
 }
 
 .LinksBlock {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   text-align: center;
-  gap: 3rem;
-  padding: 1rem 0;
-
-  width: 100%;
-  height: auto;
-
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
+  gap: 4rem;
+  margin: 4.5rem;
   a {
     color: #fff;
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Poppins", sans-serif;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
 
@@ -82,61 +129,60 @@
   .Column {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.3rem;
 
     .ColumnMain {
-      font-size: 1.2rem;
-      font-weight: 500;
+      font-size: 1.29rem;
+      font-weight: 600;
       text-transform: capitalize;
     }
 
     .ColumnSub {
-      font-weight: 300;
-      text-transform: lowercase;
+      font-weight: 500;
+      opacity: 0.6;
     }
   }
-}
+  
+  
 
-.CopyrightBlock {
+  @media screen and (min-width: 1281px) {
+  
+  flex-direction: row;
+  justify-content: right;
+  text-align: left;
+  gap: 5.5rem;
+
   width: 100%;
   height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  padding: 2rem 0;
-  color: #fff;
-  font-size: 0.8rem;
-  letter-spacing: 0.075rem;
-  text-transform: uppercase;
-  text-align: center;
+  
 
-  .Logo {
-    width: 4rem;
-    height: auto;
-    fill: #fff;
-    margin-right: 1.75rem;
-  }
+  a {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
 
-  @media screen and (max-width: 1024px) {
-    padding: 1rem 0;
-    font-size: 0.6rem;
-
-    .Logo {
-      width: 2.5rem;
-      height: auto;
-      margin-right: 1rem;
+    &:hover {
+      color: rgba(var(--primary), 1);
     }
   }
-}
 
-.LogInOutButton {
-  align-self: center;
-  letter-spacing: 0.05rem;
-  font-size: 0.8rem;
-  transition: all 0.2s ease-in-out;
+  .Column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
 
-  &:hover {
-    color: rgb(var(--primary));
+    .ColumnMain {
+      font-size: 1.29rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .ColumnSub {
+      font-weight: 500;
+      opacity: 0.6;
+    }
+  }
   }
 }

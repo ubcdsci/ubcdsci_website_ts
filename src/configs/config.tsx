@@ -121,31 +121,31 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
       href: "/home",
       links: [],
     },
-    {
-      title: "About Us",
-      href: "/about-us",
-      links: [
-        { text: "Club Description", href: "/about-us#clubDescription" },
-        { text: "Mission Statement", href: "/about-us#missionStatement" },
-        { text: "Executive Team", href: "/about-us#executiveTeam" },
-        { text: "FAQ", href: "/about-us#faq" },
-      ],
-    },
+    // {
+    //   title: "About Us",
+    //   href: "/about-us",
+    //   links: [
+    //     { text: "Club Description", href: "/about-us#clubDescription" },
+    //     { text: "Mission Statement", href: "/about-us#missionStatement" },
+    //     { text: "Executive Team", href: "/about-us#executiveTeam" },
+    //     { text: "FAQ", href: "/about-us#faq" },
+    //   ],
+    // },
     {
       title: "Events",
       href: "/events",
       links: [
-        { text: "Ongoing Events", href: "/events#ongoingEvents" },
-        { text: "Past Events", href: "/events#pastEvents" },
-        { text: "Upcoming Events", href: "/events#upcomingEvents" },
+        { text: "Ongoing", href: "/events#ongoingEvents" },
+        { text: "Past", href: "/events#pastEvents" },
+        { text: "Upcoming", href: "/events#upcomingEvents" },
       ],
     },
     {
-      title: "Projects",
+      title: "Past Projects",
       href: "/projects",
       links: [
         { text: "Bomberland", href: "/projects#bomberland" },
-        { text: "Deepfake Detection", href: "/projects#deepfake-detection" },
+        { text: "DeepFake Detection", href: "/projects#deepfake-detection" },
         { text: "Fishnet", href: "/projects#fishnet" },
         { text: "HPE", href: "/projects#human-pose-estimation" },
         { text: "Spaces", href: "/projects#spaces" },
@@ -168,7 +168,7 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
     //   ],
     // },
     {
-      title: "Contact Us",
+      title: "Contact",
       href: "/contact-us",
       links: [],
     },
