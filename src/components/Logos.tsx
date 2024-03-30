@@ -83,7 +83,7 @@ export const LogoColourNoCircle = (props: SVGProps<any>) => {
 <defs>
 <linearGradient id="paint0_linear_715_10" x1="-15.7319" y1="79.876" x2="152.963" y2="-2.61212" gradientUnits="userSpaceOnUse">
 <stop stopColor="#3FFF5D"/>
-<stop offset="1" stop-color="#3FFF97"/>
+<stop offset="1" stopColor="#3FFF97"/>
 </linearGradient>
 </defs>
 </svg>

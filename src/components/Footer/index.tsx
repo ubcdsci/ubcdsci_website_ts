@@ -31,10 +31,12 @@ const Footer = () => {
   return (
     
     <footer className={styles.Footer}>
+      
+      <div className={styles.Line} />
       <div className={styles.LogoBlock}>
         <Logo className={styles.Logo} />
       </div>
-      {/* <div className={styles.Line} /> */}
+      
       
       <div className={styles.SocialMediaBlock}>
         <h4 className={styles.SMText}>
