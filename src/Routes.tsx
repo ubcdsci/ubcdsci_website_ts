@@ -21,6 +21,7 @@ import EventsV2 from '@/pages/EventsV2/Event';
 // import Login from '@/features/auth/Login';
 // import TwoFactor from '@/features/auth/TwoFactor';
 import ErrorPage from '@/pages/PageNotFound';
+import HomeV2 from './pages/HomeV2/Home';
 
 
 enum Access {
@@ -37,6 +38,7 @@ const routes : {path : string, name : string, element : JSX.Element, access : Ac
   { path: "/events",        name: "Events",             element: <EventsV2 />, access: Access.PUBLIC },
   { path: "/projects",      name: "Projects",           element: <div />, access: Access.PUBLIC },
   { path: "/search-result", name: "Search Results",     element: <div />, access: Access.PUBLIC },
+
 
   // Admin routes.
   { path: "/dashboard",     name: "Admin Panel",        element: <AdminPanel />, access: Access.ADMIN },

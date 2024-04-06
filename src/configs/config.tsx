@@ -4,6 +4,10 @@ import {
   BsHouseFill, BsCalendar3, BsJournalText, BsHeadset
 } from 'react-icons/bs';
 import { FaGraduationCap } from 'react-icons/fa';
+import { FaPaintbrush } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
+
+
 
 // Media imports.
 import Bomberland from '@/images/bomberland.gif';
@@ -19,6 +23,10 @@ import Marketing from '@/images/execs/marketing.png';
 import Outreach from '@/images/execs/outreach.png';
 import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmasterHeadshot.png';
+
+
+import Creating from '@/images/profileDefault.png';
+import Mentors from '@/images/profileDefault.png';
 
 
 /* -------------------------------------------------------------------------- */
@@ -673,3 +681,38 @@ export const contactData : ContactContent[] = [
     text: "AMS Data Science Club @ UBC",
   }
 ];
+
+
+// Data for ClubIntroCards
+/*
+{
+  title: string;
+  image?: any;
+  description1: string;
+  description2?: string;
+  icon?: any;
+  button: string;
+  color: string;
+}
+*/
+export const clubIntroData : ClubIntroCardData[] = [
+  {
+    title: "Creating & Inspiring",
+    image: Creating,
+    description1: "Enable and encourage students to find opportunities involving data science outside of the club and/or UBC.",
+    description2: "Promote learning by hosting and facilitating events for students to explore topics in data science.",
+    icon: <FaPaintbrush />,
+    button: "View Events",
+    color: "#FF007A"
+  },
+  {
+    title: "Support & Mentors",
+    image: Mentors,
+    description1: "Create a supportive environment that empowers students new to data science by learning from experienced individuals, and for the experienced to learn through mentoring.",
+    icon: <FaUser />,
+    button: "View Mentors",
+    color: "#D7CB00"
+  },
+  
+]
+
