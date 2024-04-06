@@ -1,7 +1,7 @@
 // Library imports.
 import {
   BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
-  BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset
+  BsHouseFill, BsCalendar3, BsJournalText, BsHeadset
 } from 'react-icons/bs';
 import { FaGraduationCap } from 'react-icons/fa';
 import { FaPaintbrush } from "react-icons/fa6";
@@ -38,40 +38,40 @@ import Mentors from '@/images/profileDefault.png';
 // Data for loading the navigation bar.
 export const navbarData: Page[] = [
   {
-    key: "About Us",
-    text: "About Us",
-    href: "/about-us",
-    mobileIcon: <BsPeopleFill />,
-    dropDowns: [
-      { text: "Club Description", href: "#clubDescription" },
-      { text: "Mission Statement", href: "#missionStatement" },
-      { text: "Executive Team", href: "#executiveTeam" },
-      { text: "FAQ", href: "#faq" },
-    ],
+    key: "Home",
+    text: "HOME",
+    href: "/home",
+    mobileIcon: <BsHouseFill />,
+    // dropDowns: [
+    //   { text: "Club Description", href: "#clubDescription" },
+    //   { text: "Mission Statement", href: "#missionStatement" },
+    //   { text: "Executive Team", href: "#executiveTeam" },
+    //   { text: "FAQ", href: "#faq" },
+    // ],
   },
   {
     key: "Events",
-    text: "Events",
+    text: "EVENTS",
     href: "/events",
     mobileIcon: <BsCalendar3 />,
     dropDowns: [
-      { text: "Ongoing Events", href: "#ongoingEvents" },
-      { text: "Upcoming Events", href: "#upcomingEvents" },
-      { text: "Past Events", href: "#pastEvents" },
+      { text: "Ongoing", href: "#ongoingEvents" },
+      { text: "Upcoming", href: "#upcomingEvents" },
+      { text: "Past", href: "#pastEvents" },
     ],
   },
   {
     key: "Projects",
-    text: "Projects",
+    text: "PROJECTS",
     href: "/projects",
     mobileIcon: <BsJournalText />,
-    dropDowns: [
-      { text: "Bomberland", href: "#bomberland" },
-      { text: "Deepfake Detection", href: "#deepfake-detection" },
-      { text: "Fishnet", href: "#fishnet" },
-      { text: "HPE", href: "#human-pose-estimation" },
-      { text: "Spaces", href: "#spaces" },
-    ],
+    // dropDowns: [
+    //   { text: "Bomberland", href: "#bomberland" },
+    //   { text: "Deepfake Detection", href: "#deepfake-detection" },
+    //   { text: "Fishnet", href: "#fishnet" },
+    //   { text: "HPE", href: "#human-pose-estimation" },
+    //   { text: "Spaces", href: "#spaces" },
+    // ],
   },
   // {
   //   key: "Membership",
@@ -94,8 +94,8 @@ export const navbarData: Page[] = [
   //   ],
   // },
   {
-    key: "Contact Us",
-    text: "Contact Us",
+    key: "Contact",
+    text: "CONTACT",
     href: "/contact-us",
     mobileIcon: <BsHeadset />,
     // dropDowns: [],

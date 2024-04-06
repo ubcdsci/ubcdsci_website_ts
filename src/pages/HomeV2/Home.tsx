@@ -1,14 +1,11 @@
 
-import ClubIntroCardData from "@/components/ClubInto";
-
-
-const HomeV2 = () => {
+const Home = () => {
 
     return (
         <>
-            <ClubIntroCardData></ClubIntroCardData>
         </>
     )
 }
 
-export default HomeV2;
+export default Home;
+

@@ -3,7 +3,9 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import { useMediaQuery } from 'react-responsive';
-import { BsPencilSquare, BsHouseFill } from 'react-icons/bs';
+import { BsPencilSquare } from 'react-icons/bs';
+import { MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 // Utility imports.
 import { scrollTop } from '@/utils/mouseScrolling';
@@ -17,7 +19,7 @@ import { navbarData as data } from '@/configs/config';
 import GreenButton from '@/components/GreenButton';
 
 // Media imports.
-import { LogoBW as Logo } from '../Logos';
+import { LogoColourNoCircle as Logo } from '../Logos';
 
 
 // Check if links to external site and returns element.
@@ -117,10 +119,10 @@ const NavBar = () => {
     <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       { isMobile ?
         <>
-          <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : ""} ${toggleNavMenu ? styles.NavBarScrolled : ""}`}>
+          <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : ""} ${toggleNavMenu ? styles.NavMenuOpen : ""}`}>
             <div className={styles.MobileContainer}>
               <Link to="/home" onClick={handleScrollingTop} className={styles.HomeButton}>
-                <Logo className={(location.pathname === "/home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
+                <Logo className={styles.HomeButton}/>
               </Link>
               
               <button className={`${toggleNavMenu ? styles.HamburgerMenuButtonClosed : styles.HamburgerMenuButton}`} onClick={toggleMenu}>
@@ -146,18 +148,6 @@ const NavBar = () => {
                   <p>Register Now!</p>
                 </a>
               </li>
-
-              <li>
-                <Link
-                  to={'/home'}
-                  onClick={handleScrollingTop}
-                  className={(location.pathname === '/home' ? styles.NavButtonCurrentLocation : styles.NavButton)}
-                >
-                  <BsHouseFill />
-                  <p>Home</p>
-                </Link>
-              </li>
-
               {data.map((page) => (
                 <li key={page.key}>
                   <Link
@@ -176,26 +166,28 @@ const NavBar = () => {
         :
         <div className={`${styles.NavBar} ${(!visible) ? styles.NavBarHidden : (scrolled) ? styles.NavBarScrolled : ""}`}>
           <div className={styles.Container}>
-            <span className={styles.NavButtons}>
-              <Link to="/home" onClick={handleScrollingTop}>
-                <Logo className={(location.pathname === "/home" ? styles.HomeButtonCurrentLocation : styles.HomeButton)} />
-              </Link>
-
+            <Link to="/home" onClick={handleScrollingTop}>
+                <Logo className={styles.HomeButton} />
+            </Link>
+            <div className={styles.NavButtonContainer}>
               {data.map((page) => (
-                <span key={page.key} className={styles.Button}>
+                <div key={page.key} className={location.pathname === page.href ? styles.ButtonActive : styles.Button}>
                   <Link
                     to={page.href}
                     onClick={handleScrollingTop}
-                    className={(location.pathname === page.href ? styles.NavButtonCurrentLocation : styles.NavButton)}
+                    className={styles.NavButton}
                   >
-                    {page.text}
+                    <span className={`${page.dropDowns ? styles.CenterDropdownText : ""}`}>{page.text}</span>     
+                    {page.dropDowns && <MdKeyboardArrowDown className={styles.NavLinkTippyDown}/>}
+                    {page.dropDowns && <MdKeyboardArrowUp className={styles.NavLinkTippyUp}/>}
                   </Link>
                   {createDropDown(page, page.href)}
-                </span>
+                </div>
               ))}
-
+            </div>
+            <span className={styles.NavButtons}>
               <GreenButton
-                text="Register Now"
+                text="REGISTER"
                 href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy"
                 target="_blank"
                 rel="noreferrer noopener"
