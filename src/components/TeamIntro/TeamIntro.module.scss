@@ -1,8 +1,37 @@
 .Card {
     background-color: #101010;
-    padding: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
     display: flex;
     flex-direction: column;
+    
+
+    .FlexContainer {
+        display: flex;
+        justify-content: inline;
+        align-items: center;
+        width: 1343px;
+        height: 400px;
+    }
+
+    .TextContainer {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        max-width: 550px;
+        padding-right: 20px;
+    }
+
+    .ImageContainer {
+        width: 550px; 
+        height: 100%;
+       
+        /* add temp border for image placeholder*/
+        border: 2px solid white;
+        box-sizing: border-box;
+        margin-left: 50px;
+     
+    }
 
     .TitleLineContainer {
         display: flex;
@@ -41,27 +70,15 @@
 
     }
 
-    .BoldText {
-        font-weight: "bold";
-    }
-
     .CardBody {
         margin-top: 2em;
         color: #FFFFFF;
-        display: grid;
+        display: flex;
+        flex-direction: column;
         & > div + div {
             margin-top: 1em; 
         }
-      
-        
     }
 
 }
 
-.CardContainer {
-    max-width: 120rem;
-    padding: 0 3.2rem;
-    margin: 0 auto;
-
-    display: grid;
-}

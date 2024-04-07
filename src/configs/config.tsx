@@ -100,9 +100,13 @@ export const navbarData: Page[] = [
 export const teamIntroData: TeamIntroContent[] = [
   {
     title1: "WHAT WE DO",
-    body1: "We aim to provide students an opportunity to learn about the field of data science and subjects related to data science.",
-    body2: "Members are able to attend events such as workshops, learn from mentors, and join a team to build a project or enter data science competitions.",
-    image: null // placeholder for image
+    body1_1: "We aim to provide students an ",
+    body1_2: "and subjects related to data science.",
+    body2_1: "Members are able to",
+    body2_2: "such as workshops,",
+    body2_3: ", and",
+    body2_4: "or enter data science competitions.",
+    image: "blank-image-url.jpg" // placeholder for image, replace with image path
   }
 ];
 
