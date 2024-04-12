@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 // import NewsletterForm from '@/components/NewsletterForm/NewsletterForm';
 
 // Pages imports.
-import Home from '@/pages/Home';
+import Home from '@/pages/HomeV2/Home';
 import AboutUs from '@/pages/AboutUs';
 import AdminPanel from '@/pages/AdminPanel';
 import Projects from '@/pages/Projects';
