@@ -19,7 +19,7 @@ $mobile: 480px;
     }
 
     @media (max-width: $mobile) {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 }
 
@@ -47,16 +47,19 @@ $mobile: 480px;
 
 .HeroTitle {
     text-align: center;
-    font-size: 4rem;
+    width: 60%;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 1.2;
 
     @media (max-width: $tablet) {
         font-size: 3rem;
+        width: 100%;
     }
 
     @media (max-width: $mobile) {
         font-size: 2rem;
+        width: 100%;
     }
 }
 
@@ -67,21 +70,24 @@ $mobile: 480px;
 }
 
 .HeroDescription {
+    width: 50%;
     line-height: 1.4;
     letter-spacing: -0.02em;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 500;
     color: white;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.75rem;
 
 
     @media (max-width: $tablet) {
         font-size: 1.5rem;
+        width: 100%;
     }
 
     @media (max-width: $mobile) {
         font-size: 1.2rem;
+        width: 100%;
     }
 }
 
@@ -91,7 +97,6 @@ $mobile: 480px;
 
 .EmailRegister {
     display: flex;
-    gap: 0.5rem; 
     margin-top: 2rem; 
 
     @media (max-width: $mobile) {
@@ -120,13 +125,14 @@ $mobile: 480px;
 
 .RegisterButton {
     border-radius: 10px;
-    padding: 0.75rem;
+    padding: 0.75rem 1.75rem;
     font-weight: 700;
     font-size: 1.25rem;
     background-image: linear-gradient(to top right, rgba(255, 65, 161, 1), rgba(255, 86, 37, 1));
     color: white;
     border: none;
     cursor: pointer;
+    font-size: medium;
     
     &:hover {
         background-color: darken(rgba(255, 65, 161, 1), 10%);
