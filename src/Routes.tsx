@@ -21,7 +21,7 @@ import EventsV2 from '@/pages/EventsV2/Event';
 // import Login from '@/features/auth/Login';
 // import TwoFactor from '@/features/auth/TwoFactor';
 import ErrorPage from '@/pages/PageNotFound';
-import HomeV2 from './pages/HomeV2/Home';
+
 
 
 enum Access {
