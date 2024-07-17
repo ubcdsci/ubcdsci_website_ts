@@ -1,23 +1,22 @@
 // Library imports.
-import { BrowserRouter as Router } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import { motion, useScroll } from 'framer-motion';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter as Router } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { motion, useScroll } from "framer-motion";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Config imports.
-import { bgImgSrc, bgBlur, bgOverlayAlpha } from '@/configs/aesthetics';
+import { bgImgSrc, bgBlur, bgOverlayAlpha } from "@/configs/aesthetics";
 
 // Component imports.
-import Background from '@/components/Background';
-import NavBar from '@/components/NavBar';
-import Routes from '@/Routes';
-import Footer from '@/components/Footer';
-import ScrollToTop from '@/components/ScrollToTop';
-import { useEffect } from 'react';
+import Background from "@/components/Background";
+import NavBar from "@/components/NavBar";
+import Routes from "@/Routes";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+import { useEffect } from "react";
 
-
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
 
 /**
  * Renders the web app.
@@ -29,8 +28,7 @@ const App = () => {
 
   // Load the reCAPTCHA script.
   useEffect(() => {
-    if (!RECAPTCHA_SITE_KEY)
-      return;
+    if (!RECAPTCHA_SITE_KEY) return;
 
     const script = document.createElement("script");
     script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
@@ -41,13 +39,17 @@ const App = () => {
   return (
     <HelmetProvider>
       <Router>
-        {/* <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} /> */}
+        {/* temporarily commented out 
+        <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} /> */}
 
         <NavBar />
         <Routes />
         <Footer />
 
-        <motion.div className="ProgressBar" style={{ scaleX: scrollYProgress }} />
+        <motion.div
+          className="ProgressBar"
+          style={{ scaleX: scrollYProgress }}
+        />
         <ScrollToTop />
         <ToastContainer
           position="bottom-left"
@@ -62,14 +64,14 @@ const App = () => {
         />
       </Router>
 
-      { RECAPTCHA_SITE_KEY && (
-          <div
-            className="g-recaptcha"
-            data-sitekey={RECAPTCHA_SITE_KEY}
-            data-size="invisible"
-            data-callback="onsubmit"
-          />
-        )}
+      {RECAPTCHA_SITE_KEY && (
+        <div
+          className="g-recaptcha"
+          data-sitekey={RECAPTCHA_SITE_KEY}
+          data-size="invisible"
+          data-callback="onsubmit"
+        />
+      )}
     </HelmetProvider>
   );
 };
