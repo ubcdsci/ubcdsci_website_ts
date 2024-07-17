@@ -64,7 +64,7 @@ $mobile: 480px;
 }
 
 .Statistical {
-    background: -webkit-linear-gradient(#3deed9, #40b3f6);
+    background: linear-gradient(to right,#3deed9, #40b3f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -98,9 +98,10 @@ $mobile: 480px;
 .EmailRegister {
     display: flex;
     margin-top: 2rem; 
+    column-gap: 1rem;
 
     @media (max-width: $mobile) {
-        gap: 1rem;
+        gap: 2rem;
         flex-direction: column;
     }
 
