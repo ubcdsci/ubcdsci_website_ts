@@ -1,9 +1,13 @@
 // Library imports.
 import {
   BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
-  BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset
+  BsHouseFill, BsCalendar3, BsJournalText, BsHeadset
 } from 'react-icons/bs';
 import { FaGraduationCap } from 'react-icons/fa';
+import { FaPaintbrush } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
+
+
 
 // Media imports.
 import Bomberland from '@/images/bomberland.gif';
@@ -21,6 +25,10 @@ import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmasterHeadshot.png';
 
 
+import Creating from '@/images/profileDefault.png';
+import Mentors from '@/images/profileDefault.png';
+
+
 /* -------------------------------------------------------------------------- */
 /*                           COMMON COMPONENTS DATA                           */
 /* -------------------------------------------------------------------------- */
@@ -30,40 +38,40 @@ import Webmaster from '@/images/execs/webmasterHeadshot.png';
 // Data for loading the navigation bar.
 export const navbarData: Page[] = [
   {
-    key: "About Us",
-    text: "About Us",
-    href: "/about-us",
-    mobileIcon: <BsPeopleFill />,
-    dropDowns: [
-      { text: "Club Description", href: "#clubDescription" },
-      { text: "Mission Statement", href: "#missionStatement" },
-      { text: "Executive Team", href: "#executiveTeam" },
-      { text: "FAQ", href: "#faq" },
-    ],
+    key: "Home",
+    text: "HOME",
+    href: "/home",
+    mobileIcon: <BsHouseFill />,
+    // dropDowns: [
+    //   { text: "Club Description", href: "#clubDescription" },
+    //   { text: "Mission Statement", href: "#missionStatement" },
+    //   { text: "Executive Team", href: "#executiveTeam" },
+    //   { text: "FAQ", href: "#faq" },
+    // ],
   },
   {
     key: "Events",
-    text: "Events",
+    text: "EVENTS",
     href: "/events",
     mobileIcon: <BsCalendar3 />,
     dropDowns: [
-      { text: "Ongoing Events", href: "#ongoingEvents" },
-      { text: "Upcoming Events", href: "#upcomingEvents" },
-      { text: "Past Events", href: "#pastEvents" },
+      { text: "Ongoing", href: "#ongoingEvents" },
+      { text: "Upcoming", href: "#upcomingEvents" },
+      { text: "Past", href: "#pastEvents" },
     ],
   },
   {
     key: "Projects",
-    text: "Projects",
+    text: "PROJECTS",
     href: "/projects",
     mobileIcon: <BsJournalText />,
-    dropDowns: [
-      { text: "Bomberland", href: "#bomberland" },
-      { text: "Deepfake Detection", href: "#deepfake-detection" },
-      { text: "Fishnet", href: "#fishnet" },
-      { text: "HPE", href: "#human-pose-estimation" },
-      { text: "Spaces", href: "#spaces" },
-    ],
+    // dropDowns: [
+    //   { text: "Bomberland", href: "#bomberland" },
+    //   { text: "Deepfake Detection", href: "#deepfake-detection" },
+    //   { text: "Fishnet", href: "#fishnet" },
+    //   { text: "HPE", href: "#human-pose-estimation" },
+    //   { text: "Spaces", href: "#spaces" },
+    // ],
   },
   // {
   //   key: "Membership",
@@ -86,8 +94,8 @@ export const navbarData: Page[] = [
   //   ],
   // },
   {
-    key: "Contact Us",
-    text: "Contact Us",
+    key: "Contact",
+    text: "CONTACT",
     href: "/contact-us",
     mobileIcon: <BsHeadset />,
     // dropDowns: [],
@@ -673,3 +681,38 @@ export const contactData : ContactContent[] = [
     text: "AMS Data Science Club @ UBC",
   }
 ];
+
+
+// Data for ClubIntroCards
+/*
+{
+  title: string;
+  image?: any;
+  description1: string;
+  description2?: string;
+  icon?: any;
+  button: string;
+  color: string;
+}
+*/
+export const clubIntroData : ClubIntroCardData[] = [
+  {
+    title: "Creating & Inspiring",
+    image: Creating,
+    description1: "Enable and encourage students to find opportunities involving data science outside of the club and/or UBC.",
+    description2: "Promote learning by hosting and facilitating events for students to explore topics in data science.",
+    icon: <FaPaintbrush />,
+    button: "View Events",
+    color: "#FF007A"
+  },
+  {
+    title: "Support & Mentors",
+    image: Mentors,
+    description1: "Create a supportive environment that empowers students new to data science by learning from experienced individuals, and for the experienced to learn through mentoring.",
+    icon: <FaUser />,
+    button: "View Mentors",
+    color: "#D7CB00"
+  },
+  
+]
+

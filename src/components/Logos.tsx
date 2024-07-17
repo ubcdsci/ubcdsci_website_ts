@@ -60,6 +60,7 @@ export const LogoBW = (props: SVGProps<any>) => {
   );
 };
 
+
 export const LogoColourNoCircle = (props: SVGProps<any>) => {
   return(
     <svg width="133" height="94" viewBox="0 0 133 94" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,4 +90,5 @@ export const LogoColourNoCircle = (props: SVGProps<any>) => {
 </svg>
   );
 };
+
 

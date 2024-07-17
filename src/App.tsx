@@ -41,7 +41,7 @@ const App = () => {
   return (
     <HelmetProvider>
       <Router>
-        <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} />
+        {/* <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} /> */}
 
         <NavBar />
         <Routes />
