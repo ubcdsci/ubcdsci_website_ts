@@ -14,6 +14,18 @@ type Page = {
   dropDowns?: DropDowns[];
 }
 
+/* ----------------------- TYPE DEFINITIONS FOR TEAM INTRO ------------------- */
+type TeamIntroContent = {
+  title1: string;
+  body1_1: string;
+  body1_2: string;
+  body2_1: string;
+  body2_2: string;
+  body2_3: string;
+  body2_4: string;
+  image?: any;
+}
+
 
 /* ----------------------- TYPE DEFINITIONS FOR FOOTER ---------------------- */
 type SMButton = {

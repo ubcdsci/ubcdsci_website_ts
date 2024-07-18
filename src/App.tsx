@@ -8,13 +8,13 @@ import "react-toastify/dist/ReactToastify.css";
 // Config imports.
 import { bgImgSrc, bgBlur, bgOverlayAlpha } from "@/configs/aesthetics";
 
-// Component imports.
 import Background from "@/components/Background";
 import NavBar from "@/components/NavBar";
 import Routes from "@/Routes";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useEffect } from "react";
+
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
 
@@ -43,6 +43,7 @@ const App = () => {
         <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} /> */}
 
         <NavBar />
+        <TeamIntro/>
         <Routes />
         <Footer />
 

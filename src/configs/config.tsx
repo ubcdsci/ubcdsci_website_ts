@@ -24,6 +24,8 @@ import Outreach from '@/images/execs/outreach.png';
 import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmasterHeadshot.png';
 
+import TeamIntro from '@/images/Fishnet.jpg';
+
 
 import Creating from '@/images/profileDefault.png';
 import Mentors from '@/images/profileDefault.png';
@@ -100,6 +102,22 @@ export const navbarData: Page[] = [
     mobileIcon: <BsHeadset />,
     // dropDowns: [],
   },
+];
+
+/* ------------------------------- TEAM INTRO DATA --------------------------- */
+
+// Data for loading the team intro.
+export const teamIntroData: TeamIntroContent[] = [
+  {
+    title1: "WHAT WE DO",
+    body1_1: "We aim to provide students an ",
+    body1_2: "and subjects related to data science.",
+    body2_1: "Members are able to",
+    body2_2: "such as workshops,",
+    body2_3: ", and",
+    body2_4: "or enter data science competitions.",
+    image: TeamIntro // placeholder for image, replace with image path
+  }
 ];
 
 /* ------------------------------ FOOTER DATA ------------------------------- */
