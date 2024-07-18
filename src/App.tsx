@@ -43,7 +43,6 @@ const App = () => {
         <Background src={bgImgSrc} alpha={bgOverlayAlpha} blur={bgBlur} /> */}
 
         <NavBar />
-        <TeamIntro/>
         <Routes />
         <Footer />
 
