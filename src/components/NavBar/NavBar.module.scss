@@ -73,6 +73,7 @@ nav {
 .HomeButton {
   width: 5rem;
   height: 5rem;
+  margin-right: 3rem;
   transition: all 0.25s ease-in-out;
 
   &:hover {
@@ -84,11 +85,13 @@ nav {
   @media screen and (max-width: 1080px) {
     width: 4rem;
     height: 4rem;
+    margin-right: 0;
   }
 
   @media screen and (max-width: 767px) {
     width: 3rem;
     height: 3rem;
+    margin-right: 0;
   }
 }
 
@@ -210,7 +213,7 @@ nav {
   flex-direction: column;
   gap: 0.75rem;
   border-top: none;
-  background-color: rgba(var(--bg-dark), 0.75);
+  background-color: rgba(var(--bg-black), 0.75);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 0 0.5rem;

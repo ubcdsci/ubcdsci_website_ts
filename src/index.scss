@@ -23,6 +23,7 @@
   --bg-dark: 10, 10, 10;
   --bg-light: 250, 250, 250;
   --bg-mid: 130, 130, 130;
+  --bg-black: 0,0,0;
 }
 
 
@@ -149,7 +150,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   overflow-y: overlay;
-  background-color: #141414;
+  // background-color: #141414;
+  background-color: #000;
   color: #fff;
 }
 

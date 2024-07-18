@@ -6,7 +6,9 @@ import GreenButton from "../GreenButton";
 const SignUpSection = () => {
     return (
       <div className={styles.SignUpContainer}>
-        <Logo />
+        <div className={styles.LogoContainer}>
+            <Logo />
+        </div>
         <h1 className={styles.SignUpTitle}>
          Ready to
           <span> learn with data?</span>

@@ -10,8 +10,7 @@ $mobile: 480px;
     align-items: center;
     padding: 0 1rem;
     max-width: 1200px;
-    height: 90vh;
-    margin: 0 auto;
+    margin: 10rem auto;
 
     @media (max-width: $tablet) {
         h1 {
@@ -62,5 +61,10 @@ $mobile: 480px;
 
     .SignUpButton {
         margin-top: 2rem;
+    }
+
+    .LogoContainer {
+        width: 132px;
+        height: 94px;
     }
 }

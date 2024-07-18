@@ -26,16 +26,19 @@ $mobile: 480px;
 .HeroContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     font-family: 'Inter', sans-serif;
     padding: 0 1rem;
     max-width: 1200px;
+    height: 70vh;
     margin: 0 auto;
 
     @media (max-width: $tablet) {
         h1 {
             font-size: 4rem;
         }
+       
     }
 
     @media (max-width: $mobile) {
