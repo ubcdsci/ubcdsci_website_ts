@@ -15,8 +15,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  height: 4.25rem;
-  
+
   padding-top: 1.5rem;
   transition: all 0.25s ease-in-out;
 
@@ -33,6 +32,20 @@ nav {
   transition: all 0.25s ease-in-out;
 }
 
+.NavMenuOpen {
+  @extend .NavBar;
+  @extend .DarkBackground;
+
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+  transition: all 0.25s ease-in-out;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
 .NavBarHidden {
   transform: translateY(-100%);
   opacity: 0;
@@ -40,8 +53,11 @@ nav {
 
 .Container {
   display: flex;
-  margin: auto;
+  align-items: center;
+  padding: 0 32px;
   gap: 3rem;
+  justify-content: space-between;
+  width: 100%;
 
   .NavButtons {
     display: flex;
@@ -55,44 +71,71 @@ nav {
 }
 
 .HomeButton {
-  width: 2.5rem;
-  height: 2.5rem;
-  fill: white;
+  width: 5rem;
+  height: 5rem;
   transition: all 0.25s ease-in-out;
 
   &:hover {
     scale: 1.1;
-    fill: rgb(var(--primary));
     filter: drop-shadow(0 0 10px rgba(#fff, 0.2));
     transition: all 0.25s ease-in-out;
   }
+
+  @media screen and (max-width: 1080px) {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
-.HomeButtonCurrentLocation {
-  @extend .HomeButton;
-  scale: 1.1;
-  fill: rgb(var(--primary));
-  filter: drop-shadow(0 0 10px rgba(#fff, 0.2));
+.NavButtonContainer {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgba(256, 256, 256, 0.2);
+  border-radius: 12px;
+  margin: 8px;
+  gap: 64px;
+  padding: 16px 32px;
 }
 
 .NavButton {
   display: flex;
   align-items: center;
   text-align: center;
-  gap: 1rem;
-  color: white;
+  color: inherit;
   text-decoration: none;
   transition: all 0.25s ease-in-out;
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 24px;
+  z-index: 999;
 
   &:hover {
-    color: rgb(var(--primary-light));
+    color: inherit;
     transition: all 0.2s ease-in-out;
   }
 
   svg {
-    width: 2rem;
-    height: 2rem;
+    width: 24px;
+    height: 24px;
   }
+
+  span {
+    font-family: inherit;
+  }
+}
+
+.NavLinkTippyUp {
+  display: var(--no-hovered);
+}
+
+.NavLinkTippyDown {
+  display: var(--hovered);
 }
 
 .NavButtonCurrentLocation {
@@ -105,42 +148,83 @@ nav {
   font-weight: bold;
 }
 
+.CenterDropdownText {
+  padding-left: 6px;
+}
+
 .Button {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  --hovered: none;
+  --no-hovered: flex;
+  color: white;
+
   .DropDownMenu {
     position: fixed;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    max-height: 0;
     overflow-y: hidden;
   }
 
   &:hover {
+    --hovered: flex;
+    --no-hovered: none;
+    color: #00FF47;
+
     .DropDownMenu {
-      max-height: 100vh;
-      padding-top: 0.25rem;
-      transition: max-height 0.5s linear;
+      padding-top: 40px;
     }
+
+    .DropDownContent {
+      max-height: 100vh;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      transition: padding-top 25ms linear, max-height 0.5s linear, padding-bottom 25ms linear;
+      border: 1px solid rgba(256, 256, 256, 0.2);
+    }
+  }
+
+
+}
+
+.ButtonActive {
+  @extend .Button;
+
+  :before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    bottom: -16px;
+    height: 1px;
+    width: calc(100% + 20px);
+    border-bottom: 3px solid #00FF47;
+    pointer-events: none;
   }
 }
 
 .DropDownContent {
-  z-index: 100;
+  max-height: 0;
   display: flex;
+  z-index: 100;
   flex-direction: column;
   gap: 0.75rem;
-  padding: 1rem 0;
-  background-color: rgba(var(--bg-dark), 0.9);
-  border: 2px solid rgba(var(--bg-dark), 1);
+  border-top: none;
+  background-color: rgba(var(--bg-dark), 0.75);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0 0.5rem;
 
   a {
     color: white;
     text-decoration: none;
+    font-family: Poppins;
+    font-weight: 500;
     padding: 0.5rem 1rem;
     transition: all 0.25s ease-in-out;
 
     &:hover {
-      color: rgb(var(--primary-light));
+      color: #00FF47;
       transition: all 0.2s ease-in-out;
     }
   }

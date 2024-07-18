@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 // import NewsletterForm from '@/components/NewsletterForm/NewsletterForm';
 
 // Pages imports.
-import Home from '@/pages/Home';
+import Home from '@/pages/HomeV2/Home';
 import AboutUs from '@/pages/AboutUs';
 import AdminPanel from '@/pages/AdminPanel';
 import Projects from '@/pages/Projects';
@@ -21,6 +21,7 @@ import EventsV2 from '@/pages/EventsV2/Event';
 // import Login from '@/features/auth/Login';
 // import TwoFactor from '@/features/auth/TwoFactor';
 import ErrorPage from '@/pages/PageNotFound';
+
 
 
 enum Access {
@@ -37,6 +38,7 @@ const routes : {path : string, name : string, element : JSX.Element, access : Ac
   { path: "/events",        name: "Events",             element: <EventsV2 />, access: Access.PUBLIC },
   { path: "/projects",      name: "Projects",           element: <div />, access: Access.PUBLIC },
   { path: "/search-result", name: "Search Results",     element: <div />, access: Access.PUBLIC },
+
 
   // Admin routes.
   { path: "/dashboard",     name: "Admin Panel",        element: <AdminPanel />, access: Access.ADMIN },

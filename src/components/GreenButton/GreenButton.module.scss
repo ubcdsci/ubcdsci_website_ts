@@ -3,12 +3,16 @@
   align-items: center;
   text-align: center;
   gap: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: rgba(var(--primary-darker), 1);
-  border-radius: 25px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 17px;
   color: #fff;
   text-decoration: none;
   transition: all 0.25s ease-in-out;
+  background: linear-gradient(103.25deg, #00FF47 -16.57%, #04AA8C 116.88%), linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+
 
   &:hover {
     color: #fff;

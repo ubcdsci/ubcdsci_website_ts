@@ -1,9 +1,15 @@
-const Home = () => {
+// JSX Component
+import ClubIntroCardData from "@/components/ClubInto";
+import HeroSection from "@/components/HeroSection";
 
-    return (
-        <>
-        </>
-    )
-}
+
+const Home = () => {
+  return (
+    <>
+        <HeroSection />
+        <ClubIntroCardData />
+    </>
+  );
+};
 
 export default Home;
