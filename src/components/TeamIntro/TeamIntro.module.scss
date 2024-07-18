@@ -8,7 +8,7 @@ $mobile: 480px;
     flex-direction: column;
 
     @media (max-width: $tablet) {
-       padding: 0;
+       padding: 3.2rem 0;
     }
     
 
@@ -30,6 +30,10 @@ $mobile: 480px;
         flex-direction: column;
         max-width: 40%;
 
+        @media (max-width: 1024px) {
+            max-width: 50%;
+         }
+
         @media (max-width: $tablet) {
             max-width: 90%;
          }
@@ -45,8 +49,12 @@ $mobile: 480px;
         border: 2px solid white;
         box-sizing: border-box;
 
+        @media (max-width: 1024px) {
+            max-width: 50%;
+         }
+
         @media (max-width: $tablet) {
-            margin-left: 0;
+            margin: 2rem 0;
             max-width: 90%;
          }
      
@@ -79,6 +87,17 @@ $mobile: 480px;
         font-size: 2.4rem;
         font-weight: 600;
         
+        @media (max-width: $tablet) {
+            font-size: 2rem;
+            margin-top: 1rem;
+
+        }
+
+        @media (max-width: $mobile) {
+            line-height: 2.6rem;
+            margin-top: 1rem;
+
+        }
     }
     
     .GradientText {
