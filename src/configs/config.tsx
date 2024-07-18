@@ -20,6 +20,8 @@ import Outreach from '@/images/execs/outreach.png';
 import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmasterHeadshot.png';
 
+import TeamIntro from '@/images/Fishnet.jpg';
+
 
 /* -------------------------------------------------------------------------- */
 /*                           COMMON COMPONENTS DATA                           */
@@ -106,7 +108,7 @@ export const teamIntroData: TeamIntroContent[] = [
     body2_2: "such as workshops,",
     body2_3: ", and",
     body2_4: "or enter data science competitions.",
-    image: "blank-image-url.jpg" // placeholder for image, replace with image path
+    image: TeamIntro // placeholder for image, replace with image path
   }
 ];
 
