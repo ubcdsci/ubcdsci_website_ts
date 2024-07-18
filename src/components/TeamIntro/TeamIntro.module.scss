@@ -1,6 +1,6 @@
 .Card {
     background-color: #101010;
-    padding: 5rem 8rem;
+    padding: 3.2rem 3.2rem;
     display: flex;
     flex-direction: column;
     
@@ -15,12 +15,12 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-        max-width: 50%;
-        // padding-right: 20px;
+        max-width: 40%;
+
     }
 
     .ImageContainer {
-        width: 50%; 
+        max-width: 40%; 
         height: 50%;
        
         /* add temp border for image placeholder*/
@@ -72,9 +72,14 @@
         color: #FFFFFF;
         display: flex;
         flex-direction: column;
+        padding-right:4rem;
+         p {
+            margin-bottom: 1rem;
+         }
         & > div + div {
             margin-top: 1em; 
         }
+
     }
 
 }

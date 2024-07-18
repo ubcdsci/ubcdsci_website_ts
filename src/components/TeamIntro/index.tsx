@@ -29,17 +29,20 @@ const Card = (props: {index:number}) => {
                     </div>
                     <div className={styles.CardBody}>
                         <span>
-                            {data[props.index].body1_1}
-                            <b>opportunity to learn about the field of data science</b>&nbsp;
-                            {data[props.index].body1_2}
-                            <div></div>
-                            {data[props.index].body2_1}&nbsp;
-                            <b>attend events</b>&nbsp;
-                            {data[props.index].body2_2}&nbsp;
-                            <b>learn from mentors</b>
-                            {data[props.index].body2_3}&nbsp;
-                            <b>join a team to build a project</b>&nbsp;
-                            {data[props.index].body2_4}
+                            <p>
+                                {data[props.index].body1_1}
+                                <b>opportunity to learn about the field of data science</b>&nbsp;
+                                {data[props.index].body1_2}
+                            </p>
+                            <p>
+                                {data[props.index].body2_1}&nbsp;
+                                <b>attend events</b>&nbsp;
+                                {data[props.index].body2_2}&nbsp;
+                                <b>learn from mentors</b>
+                                {data[props.index].body2_3}&nbsp;
+                                <b>join a team to build a project</b>&nbsp;
+                                {data[props.index].body2_4}
+                            </p>
                         </span>     
                     </div>
                 </div>
