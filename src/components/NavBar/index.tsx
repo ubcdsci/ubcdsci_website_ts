@@ -122,7 +122,9 @@ const NavBar = () => {
           <div className={`${styles.NavBar} ${scrolled ? styles.NavBarScrolled : ""} ${toggleNavMenu ? styles.NavMenuOpen : ""}`}>
             <div className={styles.MobileContainer}>
               <Link to="/home" onClick={handleScrollingTop} className={styles.HomeButton}>
-                <Logo className={styles.HomeButton}/>
+                <div className={styles.HomeButton}>
+                  <Logo/>
+                </div>
               </Link>
               
               <button className={`${toggleNavMenu ? styles.HamburgerMenuButtonClosed : styles.HamburgerMenuButton}`} onClick={toggleMenu}>
@@ -167,7 +169,9 @@ const NavBar = () => {
         <div className={`${styles.NavBar} ${(!visible) ? styles.NavBarHidden : (scrolled) ? styles.NavBarScrolled : ""}`}>
           <div className={styles.Container}>
             <Link to="/home" onClick={handleScrollingTop}>
-                <Logo className={styles.HomeButton} />
+              <div className={styles.HomeButton}>
+                <Logo />
+              </div>
             </Link>
             <div className={styles.NavButtonContainer}>
               {data.map((page) => (

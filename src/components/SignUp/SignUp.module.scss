@@ -1,0 +1,70 @@
+@use '../../configs/definitions' as *;
+
+$tablet: 768px;
+$mobile: 480px;
+
+.SignUpContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 10rem auto;
+
+    @media (max-width: $tablet) {
+        h1 {
+            font-size: 4rem;
+        }
+    }
+
+    @media (max-width: $mobile) {
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .SignUpTitle {
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+    .SignUpTitle span {
+        background: linear-gradient(to right,#70FF00,#00E0FF);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+
+    .SignUpDescription {
+        width: 50%;
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: white;
+        text-align: center;
+
+
+
+        @media (max-width: $tablet) {
+            font-size: 1.5rem;
+            width: 100%;
+        }
+
+        @media (max-width: $mobile) {
+            font-size: 1.2rem;
+            width: 100%;
+        }
+    }
+
+    .SignUpButton {
+        margin-top: 2rem;
+    }
+
+    .LogoContainer {
+        width: 132px;
+        height: 94px;
+    }
+}

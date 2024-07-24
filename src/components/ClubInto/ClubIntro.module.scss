@@ -216,6 +216,7 @@
   .ClubIntroSection{
     background-color: #000;
     padding: 2rem;
+    margin-top: 10rem;
     
     .ClubIntroTitle {
       font-size: 2rem;
@@ -235,7 +236,7 @@
     .Divider {
      width: 100%;
      height: 1px; 
-     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 75%, rgba(255,255,255,1) 75%, rgba(0,0,0,1) 100%);
+     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 20%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 80%, rgba(255,255,255,1) 80%, rgba(0,0,0,1) 100%);
      margin-bottom: 3rem;
      display: flex; 
      align-items: center; 
@@ -243,12 +244,16 @@
    }
 
    .Divider span {
-    font-size: 0.8rem;
+    font-size: 1.04rem;
     font-weight: 600;
    }
 
+   @media (min-width: 0) {
+      margin-top: 2rem;
+   }
+
+
    @media (min-width: 640px) {
-    padding: 2rem 4.8rem 4.8rem 4.8rem;
 
     .ClubIntroTitle {
       font-size: 2rem;
@@ -263,14 +268,10 @@
       background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 75%, rgba(255,255,255,1) 75%, rgba(0,0,0,1) 100%);
       margin-bottom: 1rem;
     }
-
-    .Divider span {
-      font-size: 0.8rem;
-     }
   }
 
   @media (min-width: 720px) {
-    padding: 2rem 2rem 2rem 2rem;
+
 
     .ClubIntroTitle {
       font-size: 2rem;
@@ -286,11 +287,11 @@
   }
 
   @media (min-width: 1024px) {
-    padding: 4.8rem 4.8rem 4.8rem 4.8rem;
+
     
     .ClubIntroTitle {
       font-size: 2.5rem;
-      padding: 0 4rem;
+      padding: 0 9rem;
     }
     
     
@@ -300,24 +301,12 @@
    
    }
 
-   .Divider span {
-    font-size: 1rem;
-   }
   }
 
   @media (min-width: 1280px) {
-    padding: 4.8rem 9.6rem 9.6rem 9.6rem;
-    
-    .ClubIntroTitle {
-      font-size: 2.5rem;
-    }
-    
-    .ClubIntroTitle span {
-      padding: 2rem;
-    }
     
     .Divider {
-     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 38%, rgba(0,0,0,1) 38%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 62%, rgba(255,255,255,1) 62%, rgba(0,0,0,1) 100%);
+     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 40%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 60%, rgba(255,255,255,1) 60%, rgba(0,0,0,1) 100%);
    }
 
    

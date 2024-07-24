@@ -2,15 +2,20 @@ $tablet: 768px;
 $mobile: 480px;
 
 .Card {
-    background-color: #101010;
-    padding: 3.2rem 3.2rem;
+    padding: 1rem 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin: 4rem 0;
+
 
     @media (max-width: $tablet) {
        padding: 3.2rem 0;
     }
     
+    @media (max-width: $mobile) {
+        margin: 2rem 0;
+     }
 
     .FlexContainer {
         display: flex;
@@ -63,6 +68,7 @@ $mobile: 480px;
     .TitleLineContainer {
         display: flex;
         align-items: center;
+        margin-bottom: 2rem;
     }
 
     
@@ -72,6 +78,7 @@ $mobile: 480px;
         color: #FFFFFF;
         display: flex;
         align-items: center;
+
         
 
     }
@@ -84,7 +91,8 @@ $mobile: 480px;
     }
 
     .CardTitle2 {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
+        line-height: 3rem;
         font-weight: 600;
         
         @media (max-width: $tablet) {
@@ -116,6 +124,7 @@ $mobile: 480px;
         padding-right:4rem;
          p {
             margin-bottom: 1rem;
+            
          }
         & > div + div {
             margin-top: 1em; 
