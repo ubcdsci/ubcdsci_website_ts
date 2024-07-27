@@ -3,6 +3,9 @@ export const TEXTS = {
 
     },
     EVENTS: {
-
+        UPCOMING_EVENTS: {
+            LABEL: '<Events />',
+            TITLE: 'Upcoming Events',
+        }
     }
 }
