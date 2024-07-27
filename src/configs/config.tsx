@@ -734,3 +734,55 @@ export const clubIntroData : ClubIntroCardData[] = [
   
 ]
 
+/* -------------------------------------------------------------------------- */
+/*                                EVENTS PAGE DATA                                 */
+/* -------------------------------------------------------------------------- */
+
+
+export const UpcomingEvents : UpcomingEventObject[] = [
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: true,
+  },
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: false,
+  },
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: false,
+  },
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: false,
+  },
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: false,
+  },
+]

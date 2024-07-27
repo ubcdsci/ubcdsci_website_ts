@@ -121,3 +121,17 @@ type ClubIntroCardData = {
   button: string;
   color: string;
 }
+/* ----------------------- TYPE DEFINITIONS FOR UPCOMING EVENTS ----------------------- */
+interface EventObject {
+  title: string;
+  description: string;
+  image: string;
+  date: Date;
+  time: string;
+  location: string;
+}
+
+interface UpcomingEventObject extends EventObject {
+  important: boolean;
+}
+
