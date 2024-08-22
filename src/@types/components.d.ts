@@ -125,6 +125,8 @@ type ClubIntroCardData = {
 interface EventObject {
   title: string;
   description: string;
+  description2?: string;
+  description3?: string;
   image: string;
   date: Date;
   time: string;
@@ -135,3 +137,6 @@ interface UpcomingEventObject extends EventObject {
   important: boolean;
 }
 
+interface PastEventObject extends EventObject {
+  tags:String[];
+}
