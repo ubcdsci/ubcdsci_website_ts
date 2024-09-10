@@ -18,13 +18,13 @@ import styles from './GreenButton.module.scss';
 const GreenButton = (props: any) => {
   return (props.target === "_blank" ?
     <span>
-      <a target={props.target} href={props.href} rel={props.rel} className={styles.GreenButton}>
+      <a target={props.target} href={props.href} rel={props.rel} className={`${styles.GreenButton} ${props.className}`}>
         {props.text}
       </a>
     </span>
     :
     <span>
-      <Link smooth to={`${props.href}#`} className={styles.GreenButton}>
+      <Link smooth to={`${props.href}#`} className={`${styles.GreenButton} ${props.className}`}>
         {props.text}
       </Link>
     </span>

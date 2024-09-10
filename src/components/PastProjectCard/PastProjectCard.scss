@@ -1,0 +1,163 @@
+$tablet: 768px;
+$mobile: 480px;
+
+.past-project-card {
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4rem 0;
+
+
+    @media (max-width: $tablet) {
+       padding: 3.2rem 0;
+    }
+    
+    @media (max-width: $mobile) {
+        margin: 2rem 0;
+     }
+
+    .past-project-card-flex-container {
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .past-project-card-text-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        max-width: 50%;
+
+        @media (max-width: 1024px) {
+            max-width: 50%;
+         }
+
+        @media (max-width: $tablet) {
+            max-width: 90%;
+            align-self: flex-start;
+         }
+
+    }
+
+    .past-project-card-image-container {
+        max-width: 40%; 
+        height: 50%;
+        margin-left: 50px;
+       
+        /* add temp border for image placeholder*/
+        border: 2px solid white;
+        box-sizing: border-box;
+
+        @media (max-width: 1024px) {
+            max-width: 50%;
+         }
+
+        @media (max-width: $tablet) {
+            margin: 2rem 0;
+            max-width: 90%;
+         }
+     
+    }
+
+    .past-project-card-text-title-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    
+    .past-project-card-title-container {
+        font-size: 1.04rem;
+        font-weight: 600;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+
+        
+
+    }
+
+    .past-project-card-line {
+        flex-grow: 1;
+        height: 1px;
+        background: linear-gradient(to left, transparent, #FFFFFF);
+        margin-left: 20px;
+    }
+
+    .past-project-card-title-2 {
+        border-left: .25rem solid #3efc63;
+        padding-left: .5rem;
+        font-size: 2.5rem;
+        line-height: 3rem;
+        font-weight: 600;
+        
+        @media (max-width: $tablet) {
+            font-size: 2rem;
+            margin-top: 1rem;
+
+        }
+
+        @media (max-width: $mobile) {
+            line-height: 2.6rem;
+            margin-top: 1rem;
+
+        }
+    }
+
+    .past-project-card-sub-title {
+        margin-top: .5rem;
+    }
+
+    .past-project-card-tags {
+        margin-top: 1rem;
+    }
+    
+    .past-project-card-gradient-text {
+        background: linear-gradient(to right, #24FF00, #00E0FF, #24FF00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+    }
+
+    .past-project-card-body {
+        margin-top: 2em;
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        padding-right:4rem;
+         p {
+            margin-bottom: 1rem;
+            
+         }
+        & > div + div {
+            margin-top: 1em; 
+        }
+
+        @media (max-width: $tablet) {
+            padding: 0;
+         }
+
+    }
+
+    .past-project-card-links{
+        margin-top: 2rem;
+        display: flex;
+
+        .past-project-card-button{
+            margin-right: 1rem;
+            padding: 8px 18px;
+        }
+    }
+
+
+}
+
