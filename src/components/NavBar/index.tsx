@@ -196,9 +196,14 @@ const NavBar = () => {
 
               <GreenButton
                 text="Register Now"
-                href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy"
-                target="_blank"
-                rel="noreferrer noopener"
+                href="/"
+
+                /**
+                 * Uncomment this when the correct qulatrics survey is attached
+                 */
+                // target="_blank"
+                // rel="noreferrer noopener"
+
               />
             </span>
 
