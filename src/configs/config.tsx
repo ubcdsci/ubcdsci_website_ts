@@ -3,8 +3,8 @@ import {
   BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
   BsHouseFill, BsCalendar3, BsJournalText, BsHeadset
 } from 'react-icons/bs';
-import { FaGraduationCap } from 'react-icons/fa';
-import { FaPaintbrush } from "react-icons/fa6";
+import {FaGraduationCap } from 'react-icons/fa';
+import { FaFolderClosed, FaPaintbrush } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa6";
 
 
@@ -714,6 +714,14 @@ export const contactData : ContactContent[] = [
 }
 */
 export const clubIntroData : ClubIntroCardData[] = [
+  {
+    title: "Engaging Projects",
+    image: Creating,
+    description1: "While we currently do not offer projects, feel free to check out previous members’ engaging projects where they learn to apply skills in data science.",
+    icon: <FaFolderClosed />,
+    button: "View Projects",
+    color: "#00D1FF"
+  },
   {
     title: "Creating & Inspiring",
     image: Creating,
