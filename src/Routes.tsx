@@ -16,6 +16,7 @@ import ContactUs from '@/pages/ContactUs';
 import SearchResult from '@/pages/SearchResult';
 import HomeV2 from '@/pages/HomeV2/Home';
 import EventsV2 from '@/pages/EventsV2/Event';
+import ProjectsV2 from './pages/ProjectsV2/ProjectsV2';
 
 
 // import Login from '@/features/auth/Login';
@@ -36,7 +37,7 @@ const routes : {path : string, name : string, element : JSX.Element, access : Ac
   { path: "/about-us",      name: "About Us",           element: <div />, access: Access.PUBLIC }, 
   { path: "/contact-us",    name: "Contact Us",         element: <div />, access: Access.PUBLIC },
   { path: "/events",        name: "Events",             element: <EventsV2 />, access: Access.PUBLIC },
-  { path: "/projects",      name: "Projects",           element: <div />, access: Access.PUBLIC },
+  { path: "/projects",      name: "Projects",           element: <ProjectsV2/>, access: Access.PUBLIC },
   { path: "/search-result", name: "Search Results",     element: <div />, access: Access.PUBLIC },
 
 
