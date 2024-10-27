@@ -227,7 +227,9 @@
     
     .ClubIntroTitle span {
       color: transparent;
-      background: linear-gradient(to right,#70FF00,#00E0FF);
+      // background: linear-gradient(to right,#70FF00,#00E0FF);
+      // background: linear-gradient(to right, #3ffc65, #00E0FF, #2177f7);
+      background: linear-gradient(to right, #3ffc65, #b0dfe5, #2177f7);
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
       

@@ -19,7 +19,8 @@ import { navbarData as data } from '@/configs/config';
 import GreenButton from '@/components/GreenButton';
 
 // Media imports.
-import { LogoColourNoCircle as Logo } from '../Logos';
+// import { LogoColourNoCircle as Logo } from '../Logos';
+import { LogoNew as Logo } from '../Logos';
 
 
 // Check if links to external site and returns element.
