@@ -173,7 +173,6 @@ nav {
   &:hover {
     --hovered: flex;
     --no-hovered: none;
-    // color: #00FF47;
     color: rgb(167, 214, 252);
     
     .DropDownMenu {
@@ -229,7 +228,6 @@ nav {
     transition: all 0.25s ease-in-out;
 
     &:hover {
-      // color: #00FF47;
       color: rgb(163, 202, 249);
       transition: all 0.2s ease-in-out;
     }

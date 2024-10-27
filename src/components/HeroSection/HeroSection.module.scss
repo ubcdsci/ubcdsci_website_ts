@@ -5,7 +5,6 @@
 $tablet: 768px;
 $mobile: 480px;
 
-// colour for <UBC DATASCIENCE CLUB/>
 .Label {
     background: rgb(154, 198, 250);
     -webkit-background-clip: text;
@@ -68,9 +67,6 @@ $mobile: 480px;
 }
 
 .Statistical {
-    // background: linear-gradient(to right,#3deed9, #40b3f6);
-    // background: linear-gradient(to right, #24FF00, #00E0FF);
-    // background: linear-gradient(to right, #3ffc65, #00E0FF, #40b3f6);
     background: linear-gradient(to right, #3ffc65, #b0dfe5, #2177f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
