@@ -19,9 +19,13 @@ export const PastEventCard: React.FC<PastEventCardProps> = ({item}) => {
     const getTagColor = (tag: String) => {
         if (tag == 'Professionals') {
             return 'linear-gradient(to right, #016BCD,#11A6E5)';
-        } else if (tag == 'Careers') {
-            return 'linear-gradient(to right, #7301CD,#D511E5)';
-        } else {
+        } 
+
+        // else if (tag == 'Careers') {
+        //     return 'linear-gradient(to right, #7301CD,#D511E5)';
+        // }
+        
+        else {
             return '#202020';
         }
     }
