@@ -6,7 +6,7 @@ $tablet: 768px;
 $mobile: 480px;
 
 .project-label {
-    background: -webkit-linear-gradient(#3efc63, #3ffecd);
+    background: rgb(172, 209, 255);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
@@ -67,20 +67,20 @@ $mobile: 480px;
 }
 
 .project-hero-collaborative {
-    background: linear-gradient(to right,#8F00FF, #FF008A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right, #F95454, #FFBD73);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .project-hero-triumphs {
-    background: linear-gradient(to right,#EB00FF, #FF6B00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right, #FEEE91, #B9E5E8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .project-hero-project {
-    background: linear-gradient(to right,#FF2E00, #FF9900);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right,#77CDFF, #0D92F4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .project-hero-description {

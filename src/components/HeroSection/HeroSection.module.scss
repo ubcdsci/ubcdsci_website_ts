@@ -6,7 +6,7 @@ $tablet: 768px;
 $mobile: 480px;
 
 .Label {
-    background: -webkit-linear-gradient(#3efc63, #3ffecd);
+    background: rgb(154, 198, 250);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
@@ -67,9 +67,9 @@ $mobile: 480px;
 }
 
 .Statistical {
-    background: linear-gradient(to right,#3deed9, #40b3f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right, #3ffc65, #b0dfe5, #2177f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .HeroDescription {

@@ -1,6 +1,7 @@
 import styles from "./SignUp.module.scss";
 
-import { LogoColourNoCircle as Logo } from "../Logos";
+// import { LogoColourNoCircle as Logo } from "../Logos";
+import { LogoNewScale as Logo } from "../Logos";
 import GreenButton from "../GreenButton";
 
 const SignUpSection = () => {

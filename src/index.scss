@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary: 100, 240, 100;
+  --primary: 167, 214, 252;
+  --primary-teal: 115, 236, 139;
   --primary-dark: 50, 200, 50;
   --primary-darker: 0, 160, 0;
   --primary-light: 160, 250, 160;
@@ -160,7 +161,7 @@ code {
     monospace;
   /* font-family: "Montserrat",
     sans-serif; */
-  color: rgb(var(--primary));
+  color: rgb(var(--primary-teal));
 }
 
 ::-webkit-scrollbar {
@@ -190,7 +191,8 @@ code {
   right: 0;
   left: 0;
   height: 4px;
-  background: rgb(var(--primary-dark));
+  // background: rgb(var(--primary-dark));
+  background: rgb(var(--primary));
   transform-origin: 0%;
 }
 

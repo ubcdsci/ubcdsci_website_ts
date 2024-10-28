@@ -173,8 +173,8 @@ nav {
   &:hover {
     --hovered: flex;
     --no-hovered: none;
-    color: #00FF47;
-
+    color: rgb(167, 214, 252);
+    
     .DropDownMenu {
       padding-top: 40px;
     }
@@ -201,7 +201,8 @@ nav {
     bottom: -16px;
     height: 1px;
     width: calc(100% + 20px);
-    border-bottom: 3px solid #00FF47;
+    // border-bottom: 3px solid #00FF47;
+    background: linear-gradient(to right, rgb(201, 247, 253), rgb(68,151,220));
     pointer-events: none;
   }
 }
@@ -227,7 +228,7 @@ nav {
     transition: all 0.25s ease-in-out;
 
     &:hover {
-      color: #00FF47;
+      color: rgb(163, 202, 249);
       transition: all 0.2s ease-in-out;
     }
   }
