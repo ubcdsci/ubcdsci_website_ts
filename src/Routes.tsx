@@ -22,6 +22,7 @@ import ProjectsV2 from './pages/ProjectsV2/ProjectsV2';
 // import Login from '@/features/auth/Login';
 // import TwoFactor from '@/features/auth/TwoFactor';
 import ErrorPage from '@/pages/PageNotFound';
+import ContactUsV2 from './pages/ContactUsV2';
 
 
 
@@ -35,7 +36,7 @@ const routes : {path : string, name : string, element : JSX.Element, access : Ac
   { path: "/",              name: "Main",               element: <Navigate replace to="/home" />, access: Access.PUBLIC },
   { path: "/home",          name: "Home",               element: <HomeV2 />, access: Access.PUBLIC },
   { path: "/about-us",      name: "About Us",           element: <div />, access: Access.PUBLIC }, 
-  { path: "/contact-us",    name: "Contact Us",         element: <div />, access: Access.PUBLIC },
+  { path: "/contact-us",    name: "Contact Us",         element: <ContactUsV2 />, access: Access.PUBLIC },
   { path: "/events",        name: "Events",             element: <EventsV2 />, access: Access.PUBLIC },
   { path: "/projects",      name: "Projects",           element: <ProjectsV2/>, access: Access.PUBLIC },
   { path: "/search-result", name: "Search Results",     element: <div />, access: Access.PUBLIC },
