@@ -62,37 +62,6 @@ const Home = () => {
         }
       </motion.div>
 
-      {/* <motion.div
-        className={styles.RecentEvents}
-        initial="offscreen"
-        whileInView="onscreen"
-        variants={screenFade}
-        viewport={viewport}
-        transition={{ duration }}
-      >
-        <h1>Recent Events</h1>
-
-        <div className={styles.Events}>
-          { events ?
-            <>
-              
-            </>
-            :
-            <p>No events found.</p>
-          }
-        </div>
-      </motion.div> */}
-
-      {/* <motion.div
-        initial="offscreen"
-        whileInView="onscreen"
-        variants={screenFade}
-        viewport={viewport}
-        transition={{ duration }}
-      >
-        <CarouselFrame />
-      </motion.div> */}
-
       <motion.div
         className={styles.SponsorContent}
         initial="offscreen"
