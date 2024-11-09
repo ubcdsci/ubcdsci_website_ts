@@ -1,0 +1,128 @@
+@use '../../configs/definitions' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+$tablet: 768px;
+$mobile: 480px;
+
+.Label {
+    background: rgb(154, 198, 250);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05rem;
+    font-size: 1rem;
+
+    @media (max-width: $tablet) {
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 1rem;
+    }
+}
+
+.SocialLogo {
+    height: 50%;
+    width: 50%;
+
+    @media (max-width: $tablet) {
+        height: 100%;
+        width: 100%;
+    }
+
+    @media (max-width: $mobile) {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.Socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+
+    @media (max-width: $tablet) {
+        gap: 2rem;
+    }
+
+    @media (max-width: $mobile) {
+        gap: 2rem;
+    }
+}
+
+.Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    padding: 0 1rem;
+    height: 70vh;
+    margin: 0 auto;
+    margin: 5rem 0 5rem 0;
+
+    @media (max-width: $tablet) {
+        h1 {
+            font-size: 4rem;
+        }
+       
+    }
+
+    @media (max-width: $mobile) {
+        h1 {
+            font-size: 2rem;
+        }
+        margin-top: 5rem;
+    }
+}
+
+.Title {
+    text-align: center;
+    width: 60%;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    @media (max-width: $tablet) {
+        font-size: 3rem;
+        width: 100%;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 2rem;
+        width: 100%;
+    }
+}
+
+.SocialText {
+    background: linear-gradient(to right, #3ffc65, #b0dfe5, #2177f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Description {
+    width: 50%;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    margin-top: 1.75rem;
+
+
+    @media (max-width: $tablet) {
+        font-size: 1.5rem;
+        width: 100%;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 1.2rem;
+        width: 100%;
+    }
+}
