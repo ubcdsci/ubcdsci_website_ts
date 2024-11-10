@@ -4,7 +4,7 @@ import { scrollTop } from '@/utils/mouseScrolling';
 import { footerData as data } from '@/configs/config';
 
 import styles from './Footer.module.scss';
-import { LogoColourNoCircle as Logo, LogoColour } from '../Logos';
+import { LogoColourNoCircle as Logo } from '../Logos';
 
 
 /**

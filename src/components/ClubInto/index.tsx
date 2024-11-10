@@ -1,5 +1,4 @@
 // Library imports
-import { useEffect,useState } from "react";
 import { HashLink as Link } from 'react-router-hash-link';
 
 
@@ -9,7 +8,6 @@ import {clubIntroData as data} from '@/configs/config';
 // Style imports
 import styles from './ClubIntro.module.scss';
 import { FaChevronRight } from "react-icons/fa";
-import { style } from "@motionone/dom";
 
 
 
@@ -75,9 +73,9 @@ const ClubIntroCardData = () => {
                 We prioritize learning through <span> collaborative work.</span>
             </h1>
             <div className={styles.CardContainer}>
-                {data.map((item,index: number) => {
+                {data.map((_item,index: number) => {
                     return(
-                        <Card index={index}/>
+                        <Card index={index} />
                     );
                 }) }
             </div>
