@@ -6,9 +6,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Config imports.
-import { bgImgSrc, bgBlur, bgOverlayAlpha } from "@/configs/aesthetics";
-
-import Background from "@/components/Background";
 import NavBar from "@/components/NavBar";
 import Routes from "@/Routes";
 import Footer from "@/components/Footer";

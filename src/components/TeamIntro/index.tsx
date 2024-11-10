@@ -1,6 +1,3 @@
-// import libraries
-import { useEffect, useState } from "react"
-
 // import styling 
 import styles from './TeamIntro.module.scss'; 
 
@@ -63,7 +60,7 @@ const Card = (props: {index:number}) => {
 const TeamIntro = () => {
     return (
         <div className={styles.TitleLineContainer}>
-            {data.map((item, index: number) => {
+            {data.map((_item, index: number) => {
                 return (
                     <Card index={index}/>
                 );

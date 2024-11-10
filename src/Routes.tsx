@@ -7,13 +7,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 // import NewsletterForm from '@/components/NewsletterForm/NewsletterForm';
 
 // Pages imports.
-import Home from '@/pages/HomeV2/Home';
-import AboutUs from '@/pages/AboutUs';
-import AdminPanel from '@/pages/AdminPanel';
-import Projects from '@/pages/Projects';
-import Events from '@/pages/Events';
-import ContactUs from '@/pages/ContactUs';
-import SearchResult from '@/pages/SearchResult';
 import HomeV2 from '@/pages/HomeV2/Home';
 import EventsV2 from '@/pages/EventsV2/Event';
 import ProjectsV2 from './pages/ProjectsV2/ProjectsV2';
@@ -35,15 +28,9 @@ const routes : {path : string, name : string, element : JSX.Element, access : Ac
   // Public routes.
   { path: "/",              name: "Main",               element: <Navigate replace to="/home" />, access: Access.PUBLIC },
   { path: "/home",          name: "Home",               element: <HomeV2 />, access: Access.PUBLIC },
-  { path: "/about-us",      name: "About Us",           element: <div />, access: Access.PUBLIC }, 
   { path: "/contact-us",    name: "Contact Us",         element: <ContactUsV2 />, access: Access.PUBLIC },
   { path: "/events",        name: "Events",             element: <EventsV2 />, access: Access.PUBLIC },
   { path: "/projects",      name: "Projects",           element: <ProjectsV2/>, access: Access.PUBLIC },
-  { path: "/search-result", name: "Search Results",     element: <div />, access: Access.PUBLIC },
-
-
-  // Admin routes.
-  { path: "/dashboard",     name: "Admin Panel",        element: <AdminPanel />, access: Access.ADMIN },
 
   // Error route.
   { path: "*",              name: "np.isnan(\"page\")", element: <ErrorPage />, access: Access.PUBLIC },
