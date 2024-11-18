@@ -12,7 +12,7 @@ import { scrollTop } from "@/utils/mouseScrolling";
 import styles from "./PageNotFound.module.scss";
 
 // Media imports.
-import { LogoColour as Logo } from '@/components/Logos';
+import { LogoNew as Logo } from '@/components/Logos';
 
 
 /**
