@@ -1,0 +1,111 @@
+@use '../../configs/definitions' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+$tablet: 768px;
+$mobile: 480px;
+
+.project-label {
+    background: rgb(172, 209, 255);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05rem;
+    font-size: 1rem;
+
+    @media (max-width: $tablet) {
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 1rem;
+    }
+}
+
+.project-hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    padding: 0 1rem;
+    max-width: 1200px;
+    height: 70vh;
+    margin: 0 auto;
+
+    @media (max-width: $tablet) {
+        h1 {
+            font-size: 4rem;
+        }
+       
+    }
+
+    @media (max-width: $mobile) {
+        h1 {
+            font-size: 2rem;
+        }
+    }
+}
+
+.project-hero-title {
+    text-align: center;
+    width: 60%;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    @media (max-width: $tablet) {
+        font-size: 3rem;
+        width: 100%;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 2rem;
+        width: 100%;
+    }
+}
+
+.project-hero-collaborative {
+    background: linear-gradient(to right, #F95454, #FFBD73);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.project-hero-triumphs {
+    background: linear-gradient(to right, #FEEE91, #B9E5E8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.project-hero-project {
+    background: linear-gradient(to right,#77CDFF, #0D92F4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.project-hero-description {
+    width: 50%;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    margin-top: 1.75rem;
+
+
+    @media (max-width: $tablet) {
+        font-size: 1.5rem;
+        width: 100%;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 1.2rem;
+        width: 100%;
+    }
+}
+
+.project-hero-highlight {
+    font-weight: 700;
+}
+

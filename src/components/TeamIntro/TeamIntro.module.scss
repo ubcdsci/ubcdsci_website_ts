@@ -1,0 +1,140 @@
+$tablet: 768px;
+$mobile: 480px;
+
+.Card {
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4rem 0;
+
+
+    @media (max-width: $tablet) {
+       padding: 3.2rem 0;
+    }
+    
+    @media (max-width: $mobile) {
+        margin: 2rem 0;
+     }
+
+    .FlexContainer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .TextContainer {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        max-width: 40%;
+
+        @media (max-width: 1024px) {
+            max-width: 50%;
+         }
+
+        @media (max-width: $tablet) {
+            max-width: 90%;
+         }
+
+    }
+
+    .ImageContainer {
+        max-width: 40%; 
+        height: 50%;
+        margin-left: 50px;
+       
+        /* add temp border for image placeholder*/
+        border: 2px solid white;
+        box-sizing: border-box;
+
+        @media (max-width: 1024px) {
+            max-width: 50%;
+         }
+
+        @media (max-width: $tablet) {
+            margin: 2rem 0;
+            max-width: 90%;
+         }
+     
+    }
+
+    .TitleLineContainer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    
+    .CardTitle {
+        font-size: 1.04rem;
+        font-weight: 600;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+
+        
+
+    }
+
+    .CardLine {
+        flex-grow: 1;
+        height: 1px;
+        background: linear-gradient(to left, transparent, #FFFFFF);
+        margin-left: 20px;
+    }
+
+    .CardTitle2 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+        font-weight: 600;
+        
+        @media (max-width: $tablet) {
+            font-size: 2rem;
+            margin-top: 1rem;
+
+        }
+
+        @media (max-width: $mobile) {
+            line-height: 2.6rem;
+            margin-top: 1rem;
+
+        }
+    }
+    
+    .GradientText {
+        background: linear-gradient(to right, #3ffc65, #b0dfe5, #2177f7);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+    }
+
+    .CardBody {
+        margin-top: 2em;
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        padding-right:4rem;
+         p {
+            margin-bottom: 1rem;
+            
+         }
+        & > div + div {
+            margin-top: 1em; 
+        }
+
+        @media (max-width: $tablet) {
+            padding: 0;
+         }
+
+    }
+
+}
+

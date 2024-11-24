@@ -1,0 +1,44 @@
+// @use '../../configs/definitions' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+$tablet: 768px;
+$mobile: 480px;
+
+.t1 {
+    background: rgb(154, 198, 250);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05rem;
+    font-size: 2rem;
+
+
+    @media (max-width: $tablet) {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 1.5rem;
+    }
+}
+
+
+.submitButton {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 0.75rem 1.75rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    background-image: linear-gradient(to right, #016BCD,#11A6E5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: medium;
+    
+    &:hover {
+        background-color: darken(rgba(255, 65, 161, 1), 10%);
+    }
+}

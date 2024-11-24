@@ -1,0 +1,77 @@
+.UpcomingEventsSection{
+    background-color: #000;
+    padding: 2rem;
+    margin-top: 10rem;
+
+    @media (min-width: 0) {
+        margin-top: 2rem;
+    }
+
+    @media (min-width: 640px) {
+        padding: 1rem 1rem;
+    }
+
+    @media (min-width: 769px) {
+        padding: 2rem 3.2rem;
+    }
+
+    @media (min-width: 1025px) {
+        padding: 3.2rem 3.2rem;      
+      }
+
+    
+
+    .SectionTitle {
+        font-size: 40px;
+        color: white;
+        font-weight: 600;
+
+        margin-bottom: 3rem;
+    }
+
+    .SectionLabel{
+        background: rgb(172, 209, 255);;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: 0.05rem;
+        font-size: 17px;
+    }
+
+   
+}
+
+.CardContainer {
+    max-width: 120rem;
+    margin: 0 auto;
+    
+    display: grid;
+    column-gap: 3rem;
+    row-gap: 3rem;
+    
+    grid-template-columns: repeat(1, 1fr);
+
+    @media (min-width: 640px) {
+
+      column-gap: 3.2rem;
+      row-gap: 3.2rem;
+      
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 769px) {
+      column-gap: 2.4rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1025px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1280px) {
+      
+    }
+
+    
+  }
