@@ -253,7 +253,7 @@ nav {
       margin: 0.4rem 0;
       width: 100%;
       height: 0.2rem;
-      background-color: #fff;
+      background: linear-gradient(to right, rgb(var(--logo-blue-light)), rgb(var(--logo-green)));
       border-radius: 10px;
       transition: all 0.25s ease-in-out;
     }
@@ -290,17 +290,17 @@ nav {
   top: 4rem;
   padding: 2rem 0;
   z-index: 100;
-
   width: 100vw;
   height: 100vh;
+  background: rgba(var(--bg-black), 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(var(--primary), 0.1);
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
   input {
     width: 18rem !important;
     margin-left: 2rem;
   }
-
-  @extend .DarkBackground;
 }
 
 .HamburgerMenuClosed {
@@ -319,5 +319,10 @@ nav {
 
   p {
     min-width: 10rem;
+    color: rgba(var(--primary), 0.9);
+    
+    &:hover {
+      color: rgb(var(--primary-teal));
+    }
   }
 }
