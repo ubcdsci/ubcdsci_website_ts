@@ -1,7 +1,7 @@
 // Library imports.
 import {
   BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
-  BsHouseFill, BsCalendar3, BsJournalText, BsHeadset
+  BsHouseFill, BsCalendar3, BsJournalText, BsHeadset, BsLinkedin
 } from 'react-icons/bs';
 import {FaGraduationCap } from 'react-icons/fa';
 import { FaFolderClosed, FaPaintbrush } from "react-icons/fa6";
@@ -67,13 +67,13 @@ export const navbarData: Page[] = [
     text: "PROJECTS",
     href: "/projects",
     mobileIcon: <BsJournalText />,
-    // dropDowns: [
-    //   { text: "Bomberland", href: "#bomberland" },
-    //   { text: "Deepfake Detection", href: "#deepfake-detection" },
-    //   { text: "Fishnet", href: "#fishnet" },
-    //   { text: "HPE", href: "#human-pose-estimation" },
-    //   { text: "Spaces", href: "#spaces" },
-    // ],
+    dropDowns: [
+      { text: "Bomberland", href: "#bomberland" },
+      { text: "Deepfake Detection", href: "#deepfake-detection" },
+      { text: "Fishnet", href: "#fishnet" },
+      { text: "HPE", href: "#human-pose-estimation" },
+      { text: "Spaces", href: "#spaces" },
+    ]
   },
   // {
   //   key: "Membership",
@@ -140,6 +140,11 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
       icon: <BsFacebook />,
       href: "https://www.facebook.com/ubcdatascience",
     },
+    {
+      key: "LinkedIn",
+      icon: <BsLinkedin />,
+      href: "https://www.linkedin.com/company/ubc-data-science-club/",
+    }
   ],
   columns: [
     {

@@ -9,7 +9,7 @@ import { PastEventCard } from './PastEventsCard/PastEventsCard';
  */
 const PastEvents = () => {
     return (
-        <section className='past-events-section'>
+        <section id = "pastEvents" className='past-events-section'>
             <div className='past-events-section-title'>
                 {TEXTS.EVENTS.PAST_EVENTS.TITLE}
             </div>
