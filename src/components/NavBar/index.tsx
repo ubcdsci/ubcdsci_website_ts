@@ -193,7 +193,7 @@ const NavBar = () => {
             <span className={styles.NavButtons}>
               <GreenButton
                 text="REGISTER"
-                href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy"
+                href="https://ubc.ca1.qualtrics.com/jfe/form/SV_8j2JFMxAQFnBlki"
                 target="_blank"
                 rel="noreferrer noopener"
 
