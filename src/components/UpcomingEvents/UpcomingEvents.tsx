@@ -11,7 +11,7 @@ import { UpcomingEventCard } from './UpcomingEventCard/UpcomingEventCard';
  */
 const UpcomingEvents = () => {
     return(
-        <section className={styles.UpcomingEventsSection}>
+        <section id="upcomingEvents" className={styles.UpcomingEventsSection}>
             <div className={styles.SectionLabel}>
                 {TEXTS.EVENTS.UPCOMING_EVENTS.LABEL}
             </div>
