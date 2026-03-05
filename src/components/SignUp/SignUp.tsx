@@ -1,8 +1,8 @@
 import styles from "./SignUp.module.scss";
 
-// import { LogoColourNoCircle as Logo } from "../Logos";
 import { LogoNewScale as Logo } from "../Logos";
 import GreenButton from "../GreenButton";
+import { MEMBERSHIP_FORM_URL } from "@/configs/config";
 
 const SignUpSection = () => {
     return (
@@ -20,7 +20,7 @@ const SignUpSection = () => {
         <span className={styles.SignUpButton}>
             <GreenButton
                     text="Join Us"
-                    href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy"
+                    href={MEMBERSHIP_FORM_URL}
                     target="_blank"
                     rel="noreferrer noopener"
             />

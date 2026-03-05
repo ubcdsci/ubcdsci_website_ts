@@ -1,5 +1,5 @@
-// JSX Component
 import styles from "./HeroSection.module.scss";
+import { MEMBERSHIP_FORM_URL } from "@/configs/config";
 
 const HeroSection = () => {
   return (
@@ -15,8 +15,14 @@ const HeroSection = () => {
         <span className={styles.Highlight}>academia with industry.</span>
       </p>
       <div className={styles.EmailRegister}>
-        <input type="text" placeholder="EMAIL" className={styles.EmailInput} />
-        <button className={styles.RegisterButton}>Register</button>
+        <a
+          href={MEMBERSHIP_FORM_URL}
+          target="_blank"
+          rel="noreferrer noopener"
+          className={styles.RegisterButton}
+        >
+          Register Now
+        </a>
       </div>
     </div>
   );
