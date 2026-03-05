@@ -32,6 +32,12 @@ import Mentors from '@/images/profileDefault.png';
 
 
 /* -------------------------------------------------------------------------- */
+/*                              SHARED CONSTANTS                              */
+/* -------------------------------------------------------------------------- */
+
+export const MEMBERSHIP_FORM_URL = "https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy";
+
+/* -------------------------------------------------------------------------- */
 /*                           COMMON COMPONENTS DATA                           */
 /* -------------------------------------------------------------------------- */
 
@@ -347,7 +353,7 @@ export const faqData : FAQContent[] = [
       <blockquote>
         You can register to become a member by filling out the&nbsp;
         <a
-          href='https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy'
+          href={MEMBERSHIP_FORM_URL}
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -378,7 +384,7 @@ export const faqData : FAQContent[] = [
       <blockquote>
         To join a project group, first sign up through our&nbsp;
         <a
-          href='https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy'
+          href={MEMBERSHIP_FORM_URL}
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -472,6 +478,7 @@ export const faqData : FAQContent[] = [
     github: "https://github.com/ubcdsci/"
   }
 */
+// TODO: Review and update project entries below with current content/status.
 export const projectsListData : ProjectContent[] = [
   {
     title: "Bomberland",
@@ -720,7 +727,8 @@ export const clubIntroData : ClubIntroCardData[] = [
     description1: "While we currently do not offer projects, feel free to check out previous members’ engaging projects where they learn to apply skills in data science.",
     icon: <FaFolderClosed />,
     button: "View Projects",
-    color: "#00D1FF"
+    color: "#00D1FF",
+    href: "/projects"
   },
   {
     title: "Creating & Inspiring",
@@ -729,7 +737,8 @@ export const clubIntroData : ClubIntroCardData[] = [
     description2: "Promote learning by hosting and facilitating events for students to explore topics in data science.",
     icon: <FaPaintbrush />,
     button: "View Events",
-    color: "#FF007A"
+    color: "#FF007A",
+    href: "/events"
   },
   {
     title: "Support & Mentors",
@@ -737,7 +746,8 @@ export const clubIntroData : ClubIntroCardData[] = [
     description1: "Create a supportive environment that empowers students new to data science by learning from experienced individuals, and for the experienced to learn through mentoring.",
     icon: <FaUser />,
     button: "View Mentors",
-    color: "#D7CB00"
+    color: "#D7CB00",
+    href: "/contact-us"
   },
   
 ]
@@ -746,7 +756,8 @@ export const clubIntroData : ClubIntroCardData[] = [
 /*                                EVENTS PAGE DATA                                 */
 /* -------------------------------------------------------------------------- */
 
-
+// TODO: Replace placeholder events below with current upcoming events.
+// Each entry needs: title, description, image, date, time, location, important (boolean).
 export const UpcomingEvents : UpcomingEventObject[] = [
   {
     title: 'Important Event',
@@ -795,6 +806,8 @@ export const UpcomingEvents : UpcomingEventObject[] = [
   },
 ]
 
+// TODO: Replace placeholder events below with actual past events.
+// Each entry needs: title, description, image, date, time, location, tags.
 export const PastEvents : PastEventObject[] = [
   {
     title: 'Interview: Becoming a DATA SCIENTIST A',

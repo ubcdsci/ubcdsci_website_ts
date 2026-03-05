@@ -14,8 +14,7 @@ import { scrollTop } from '@/utils/mouseScrolling';
 import styles from './NavBar.module.scss';
 
 // Component imports.
-import { navbarData as data } from '@/configs/config';
-// import SearchBar from '@/components/SearchBar';
+import { navbarData as data, MEMBERSHIP_FORM_URL } from '@/configs/config';
 import GreenButton from '@/components/GreenButton';
 
 // Media imports.
@@ -142,7 +141,7 @@ const NavBar = () => {
             <ul className={styles.NavButtonsMenu}>
               <li>
                 <a
-                  href="https://ubc.ca1.qualtrics.com/jfe/form/SV_8j2JFMxAQFnBlki"
+                  href={MEMBERSHIP_FORM_URL}
                   target="_blank"
                   rel="noreferrer noopener"
                   className={styles.NavButtonRegister}
@@ -193,7 +192,7 @@ const NavBar = () => {
             <span className={styles.NavButtons}>
               <GreenButton
                 text="REGISTER"
-                href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy"
+                href={MEMBERSHIP_FORM_URL}
                 target="_blank"
                 rel="noreferrer noopener"
 

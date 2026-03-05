@@ -1,6 +1,5 @@
 import { HashLink as Link } from 'react-router-hash-link';
 
-import { scrollTop } from '@/utils/mouseScrolling';
 import { footerData as data } from '@/configs/config';
 
 import styles from './Footer.module.scss';
@@ -57,7 +56,7 @@ const Footer = () => {
         {data.columns.map((col) => (
           <div key={col.title} className={styles.Column}>
             <p className={styles.ColumnMain}>
-              <Link to={col.href} onClick={() => scrollTop()} draggable="false">
+              <Link smooth to={col.href} draggable="false">
                 {col.title}
               </Link>
             </p>

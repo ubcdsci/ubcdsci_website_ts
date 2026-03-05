@@ -53,7 +53,7 @@ const Card = (props: {index: number}) => {
             <div className={styles.ProjectIcon} style={{'color': `${data[props.index].color}`}} >
                 {data[props.index].icon}
             </div>
-            <ProjectButton text={data[props.index].button} href="/" color={data[props.index].color}/>
+            <ProjectButton text={data[props.index].button} href={data[props.index].href} color={data[props.index].color}/>
 
         </div>
     );

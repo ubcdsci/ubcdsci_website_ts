@@ -120,6 +120,7 @@ type ClubIntroCardData = {
   icon?: any;
   button: string;
   color: string;
+  href: string;
 }
 /* ----------------------- TYPE DEFINITIONS FOR UPCOMING EVENTS ----------------------- */
 interface EventObject {
