@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary: 100, 240, 100;
+  --primary: 167, 214, 252;
+  --primary-teal: 115, 236, 139;
   --primary-dark: 50, 200, 50;
   --primary-darker: 0, 160, 0;
   --primary-light: 160, 250, 160;
@@ -23,6 +24,7 @@
   --bg-dark: 10, 10, 10;
   --bg-light: 250, 250, 250;
   --bg-mid: 130, 130, 130;
+  --bg-black: 0,0,0;
 }
 
 
@@ -39,15 +41,6 @@ html {
   tab-size: 4;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
 
 a {
   color: inherit;
@@ -158,7 +151,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   overflow-y: overlay;
-  background-color: #141414;
+  // background-color: #141414;
+  background-color: #000;
   color: #fff;
 }
 
@@ -167,7 +161,7 @@ code {
     monospace;
   /* font-family: "Montserrat",
     sans-serif; */
-  color: rgb(var(--primary));
+  color: rgb(var(--primary-teal));
 }
 
 ::-webkit-scrollbar {
@@ -197,7 +191,8 @@ code {
   right: 0;
   left: 0;
   height: 4px;
-  background: rgb(var(--primary-dark));
+  // background: rgb(var(--primary-dark));
+  background: rgb(var(--primary));
   transform-origin: 0%;
 }
 

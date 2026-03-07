@@ -1,9 +1,13 @@
 // Library imports.
 import {
   BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
-  BsPeopleFill, BsCalendar3, BsJournalText, BsHeadset
+  BsHouseFill, BsCalendar3, BsJournalText, BsHeadset
 } from 'react-icons/bs';
-import { FaGraduationCap } from 'react-icons/fa';
+import {FaGraduationCap } from 'react-icons/fa';
+import { FaFolderClosed, FaPaintbrush } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
+
+
 
 // Media imports.
 import Bomberland from '@/images/bomberland.gif';
@@ -20,6 +24,18 @@ import Outreach from '@/images/execs/outreach.png';
 import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmasterHeadshot.png';
 
+import TeamIntro from '@/images/Fishnet.jpg';
+
+
+import Creating from '@/images/profileDefault.png';
+import Mentors from '@/images/profileDefault.png';
+
+
+/* -------------------------------------------------------------------------- */
+/*                              SHARED CONSTANTS                              */
+/* -------------------------------------------------------------------------- */
+
+export const MEMBERSHIP_FORM_URL = "https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy";
 
 /* -------------------------------------------------------------------------- */
 /*                           COMMON COMPONENTS DATA                           */
@@ -30,40 +46,40 @@ import Webmaster from '@/images/execs/webmasterHeadshot.png';
 // Data for loading the navigation bar.
 export const navbarData: Page[] = [
   {
-    key: "About Us",
-    text: "About Us",
-    href: "/about-us",
-    mobileIcon: <BsPeopleFill />,
-    dropDowns: [
-      { text: "Club Description", href: "#clubDescription" },
-      { text: "Mission Statement", href: "#missionStatement" },
-      { text: "Executive Team", href: "#executiveTeam" },
-      { text: "FAQ", href: "#faq" },
-    ],
+    key: "Home",
+    text: "HOME",
+    href: "/home",
+    mobileIcon: <BsHouseFill />,
+    // dropDowns: [
+    //   { text: "Club Description", href: "#clubDescription" },
+    //   { text: "Mission Statement", href: "#missionStatement" },
+    //   { text: "Executive Team", href: "#executiveTeam" },
+    //   { text: "FAQ", href: "#faq" },
+    // ],
   },
   {
     key: "Events",
-    text: "Events",
+    text: "EVENTS",
     href: "/events",
     mobileIcon: <BsCalendar3 />,
     dropDowns: [
-      { text: "Ongoing Events", href: "#ongoingEvents" },
-      { text: "Upcoming Events", href: "#upcomingEvents" },
-      { text: "Past Events", href: "#pastEvents" },
+      { text: "Ongoing", href: "#ongoingEvents" },
+      { text: "Upcoming", href: "#upcomingEvents" },
+      { text: "Past", href: "#pastEvents" },
     ],
   },
   {
     key: "Projects",
-    text: "Projects",
+    text: "PROJECTS",
     href: "/projects",
     mobileIcon: <BsJournalText />,
-    dropDowns: [
-      { text: "Bomberland", href: "#bomberland" },
-      { text: "Deepfake Detection", href: "#deepfake-detection" },
-      { text: "Fishnet", href: "#fishnet" },
-      { text: "HPE", href: "#human-pose-estimation" },
-      { text: "Spaces", href: "#spaces" },
-    ],
+    // dropDowns: [
+    //   { text: "Bomberland", href: "#bomberland" },
+    //   { text: "Deepfake Detection", href: "#deepfake-detection" },
+    //   { text: "Fishnet", href: "#fishnet" },
+    //   { text: "HPE", href: "#human-pose-estimation" },
+    //   { text: "Spaces", href: "#spaces" },
+    // ],
   },
   // {
   //   key: "Membership",
@@ -86,12 +102,28 @@ export const navbarData: Page[] = [
   //   ],
   // },
   {
-    key: "Contact Us",
-    text: "Contact Us",
+    key: "Contact",
+    text: "CONTACT",
     href: "/contact-us",
     mobileIcon: <BsHeadset />,
     // dropDowns: [],
   },
+];
+
+/* ------------------------------- TEAM INTRO DATA --------------------------- */
+
+// Data for loading the team intro.
+export const teamIntroData: TeamIntroContent[] = [
+  {
+    title1: "WHAT WE DO",
+    body1_1: "We aim to provide students an ",
+    body1_2: "and subjects related to data science.",
+    body2_1: "Members are able to",
+    body2_2: "such as workshops,",
+    body2_3: ", and",
+    body2_4: "or enter data science competitions.",
+    image: TeamIntro // placeholder for image, replace with image path
+  }
 ];
 
 /* ------------------------------ FOOTER DATA ------------------------------- */
@@ -121,31 +153,31 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
       href: "/home",
       links: [],
     },
-    {
-      title: "About Us",
-      href: "/about-us",
-      links: [
-        { text: "Club Description", href: "/about-us#clubDescription" },
-        { text: "Mission Statement", href: "/about-us#missionStatement" },
-        { text: "Executive Team", href: "/about-us#executiveTeam" },
-        { text: "FAQ", href: "/about-us#faq" },
-      ],
-    },
+    // {
+    //   title: "About Us",
+    //   href: "/about-us",
+    //   links: [
+    //     { text: "Club Description", href: "/about-us#clubDescription" },
+    //     { text: "Mission Statement", href: "/about-us#missionStatement" },
+    //     { text: "Executive Team", href: "/about-us#executiveTeam" },
+    //     { text: "FAQ", href: "/about-us#faq" },
+    //   ],
+    // },
     {
       title: "Events",
       href: "/events",
       links: [
-        { text: "Ongoing Events", href: "/events#ongoingEvents" },
-        { text: "Past Events", href: "/events#pastEvents" },
-        { text: "Upcoming Events", href: "/events#upcomingEvents" },
+        { text: "Ongoing", href: "/events#ongoingEvents" },
+        { text: "Past", href: "/events#pastEvents" },
+        { text: "Upcoming", href: "/events#upcomingEvents" },
       ],
     },
     {
-      title: "Projects",
+      title: "Past Projects",
       href: "/projects",
       links: [
         { text: "Bomberland", href: "/projects#bomberland" },
-        { text: "Deepfake Detection", href: "/projects#deepfake-detection" },
+        { text: "DeepFake Detection", href: "/projects#deepfake-detection" },
         { text: "Fishnet", href: "/projects#fishnet" },
         { text: "HPE", href: "/projects#human-pose-estimation" },
         { text: "Spaces", href: "/projects#spaces" },
@@ -168,7 +200,7 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
     //   ],
     // },
     {
-      title: "Contact Us",
+      title: "Contact",
       href: "/contact-us",
       links: [],
     },
@@ -321,7 +353,7 @@ export const faqData : FAQContent[] = [
       <blockquote>
         You can register to become a member by filling out the&nbsp;
         <a
-          href='https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy'
+          href={MEMBERSHIP_FORM_URL}
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -352,7 +384,7 @@ export const faqData : FAQContent[] = [
       <blockquote>
         To join a project group, first sign up through our&nbsp;
         <a
-          href='https://ubc.ca1.qualtrics.com/jfe/form/SV_6VTh44IkLtOyjIy'
+          href={MEMBERSHIP_FORM_URL}
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -446,6 +478,7 @@ export const faqData : FAQContent[] = [
     github: "https://github.com/ubcdsci/"
   }
 */
+// TODO: Review and update project entries below with current content/status.
 export const projectsListData : ProjectContent[] = [
   {
     title: "Bomberland",
@@ -673,3 +706,171 @@ export const contactData : ContactContent[] = [
     text: "AMS Data Science Club @ UBC",
   }
 ];
+
+
+// Data for ClubIntroCards
+/*
+{
+  title: string;
+  image?: any;
+  description1: string;
+  description2?: string;
+  icon?: any;
+  button: string;
+  color: string;
+}
+*/
+export const clubIntroData : ClubIntroCardData[] = [
+  {
+    title: "Engaging Projects",
+    image: Creating,
+    description1: "While we currently do not offer projects, feel free to check out previous members’ engaging projects where they learn to apply skills in data science.",
+    icon: <FaFolderClosed />,
+    button: "View Projects",
+    color: "#00D1FF",
+    href: "/projects"
+  },
+  {
+    title: "Creating & Inspiring",
+    image: Creating,
+    description1: "Enable and encourage students to find opportunities involving data science outside of the club and/or UBC.",
+    description2: "Promote learning by hosting and facilitating events for students to explore topics in data science.",
+    icon: <FaPaintbrush />,
+    button: "View Events",
+    color: "#FF007A",
+    href: "/events"
+  },
+  {
+    title: "Support & Mentors",
+    image: Mentors,
+    description1: "Create a supportive environment that empowers students new to data science by learning from experienced individuals, and for the experienced to learn through mentoring.",
+    icon: <FaUser />,
+    button: "View Mentors",
+    color: "#D7CB00",
+    href: "/contact-us"
+  },
+  
+]
+
+/* -------------------------------------------------------------------------- */
+/*                                EVENTS PAGE DATA                                 */
+/* -------------------------------------------------------------------------- */
+
+// TODO: Replace placeholder events below with current upcoming events.
+// Each entry needs: title, description, image, date, time, location, important (boolean).
+export const UpcomingEvents : UpcomingEventObject[] = [
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: true,
+  },
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: false,
+  },
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: false,
+  },
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: false,
+  },
+  {
+    title: 'Important Event',
+    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    important: false,
+  },
+]
+
+// TODO: Replace placeholder events below with actual past events.
+// Each entry needs: title, description, image, date, time, location, tags.
+export const PastEvents : PastEventObject[] = [
+  {
+    title: 'Interview: Becoming a DATA SCIENTIST A',
+    description: 'Our club is presenting a member-exclusive event Panel Interview: Becoming a Data Scientist. Five data science professionals are invited to share their personal journeys in navigating their career paths to where they are today, in data science. ',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'UBC',
+    tags:['Professionals','Careers','Panel'],
+  },
+  {
+    title: 'Join our executive team! B',
+    description: 'Our executive election is happening THIS Sunday,',
+    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
+    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'UBC',
+    tags:['Professionals','Careers','Panel'],
+  },
+  {
+    title: 'Join our executive team! C',
+    description: 'Our executive election is happening THIS Sunday,',
+    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
+    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'UBC',
+    tags:['Professionals','Careers','Panel'],
+  },
+  {
+    title: 'Join our executive team! D',
+    description: 'Our executive election is happening THIS Sunday,',
+    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
+    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'UBC',
+    tags:['Professionals','Careers','Panel'],
+  },
+  {
+    title: 'Join our executive team! E',
+    description: 'Our executive election is happening THIS Sunday,',
+    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
+    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'UBC',
+    tags:['Professionals','Careers','Panel'],
+  },
+  {
+    title: 'Join our executive team! F',
+    description: 'Our executive election is happening THIS Sunday,',
+    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
+    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
+    image: TeamIntro,
+    date: new Date("2024-07-25"),
+    time: '6.30 PM PST',
+    location: 'UBC',
+    tags:['Professionals','Careers','Panel'],
+  },
+]

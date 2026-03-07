@@ -14,6 +14,18 @@ type Page = {
   dropDowns?: DropDowns[];
 }
 
+/* ----------------------- TYPE DEFINITIONS FOR TEAM INTRO ------------------- */
+type TeamIntroContent = {
+  title1: string;
+  body1_1: string;
+  body1_2: string;
+  body2_1: string;
+  body2_2: string;
+  body2_3: string;
+  body2_4: string;
+  image?: any;
+}
+
 
 /* ----------------------- TYPE DEFINITIONS FOR FOOTER ---------------------- */
 type SMButton = {
@@ -97,3 +109,35 @@ type EventPostFormData = {
 	imageUpload?: string;
 	tags?: string[];
 };
+
+
+/* ----------------------- TYPE DEFINITIONS FOR CLUB INTRO ----------------------- */
+type ClubIntroCardData = {
+  title: string;
+  image?: any;
+  description1: string;
+  description2?: string;
+  icon?: any;
+  button: string;
+  color: string;
+  href: string;
+}
+/* ----------------------- TYPE DEFINITIONS FOR UPCOMING EVENTS ----------------------- */
+interface EventObject {
+  title: string;
+  description: string;
+  description2?: string;
+  description3?: string;
+  image: string;
+  date: Date;
+  time: string;
+  location: string;
+}
+
+interface UpcomingEventObject extends EventObject {
+  important: boolean;
+}
+
+interface PastEventObject extends EventObject {
+  tags:String[];
+}

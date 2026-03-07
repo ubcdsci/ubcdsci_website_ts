@@ -1,0 +1,75 @@
+.MuiCard-root.past-event-card {
+    background-color: #141414;
+    color: white;
+
+    margin-left: auto;
+    border-radius: 16px;
+    padding: 3rem 0;
+
+    position: relative;
+    overflow: initial;
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+
+    @media (max-width: 820px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        padding: 0 0 1rem 0;
+    }
+    
+    .past-event-card-content{
+        padding: 0 2rem 0 3rem;
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 820px) {
+            padding: 0 1rem 0 1rem;
+        }
+    }
+   
+    .past-event-image {
+        max-width: 40%;
+        @media (max-width: 820px) {
+            max-width: 100%;
+        }
+    }
+
+    .past-event-date{
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 2rem;
+        @media (max-width: 820px) {
+             margin: 1rem 0 1rem 0;
+        }
+    }
+
+    .past-event-title{
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 2rem;
+
+        @media (max-width: 600px) {
+            margin-bottom: 1rem;
+            font-size: 30px;
+        }
+        @media (max-width: 820px) {
+            margin-bottom: 1rem;
+        }
+
+    }
+
+    .past-event-description {
+        font-size: 17px;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+
+    .past-event-tags .MuiStack-root {
+        @media (max-width: 820px) {
+            justify-content: center;
+        }
+    }
+
+}
