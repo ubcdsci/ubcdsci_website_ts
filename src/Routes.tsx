@@ -19,37 +19,115 @@ import ContactUsV2 from './pages/ContactUsV2';
 
 
 
+const SITE_URL = "https://www.ubcdsci.com";
+const OG_IMAGE = `${SITE_URL}/logo512.png`;
+
 enum Access {
   PUBLIC,
   ADMIN
 }
 
-const routes : {path : string, name : string, element : JSX.Element, access : Access}[] = [
-  // Public routes.
-  { path: "/",              name: "Main",               element: <Navigate replace to="/home" />, access: Access.PUBLIC },
-  { path: "/home",          name: "Home",               element: <HomeV2 />, access: Access.PUBLIC },
-  { path: "/contact-us",    name: "Contact Us",         element: <ContactUsV2 />, access: Access.PUBLIC },
-  { path: "/events",        name: "Events",             element: <EventsV2 />, access: Access.PUBLIC },
-  { path: "/projects",      name: "Projects",           element: <ProjectsV2/>, access: Access.PUBLIC },
+interface RouteConfig {
+  path: string;
+  name: string;
+  description: string;
+  element: JSX.Element;
+  access: Access;
+}
 
-  // Error route.
-  { path: "*",              name: "np.isnan(\"page\")", element: <ErrorPage />, access: Access.PUBLIC },
+const routes: RouteConfig[] = [
+  {
+    path: "/",
+    name: "Main",
+    description: "UBC Data Science Club – a student-led club at the University of British Columbia helping students learn data science through hands-on projects, events, and workshops.",
+    element: <Navigate replace to="/home" />,
+    access: Access.PUBLIC,
+  },
+  {
+    path: "/home",
+    name: "Home",
+    description: "UBC Data Science Club – a student-led club at the University of British Columbia helping students learn data science through hands-on projects, events, and workshops.",
+    element: <HomeV2 />,
+    access: Access.PUBLIC,
+  },
+  {
+    path: "/contact-us",
+    name: "Contact Us",
+    description: "Get in touch with the UBC Data Science Club. Reach out for sponsorship inquiries, collaborations, or general questions about our club at UBC.",
+    element: <ContactUsV2 />,
+    access: Access.PUBLIC,
+  },
+  {
+    path: "/events",
+    name: "Events",
+    description: "Browse upcoming and past events hosted by the UBC Data Science Club, including workshops, hackathons, speaker panels, and networking sessions.",
+    element: <EventsV2 />,
+    access: Access.PUBLIC,
+  },
+  {
+    path: "/projects",
+    name: "Projects",
+    description: "Explore data science projects built by UBC Data Science Club members, covering machine learning, data analysis, visualization, and more.",
+    element: <ProjectsV2 />,
+    access: Access.PUBLIC,
+  },
+  {
+    path: "*",
+    name: "Page Not Found",
+    description: "UBC Data Science Club – the page you're looking for could not be found.",
+    element: <ErrorPage />,
+    access: Access.PUBLIC,
+  },
 ];
 
 
-/**
- * Sets the title for the browser tab.
- * @param {string} title The title to set.
- * @param {string} description The description to set.
- */
-const TabTitle = (props: {title : string, description? : string}) => {
+const TabTitle = (props: { title: string; description: string; path: string }) => {
+  const fullTitle = `${props.title} – UBC Data Science Club`;
+  const canonicalUrl = `${SITE_URL}${props.path === "/" ? "/home" : props.path}`;
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "UBC Data Science Club",
+    alternateName: "UBC DSCI",
+    url: SITE_URL,
+    logo: OG_IMAGE,
+    description:
+      "A student-led club at the University of British Columbia helping students learn data science through hands-on projects, events, and workshops.",
+    sameAs: [
+      "https://www.instagram.com/ubcdsci/",
+      "https://www.linkedin.com/company/ubcdsci/",
+    ],
+    memberOf: {
+      "@type": "Organization",
+      name: "University of British Columbia",
+    },
+  };
+
   return (
     <Helmet>
-      <title>{props.title} – UBC Data Science Club</title>
-        <meta
-          name="description"
-          content={ props.description ? props.description : "AMS UBC Data Science Club"}
-        />
+      <title>{fullTitle}</title>
+      <meta name="description" content={props.description} />
+      <link rel="canonical" href={canonicalUrl} />
+
+      {/* Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={props.description} />
+      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:site_name" content="UBC Data Science Club" />
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={props.description} />
+      <meta name="twitter:image" content={OG_IMAGE} />
+
+      {/* Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify(organizationSchema)}
+      </script>
     </Helmet>
   );
 };
@@ -66,13 +144,13 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        {routes.map(({ path, name, element }) => (
+        {routes.map(({ path, name, description, element }) => (
           <Route
             key={name}
             path={path}
             element={
               <>
-                <TabTitle title={name} />
+                <TabTitle title={name} description={description} path={path} />
                 <motion.div
                   className="PageContainer"
                   initial={{ opacity: 0.1 }}
