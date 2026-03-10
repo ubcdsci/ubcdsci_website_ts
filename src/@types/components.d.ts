@@ -136,8 +136,12 @@ interface EventObject {
 
 interface UpcomingEventObject extends EventObject {
   important: boolean;
+  // optional precise datetimes (ISO string or Date)
+  start?: string | Date;
+  end?: string | Date;
+  timezone?: string; // IANA timezone like 'America/Los_Angeles'
 }
 
 interface PastEventObject extends EventObject {
-  tags:String[];
+  tags: string[];
 }

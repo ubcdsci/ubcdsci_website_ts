@@ -21,4 +21,31 @@
         font-weight: 500;
         margin-top: 1rem;
     }
+    .EventActions {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .EventButton {
+        color: #ffffff;
+        border-color: rgba(255,255,255,0.22);
+        text-transform: none;
+        font-weight: 600;
+        padding: 4px 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: transparent;
+    }
+
+    .EventButton:hover {
+        border-color: rgba(255,255,255,0.36);
+        background: rgba(255,255,255,0.02);
+    }
+
+    .EventButtonText {
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
