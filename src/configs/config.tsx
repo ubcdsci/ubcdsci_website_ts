@@ -134,12 +134,12 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
     {
       key: "Discord",
       icon: <BsDiscord />,
-      href: "https://discord.gg/4AycB34acK",
+      href: "https://discord.gg/68WkEhRz",
     },
     {
       key: "Instagram",
       icon: <BsInstagram />,
-      href: "https://www.instagram.com/ubcdatascienceclub/?hl=en",
+      href: "https://www.instagram.com/ubcdsci/?hl=en",
     },
     {
       key: "Facebook",

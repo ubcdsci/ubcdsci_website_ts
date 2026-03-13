@@ -36,7 +36,7 @@ const ContactUsV2 = () => {
           <LinkedinLogo />
         </a>
         <a
-          href="https://discord.gg/s3cs7UndxB"
+          href="https://discord.gg/68WkEhRz"
           target="_blank"
           rel="noreferrer"
           className={styles.SocialLogo}
