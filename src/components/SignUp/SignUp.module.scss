@@ -63,6 +63,39 @@ $mobile: 480px;
         margin-top: 2rem;
     }
 
+    .JoinButton {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 12px 24px;
+        border-radius: 8px;
+        border: none;
+        font-family: Poppins;
+        font-weight: 600;
+        font-size: 17px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+        background: linear-gradient(103.25deg, rgb(87, 156, 213), rgb(39, 92, 179)), linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+
+        &:hover:not(:disabled) {
+            background-color: rgba(var(--primary-dark), 1);
+            transition: all 0.2s ease-in-out;
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+
+    .ErrorMessage {
+        color: rgb(var(--error));
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
     .LogoContainer {
         width: 160px;
         height: 132px;
