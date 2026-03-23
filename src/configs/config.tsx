@@ -27,6 +27,7 @@ import Webmaster from '@/images/execs/webmasterHeadshot.png';
 import TeamIntro from '@/images/Fishnet.jpg';
 import MicrosoftEvent from '@/images/MicrosoftEvent.jpg';
 import DataQuest from '@/images/DataQuest.png';
+import Networking from '@/images/Networking.png';
 
 
 import Creating from '@/images/profileDefault.png';
@@ -776,12 +777,20 @@ export const UpcomingEvents: UpcomingEventObject[] = [
 // Each entry needs: title, description, image, date, time, location, tags.
 export const PastEvents: PastEventObject[] = [
   {
-    title: 'DataQuest 2025',
-    description: 'Curious about data but don’t know where to start? 👀 DataQuest is your chance to learn, create, and collaborate, without any experience required! UBC DSci Club membership required to sign up. ',
+    title: 'UBC DSCI Datathon: DataQuest',
+    description: 'The UBC Data Science Club organized a multi-day Datathon designed to challenge students to apply their analytical, technical, and problem-solving skills in a collaborative environment. Participants worked in teams to explore real-world datasets, develop innovative solutions, and present their findings. The event kicked off with an opening ceremony and team formation, followed by dedicated work sessions supported by mentors who provided guidance throughout the process. Over several days, teams refined their ideas, conducted analyses, and prepared final presentations. The Datathon culminated in a final showcase where selected teams presented their projects to a panel of judges. The event concluded with an awards ceremony and networking session, celebrating creativity, collaboration, and the practical application of data science skills.',
     image: DataQuest,
     date: new Date("2025-11-26"),
     time: '10.00 AM PST',
-    location: 'TBD',
-    tags: ['Datathon', 'Prizes'],
+    location: '',
+    tags: ['Datathon'],
+  }, {
+    title: 'Data Science Networking Night',
+    description: 'The UBC Data Science Club hosted a members-only Networking Night at the Abdul Ladha Science Centre, creating a space for both professional engagement and community building within the club. The event brought together 40–50 students and 4–5 industry professionals across a range of data science roles. The evening began with a panel discussion where professionals shared insights on career pathways, industry trends, and real-world applications of data science, followed by an interactive Q&A. The event then transitioned into structured roundtable networking, allowing attendees to engage in smaller group conversations with professionals and rotate across different tables. In addition to connecting with industry professionals, the event provided members with a valuable opportunity to interact with one another, exchange ideas, and strengthen the DSCI community. The evening concluded with open networking, leaving attendees with new connections, practical insights, and a stronger sense of community within the club.',
+    image: Networking,
+    date: new Date("2025-10-21"),
+    time: '7.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    tags: ['Networking'],
   },
 ]
