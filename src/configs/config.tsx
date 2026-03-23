@@ -1,9 +1,9 @@
 // Library imports.
 import {
-  BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill, 
+  BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill,
   BsHouseFill, BsCalendar3, BsJournalText, BsHeadset
 } from 'react-icons/bs';
-import {FaGraduationCap } from 'react-icons/fa';
+import { FaGraduationCap } from 'react-icons/fa';
 import { FaFolderClosed, FaPaintbrush } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa6";
 
@@ -25,6 +25,9 @@ import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmasterHeadshot.png';
 
 import TeamIntro from '@/images/Fishnet.jpg';
+import MicrosoftEvent from '@/images/MicrosoftEvent.jpg';
+import DataQuest from '@/images/DataQuest.png';
+import Networking from '@/images/Networking.png';
 
 
 import Creating from '@/images/profileDefault.png';
@@ -258,7 +261,7 @@ export const carouselData: CarouselContent[] = [
     image: "",
   },
 */
-export const execMembersData : ExecMemberContent[] = [
+export const execMembersData: ExecMemberContent[] = [
   {
     title: "President",
     name: "James Ross",
@@ -326,7 +329,7 @@ export const execMembersData : ExecMemberContent[] = [
       </blockquote>
   },
 */
-export const faqData : FAQContent[] = [
+export const faqData: FAQContent[] = [
   {
     question: "Why join the UBC Data Science Club?",
     answer:
@@ -335,10 +338,10 @@ export const faqData : FAQContent[] = [
         We host a variety of events, including <code>workshops, guest speakers, and datathons</code>.
         We also have a number of projects that you can get involved with, and we are always looking for new members to join! 📈
 
-        <br/><br/>
+        <br /><br />
 
         By joining the club, you will have the opportunity to:
-        <ol style={{listStyle: "decimal", marginLeft: "2rem", marginTop: "0.25rem"}}>
+        <ol style={{ listStyle: "decimal", marginLeft: "2rem", marginTop: "0.25rem" }}>
           <li>Learn data science through <code>team-based projects</code> and <code>competitions</code></li>
           <li>Build <code>something great</code>, regardless of your level of experience</li>
           <li>Gain <code>useful</code> and <code>employable</code> skills in data science</li>
@@ -357,7 +360,7 @@ export const faqData : FAQContent[] = [
           target='_blank'
           rel='noopener noreferrer'
         >
-         membership form
+          membership form
         </a>.
 
         <br /><br />
@@ -370,7 +373,7 @@ export const faqData : FAQContent[] = [
     answer:
       <blockquote>
         Yes, you absolutely can! There's nothing from stopping you! 😄
-        
+
         <br /><br />
 
         We welcome students of <code>all skill levels and backgrounds</code> into our club.
@@ -398,7 +401,7 @@ export const faqData : FAQContent[] = [
         >
           Discord Server
         </a>. ✏️
-        
+
         <br /><br />
 
         Learn more about our ongoing projects&nbsp;
@@ -416,7 +419,7 @@ export const faqData : FAQContent[] = [
     answer:
       <blockquote>
         Project leads are responsible for two main things:
-        <ol style={{listStyle: "decimal", marginLeft: "2rem", marginTop: "0.25rem", marginBottom: "0.25rem"}}>
+        <ol style={{ listStyle: "decimal", marginLeft: "2rem", marginTop: "0.25rem", marginBottom: "0.25rem" }}>
           <li><code>Advancing the progress of a project</code> / competition by managing or co-managing a team of members on the project, and</li>
           <li><code>Interfacing with the executive team</code> to ensure that the goals are in line with the broader mission of the team.</li>
         </ol>
@@ -441,14 +444,14 @@ export const faqData : FAQContent[] = [
     answer:
       <blockquote>
         For the time being, all project source code will remain <code>closed</code>.
-        
+
         <br /><br />
 
         In the future we may allow some of our completed projects to become open source,
         but due to having collaborations with other organizations on projects, it will be on a <code>per-project basis</code>.
-        
+
         <br /><br />
-        
+
         For an up-to-date view of our public works, check out our&nbsp;
         <a
           href='https://github.com/ubcdsci'
@@ -479,7 +482,7 @@ export const faqData : FAQContent[] = [
   }
 */
 // TODO: Review and update project entries below with current content/status.
-export const projectsListData : ProjectContent[] = [
+export const projectsListData: ProjectContent[] = [
   {
     title: "Bomberland",
     id: "bomberland",
@@ -504,25 +507,25 @@ export const projectsListData : ProjectContent[] = [
     body:
       <blockquote>
         Despite the advancements in media editing software, videos of people have been notoriously difficult to fake. That is, until now. 🎥
-        
+
         <br /><br />
 
         Modern <code>machine learning algorithms</code> have made it simple for anyone to create <code>deepfakes</code>,
         or hyper-realistic videos where a human has been altered to look like somebody entirely different.
-        
+
         <br /><br />
-        
+
         This technology has been capable of creating many things over the recent years, from making advertisements containing celebrities to&nbsp;
         <a
           href='https://www.technologyreview.com/2020/12/24/1015380/best-ai-deepfakes-of-2020/'
           target='_blank'
           rel='noopener noreferrer'
         >
-         fake political campaigns
+          fake political campaigns
         </a>. ⭐
-        
+
         <br /><br />
-        
+
         How can we differentiate between the real and the fake?
         This project aims to answer that question by designing <code>computer vision</code> techniques to counteract this technology. 📸
       </blockquote>,
@@ -544,9 +547,9 @@ export const projectsListData : ProjectContent[] = [
 
         By applying <code>computer vision</code> techniques to on-board cameras on fishing boats,
         members of the fishnet project will help design methods to locate and identify fish within video feeds. 🛶
-        
+
         <br /><br />
-        
+
         Longer-term, more lofty goals for this project include <code>tracking</code> fish
         through time and <code>identifying</code> by catch, especially endangered species. 🎣
       </blockquote>,
@@ -586,12 +589,12 @@ export const projectsListData : ProjectContent[] = [
       <blockquote>
         Twitter stores <code>a lot of data</code>. As of 2017, the amount of data stored across all of their clusters totalled over <code>500 Petabytes</code>.
         With millions of tweets being added to this total each day, the spaces project aims to gain <code>real-time insights</code> into public spaces worldwide by leveraging this data.
-        
+
         <br /><br />
 
         Members who are part of the spaces project implement state-of-the-art <code>natural language processing</code> methods and apply
         them to the content of tweets in order to build <code>real-time heatmaps</code> of activity across regions. 🗺️
-        
+
         <br /><br />
 
         Future goals include building activity profiles of regions and predicting activity into the future. 📈
@@ -608,7 +611,7 @@ export const projectsListData : ProjectContent[] = [
     topic: ""
   },
 */
-export const workshopData : WorkshopContent[] = [
+export const workshopData: WorkshopContent[] = [
   {
     date: "Sept 4. 2022",
     topic: "Transformers and their Application: Attention is All you Need",
@@ -674,7 +677,7 @@ export const workshopData : WorkshopContent[] = [
     text: "",
   }
 */
-export const contactData : ContactContent[] = [
+export const contactData: ContactContent[] = [
   {
     title: "Email",
     link: "mailto:datascienceclububc@gmail.com",
@@ -720,7 +723,7 @@ export const contactData : ContactContent[] = [
   color: string;
 }
 */
-export const clubIntroData : ClubIntroCardData[] = [
+export const clubIntroData: ClubIntroCardData[] = [
   {
     title: "Engaging Projects",
     image: Creating,
@@ -749,7 +752,7 @@ export const clubIntroData : ClubIntroCardData[] = [
     color: "#D7CB00",
     href: "/contact-us"
   },
-  
+
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -758,119 +761,36 @@ export const clubIntroData : ClubIntroCardData[] = [
 
 // TODO: Replace placeholder events below with current upcoming events.
 // Each entry needs: title, description, image, date, time, location, important (boolean).
-export const UpcomingEvents : UpcomingEventObject[] = [
+export const UpcomingEvents: UpcomingEventObject[] = [
   {
-    title: 'Important Event',
-    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'Abdul Ladha Science Centre',
+    title: 'Microsoft Panel',
+    description: 'Join Microsoft for an engaging panel AMA (Ask-Me-Anything) with a handful of Microsoft’s Vancouver-based data scientists. Panelists will share their own journeys into data science, career insights, and practical advice on transitioning from academia to industry.',
+    image: MicrosoftEvent,
+    date: new Date("2026-03-31"),
+    time: '5.00 PM PST',
+    location: 'Microsoft Office, 725 Granville Street',
     important: true,
-  },
-  {
-    title: 'Important Event',
-    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'Abdul Ladha Science Centre',
-    important: false,
-  },
-  {
-    title: 'Important Event',
-    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'Abdul Ladha Science Centre',
-    important: false,
-  },
-  {
-    title: 'Important Event',
-    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'Abdul Ladha Science Centre',
-    important: false,
-  },
-  {
-    title: 'Important Event',
-    description: 'Join us for a tantalizing taco extravaganza! Savor the flavor fiesta with an array of mouthwatering tacos.',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'Abdul Ladha Science Centre',
-    important: false,
   },
 ]
 
 // TODO: Replace placeholder events below with actual past events.
 // Each entry needs: title, description, image, date, time, location, tags.
-export const PastEvents : PastEventObject[] = [
+export const PastEvents: PastEventObject[] = [
   {
-    title: 'Interview: Becoming a DATA SCIENTIST A',
-    description: 'Our club is presenting a member-exclusive event Panel Interview: Becoming a Data Scientist. Five data science professionals are invited to share their personal journeys in navigating their career paths to where they are today, in data science. ',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'UBC',
-    tags:['Professionals','Careers','Panel'],
-  },
-  {
-    title: 'Join our executive team! B',
-    description: 'Our executive election is happening THIS Sunday,',
-    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
-    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'UBC',
-    tags:['Professionals','Careers','Panel'],
-  },
-  {
-    title: 'Join our executive team! C',
-    description: 'Our executive election is happening THIS Sunday,',
-    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
-    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'UBC',
-    tags:['Professionals','Careers','Panel'],
-  },
-  {
-    title: 'Join our executive team! D',
-    description: 'Our executive election is happening THIS Sunday,',
-    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
-    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'UBC',
-    tags:['Professionals','Careers','Panel'],
-  },
-  {
-    title: 'Join our executive team! E',
-    description: 'Our executive election is happening THIS Sunday,',
-    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
-    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'UBC',
-    tags:['Professionals','Careers','Panel'],
-  },
-  {
-    title: 'Join our executive team! F',
-    description: 'Our executive election is happening THIS Sunday,',
-    description2: 'March 27 at 3pm, online and in-person! If you\'d like to run for any of these positions, check out our executive package in our Instragram bio and join our Discord server for more details. ',
-    description3: 'All club members are eligible to run and vote for the elections, so make sure your voice is heard this weekend!',
-    image: TeamIntro,
-    date: new Date("2024-07-25"),
-    time: '6.30 PM PST',
-    location: 'UBC',
-    tags:['Professionals','Careers','Panel'],
+    title: 'UBC DSCI Datathon: DataQuest',
+    description: 'The UBC Data Science Club organized a multi-day Datathon designed to challenge students to apply their analytical, technical, and problem-solving skills in a collaborative environment. Participants worked in teams to explore real-world datasets, develop innovative solutions, and present their findings. The event kicked off with an opening ceremony and team formation, followed by dedicated work sessions supported by mentors who provided guidance throughout the process. Over several days, teams refined their ideas, conducted analyses, and prepared final presentations. The Datathon culminated in a final showcase where selected teams presented their projects to a panel of judges. The event concluded with an awards ceremony and networking session, celebrating creativity, collaboration, and the practical application of data science skills.',
+    image: DataQuest,
+    date: new Date("2025-11-26"),
+    time: '10.00 AM PST',
+    location: '',
+    tags: ['Datathon'],
+  }, {
+    title: 'Data Science Networking Night',
+    description: 'The UBC Data Science Club hosted a members-only Networking Night at the Abdul Ladha Science Centre, creating a space for both professional engagement and community building within the club. The event brought together 40–50 students and 4–5 industry professionals across a range of data science roles. The evening began with a panel discussion where professionals shared insights on career pathways, industry trends, and real-world applications of data science, followed by an interactive Q&A. The event then transitioned into structured roundtable networking, allowing attendees to engage in smaller group conversations with professionals and rotate across different tables. In addition to connecting with industry professionals, the event provided members with a valuable opportunity to interact with one another, exchange ideas, and strengthen the DSCI community. The evening concluded with open networking, leaving attendees with new connections, practical insights, and a stronger sense of community within the club.',
+    image: Networking,
+    date: new Date("2025-10-21"),
+    time: '7.30 PM PST',
+    location: 'Abdul Ladha Science Centre',
+    tags: ['Networking'],
   },
 ]

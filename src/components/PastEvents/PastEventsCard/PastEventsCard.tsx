@@ -1,4 +1,4 @@
-import { Card, Stack, Chip} from '@mui/material';
+import { Card, Stack, Chip } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 
@@ -15,26 +15,41 @@ interface PastEventCardProps {
 }
 
 
-export const PastEventCard: React.FC<PastEventCardProps> = ({item}) => {
+export const PastEventCard: React.FC<PastEventCardProps> = ({ item }) => {
+    const weekday = item.date.toLocaleString('en-us', {
+        weekday: 'short',
+        timeZone: 'UTC',
+    }).toUpperCase();
+
+    const month = item.date.toLocaleString('en-us', {
+        month: 'long',
+        timeZone: 'UTC',
+    });
+
+    const day = item.date.toLocaleString('en-us', {
+        day: 'numeric',
+        timeZone: 'UTC',
+    });
+
     const getTagColor = (tag: String) => {
         if (tag == 'Professionals') {
             return 'linear-gradient(to right, #016BCD,#11A6E5)';
-        } 
+        }
 
         // else if (tag == 'Careers') {
         //     return 'linear-gradient(to right, #7301CD,#D511E5)';
         // }
-        
+
         else {
             return '#202020';
         }
     }
 
-    return(
+    return (
         <Card className='past-event-card'>
             <CardContent className='past-event-card-content'>
                 <div className='past-event-date'>
-                    {item.date.toLocaleString('en-us', {weekday:'long'}).toUpperCase().slice(0,3) + ", " + item.date.toLocaleString('en-us', {month:'long'}) + " " + item.date.getMonth() + " @ " + item.location}
+                    {`${weekday}, ${month} ${day} @ ${item.location}`}
                 </div>
                 <div className='past-event-title'>
                     {item.title}
@@ -47,13 +62,13 @@ export const PastEventCard: React.FC<PastEventCardProps> = ({item}) => {
                 <div className='past-event-tags'>
                     <Stack direction="row" spacing={3}>
                         {item.tags.map((tag: String) => {
-                            return(
+                            return (
                                 <Chip label={tag} sx={{
                                     background: getTagColor(tag),
                                     borderRadius: '8px',
                                     color: 'white',
                                     fontWeight: '600',
-                                }}/>
+                                }} />
                             );
                         })}
                     </Stack>
@@ -65,7 +80,7 @@ export const PastEventCard: React.FC<PastEventCardProps> = ({item}) => {
                 image={item.image}
                 className='past-event-image'
             />
-        
-    </Card>
+
+        </Card>
     );
 }

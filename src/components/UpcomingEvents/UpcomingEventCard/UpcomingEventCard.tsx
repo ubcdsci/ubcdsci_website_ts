@@ -13,12 +13,27 @@ interface UpcomingEventCardProps {
     item: UpcomingEventObject,
 }
 
-export const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({item}) => {
-    return(
+export const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({ item }) => {
+    const weekday = item.date.toLocaleString('en-us', {
+        weekday: 'short',
+        timeZone: 'UTC',
+    }).toUpperCase();
+
+    const month = item.date.toLocaleString('en-us', {
+        month: 'long',
+        timeZone: 'UTC',
+    });
+
+    const day = item.date.toLocaleString('en-us', {
+        day: 'numeric',
+        timeZone: 'UTC',
+    });
+
+    return (
         <Card sx={{
-            background: item.important? 'linear-gradient(to right, #C00FAF,#D3041D)': '#181818',
+            background: item.important ? 'linear-gradient(to right, #C00FAF,#D3041D)' : '#181818',
             color: 'white',
-        }} 
+        }}
             className={styles.UpcomingEventCard}
         >
             <CardMedia
@@ -31,8 +46,8 @@ export const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({item}) => {
                     {item.title}
                 </div>
                 <div className={styles.EventDate}>
-                    {item.date.toLocaleString('en-us', {weekday:'long'}).toUpperCase().slice(0,3) + ", " + item.date.toLocaleString('en-us', {month:'long'}) + " " + item.date.getMonth() + ""}
-                    <span>&#8226;</span> 
+                    {`${weekday}, ${month} ${day}`}
+                    <span>&#8226;</span>
                     {item.time}
                 </div>
                 <div className={styles.EventLocation}>
@@ -42,6 +57,6 @@ export const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({item}) => {
                     {item.description}
                 </div>
             </CardContent>
-    </Card>
+        </Card>
     );
 }
