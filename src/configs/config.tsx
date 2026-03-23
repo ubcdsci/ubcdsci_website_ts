@@ -134,7 +134,7 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
     {
       key: "Discord",
       icon: <BsDiscord />,
-      href: "https://discord.gg/68WkEhRz",
+      href: "https://discord.gg/BJajvCRnkh",
     },
     {
       key: "Instagram",
@@ -392,7 +392,7 @@ export const faqData : FAQContent[] = [
         </a>,
         then fill out the pinned form found in the <code>#announcement</code> channel on our&nbsp;
         <a
-          href='https://discord.gg/4AycB34acK'
+          href='https://discord.gg/BJajvCRnkh'
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -428,7 +428,7 @@ export const faqData : FAQContent[] = [
         If you are interested in becoming a project lead and starting a project of your own,
         please fill out the project creation form, which can be accessed in the <code>#projects-general</code> channel on our&nbsp;
         <a
-          href='https://discord.gg/4AycB34acK'
+          href='https://discord.gg/BJajvCRnkh'
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -683,7 +683,7 @@ export const contactData : ContactContent[] = [
   },
   {
     title: "Discord",
-    link: "https://discord.com/invite/4AycB34acK",
+    link: "https://discord.gg/BJajvCRnkh",
     icon: <BsDiscord />,
     text: "UBC Data Science Club",
   },
