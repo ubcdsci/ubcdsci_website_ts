@@ -763,38 +763,26 @@ export const clubIntroData: ClubIntroCardData[] = [
 // Each entry needs: title, description, image, date, time, location, important (boolean).
 export const UpcomingEvents: UpcomingEventObject[] = [
   {
-<<<<<<< HEAD
     title: 'Microsoft Panel',
     description: 'Join Microsoft for an engaging panel AMA (Ask-Me-Anything) with a handful of Microsoft’s Vancouver-based data scientists. Panelists will share their own journeys into data science, career insights, and practical advice on transitioning from academia to industry.',
     image: MicrosoftEvent,
-    date: new Date("2026-03-31"),
-    {
-      title: 'Microsoft Panel',
-      description: 'Join Microsoft for an engaging panel AMA (Ask-Me-Anything) with a handful of Microsoft’s Vancouver-based data scientists. Panelists will share their own journeys into data science, career insights, and practical advice on transitioning from academia to industry.',
-      image: MicrosoftEvent,
-      date: new Date("2026-03-31"),
-      time: '5.00 PM PST',
-      location: 'Microsoft Office, 725 Granville Street',
-      important: true,
-    },
-    {
-      title: 'Sample Event',
-      description: 'An example event with explicit start/end times for calendar testing.',
-      image: TeamIntro,
-      start: '2024-07-25T18:30:00-07:00',
-      end: '2024-07-25T19:30:00-07:00',
-      timezone: 'America/Los_Angeles',
-      date: new Date("2024-07-25"),
-      time: '6:30 PM PDT',
-      location: 'Abdul Ladha Science Centre',
-      important: false,
-    },
-    date: new Date("2024-07-25"),
+    date: new Date('2026-03-31'),
+    time: '5:00 PM PST',
+    location: 'Microsoft Office, 725 Granville Street',
+    important: true,
+  },
+  {
+    title: 'Sample Event',
+    description: 'An example event with explicit start/end times for calendar testing.',
+    image: TeamIntro,
+    start: '2024-07-25T18:30:00-07:00',
+    end: '2024-07-25T19:30:00-07:00',
+    timezone: 'America/Los_Angeles',
+    date: new Date('2024-07-25'),
     time: '6:30 PM PDT',
     location: 'Abdul Ladha Science Centre',
     important: false,
   },
->>>>>>> 78173b2 (Added button that redirects users to google calendar to add event details to their personal calendar)
 ]
 
 // TODO: Replace placeholder events below with actual past events.
