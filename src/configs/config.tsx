@@ -771,18 +771,6 @@ export const UpcomingEvents: UpcomingEventObject[] = [
     location: 'Microsoft Office, 725 Granville Street',
     important: true,
   },
-  {
-    title: 'Sample Event',
-    description: 'An example event with explicit start/end times for calendar testing.',
-    image: TeamIntro,
-    start: '2024-07-25T18:30:00-07:00',
-    end: '2024-07-25T19:30:00-07:00',
-    timezone: 'America/Los_Angeles',
-    date: new Date('2024-07-25'),
-    time: '6:30 PM PDT',
-    location: 'Abdul Ladha Science Centre',
-    important: false,
-  },
 ]
 
 // TODO: Replace placeholder events below with actual past events.
