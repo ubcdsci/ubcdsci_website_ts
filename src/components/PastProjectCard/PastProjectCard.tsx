@@ -28,7 +28,7 @@ const PastProjectCard: React.FC<PastProjectCardProps> = (props) => {
 
     return(
         (isMobile ? 
-            <div className='past-project-card'>
+            <div className='past-project-card' id={props.item.id}>
                 <div className='past-project-card-flex-container'>
                     <div className="past-project-card-text-container">
                         <div className="past-project-card-title-2">
@@ -80,7 +80,7 @@ const PastProjectCard: React.FC<PastProjectCardProps> = (props) => {
                 </div>
             </div>
             : 
-            <div className='past-project-card'>
+            <div className='past-project-card' id={props.item.id}>
                 <div className='past-project-card-flex-container'>
                     <div className="past-project-card-text-container">
                         <div className="past-project-card-title-2">

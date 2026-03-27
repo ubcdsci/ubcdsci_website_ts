@@ -7,6 +7,7 @@ $mobile: 480px;
     flex-direction: column;
     justify-content: center;
     margin: 4rem 0;
+    scroll-margin-top: 8rem;
 
 
     @media (max-width: $tablet) {
@@ -160,4 +161,3 @@ $mobile: 480px;
 
 
 }
-
