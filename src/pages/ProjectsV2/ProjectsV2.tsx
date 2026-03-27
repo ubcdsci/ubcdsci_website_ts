@@ -12,7 +12,7 @@ const ProjectsV2 = () => {
             <div>
                 {data.map((item: ProjectContent,index: number) => {
                     return(
-                        <PastProjectCard item={item} index={index}/>
+                        <PastProjectCard key={item.id} item={item} index={index}/>
                     );
                 })}
             </div>

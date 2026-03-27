@@ -11,7 +11,9 @@ import { UpcomingEventCard } from './UpcomingEventCard/UpcomingEventCard';
  */
 const UpcomingEvents = () => {
     return(
-        <section className={styles.UpcomingEventsSection}>
+        <>
+        <div id="ongoingEvents" className={styles.HashAnchor} aria-hidden="true" />
+        <section id="upcomingEvents" className={styles.UpcomingEventsSection}>
             <div className={styles.SectionLabel}>
                 {TEXTS.EVENTS.UPCOMING_EVENTS.LABEL}
             </div>
@@ -21,11 +23,12 @@ const UpcomingEvents = () => {
             <div className={styles.CardContainer}>
                 {data.map((item : UpcomingEventObject) => {
                     return(
-                        <UpcomingEventCard item={item} />
+                        <UpcomingEventCard key={item.title} item={item} />
                     );
                 }) }
             </div>
         </section>
+        </>
 
     );
 }

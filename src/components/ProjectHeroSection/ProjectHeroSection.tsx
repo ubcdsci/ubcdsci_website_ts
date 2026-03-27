@@ -8,7 +8,7 @@ const ProjectHeroSection = () => {
       <h1 className='project-hero-title'>
        Explore our club's
         <span className='project-hero-collaborative'> collaborative  </span>
-        <span className='project-hero-triumphs'>triumps  </span>
+        <span className='project-hero-triumphs'>triumphs  </span>
         through our 
         <span className='project-hero-project'> projects</span>
       </h1>
