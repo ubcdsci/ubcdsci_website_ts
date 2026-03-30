@@ -1,0 +1,84 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.IconWrapper {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid rgb(255, 60, 60);
+  background: rgba(255, 60, 60, 0.08);
+}
+
+.Heading {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.Subheading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+}
+
+.Body {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.Button {
+  background: linear-gradient(89.99deg, rgb(248, 70, 90), rgb(164, 1, 234)) !important;
+  margin-top: 0.5rem;
+
+  &:hover {
+    background: linear-gradient(89.99deg, rgb(248, 70, 90), rgb(164, 1, 234)) !important;
+    opacity: 0.85;
+  }
+}
+
+@media (max-width: 768px) {
+  .Heading {
+    font-size: 2.75rem;
+  }
+
+  .Subheading {
+    font-size: 1.25rem;
+  }
+
+  .Body {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Heading {
+    font-size: 2rem;
+  }
+
+  .Subheading {
+    font-size: 1.1rem;
+  }
+
+  .Body {
+    font-size: 1rem;
+  }
+}

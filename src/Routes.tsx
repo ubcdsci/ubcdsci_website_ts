@@ -16,6 +16,8 @@ import ProjectsV2 from './pages/ProjectsV2/ProjectsV2';
 // import TwoFactor from '@/features/auth/TwoFactor';
 import ErrorPage from '@/pages/PageNotFound';
 import ContactUsV2 from './pages/ContactUsV2';
+import MembershipSuccess from './pages/MembershipSuccess/MembershipSuccess';
+import MembershipCancel from './pages/MembershipCancel/MembershipCancel';
 
 
 
@@ -69,6 +71,20 @@ const routes: RouteConfig[] = [
     name: "Projects",
     description: "Explore data science projects built by UBC Data Science Club members, covering machine learning, data analysis, visualization, and more.",
     element: <ProjectsV2 />,
+    access: Access.PUBLIC,
+  },
+  {
+    path: "/membership/success",
+    name: "Membership Confirmed",
+    description: "Your UBC Data Science Club membership purchase was successful.",
+    element: <MembershipSuccess />,
+    access: Access.PUBLIC,
+  },
+  {
+    path: "/membership/cancel",
+    name: "Membership Cancelled",
+    description: "Your UBC Data Science Club membership purchase was cancelled.",
+    element: <MembershipCancel />,
     access: Access.PUBLIC,
   },
   {
