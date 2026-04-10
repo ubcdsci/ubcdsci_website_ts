@@ -1,7 +1,7 @@
 // Library imports.
 import {
   BsDiscord, BsInstagram, BsFacebook, BsFillEnvelopeFill,
-  BsHouseFill, BsCalendar3, BsJournalText, BsHeadset
+  BsHouseFill, BsCalendar3, BsJournalText, BsHeadset, BsPeople
 } from 'react-icons/bs';
 import { FaGraduationCap } from 'react-icons/fa';
 import { FaFolderClosed, FaPaintbrush } from "react-icons/fa6";
@@ -16,13 +16,18 @@ import HPE2 from '@/images/HPE2.png';
 import Deepfake from '@/images/Deepfake.jpeg';
 import Spaces from '@/images/spaces.webp';
 
-// import Placeholder from '@/images/execs/_placeholder.png';
+import Placeholder from '@/images/execs/_placeholder.png';
 import President from '@/images/execs/president.png';
 import Treasurer from '@/images/execs/treasurer.png';
 import Marketing from '@/images/execs/marketing.png';
 import Outreach from '@/images/execs/outreach.png';
 import EventPlanning from '@/images/execs/event-exec.png';
 import Webmaster from '@/images/execs/webmasterHeadshot.png';
+import Brian from '@/images/execs/Brian.jpeg';
+import Raymond from '@/images/execs/Raymond.jpeg';
+import Samarth from '@/images/execs/Samarth.jpeg';
+import Terrence from '@/images/execs/Terrence.jpeg';
+import Kelly from '@/images/execs/Kelly.jpeg';
 
 import TeamIntro from '@/images/Fishnet.jpg';
 import MicrosoftEvent from '@/images/MicrosoftEvent.jpg';
@@ -109,6 +114,13 @@ export const navbarData: Page[] = [
     text: "CONTACT",
     href: "/contact-us",
     mobileIcon: <BsHeadset />,
+    // dropDowns: [],
+  },
+  {
+    key: "Team",
+    text: "TEAM",
+    href: "/team",
+    mobileIcon: <BsPeople />,
     // dropDowns: [],
   },
 ];
@@ -205,6 +217,11 @@ export const footerData: { smButtons: SMButton[], columns: Column[] } = {
     {
       title: "Contact",
       href: "/contact-us",
+      links: [],
+    },
+    {
+      title: "Team",
+      href: "/team",
       links: [],
     },
   ],
@@ -794,3 +811,47 @@ export const PastEvents: PastEventObject[] = [
     tags: ['Networking'],
   },
 ]
+
+export const TeamData: TeamContent[] = [
+  {
+    title: "Technology",
+    members: [
+      {
+        name: "Brian Soh",
+        position: "VP Technology",
+        linkedin: "https://www.linkedin.com/in/brian-soh/",
+        image: Brian
+      },
+      {
+        name: "James Pham",
+        position: "Software Developer",
+        linkedin: "https://www.linkedin.com/in/james-pham-6588182aa/",
+        image: Placeholder
+      },
+      {
+        name: "Raymond Li",
+        position: "Software Developer",
+        linkedin: "https://www.linkedin.com/in/raymond-li-b46671206/",
+        image: Raymond
+      },
+      {
+        name: "Samarth Kapila",
+        position: "Software Developer",
+        linkedin: "https://www.linkedin.com/in/samkapila/",
+        image: Samarth
+      },
+      {
+        name: "Terrence David",
+        position: "Software Developer",
+        linkedin: "https://www.linkedin.com/in/terrence-david/",
+        image: Terrence
+      },
+      {
+        name: "Kelly W.",
+        position: "UI/UX Developer",
+        linkedin: "https://www.linkedin.com/in/kellyw13/",
+        image: Kelly
+      },
+    ],
+  },
+];

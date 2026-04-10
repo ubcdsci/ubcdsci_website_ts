@@ -4,7 +4,7 @@ export const TEXTS = {
     },
     EVENTS: {
         UPCOMING_EVENTS: {
-            LABEL: '<Events />',
+            LABEL: '<EVENTS />',
             TITLE: 'Upcoming Events',
         },
         PAST_EVENTS: {

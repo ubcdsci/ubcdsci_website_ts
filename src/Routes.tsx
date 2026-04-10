@@ -16,6 +16,7 @@ import ProjectsV2 from './pages/ProjectsV2/ProjectsV2';
 // import TwoFactor from '@/features/auth/TwoFactor';
 import ErrorPage from '@/pages/PageNotFound';
 import ContactUsV2 from './pages/ContactUsV2';
+import Team from './pages/Team';
 
 
 
@@ -76,6 +77,13 @@ const routes: RouteConfig[] = [
     name: "Page Not Found",
     description: "UBC Data Science Club – the page you're looking for could not be found.",
     element: <ErrorPage />,
+    access: Access.PUBLIC,
+  },
+  {
+    path: "/team",
+    name: "Team",
+    description: "Meet the members of the UBC Data Science Club. Learn about our team, their roles, and how they contribute to our club's mission.",
+    element: <Team />,
     access: Access.PUBLIC,
   },
 ];

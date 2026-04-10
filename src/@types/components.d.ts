@@ -67,16 +67,16 @@ type FAQContent = {
 }
 
 type ProjectContent = {
-	id: string;
-	title: string;
-	body: React.ReactNode;
-	image: any;
-	concepts: string;
-	tech: string[];
-	lead?: string;
-	tags?: string[];
-	competition_info?: string;
-	github: string;
+  id: string;
+  title: string;
+  body: React.ReactNode;
+  image: any;
+  concepts: string;
+  tech: string[];
+  lead?: string;
+  tags?: string[];
+  competition_info?: string;
+  github: string;
 };
 
 type WorkshopContent = {
@@ -94,20 +94,20 @@ type ContactContent = {
 
 /* ----------------------- TYPE DEFINITIONS FOR FORMS ----------------------- */
 type UserFormData = {
-	username: string;
-	password: string;
-	captchaToken: string;
+  username: string;
+  password: string;
+  captchaToken: string;
 };
 
 type EventPostFormData = {
-	id: string;
-	creator: string;
-	title: string;
-	description: string;
-	date?: Date;
-	location?: string;
-	imageUpload?: string;
-	tags?: string[];
+  id: string;
+  creator: string;
+  title: string;
+  description: string;
+  date?: Date;
+  location?: string;
+  imageUpload?: string;
+  tags?: string[];
 };
 
 
@@ -139,5 +139,10 @@ interface UpcomingEventObject extends EventObject {
 }
 
 interface PastEventObject extends EventObject {
-  tags:String[];
+  tags: String[];
+}
+
+type TeamContent = {
+  title: string;
+  members: any[];
 }
